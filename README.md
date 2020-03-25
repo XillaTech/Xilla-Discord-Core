@@ -6,7 +6,7 @@ Latest Stable Version : 1.0.0 - <a href="http://api.xilla.net/download/xilla-dis
 Current Development Version : 1.0.2 - Download Coming Soon<br><br>
 
 # Installing<br>
-Install Script - bash <(curl -Ss https://api.xilla.net/download/install.sh)
+Install Script - bash <(curl -Ss https://api.xilla.net/download/install.sh)<br>
 Actual installtion guide coming soon...<br><br>
 
 # Available Modules<br> 
