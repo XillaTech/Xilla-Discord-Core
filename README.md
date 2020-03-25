@@ -7,7 +7,7 @@ Current Development Version : 1.0.2 - Download Coming Soon<br><br>
 
 # Installing<br>
 Install Script - bash <(curl -Ss https://api.xilla.net/download/install.sh)<br>
-Actual installtion guide coming soon...<br><br>
+Actual installation guide coming soon...<br><br>
 
 # Available Modules<br> 
 All modules are available for free with branding in the footer, you can purchase a license from https://xilla.net/cart.php?gid=5 if you'd like to remove this branding.<br>
