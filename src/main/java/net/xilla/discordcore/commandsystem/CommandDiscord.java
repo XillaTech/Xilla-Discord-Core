@@ -16,8 +16,11 @@ public class CommandDiscord extends ListenerAdapter {
 
             String message = event.getMessage().getContentRaw();
             if (message.length() > commandPrefix.length() && message.substring(0, commandPrefix.length()).equalsIgnoreCase(commandPrefix)) {
-                DiscordCore.getInstance().getCommandManager().runCommand(message.substring(commandPrefix.length()), event);
+                if(DiscordCore.getInstance().getCommandManager().runCommand(message.substring(commandPrefix.length()), event)) {
+                    return;
+                }
             }
         }
+        DiscordCore.getInstance().getMessageEventManger().runEvent(event);
     }
 }

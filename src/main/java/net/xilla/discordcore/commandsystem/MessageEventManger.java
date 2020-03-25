@@ -1,6 +1,7 @@
 package net.xilla.discordcore.commandsystem;
 
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.xilla.discordcore.api.Log;
 import net.xilla.discordcore.api.manager.ManagerParent;
 
 import java.util.ArrayList;

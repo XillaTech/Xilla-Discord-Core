@@ -106,6 +106,17 @@ public class DiscordCore {
         staffManager.addStaff(admin);
         staff.save();
 
+        Log.sendMessage(3, "Loading Installer Manager...");
+        this.installerManager = new InstallerManager();
+
+        Log.sendMessage(3, "Loading Installer Options For The Core...");
+        SettingObject botTokenSetting = new SettingObject("botToken", "Input your bot token : ");
+        SettingObject guildIDSetting = new SettingObject("guildID", "Input your guild's ID (Enable developer options in discord) : ");
+        SettingObject companyNameSetting = new SettingObject("companyName", "Input your company's name : ");
+        InstallerObject installerObject = new InstallerObject("Core", settings, botTokenSetting, guildIDSetting, companyNameSetting);
+        installerManager.addInstaller(installerObject);
+        installerManager.install();
+
         // Tries to start the bot and
         Log.sendMessage(3, "Loading Discord Bot...");
         try {
@@ -118,6 +129,9 @@ public class DiscordCore {
             System.exit(0);
         }
 
+        Log.sendMessage(3, "Starting Message Event Handler...");
+        this.messageEventManger = new MessageEventManger(); // Initializes the message event manager.
+
         // Loading Modules
         Log.sendMessage(3, "Loading Modules Folders...");
         File folder = new File("modules/"); // Initializes the file for the folder
@@ -125,24 +139,8 @@ public class DiscordCore {
             folder.mkdirs();  // Creates the folder
         }
 
-        Log.sendMessage(3, "Loading Installer Manager...");
-        this.installerManager = new InstallerManager();
-
-        Log.sendMessage(3, "Loading Installer Options For The Core...");
-        SettingObject botTokenSetting = new SettingObject("botToken", "Input your bot token : ");
-        SettingObject guildIDSetting = new SettingObject("guildID", "Input your guild's ID (Enable developer options in discord) : ");
-        SettingObject companyNameSetting = new SettingObject("companyName", "Input your company's name : ");
-        InstallerObject installerObject = new InstallerObject("Core", settings, botTokenSetting, guildIDSetting, companyNameSetting);
-        installerManager.addInstaller(installerObject);
-
         Log.sendMessage(3, "Loading Modules Manager...");
         this.moduleManager = new ModuleManager(); // Initializes the module manager and loads all modules
-
-        Log.sendMessage(3, "Running Installer...");
-        installerManager.install();
-
-        Log.sendMessage(3, "Starting Message Event Handler...");
-        this.messageEventManger = new MessageEventManger(); // Initializes the message event manager.
 
         Log.sendMessage(3, "Loading Command Worker...");
         this.commandWorker = new CommandWorker(); // Initializes the command worker.

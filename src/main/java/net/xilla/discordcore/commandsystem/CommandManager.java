@@ -28,22 +28,25 @@ public class CommandManager extends ManagerParent {
             getCache("activators").putObject(activator.toLowerCase(), commandObject);
     }
 
-    public void runCommand(String input, MessageReceivedEvent event) {
+    public boolean runCommand(String input, MessageReceivedEvent event) {
         String command = input.split(" ")[0].toLowerCase();
         String[] args = Arrays.copyOfRange(input.split(" "), 1, input.split(" ").length);
 
         if(getCache("activators").isCached(command)) {
             CommandObject commandObject = (CommandObject)getCache("activators").getObject(command);
             if(!commandObject.run(args, event)) {
-                if(event == null)
+                if(event == null) {
                     Log.sendMessage(2, "Command registered, but not running properly.");
+                    return false;
+                }
             }
+            return true;
         } else {
             if(event == null) {
                 Log.sendMessage(2, "Unknown command, type \"?\" for a list of available commands.");
-            } else {
-                DiscordCore.getInstance().getMessageEventManger().runEvent(event);
+                return false;
             }
+            return true;
         }
     }
 
