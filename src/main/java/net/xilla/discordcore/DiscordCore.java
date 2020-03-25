@@ -12,6 +12,7 @@ import net.xilla.discordcore.api.timer.TimerManager;
 import net.xilla.discordcore.commandsystem.CommandDiscord;
 import net.xilla.discordcore.commandsystem.CommandManager;
 import net.xilla.discordcore.commandsystem.CommandWorker;
+import net.xilla.discordcore.commandsystem.MessageEventManger;
 import net.xilla.discordcore.commandsystem.cmd.End;
 import net.xilla.discordcore.commandsystem.cmd.Help;
 import net.xilla.discordcore.commandsystem.cmd.Settings;
@@ -41,6 +42,7 @@ public class DiscordCore {
     private ConfigManager configManager;
     private CommandWorker commandWorker;
     private TimerManager timerManager;
+    private MessageEventManger messageEventManger;
 
     private JDA bot;
 
@@ -139,6 +141,9 @@ public class DiscordCore {
         Log.sendMessage(3, "Running Installer...");
         installerManager.install();
 
+        Log.sendMessage(3, "Starting Message Event Handler...");
+        this.messageEventManger = new MessageEventManger(); // Initializes the message event manager.
+
         Log.sendMessage(3, "Loading Command Worker...");
         this.commandWorker = new CommandWorker(); // Initializes the command worker.
         Log.sendMessage(3, "Starting Command Worker...");
@@ -178,5 +183,9 @@ public class DiscordCore {
 
     public TimerManager getTimerManager() {
         return timerManager;
+    }
+
+    public MessageEventManger getMessageEventManger() {
+        return messageEventManger;
     }
 }

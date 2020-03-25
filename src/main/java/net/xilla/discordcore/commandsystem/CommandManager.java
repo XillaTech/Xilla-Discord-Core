@@ -1,6 +1,7 @@
 package net.xilla.discordcore.commandsystem;
 
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.api.Log;
 import net.xilla.discordcore.api.manager.ManagerCache;
 import net.xilla.discordcore.api.manager.ManagerParent;
@@ -37,8 +38,12 @@ public class CommandManager extends ManagerParent {
                 if(event == null)
                     Log.sendMessage(2, "Command registered, but not running properly.");
             }
-        } else if(event == null) {
-            Log.sendMessage(2, "Unknown command, type \"?\" for a list of available commands.");
+        } else {
+            if(event == null) {
+                Log.sendMessage(2, "Unknown command, type \"?\" for a list of available commands.");
+            } else {
+                DiscordCore.getInstance().getMessageEventManger().runEvent(event);
+            }
         }
     }
 
