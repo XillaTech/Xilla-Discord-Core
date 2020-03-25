@@ -14,6 +14,9 @@ All modules are available for free with branding in the footer, you can purchase
 Tickets - <a href="http://api.xilla.net/download/xilla-ticket-bot.jar">Download here</a><br>
 Music - <a href="http://api.xilla.net/download/xilla-music-bot.jar">Download here</a><br><br>
 
+# Pterodactyl Panel Supported<br>
+Setup our Pterodactyl Panel egg for easy bot hosting. Checkout Pterodactyl <a href="https://pterodactyl.io/">here</a>. Download the bot egg <a href="https://api.xilla.net/download/egg-xilla-discord-core.json">here</a><br><br>
+
 # Creating a module<br>
 Coming soon...<br><br>
 
