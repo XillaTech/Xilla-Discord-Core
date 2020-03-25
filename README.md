@@ -1,5 +1,5 @@
 # Xilla Discord Core<br>
-Managed and Developer by https://xilla.net<br><br>
+Managed and Developed by Tobias Steely @ https://xilla.net<br><br>
 
 # Version / Download<br>
 Latest Stable Version : 1.0.0 - <a href="http://api.xilla.net/download/xilla-discord-core.jar">Download here</a><br>
