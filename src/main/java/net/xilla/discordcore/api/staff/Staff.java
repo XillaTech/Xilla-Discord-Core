@@ -19,14 +19,14 @@ public class Staff extends ManagerObject {
     private String groupID;
 
     public Staff(String name, int level, String groupID) {
-        super(name, ConfigManager.getInstance().getConfig("staff.json"));
+        super(name, DiscordCore.getInstance().getConfigManager().getConfig("staff.json"));
         this.name = name;
         this.level = level;
         this.groupID = groupID;
     }
 
     public Staff(Map<String, String> map) {
-        super(map.get("name"), ConfigManager.getInstance().getConfig("staff.json"));
+        super(map.get("name"), DiscordCore.getInstance().getConfigManager().getConfig("staff.json"));
         this.name = map.get("name");
         this.level = Integer.parseInt(map.get("level"));
         this.groupID = map.get("groupID");
@@ -66,7 +66,7 @@ public class Staff extends ManagerObject {
     }
 
     public boolean isMember(String id) {
-        Config config = ConfigManager.getInstance().getConfig("settings.json");
+        Config config = DiscordCore.getInstance().getConfigManager().getConfig("settings.json");
         ArrayList<String> roleIDs = new ArrayList<>();
         for(Role role : Objects.requireNonNull(Objects.requireNonNull(DiscordCore.getInstance().getBot().getGuildById(config.getString("guildID"))).getMemberById(id)).getRoles())
             roleIDs.add(role.getId());

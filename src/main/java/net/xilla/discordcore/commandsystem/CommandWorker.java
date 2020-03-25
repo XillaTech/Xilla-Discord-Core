@@ -1,13 +1,8 @@
 package net.xilla.discordcore.commandsystem;
 
-import com.fasterxml.jackson.databind.cfg.ConfigOverride;
-import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.managers.AudioManager;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.api.Data;
 import net.xilla.discordcore.api.Log;
-import net.xilla.discordcore.api.config.Config;
-import net.xilla.discordcore.api.config.ConfigManager;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -23,7 +18,7 @@ public class CommandWorker extends Thread {
         Log.sendMessage(0, new Data().getVersion());
         Log.sendMessage(0, new Data().getLineBreak());
 
-        CommandManager commandManager = CommandManager.getInstance();
+        CommandManager commandManager = DiscordCore.getInstance().getCommandManager();
         Log.sendMessage(0, "Type \"?\" to view possible commands");
         while(true) {
             if(!isActive)

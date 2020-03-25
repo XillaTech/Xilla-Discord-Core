@@ -1,5 +1,6 @@
 package net.xilla.discordcore.api;
 
+import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.api.config.ConfigManager;
 
 public class Log {
@@ -7,7 +8,7 @@ public class Log {
     private static boolean verboseMessages = true;
 
     public Log() {
-        verboseMessages = ConfigManager.getInstance().getConfig("settings.json").getBoolean("verbose");
+        verboseMessages = DiscordCore.getInstance().getConfigManager().getConfig("settings.json").getBoolean("verbose");
     }
 
     public static void sendMessage(int status, String msg) {

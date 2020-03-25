@@ -1,8 +1,6 @@
 package net.xilla.discordcore.module;
 
 import net.xilla.discordcore.api.ExtensionLoader;
-import net.xilla.discordcore.api.Log;
-import net.xilla.discordcore.api.manager.ManagerObject;
 import net.xilla.discordcore.module.exception.LoadModuleException;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -14,10 +12,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.JarURLConnection;
 import java.net.URL;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.stream.Stream;
 
 public class ModuleLoader {
 

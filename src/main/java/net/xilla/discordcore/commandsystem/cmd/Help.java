@@ -2,6 +2,7 @@ package net.xilla.discordcore.commandsystem.cmd;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.api.Data;
 import net.xilla.discordcore.api.Log;
 import net.xilla.discordcore.api.config.Config;
@@ -27,9 +28,9 @@ public class Help extends CommandObject {
             Log.sendMessage(0, "Commands");
             Log.sendMessage(0, new Data().getLineBreak());
             Log.sendMessage(0, " > Help - Opens this menu");
-            for(ModuleLoader module : ModuleManager.getInstance().getModules()) {
+            for(ModuleLoader module : DiscordCore.getInstance().getModuleManager().getModules()) {
                 ArrayList<String> commandLines = new ArrayList<>();
-                for(CommandObject commandObject : CommandManager.getInstance().getCommandsByModule(module.getName())) {
+                for(CommandObject commandObject : DiscordCore.getInstance().getCommandManager().getCommandsByModule(module.getName())) {
                     commandLines.add(" > " + commandObject.getActivators()[0] + " - " + commandObject.getDescription());
                 }
                 for(String line : commandLines)
@@ -38,16 +39,16 @@ public class Help extends CommandObject {
 
             Log.sendMessage(0, new Data().getLineBreak());
         } else {
-            Config config = ConfigManager.getInstance().getConfig("settings.json");
+            Config config = DiscordCore.getInstance().getConfigManager().getConfig("settings.json");
             String command = config.getString("commandPrefix");
 
             EmbedBuilder myEmbed = new Data().createEmbed(config.getString("companyName") + "'s Bot", null);
             //myEmbed.addField("Core Commands",command + "Help *Sends this message*\n", false);
 
-            StaffManager staffManager = StaffManager.getInstance();
+            StaffManager staffManager = DiscordCore.getInstance().getStaffManager();
 
             ArrayList<String> helpCommandLines = new ArrayList<>();
-            for(CommandObject commandObject : CommandManager.getInstance().getCommandsByModule("Core")) {
+            for(CommandObject commandObject : DiscordCore.getInstance().getCommandManager().getCommandsByModule("Core")) {
                 if(staffManager.isAuthorized(event.getAuthor().getId(), commandObject.getStaffLevel())) {
                     helpCommandLines.add(command + commandObject.getUsage() + " *" + commandObject.getDescription() + "*\n");
                 }
@@ -55,9 +56,9 @@ public class Help extends CommandObject {
             if(helpCommandLines.size() > 0)
                 myEmbed.addField("Core Commands", new Data().parseStringListNoDelimiter(0, helpCommandLines), false);
 
-            for(ModuleLoader module : ModuleManager.getInstance().getModules()) {
+            for(ModuleLoader module : DiscordCore.getInstance().getModuleManager().getModules()) {
                 ArrayList<String> commandLines = new ArrayList<>();
-                for(CommandObject commandObject : CommandManager.getInstance().getCommandsByModule(module.getName())) {
+                for(CommandObject commandObject : DiscordCore.getInstance().getCommandManager().getCommandsByModule(module.getName())) {
                     if(staffManager.isAuthorized(event.getAuthor().getId(), commandObject.getStaffLevel())) {
                         commandLines.add(command + commandObject.getUsage() + " *" + commandObject.getDescription() + "*\n");
                     }

@@ -1,14 +1,12 @@
 package net.xilla.discordcore.module;
 
 import net.xilla.discordcore.api.Log;
-import net.xilla.discordcore.api.manager.ManagerParent;
 import net.xilla.discordcore.module.exception.LoadModuleException;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -19,19 +17,12 @@ public class ModuleManager {
 
     private HashMap<String, ModuleLoader> modules;
 
-    private static ModuleManager instance;
-
-    public static ModuleManager getInstance() {
-        return instance;
-    }
-
     public void registerModule(ModuleLoader moduleLoader) {
         modules.put(moduleLoader.getName(), moduleLoader);
     }
 
     public ModuleManager() {
         reload();
-        instance = this;
     }
 
     private void registerModule(Path path){

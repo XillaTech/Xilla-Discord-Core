@@ -1,5 +1,6 @@
 package net.xilla.discordcore.api.staff;
 
+import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.api.config.Config;
 import net.xilla.discordcore.api.config.ConfigManager;
 import net.xilla.discordcore.api.manager.ManagerObject;
@@ -10,20 +11,10 @@ import java.util.ArrayList;
 
 public class StaffManager extends ManagerParent {
 
-    private static StaffManager instance;
-
-    public static StaffManager getInstance() {
-        return instance;
-    }
-
-    public StaffManager() {
-        instance = this;
-    }
-
     public void reload() {
         super.reload();
 
-        Config config = ConfigManager.getInstance().getConfig("staff.json");
+        Config config = DiscordCore.getInstance().getConfigManager().getConfig("staff.json");
         JSONObject json = config.toJson();
         for(Object key : json.keySet()) {
             Staff staff = new Staff(config.getMap((String)key));
@@ -32,7 +23,7 @@ public class StaffManager extends ManagerParent {
     }
 
     public void save() {
-        Config config = ConfigManager.getInstance().getConfig("staff.json");
+        Config config = DiscordCore.getInstance().getConfigManager().getConfig("staff.json");
         for(ManagerObject object : getList()) {
             Staff staff = (Staff)object;
             config.toJson().put(staff.getKey(), staff.toJson());

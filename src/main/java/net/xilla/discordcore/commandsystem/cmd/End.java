@@ -3,7 +3,6 @@ package net.xilla.discordcore.commandsystem.cmd;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.DiscordCore;
-import net.xilla.discordcore.api.Log;
 import net.xilla.discordcore.api.staff.StaffManager;
 import net.xilla.discordcore.commandsystem.CommandObject;
 
@@ -18,7 +17,7 @@ public class End extends CommandObject {
         if (event == null)
             System.exit(0);
         else {
-            if(StaffManager.getInstance().isAuthorized(event.getAuthor().getId(), 10)) {
+            if(DiscordCore.getInstance().getStaffManager().isAuthorized(event.getAuthor().getId(), 10)) {
                 event.getTextChannel().sendMessage("Shutting down bot...").complete();
 
                 for(Guild guild : DiscordCore.getInstance().getBot().getGuilds())

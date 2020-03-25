@@ -1,5 +1,6 @@
 package net.xilla.discordcore.api.timer;
 
+import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.api.config.Config;
 import net.xilla.discordcore.api.config.ConfigManager;
 import net.xilla.discordcore.api.manager.ManagerObject;
@@ -10,14 +11,7 @@ import java.util.Map;
 
 public class TimerManager extends ManagerParent {
 
-    private static TimerManager instance;
-
-    public static TimerManager getInstance() {
-        return instance;
-    }
-
     public TimerManager() {
-        instance = this;
         reload();
     }
 
@@ -26,7 +20,7 @@ public class TimerManager extends ManagerParent {
     public void reload() {
         super.reload();
 
-        Config config = ConfigManager.getInstance().getConfig("timers.json");
+        Config config = DiscordCore.getInstance().getConfigManager().getConfig("timers.json");
         JSONObject json = config.toJson();
         for(Object key : json.keySet()) {
             TimerObject timerObject = new TimerObject((Map<String, String>)json.get(key));
@@ -35,7 +29,7 @@ public class TimerManager extends ManagerParent {
     }
 
     public void save() {
-        Config config = ConfigManager.getInstance().getConfig("timers.json");
+        Config config = DiscordCore.getInstance().getConfigManager().getConfig("timers.json");
         config.clear();
         for(ManagerObject object : getList()) {
             TimerObject timerObject = (TimerObject)object;

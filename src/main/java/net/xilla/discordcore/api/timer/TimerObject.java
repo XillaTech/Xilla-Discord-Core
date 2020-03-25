@@ -1,5 +1,6 @@
 package net.xilla.discordcore.api.timer;
 
+import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.api.config.Config;
 import net.xilla.discordcore.api.config.ConfigManager;
 import net.xilla.discordcore.api.manager.ManagerObject;
@@ -14,13 +15,13 @@ public class TimerObject extends ManagerObject {
     private long time;
 
     public TimerObject(String id, long start, long time) {
-        super(id, new Config("timers.json"));
+        super(id, null);
         this.start = start;
         this.time = time;
     }
 
     public TimerObject(Map<String, String> map) {
-        super(map.get("id"), ConfigManager.getInstance().getConfig("timers.json"));
+        super(map.get("id"), null);
         this.start = Long.parseLong(map.get("start"));
         this.time = Long.parseLong(map.get("time"));
     }

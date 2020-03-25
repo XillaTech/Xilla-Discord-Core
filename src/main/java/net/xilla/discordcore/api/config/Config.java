@@ -1,6 +1,5 @@
 package net.xilla.discordcore.api.config;
 
-import net.xilla.discordcore.api.Log;
 import net.xilla.discordcore.api.manager.ManagerObject;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;

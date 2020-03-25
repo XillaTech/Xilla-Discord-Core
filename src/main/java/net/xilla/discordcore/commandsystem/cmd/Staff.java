@@ -2,6 +2,7 @@ package net.xilla.discordcore.commandsystem.cmd;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.api.Data;
 import net.xilla.discordcore.api.Log;
 import net.xilla.discordcore.api.config.Config;
@@ -19,10 +20,10 @@ public class Staff extends CommandObject {
 
     @Override
     public boolean run(String[] args, MessageReceivedEvent event) {
-        Config settings = ConfigManager.getInstance().getConfig("settings.json");
+        Config settings = DiscordCore.getInstance().getConfigManager().getConfig("settings.json");
 
         if(event != null) {
-            if(!StaffManager.getInstance().isAuthorized(event.getAuthor().getId(), 10))
+            if(!DiscordCore.getInstance().getStaffManager().isAuthorized(event.getAuthor().getId(), 10))
                 return true;
         }
 
@@ -30,19 +31,19 @@ public class Staff extends CommandObject {
         if(args.length > 0) {
             if(args[0].equalsIgnoreCase("edit")) {
                 if(args.length == 4) {
-                    net.xilla.discordcore.api.staff.Staff staff = StaffManager.getInstance().getStaff(args[1]);
+                    net.xilla.discordcore.api.staff.Staff staff = DiscordCore.getInstance().getStaffManager().getStaff(args[1]);
                     if(staff != null) {
                         if (args[2].equalsIgnoreCase("level")) {
                             staff.setLevel(Integer.parseInt(args[3]));
-                            StaffManager.getInstance().save();
+                            DiscordCore.getInstance().getStaffManager().save();
                             response.add("Success! You have edited the staff rank.");
                         } else if (args[2].equalsIgnoreCase("groupID")) {
                             staff.setGroupID(args[3]);
-                            StaffManager.getInstance().save();
+                            DiscordCore.getInstance().getStaffManager().save();
                             response.add("Success! You have edited the staff rank.");
                         } else if (args[2].equalsIgnoreCase("name")) {
                             staff.setName(args[3]);
-                            StaffManager.getInstance().save();
+                            DiscordCore.getInstance().getStaffManager().save();
                             response.add("Success! You have edited the staff rank.");
                         } else {
                             response.add("Available Staff Options: level, groupID, name");
@@ -55,11 +56,11 @@ public class Staff extends CommandObject {
                 }
             } else if(args[0].equalsIgnoreCase("list")) {
                 StringBuilder groups = new StringBuilder();
-                for(int i = 0; i < StaffManager.getInstance().getList().size(); i++) {
-                    if(i == StaffManager.getInstance().getList().size() - 1) {
-                        groups.append(StaffManager.getInstance().getList().get(i).getKey());
+                for(int i = 0; i < DiscordCore.getInstance().getStaffManager().getList().size(); i++) {
+                    if(i == DiscordCore.getInstance().getStaffManager().getList().size() - 1) {
+                        groups.append(DiscordCore.getInstance().getStaffManager().getList().get(i).getKey());
                     } else {
-                        groups.append(StaffManager.getInstance().getList().get(i).getKey()).append(", ");
+                        groups.append(DiscordCore.getInstance().getStaffManager().getList().get(i).getKey()).append(", ");
                     }
                 }
                 response.add("Available Staff Groups: " + groups);

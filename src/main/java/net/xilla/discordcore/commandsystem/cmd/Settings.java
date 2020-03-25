@@ -2,6 +2,7 @@ package net.xilla.discordcore.commandsystem.cmd;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.api.Data;
 import net.xilla.discordcore.api.Log;
 import net.xilla.discordcore.api.config.Config;
@@ -19,9 +20,9 @@ public class Settings extends CommandObject {
 
     @Override
     public boolean run(String[] args, MessageReceivedEvent event) {
-        Config config = ConfigManager.getInstance().getConfig("settings.json");
+        Config config = DiscordCore.getInstance().getConfigManager().getConfig("settings.json");
         if(event != null) {
-            if(!StaffManager.getInstance().isAuthorized(event.getAuthor().getId(), 10))
+            if(!DiscordCore.getInstance().getStaffManager().isAuthorized(event.getAuthor().getId(), 10))
                 return true;
         }
 

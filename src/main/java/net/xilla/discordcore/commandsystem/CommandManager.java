@@ -10,16 +10,9 @@ import java.util.Arrays;
 
 public class CommandManager extends ManagerParent {
 
-    private static CommandManager instance;
-
-    public static CommandManager getInstance() {
-        return instance;
-    }
-
     public CommandManager() {
         addCache("activators", new ManagerCache());
         addCache("modules", new ManagerCache());
-        instance = this;
     }
 
     public void registerCommand(CommandObject commandObject) {

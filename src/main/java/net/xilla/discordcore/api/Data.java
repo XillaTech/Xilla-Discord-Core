@@ -1,6 +1,7 @@
 package net.xilla.discordcore.api;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.api.config.ConfigManager;
 
 import java.awt.*;
@@ -9,7 +10,7 @@ import java.util.List;
 public class Data {
 
     public String getVersion() {
-        return "Xilla Discord Core v1.0.0";
+        return "Xilla Discord Core v1.0.1";
     }
 
     public String getLineBreak() {
@@ -65,7 +66,7 @@ public class Data {
         myEmbed.setTitle(title);
         if(description != null)
             myEmbed.setDescription(description);
-        myEmbed.setColor(Color.decode(ConfigManager.getInstance().getConfig("settings.json").getString("embedColor")));
+        myEmbed.setColor(Color.decode(DiscordCore.getInstance().getConfigManager().getConfig("settings.json").getString("embedColor")));
         return myEmbed;
     }
 
