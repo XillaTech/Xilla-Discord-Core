@@ -20,7 +20,7 @@ public class CommandDiscord extends ListenerAdapter {
                     return;
                 }
             }
+            DiscordCore.getInstance().getMessageEventManger().runEvent(event);
         }
-        DiscordCore.getInstance().getMessageEventManger().runEvent(event);
     }
 }

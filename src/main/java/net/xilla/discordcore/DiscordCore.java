@@ -70,6 +70,7 @@ public class DiscordCore {
         settings.loadDefault("botToken", "example");
         settings.loadDefault("guildID", "example");
         settings.loadDefault("companyName", "example");
+        settings.loadDefault("logChannelID", "example");
         settings.loadDefault("commandPrefix", "-");
         settings.loadDefault("embedColor", "#5a5a5a");
         settings.loadDefault("verbose", false);
@@ -113,7 +114,8 @@ public class DiscordCore {
         SettingObject botTokenSetting = new SettingObject("botToken", "Input your bot token : ");
         SettingObject guildIDSetting = new SettingObject("guildID", "Input your guild's ID (Enable developer options in discord) : ");
         SettingObject companyNameSetting = new SettingObject("companyName", "Input your company's name : ");
-        InstallerObject installerObject = new InstallerObject("Core", settings, botTokenSetting, guildIDSetting, companyNameSetting);
+        SettingObject logChannelID = new SettingObject("logChannelID", "Input your log channel ID : ");
+        InstallerObject installerObject = new InstallerObject("Core", settings, botTokenSetting, guildIDSetting, companyNameSetting, logChannelID);
         installerManager.addInstaller(installerObject);
         installerManager.install();
 
