@@ -2,8 +2,8 @@
 Managed and Developed by Tobias Steely @ https://xilla.net<br><br>
 
 # Version / Download<br>
-Latest Stable Version : 1.0.0 - <a href="http://api.xilla.net/download/xilla-discord-core.jar">Download here</a><br>
-Current Development Version : 1.0.2 - Download Coming Soon<br><br>
+Latest Stable Version : 1.0.3 - <a href="http://api.xilla.net/download/xilla-discord-core.jar">Download here</a><br>
+Current Development Version : 1.0.3 - https://github.com/Alontrle/Xilla-Discord-Core/tree/master/build/libs<br><br>
 
 # Installing<br>
 Install Script - bash <(curl -Ss https://api.xilla.net/download/install.sh)<br>
