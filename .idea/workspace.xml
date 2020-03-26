@@ -112,7 +112,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.DiscordCore">
+  <component name="RunManager" selected="Gradle.discordcore [shadowJar]">
     <configuration name="DiscordCore" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="net.xilla.discordcore.DiscordCore" />
       <module name="discordcore.main" />
