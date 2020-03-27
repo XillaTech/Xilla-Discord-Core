@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'net.xilla'
-version '1.0.4'
+version '1.0.5'
 mainClassName = "net.xilla.discordcore.DiscordCore"
 
 sourceCompatibility = 1.8

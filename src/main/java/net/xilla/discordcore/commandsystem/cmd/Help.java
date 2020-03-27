@@ -27,7 +27,7 @@ public class Help extends CommandObject {
             Log.sendMessage(0, new Data().getLineBreak());
             Log.sendMessage(0, "Commands");
             Log.sendMessage(0, new Data().getLineBreak());
-            Log.sendMessage(0, " > Help - Opens this menu");
+            Log.sendMessage(0, " > help - Opens this menu");
             for(ModuleLoader module : DiscordCore.getInstance().getModuleManager().getModules()) {
                 ArrayList<String> commandLines = new ArrayList<>();
                 for(CommandObject commandObject : DiscordCore.getInstance().getCommandManager().getCommandsByModule(module.getName())) {
@@ -58,13 +58,15 @@ public class Help extends CommandObject {
 
             for(ModuleLoader module : DiscordCore.getInstance().getModuleManager().getModules()) {
                 ArrayList<String> commandLines = new ArrayList<>();
-                for(CommandObject commandObject : DiscordCore.getInstance().getCommandManager().getCommandsByModule(module.getName())) {
-                    if(staffManager.isAuthorized(event.getAuthor().getId(), commandObject.getStaffLevel())) {
-                        commandLines.add(command + commandObject.getUsage() + " *" + commandObject.getDescription() + "*\n");
+                if(DiscordCore.getInstance().getCommandManager().getCommandsByModule(module.getName()).size() > 0) {
+                    for (CommandObject commandObject : DiscordCore.getInstance().getCommandManager().getCommandsByModule(module.getName())) {
+                        if (staffManager.isAuthorized(event.getAuthor().getId(), commandObject.getStaffLevel())) {
+                            commandLines.add(command + commandObject.getUsage() + " *" + commandObject.getDescription() + "*\n");
+                        }
                     }
+                    if (commandLines.size() > 0)
+                        myEmbed.addField(module.getName() + " Commands", new Data().parseStringListNoDelimiter(0, commandLines), false);
                 }
-                if(commandLines.size() > 0)
-                    myEmbed.addField(module.getName() + " Commands", new Data().parseStringListNoDelimiter(0, commandLines), false);
             }
 
             // Sends the embed
