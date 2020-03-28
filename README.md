@@ -8,11 +8,13 @@ Current Development Version : 1.0.6 - https://github.com/Alontrle/Xilla-Discord-
 # Installing<br>
 Easy Install Script for Linux - "bash <(curl -Ss https://api.xilla.net/download/install.sh)"<br><br>
 
-Manual Installation :<br>
- 1 - Install Java 11<br>
- --- Ubuntu 18.04 - <a href="http://ubuntuhandbook.org/index.php/2018/11/how-to-install-oracle-java-11-in-ubuntu-18-04-18-10/">Click Here</a><br>
- --- CentOS 7 - <a href="https://phoenixnap.com/kb/install-java-on-centos">Click Here</a><br>
- --- Centos 8 - <a href="https://computingforgeeks.com/how-to-install-java-11-openjdk-11-on-rhel-8/">Click Here</a><br>
+<a href="https://pterodactyl.io/">Pterodactyl Panel</a> Egg - https://api.xilla.net/download/egg-xilla-discord-core.json<br><br>
+
+Manual Installation : <br>
+ 1 - Install Java 14<br>
+ --- Ubuntu 14.04 - <a href="https://www.atlantic.net/hipaa-compliant-cloud-storage/how-to-install-java-ubuntu-14-04/">Click Here</a><br>
+ --- Ubuntu 18.04 - <a href="https://computingforgeeks.com/install-oracle-java-openjdk-14-on-ubuntu-debian-linux/">Click Here</a><br>
+ --- CentOS 7 / 8 or Fedora - <a href="https://computingforgeeks.com/install-oracle-java-openjdk-14-on-centosfedora-linux/">Click Here</a><br>
  2 - Download the bot from <a href="http://api.xilla.net/download/xilla-discord-core.jar">here</a><br>
  3 - Run the bot, and input your settings. (java -jar xilla-discord-core.jar)<br>
  4 - Download the modules you want, and put them in the /modules/ folder.<br>
@@ -32,4 +34,4 @@ Setup our Pterodactyl Panel egg for easy bot hosting. Checkout Pterodactyl <a hr
 Coming soon...<br><br>
 
 # Documentation<br>
-Coming soon...<br><br>
+Java Docs - https://alontrle.github.io/Xilla-Discord-Core
