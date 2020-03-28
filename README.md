@@ -14,7 +14,9 @@ Manual Installation :<br>
  --- CentOS 7 - <a href="https://phoenixnap.com/kb/install-java-on-centos">Click Here</a><br>
  --- Centos 8 - <a href="https://computingforgeeks.com/how-to-install-java-11-openjdk-11-on-rhel-8/">Click Here</a><br>
  2 - Download the bot from <a href="http://api.xilla.net/download/xilla-discord-core.jar">here</a><br>
- 2 - Run the bot, and input your settings. (java -jar xilla-discord-core.jar)<br>
+ 3 - Run the bot, and input your settings. (java -jar xilla-discord-core.jar)<br>
+ 4 - Download the modules you want, and put them in the /modules/ folder.<br>
+ 5 - Restart your bot and input any required settings.<br>
 
 # Available Modules<br> 
 All modules are available for free with branding in the footer, you can purchase a license if you'd like to remove this branding.<br>
