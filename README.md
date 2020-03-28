@@ -6,7 +6,7 @@ Latest Stable Version : 1.0.3 - <a href="http://api.xilla.net/download/xilla-dis
 Current Development Version : 1.0.6 - https://github.com/Alontrle/Xilla-Discord-Core/tree/master/build/libs<br><br>
 
 # Installing<br>
-Easy Install Script - bash <(curl -Ss https://api.xilla.net/download/install.sh)<br><br>
+Easy Install Script for Linux - "bash <(curl -Ss https://api.xilla.net/download/install.sh)"<br><br>
 
 Manual Installation :<br>
  1 - Install Java 11<br>
