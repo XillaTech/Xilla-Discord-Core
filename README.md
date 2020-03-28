@@ -10,7 +10,7 @@ Easy Install Script for Linux - "bash <(curl -Ss https://api.xilla.net/download/
 
 Pterodactyl Panel Egg - https://api.xilla.net/download/egg-xilla-discord-core.json<br><br>
 
-Manual Installation :<br>
+Manual Installation : <br>
  1 - Install Java 14<br>
  --- Ubuntu 14.04 - <a href="https://www.atlantic.net/hipaa-compliant-cloud-storage/how-to-install-java-ubuntu-14-04/">Click Here</a><br>
  --- Ubuntu 18.04 - <a href="https://computingforgeeks.com/install-oracle-java-openjdk-14-on-ubuntu-debian-linux/">Click Here</a><br>
