@@ -6,15 +6,15 @@ Latest Stable Version : 1.0.3 - <a href="http://api.xilla.net/download/xilla-dis
 Current Development Version : 1.0.6 - https://github.com/Alontrle/Xilla-Discord-Core/tree/master/build/libs<br><br>
 
 # Installing<br>
-Easy Install Script - bash <(curl -Ss https://api.xilla.net/download/install.sh)<br>
+Easy Install Script - bash <(curl -Ss https://api.xilla.net/download/install.sh)<br><br>
 
-Manual Installation :
- 1 - Install Java 11 
- --- Ubuntu 18.04 - <a href="http://ubuntuhandbook.org/index.php/2018/11/how-to-install-oracle-java-11-in-ubuntu-18-04-18-10/">Click Here</a>
- --- CentOS 7 - <a href="https://phoenixnap.com/kb/install-java-on-centos">Click Here</a>
- --- Centos 8 - <a href="https://computingforgeeks.com/how-to-install-java-11-openjdk-11-on-rhel-8/">Click Here</a>
- 2 - Download the bot from <a href="http://api.xilla.net/download/xilla-discord-core.jar">here</a>
- 2 - Run the bot, and input your settings. (java -jar xilla-discord-core.jar)
+Manual Installation :<br>
+ 1 - Install Java 11<br>
+ --- Ubuntu 18.04 - <a href="http://ubuntuhandbook.org/index.php/2018/11/how-to-install-oracle-java-11-in-ubuntu-18-04-18-10/">Click Here</a><br>
+ --- CentOS 7 - <a href="https://phoenixnap.com/kb/install-java-on-centos">Click Here</a><br>
+ --- Centos 8 - <a href="https://computingforgeeks.com/how-to-install-java-11-openjdk-11-on-rhel-8/">Click Here</a><br>
+ 2 - Download the bot from <a href="http://api.xilla.net/download/xilla-discord-core.jar">here</a><br>
+ 2 - Run the bot, and input your settings. (java -jar xilla-discord-core.jar)<br>
 
 # Available Modules<br> 
 All modules are available for free with branding in the footer, you can purchase a license if you'd like to remove this branding.<br>
