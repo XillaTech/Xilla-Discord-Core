@@ -8,7 +8,7 @@ Current Development Version : 1.0.6 - https://github.com/Alontrle/Xilla-Discord-
 # Installing<br>
 Easy Install Script for Linux - "bash <(curl -Ss https://api.xilla.net/download/install.sh)"<br><br>
 
-Pterodactyl Panel Egg - https://api.xilla.net/download/egg-xilla-discord-core.json<br><br>
+<a href="https://pterodactyl.io/">Pterodactyl Panel</a> Egg - https://api.xilla.net/download/egg-xilla-discord-core.json<br><br>
 
 Manual Installation : <br>
  1 - Install Java 14<br>
