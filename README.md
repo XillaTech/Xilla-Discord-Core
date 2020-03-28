@@ -10,7 +10,7 @@ Install Script - bash <(curl -Ss https://api.xilla.net/download/install.sh)<br>
 Actual installation guide coming soon...<br><br>
 
 # Available Modules<br> 
-All modules are available for free with branding in the footer, you can purchase a license from https://xilla.net/cart.php?gid=5 if you'd like to remove this branding.<br>
+All modules are available for free with branding in the footer, you can purchase a license if you'd like to remove this branding.<br>
 Tickets - <a href="http://api.xilla.net/download/xilla-ticket-bot.jar">Download here</a><br>
 Music - <a href="http://api.xilla.net/download/xilla-music-bot.jar">Download here</a><br>
 Moderation - Coming Soon<br>
