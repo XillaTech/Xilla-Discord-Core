@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cbc8fc37-216c-4878-88a2-8334fc34307e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/WizardBot.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/XillaTickets.jar" beforeDir="false" afterPath="$PROJECT_DIR$/modules/XillaTickets.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/tickets/tickets.json" beforeDir="false" afterPath="$PROJECT_DIR$/modules/tickets/tickets.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +72,7 @@
   </component>
   <component name="ProjectId" id="1YmBx4TpCYYNAC08HQJlemRI2cU" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/net.xilla.discord" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/modules" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15722656" />
     <property name="project.structure.side.proportion" value="0.21900348" />
@@ -80,9 +87,9 @@
       <recent name="net.xilla.discordcore.api" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\modules" />
       <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\docs\net.xilla.discord" />
       <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\docs" />
-      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\modules" />
       <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot" />
       <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\modules\tickets" />
     </key>
@@ -99,7 +106,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.discordcore [shadowJar]">
+  <component name="RunManager" selected="Application.DiscordCore">
     <configuration name="DiscordCore" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="net.xilla.discordcore.DiscordCore" />
       <module name="discordcore.main" />
@@ -164,17 +171,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/net/xilla/discordcore/DiscordCore.java</url>
-          <line>80</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/discordcore$DiscordCore.ic" NAME="DiscordCore Coverage Results" MODIFIED="1584191321590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
