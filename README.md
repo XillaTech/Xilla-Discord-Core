@@ -2,7 +2,7 @@
 Managed and Developed by Tobias Steely @ https://xilla.net<br><br>
 
 # Version / Download<br>
-Latest Stable Version : 1.0.3 - <a href="http://api.xilla.net/download/xilla-discord-core.jar">Download here</a><br>
+Latest Stable Version : 1.0.6 - <a href="http://api.xilla.net/download/xilla-discord-core.jar">Download here</a><br>
 Current Development Version : 1.0.6 - https://github.com/Alontrle/Xilla-Discord-Core/tree/master/build/libs<br><br>
 
 # Installing<br>
