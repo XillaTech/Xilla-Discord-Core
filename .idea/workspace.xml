@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="cbc8fc37-216c-4878-88a2-8334fc34307e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/WizardBot.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/commandsystem/CommandResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/allclasses-frame.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/allclasses-noframe.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/constant-values.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/deprecated-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/help-doc.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index-all.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/net.xilla.discord/DiscordCore.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/net.xilla.discord/package-frame.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/net.xilla.discord/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/net.xilla.discord/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/overview-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/package-list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/stylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/api/Data.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/api/Data.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/commandsystem/CommandManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/commandsystem/CommandManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/ModerationBot.jar" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ModerationBot.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/api/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/api/Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/commandsystem/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/commandsystem/CommandManager.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +84,7 @@
   </component>
   <component name="ProjectId" id="1YmBx4TpCYYNAC08HQJlemRI2cU" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/net.xilla.discord" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -94,11 +99,11 @@
       <recent name="net.xilla.discordcore.api" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\docs\net.xilla.discord" />
+      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\docs" />
       <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\modules" />
       <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot" />
       <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\modules\tickets" />
-      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore" />
-      <recent name="C:\Users\Tobias\Downloads\discordcore\modules" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -113,7 +118,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.discordcore [shadowJar]">
+  <component name="RunManager" selected="Application.DiscordCore">
     <configuration name="DiscordCore" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="net.xilla.discordcore.DiscordCore" />
       <module name="discordcore.main" />
