@@ -19,6 +19,20 @@ Manual Installation : <br>
  3 - Run the bot, and input your settings. (java -jar xilla-discord-core.jar)<br>
  4 - Download the modules you want, and put them in the /modules/ folder.<br>
  5 - Restart your bot and input any required settings.<br>
+ 
+# Updating<br>
+The Core<br>
+ 1 - Navigate to your installation (Easy installer's location is /srv/xilla-discord-core/)<br>
+ 2 - Delete the bot.jar<br>
+ 3 - Upload the newer updated bot.jar from <a href="http://api.xilla.net/download/xilla-discord-core.jar">here</a><br>
+ 3 - Start the bot and fill in any missing settings.<br><br>
+
+A Module Core<br>
+ 1 - Navigate to your installation (Easy installer's location is /srv/xilla-discord-core/)<br>
+ 2 - Open the /modules/ folder.<br>
+ 3 - Delete the old module<br>
+ 4 - Upload the newer updated module<br>
+ 5 - Start the bot and fill in any missing settings.<br><br>
 
 # Available Modules<br> 
 All modules are available for free with branding in the footer, you can purchase a license if you'd like to remove this branding.<br>
