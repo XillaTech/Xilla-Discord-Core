@@ -12,9 +12,9 @@ Actual installation guide coming soon...<br><br>
 # Available Modules<br> 
 All modules are available for free with branding in the footer, you can purchase a license from https://xilla.net/cart.php?gid=5 if you'd like to remove this branding.<br>
 Tickets - <a href="http://api.xilla.net/download/xilla-ticket-bot.jar">Download here</a><br>
-Music - <a href="http://api.xilla.net/download/xilla-music-bot.jar">Download here</a><br><br>
-Moderation - Coming Soon
-<a href="https://xilla.net/cart.php?gid=5">Remove Branding Here</a>
+Music - <a href="http://api.xilla.net/download/xilla-music-bot.jar">Download here</a><br>
+Moderation - Coming Soon<br>
+<a href="https://xilla.net/cart.php?gid=5">Remove Branding Here</a><br><br>
 
 # Pterodactyl Panel Supported<br>
 Setup our Pterodactyl Panel egg for easy bot hosting. Checkout Pterodactyl <a href="https://pterodactyl.io/">here</a>. Download the bot egg <a href="https://api.xilla.net/download/egg-xilla-discord-core.json">here</a><br><br>
