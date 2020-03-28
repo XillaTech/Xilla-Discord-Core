@@ -32,4 +32,4 @@ Setup our Pterodactyl Panel egg for easy bot hosting. Checkout Pterodactyl <a hr
 Coming soon...<br><br>
 
 # Documentation<br>
-Java Docs - http://alontrle.github.io/Xilla-Discord-Core
+Java Docs - https://alontrle.github.io/Xilla-Discord-Core
