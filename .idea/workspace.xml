@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbc8fc37-216c-4878-88a2-8334fc34307e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/ModerationBot.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/WizardBot.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/commandsystem/CommandResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
@@ -14,10 +16,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/api/Data.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/api/Data.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/commandsystem/cmd/Help.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/commandsystem/cmd/Help.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/XillaTickets.jar" beforeDir="false" afterPath="$PROJECT_DIR$/modules/XillaTickets.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/commandsystem/CommandManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/commandsystem/CommandManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ModerationBot.jar" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ModerationBot.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/api/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/api/Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/commandsystem/cmd/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/commandsystem/cmd/Help.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/commandsystem/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/commandsystem/CommandManager.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,18 +86,18 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\modules" />
-      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot" />
-      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\modules\tickets" />
-      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Tobias\Downloads\discordcore\modules" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="net.xilla.discordcore.commandsystem.cmd" />
       <recent name="net.xilla.discordcore.api" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\modules" />
+      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot" />
+      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\modules\tickets" />
+      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore" />
       <recent name="C:\Users\Tobias\Downloads\discordcore\modules" />
     </key>
   </component>

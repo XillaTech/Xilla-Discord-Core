@@ -34,13 +34,19 @@ public class CommandManager extends ManagerParent {
 
         if(getCache("activators").isCached(command)) {
             CommandObject commandObject = (CommandObject)getCache("activators").getObject(command);
-            if(!commandObject.run(args, event)) {
-                if(event == null) {
-                    Log.sendMessage(2, "Command registered, but not running properly.");
-                    return false;
+            if(event != null) {
+                if(!DiscordCore.getInstance().getStaffManager().isAuthorized(event.getAuthor().getId(), commandObject.getStaffLevel())) {
+                    return true;
                 }
             }
-            return true;
+            new Thread(() -> {
+                if(!commandObject.run(args, event)) {
+                    if(event == null) {
+                        Log.sendMessage(2, "Command registered, but not running properly.");
+                    }
+                }
+            }).start();
+                return true;
         } else {
             if(event == null) {
                 Log.sendMessage(2, "Unknown command, type \"?\" for a list of available commands.");
