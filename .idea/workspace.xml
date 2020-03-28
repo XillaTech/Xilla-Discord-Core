@@ -5,25 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cbc8fc37-216c-4878-88a2-8334fc34307e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/allclasses-frame.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/allclasses-noframe.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/constant-values.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/deprecated-list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/help-doc.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/index-all.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/net.xilla.discord/DiscordCore.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/net.xilla.discord/package-frame.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/net.xilla.discord/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/net.xilla.discord/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/overview-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/package-list" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -85,9 +66,9 @@
   <component name="ProjectId" id="1YmBx4TpCYYNAC08HQJlemRI2cU" />
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/net.xilla.discord" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15722656" />
+    <property name="project.structure.side.proportion" value="0.21900348" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="RecentsManager">
@@ -118,7 +99,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.DiscordCore">
+  <component name="RunManager" selected="Gradle.discordcore [shadowJar]">
     <configuration name="DiscordCore" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="net.xilla.discordcore.DiscordCore" />
       <module name="discordcore.main" />
