@@ -48,4 +48,7 @@ Setup our Pterodactyl Panel egg for easy bot hosting. Checkout Pterodactyl <a hr
 Coming soon...<br><br>
 
 # Documentation<br>
-Java Docs - https://alontrle.github.io/Xilla-Discord-Core
+Java Docs - https://alontrle.github.io/Xilla-Discord-Core<br><br>
+
+# Compiling / Editing<br>
+We use gradle, so make sure to use gradle and use our build file. I reccomend using ShadowJar to create an UBER Jar and use that as your library. That is how I compile the public releases.
