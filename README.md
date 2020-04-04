@@ -2,7 +2,7 @@
 Managed and Developed by Tobias Steely @ https://xilla.net<br><br>
 
 # Version / Download<br>
-Latest Stable Version : 1.0.3 - <a href="http://api.xilla.net/download/xilla-discord-core.jar">Download here</a><br>
+Latest Stable Version : 1.0.6 - <a href="http://api.xilla.net/download/xilla-discord-core.jar">Download here</a><br>
 Current Development Version : 1.0.6 - https://github.com/Alontrle/Xilla-Discord-Core/tree/master/build/libs<br><br>
 
 # Installing<br>
@@ -19,6 +19,20 @@ Manual Installation : <br>
  3 - Run the bot, and input your settings. (java -jar xilla-discord-core.jar)<br>
  4 - Download the modules you want, and put them in the /modules/ folder.<br>
  5 - Restart your bot and input any required settings.<br>
+ 
+# Updating<br>
+The Core<br>
+ 1 - Navigate to your installation (Easy installer's location is /srv/xilla-discord-core/)<br>
+ 2 - Delete the bot.jar<br>
+ 3 - Upload the newer updated bot.jar from <a href="http://api.xilla.net/download/xilla-discord-core.jar">here</a><br>
+ 4 - Start the bot and fill in any missing settings.<br><br>
+
+A Module Core<br>
+ 1 - Navigate to your installation (Easy installer's location is /srv/xilla-discord-core/)<br>
+ 2 - Open the /modules/ folder.<br>
+ 3 - Delete the old module<br>
+ 4 - Upload the newer updated module<br>
+ 5 - Start the bot and fill in any missing settings.<br><br>
 
 # Available Modules<br> 
 All modules are available for free with branding in the footer, you can purchase a license if you'd like to remove this branding.<br>
@@ -34,4 +48,7 @@ Setup our Pterodactyl Panel egg for easy bot hosting. Checkout Pterodactyl <a hr
 Coming soon...<br><br>
 
 # Documentation<br>
-Java Docs - https://alontrle.github.io/Xilla-Discord-Core
+Java Docs - https://alontrle.github.io/Xilla-Discord-Core<br><br>
+
+# Compiling / Editing<br>
+We use gradle, so make sure to use gradle and use our build file. I reccomend using ShadowJar to create an UBER Jar and use that as your library. That is how I compile the public releases.
