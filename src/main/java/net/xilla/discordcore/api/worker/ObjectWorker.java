@@ -2,11 +2,11 @@ package net.xilla.discordcore.api.worker;
 
 import net.xilla.discordcore.api.Log;
 
-import java.util.ArrayList;
+import java.util.Vector;
 
 public class ObjectWorker extends Worker {
 
-    private ArrayList<Object> queue;
+    private Vector<Object> queue;
 
     public boolean processItem(Object object) {
         return false; // OVERRIDE
@@ -14,7 +14,7 @@ public class ObjectWorker extends Worker {
 
     public ObjectWorker(long timer) {
         super(timer);
-        this.queue = new ArrayList<>();
+        this.queue = new Vector<>();
     }
 
     @Override

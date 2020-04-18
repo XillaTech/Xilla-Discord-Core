@@ -24,7 +24,7 @@ public class StaffManager extends ManagerParent {
 
     public void save() {
         Config config = DiscordCore.getInstance().getConfigManager().getConfig("staff.json");
-        for(ManagerObject object : getList()) {
+        for(ManagerObject object : getVector()) {
             Staff staff = (Staff)object;
             config.toJson().put(staff.getKey(), staff.toJson());
         }
@@ -33,7 +33,7 @@ public class StaffManager extends ManagerParent {
 
     public ArrayList<Staff> getStaffByUserId(String id) {
         ArrayList<Staff> staffList = new ArrayList<>();
-        for(Object object : getList()) {
+        for(Object object : getVector()) {
             Staff staff = (Staff)object;
             if(staff.isMember(id)) {
                 staffList.add(staff);

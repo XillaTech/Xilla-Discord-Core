@@ -14,7 +14,7 @@ public class InstallerManager extends ManagerParent {
     }
 
     public void install() {
-        for(ManagerObject object : getList()) {
+        for(ManagerObject object : getVector()) {
             InstallerObject installerObject = (InstallerObject)object;
             installerObject.install();
         }

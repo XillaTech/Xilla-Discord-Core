@@ -93,19 +93,16 @@ public class DiscordCore {
         commandManager.registerCommand(new Settings());
         commandManager.registerCommand(new net.xilla.discordcore.commandsystem.cmd.Staff());
 
-        Log.sendMessage(3, "Loading Staff Manager...");
-        this.staffManager = new StaffManager();
 
-        Log.sendMessage(3, "Loading Staff Config Defaults...");
+        Log.sendMessage(3, "Loading Staff...");
         Config staff = configManager.getConfig("staff.json");
-
         Staff admin = new Staff("Admin", 10, "example");
         Staff mod = new Staff("Mod", 5, "example");
         staff.loadDefault(admin.getKey(), admin.toJson());
         staff.loadDefault(mod.getKey(), mod.toJson());
-        staffManager.addStaff(mod);
-        staffManager.addStaff(admin);
         staff.save();
+        this.staffManager = new StaffManager();
+
 
         Log.sendMessage(3, "Loading Installer Manager...");
         this.installerManager = new InstallerManager();

@@ -2,18 +2,18 @@ package net.xilla.discordcore.api.worker;
 
 import net.xilla.discordcore.api.Log;
 
-import java.util.ArrayList;
+import java.util.Vector;
 
 public class Worker extends Thread {
 
     private long timer;
     private long start;
-    private ArrayList<Long> ticks;
+    private Vector<Long> ticks;
     private boolean isAlive;
     private boolean isPaused;
 
     public Worker(long timer) {
-        this.ticks = new ArrayList<>();
+        this.ticks = new Vector<>();
         this.timer = timer;
         this.start = 0;
         this.isAlive = false;
@@ -78,7 +78,7 @@ public class Worker extends Thread {
     }
 
     public double[] getTPS() {
-        ArrayList<Long> temp = new ArrayList<>();
+        Vector<Long> temp = new Vector<>();
         temp.addAll(ticks);
 
         long totalTime = 0;

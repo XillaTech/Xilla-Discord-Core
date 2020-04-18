@@ -10,7 +10,7 @@ import java.util.List;
 public class Data {
 
     public String getVersion() {
-        return "Xilla Discord Core v1.0.7";
+        return "Xilla Discord Core v1.0.8";
     }
 
     public String getLineBreak() {

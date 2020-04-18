@@ -31,7 +31,7 @@ public class TimerManager extends ManagerParent {
     public void save() {
         Config config = DiscordCore.getInstance().getConfigManager().getConfig("timers.json");
         config.clear();
-        for(ManagerObject object : getList()) {
+        for(ManagerObject object : getVector()) {
             TimerObject timerObject = (TimerObject)object;
             config.toJson().put(timerObject.getKey(), timerObject.toJson());
         }

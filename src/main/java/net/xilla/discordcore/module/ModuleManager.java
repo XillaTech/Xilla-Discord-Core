@@ -30,7 +30,7 @@ public class ModuleManager {
         if (!path.toFile().isDirectory()) {
                 ModuleLoader moduleLoader = new ModuleLoader(path);
                 if(moduleLoader.getModule() != null) {
-                    Log.sendMessage(3, "Loading module " + moduleLoader.getName() + " (" + moduleLoader.getVersion() + ")");
+                    Log.sendMessage(0, "Loading module " + moduleLoader.getName() + " (" + moduleLoader.getVersion() + ") - " + moduleLoader.getMainClass());
                     try {
                         if (moduleLoader.getModule().start()) {
                             registerModule(moduleLoader);

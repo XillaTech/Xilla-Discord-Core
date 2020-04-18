@@ -2,17 +2,19 @@ package net.xilla.discordcore.api.manager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Vector;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ManagerParent {
 
-    private ArrayList<ManagerObject> list = null;
-    private HashMap<String, ManagerCache> cacheList = null;
+    private Vector<ManagerObject> list = null;
+    private ConcurrentHashMap<String, ManagerCache> cacheList = null;
 
     protected ManagerParent() {
         reload();
     }
 
-    public ArrayList<ManagerObject> getList() {
+    public Vector<ManagerObject> getVector() {
         return list;
     }
 
@@ -34,8 +36,8 @@ public class ManagerParent {
     }
 
     protected void reload() {
-        list = new ArrayList<>();
-        cacheList = new HashMap<>();
+        list = new Vector<>();
+        cacheList = new ConcurrentHashMap<>();
         cacheList.put("key", new ManagerCache());
     }
 

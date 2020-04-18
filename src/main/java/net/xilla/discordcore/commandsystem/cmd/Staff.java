@@ -56,11 +56,11 @@ public class Staff extends CommandObject {
                 }
             } else if(args[0].equalsIgnoreCase("list")) {
                 StringBuilder groups = new StringBuilder();
-                for(int i = 0; i < DiscordCore.getInstance().getStaffManager().getList().size(); i++) {
-                    if(i == DiscordCore.getInstance().getStaffManager().getList().size() - 1) {
-                        groups.append(DiscordCore.getInstance().getStaffManager().getList().get(i).getKey());
+                for(int i = 0; i < DiscordCore.getInstance().getStaffManager().getVector().size(); i++) {
+                    if(i == DiscordCore.getInstance().getStaffManager().getVector().size() - 1) {
+                        groups.append(DiscordCore.getInstance().getStaffManager().getVector().get(i).getKey());
                     } else {
-                        groups.append(DiscordCore.getInstance().getStaffManager().getList().get(i).getKey()).append(", ");
+                        groups.append(DiscordCore.getInstance().getStaffManager().getVector().get(i).getKey()).append(", ");
                     }
                 }
                 response.add("Available Staff Groups: " + groups);
