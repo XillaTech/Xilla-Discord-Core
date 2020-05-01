@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/libs/discordcore-1.0.8-all.jar" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/libs/discordcore-1.0.9-all.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/libs/discordcore-1.0.9-all.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/out/artifacts/ExampleModule/discordcore-1.0.9-all.jar" charset="windows-1252" />
   </component>
 </project>

@@ -127,7 +127,7 @@ public class Config extends ManagerObject {
     }
 
     public int getInt(String key) {
-        return (int)json.get(key);
+        return Integer.parseInt("" + json.get(key));
     }
 
     public double getDouble(String key) {
@@ -139,7 +139,7 @@ public class Config extends ManagerObject {
     }
 
     public long getLong(String key) {
-        return (long)json.get(key);
+        return Long.parseLong("" + json.get(key));
     }
 
     public boolean getBoolean(String key) {
