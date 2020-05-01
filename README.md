@@ -3,7 +3,7 @@ Managed and Developed by Tobias Steely @ https://xilla.net<br><br>
 
 # Version / Download<br>
 Latest Stable Version : 1.0.8 - <a href="http://api.xilla.net/download/xilla-discord-core.jar">Download here</a><br>
-Current Development Version : 1.0.8 - https://github.com/Alontrle/Xilla-Discord-Core/tree/master/build/libs<br><br>
+Current Development Version : 1.0.9 - https://github.com/Alontrle/Xilla-Discord-Core/tree/master/build/libs<br><br>
 
 # Installing<br>
 Easy Install Script for Linux - "bash <(curl -Ss https://api.xilla.net/download/install.sh)"<br><br>
@@ -45,7 +45,7 @@ Moderation - Coming Soon<br>
 Setup our Pterodactyl Panel egg for easy bot hosting. Checkout Pterodactyl <a href="https://pterodactyl.io/">here</a>. Download the bot egg <a href="https://api.xilla.net/download/egg-xilla-discord-core.json">here</a><br><br>
 
 # Creating a module<br>
-Coming soon...<br><br>
+We will add an actual wiki guide soon, but for now here is a sample module. https://github.com/Alontrle/Xilla-Discord-Core/tree/master/Modules/ExampleModule<br><br>
 
 # Documentation<br>
 Java Docs - https://alontrle.github.io/Xilla-Discord-Core<br><br>
