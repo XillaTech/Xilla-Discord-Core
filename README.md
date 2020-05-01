@@ -27,7 +27,7 @@ The Core<br>
  3 - Upload the newer updated bot.jar from <a href="http://api.xilla.net/download/xilla-discord-core.jar">here</a><br>
  4 - Start the bot and fill in any missing settings.<br><br>
 
-A Module Core<br>
+A Module<br>
  1 - Navigate to your installation (Easy installer's location is /srv/xilla-discord-core/)<br>
  2 - Open the /modules/ folder.<br>
  3 - Delete the old module<br>
