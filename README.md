@@ -1,6 +1,9 @@
 # Xilla Discord Core<br>
 Managed and Developed by Tobias Steely @ https://xilla.net<br><br>
 
+# Official Hosting<br>
+We offer official hosting starting @ $1.50/Month - https://xilla.net/cart.php?gid=5<br><br>
+
 # Version / Download<br>
 Latest Stable Version : 1.0.8 - <a href="http://api.xilla.net/download/xilla-discord-core.jar">Download here</a><br>
 Current Development Version : 1.0.9 - https://github.com/Alontrle/Xilla-Discord-Core/tree/master/build/libs<br><br>
