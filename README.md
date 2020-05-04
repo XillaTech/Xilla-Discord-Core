@@ -1,7 +1,5 @@
 # Xilla Discord Core<br>
-Managed and Developed by Tobias Steely @ https://xilla.net<br><br>
-
-# Official Hosting<br>
+Managed and Developed by Tobias Steely @ https://xilla.net<br>
 We offer official hosting starting @ $1.50/Month - https://xilla.net/cart.php?gid=5<br><br>
 
 # Version / Download<br>
