@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'net.xilla'
+version '2.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile files('libs/TobiasAPI-1.0-SNAPSHOT-all.jar')
+    compile 'net.dv8tion:JDA:4.1.1_137'
+    compile 'org.slf4j:slf4j-nop:1.7.29'
+}
