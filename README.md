@@ -1,9 +1,10 @@
 # Xilla Discord Core<br>
-Managed and Developed by Tobias Steely @ https://xilla.net<br>
+Managed and Developed by Tobias Steely<br>
 
 # Version / Download<br>
-Latest Stable Version : 1.0.8 - <a href="http://api.xilla.net/download/xilla-discord-core.jar">Download here</a><br>
-Current Development Version : 1.0.9 - https://github.com/Alontrle/Xilla-Discord-Core/tree/master/build/libs<br><br>
+Latest Stable Version : 1.0.8 - <a href="https://github.com/Alontrle/Xilla-Discord-Core/blob/master/Xilla-Discord-Core-v1/build/libs/discordcore-1.0.8-all.jar">Download here</a><br>
+Latest Version : 1.0.9 - https://github.com/Alontrle/Xilla-Discord-Core/tree/master/Xilla-Discord-Core-v1/build/libs
+Lastest Developer Version : 2.0.0 ALPHA-1 <br><br>
 
 # Installing<br>
 Easy Install Script for Linux - "bash <(curl -Ss https://api.xilla.net/download/install.sh)"<br><br>
