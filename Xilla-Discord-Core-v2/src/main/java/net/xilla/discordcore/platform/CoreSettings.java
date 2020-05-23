@@ -1,4 +1,4 @@
-package net.xilla.discordcore.settings.type;
+package net.xilla.discordcore.platform;
 
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.settings.Settings;

@@ -3,12 +3,12 @@ package net.xilla.discordcore.platform.cmd;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.DiscordCore;
-import net.xilla.discordcore.command.Command;
+import net.xilla.discordcore.command.type.full.FullCommand;
 
-public class EndCommand extends Command {
+public class EndCommand extends FullCommand {
 
     public EndCommand() {
-        super("End", new String[] {"end"}, "Core", "Shuts the bot down", "end", 10);
+        super("End", new String[] {"end"}, "Core", "Shuts the bot down", "end", 10, true);
     }
 
     @Override

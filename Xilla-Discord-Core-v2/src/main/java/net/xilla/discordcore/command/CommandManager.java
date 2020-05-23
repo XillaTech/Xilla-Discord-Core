@@ -5,10 +5,15 @@ import com.tobiassteely.tobiasapi.api.manager.ManagerCache;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.DiscordCore;
+import net.xilla.discordcore.command.type.basic.BasicCommand;
+import net.xilla.discordcore.command.type.basic.BasicCommandExecutor;
+import net.xilla.discordcore.command.type.full.FullCommand;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Vector;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -17,14 +22,54 @@ public class CommandManager extends ManagerParent {
     private ExecutorService executor;
     private CommandWorker commandWorker;
 
+    private ConcurrentHashMap<String, Vector<BasicCommand>> basicCommandsByModule;
+    private ConcurrentHashMap<String, BasicCommand> basicCommandsByName;
+
     public CommandManager() {
         addCache("activators", new ManagerCache());
         addCache("modules", new ManagerCache());
         this.executor = Executors.newFixedThreadPool(10);
         this.commandWorker = new CommandWorker();
+        this.basicCommandsByModule = new ConcurrentHashMap<>();
+        this.basicCommandsByName = new ConcurrentHashMap<>();
+
+        registerPingCommand();
+        registerEndCommand();
     }
 
-    public void registerCommand(Command command) {
+    private void registerPingCommand() {
+        // Ping Command
+        BasicCommandExecutor executor = (name, event) -> {
+            if(event != null) {
+                long start = System.currentTimeMillis();
+                event.getTextChannel().sendMessage("Pong!").complete().editMessage("Pong! (" + (System.currentTimeMillis() - start) + "ms)").queue();
+
+                return null;
+            } else {
+                return new CommandResponse("Pong!");
+            }
+        };
+        BasicCommand basicCommand = new BasicCommand("Core", "Ping", "Returns with a pong!", 0, executor);
+
+        registerBasicCommand(basicCommand);
+    }
+
+    private void registerEndCommand() {
+        // Ping Command
+        BasicCommandExecutor executor = (name, event) -> {
+            if(event != null) {
+                event.getTextChannel().sendMessage("Goodbye.").queue();
+            }
+            Log.sendMessage(0, "Goodbye.");
+            System.exit(0);
+            return null;
+        };
+        BasicCommand basicCommand = new BasicCommand("Core", "End", "Shutdown the bot!", 10, executor);
+
+        registerBasicCommand(basicCommand);
+    }
+
+    public void registerCommand(FullCommand command) {
         addObject(command);
         if(!getCache("modules").isCached(command.getModule()))
             getCache("modules").putObject(command.getModule(), new ArrayList<>());
@@ -36,17 +81,44 @@ public class CommandManager extends ManagerParent {
             getCache("activators").putObject(activator.toLowerCase(), command);
     }
 
+    public void registerBasicCommand(BasicCommand command) {
+        if(!basicCommandsByModule.containsKey(command.getModule())) {
+            basicCommandsByModule.put(command.getModule(), new Vector<>());
+        }
+        basicCommandsByModule.get(command.getModule()).add(command);
+
+        if(!basicCommandsByName.containsKey(command.getName().toLowerCase())) {
+            basicCommandsByName.put(command.getName().toLowerCase(), command);
+        } else {
+            Log.sendMessage(2, "Command (" + command.getName() + ") already exists!");
+        }
+    }
+
     public boolean runCommand(String input, MessageReceivedEvent event) {
         String commandInput = input.split(" ")[0].toLowerCase();
         String[] args = Arrays.copyOfRange(input.split(" "), 1, input.split(" ").length);
 
+        if(runLegacyCommand(commandInput, args, event)) {
+            return true;
+        } else if(runBasicCommand(commandInput, args, event)){
+            return true;
+        }
+
+        if(event == null) {
+            Log.sendMessage(2, "Unknown command, type \"?\" for a list of available commands.");
+            return false;
+        }
+
+        return false;
+    }
+
+    public boolean runLegacyCommand(String commandInput, String[] args, MessageReceivedEvent event) {
         if(getCache("activators").isCached(commandInput)) {
-            Command command = (Command)getCache("activators").getObject(commandInput);
+            FullCommand command = (FullCommand)getCache("activators").getObject(commandInput);
             if(event != null) {
-//                if(!DiscordCore.getInstance().getStaffManager().isAuthorized(event.getAuthor().getId(), command.getStaffLevel())) {
-//                    return true;
-//                }
-                // MUST FIX BEFORE PUBLIC RELEASE / TESTING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                if(!DiscordCore.getInstance().getPlatform().getStaffManager().hasPermission(event.getAuthor(), command.getStaffLevel())) {
+                    return true;
+                }
             }
             Callable<Object> callableTask = () -> {
                 if(!command.run(args, event)) {
@@ -59,17 +131,32 @@ public class CommandManager extends ManagerParent {
             executor.submit(callableTask);
             return true;
         } else {
-            if(event == null) {
-                Log.sendMessage(2, "Unknown command, type \"?\" for a list of available commands.");
-                return false;
-            }
-            return true;
+            return false;
         }
     }
 
-    public ArrayList<Command> getCommandsByModule(String module) {
+    public boolean runBasicCommand(String commandInput, String[] args, MessageReceivedEvent event) {
+        if(basicCommandsByName.containsKey(commandInput.toLowerCase())) {
+            BasicCommand basicCommand = basicCommandsByName.get(commandInput.toLowerCase());
+            if(event != null) {
+                if(!DiscordCore.getInstance().getPlatform().getStaffManager().hasPermission(event.getAuthor(), basicCommand.getStaffLevel())) {
+                    return true;
+                }
+            }
+            Callable<Object> callableTask = () -> {
+                basicCommand.run(args, event);
+                return null;
+            };
+            executor.submit(callableTask);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public ArrayList<FullCommand> getCommandsByModule(String module) {
         if(getCache("modules").isCached(module))
-            return (ArrayList<Command>)getCache("modules").getObject(module);
+            return (ArrayList<FullCommand>)getCache("modules").getObject(module);
         else return null;
     }
 

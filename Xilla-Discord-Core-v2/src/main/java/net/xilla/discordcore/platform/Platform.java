@@ -3,6 +3,7 @@ package net.xilla.discordcore.platform;
 import net.xilla.discordcore.command.CommandManager;
 import net.xilla.discordcore.module.JavaModule;
 import net.xilla.discordcore.module.PythonModule;
+import net.xilla.discordcore.staff.StaffManager;
 
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
@@ -13,12 +14,14 @@ public class Platform {
     private ConcurrentHashMap<String, PythonModule> pythonModules;
     private ConcurrentHashMap<String, JavaModule> javaModules;
     private CommandManager commandManager;
+    private StaffManager staffManager;
 
     public Platform(String type) {
         this.type = type;
         this.pythonModules = new ConcurrentHashMap<>();
         this.javaModules = new ConcurrentHashMap<>();
         this.commandManager = new CommandManager();
+        this.staffManager = new StaffManager();
     }
 
     public String getType() {
@@ -35,6 +38,10 @@ public class Platform {
 
     public CommandManager getCommandManager() {
         return commandManager;
+    }
+
+    public StaffManager getStaffManager() {
+        return staffManager;
     }
 
     public enum getPlatform {

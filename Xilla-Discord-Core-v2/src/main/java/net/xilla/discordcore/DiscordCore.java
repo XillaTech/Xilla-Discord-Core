@@ -3,8 +3,12 @@ package net.xilla.discordcore;
 import com.tobiassteely.tobiasapi.TobiasAPI;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.xilla.discordcore.command.CommandEventHandler;
+import net.xilla.discordcore.command.type.basic.BasicCommand;
+import net.xilla.discordcore.command.type.basic.BasicCommandExecutor;
+import net.xilla.discordcore.command.CommandResponse;
 import net.xilla.discordcore.platform.Platform;
-import net.xilla.discordcore.settings.type.CoreSettings;
+import net.xilla.discordcore.platform.CoreSettings;
 
 import javax.security.auth.login.LoginException;
 
@@ -17,7 +21,7 @@ public class DiscordCore {
     }
 
     public static void main(String[] args) {
-        new DiscordCore(new Platform(Platform.getPlatform.STANDALONE.getPlatform()));
+        new DiscordCore(Platform.getPlatform.STANDALONE.getPlatform());
     }
 
     private TobiasAPI api;
@@ -25,13 +29,13 @@ public class DiscordCore {
     private JDA bot;
     private CoreSettings settings;
 
-    public DiscordCore(Platform platform) {
+    public DiscordCore(String platformType) {
         instance = this;
         this.api = new TobiasAPI(); // Loads base APIs
 
         this.settings = new CoreSettings(); // Loads Core Settings
 
-        this.platform = platform; // Loads the rest of the core
+        this.platform = new Platform(platformType); // Loads the rest of the core
         this.platform.getCommandManager().getCommandWorker().start();
 
         try {
@@ -40,6 +44,7 @@ public class DiscordCore {
             ex.printStackTrace();
         }
 
+        this.bot.addEventListener(new CommandEventHandler());
     }
 
     public JDA getBot() {
