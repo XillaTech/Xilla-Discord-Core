@@ -3,6 +3,7 @@ package net.xilla.discordcore.command;
 import com.tobiassteely.tobiasapi.api.Log;
 import com.tobiassteely.tobiasapi.api.manager.ManagerCache;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.type.basic.BasicCommand;
@@ -38,7 +39,6 @@ public class CommandManager extends ManagerParent {
     }
 
     private void registerPingCommand() {
-        // Ping Command
         BasicCommandExecutor executor = (name, event) -> {
             if(event != null) {
                 long start = System.currentTimeMillis();
@@ -55,7 +55,6 @@ public class CommandManager extends ManagerParent {
     }
 
     private void registerEndCommand() {
-        // Ping Command
         BasicCommandExecutor executor = (name, event) -> {
             if(event != null) {
                 event.getTextChannel().sendMessage("Goodbye.").queue();
@@ -65,6 +64,20 @@ public class CommandManager extends ManagerParent {
             return null;
         };
         BasicCommand basicCommand = new BasicCommand("Core", "End", "Shutdown the bot!", 10, executor);
+
+        registerBasicCommand(basicCommand);
+    }
+
+    public void createSimpleCommand(String command, String description, int staffLevel, String response) {
+        BasicCommandExecutor executor = (name, event) -> new CommandResponse(response);
+        BasicCommand basicCommand = new BasicCommand("Core", command, description, staffLevel, executor);
+
+        registerBasicCommand(basicCommand);
+    }
+
+    public void createSimpleCommand(String command, String description, int staffLevel, EmbedBuilder response) {
+        BasicCommandExecutor executor = (name, event) -> new CommandResponse(response);
+        BasicCommand basicCommand = new BasicCommand("Core", command, description, staffLevel, executor);
 
         registerBasicCommand(basicCommand);
     }

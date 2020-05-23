@@ -1,6 +1,7 @@
 package net.xilla.discordcore;
 
 import com.tobiassteely.tobiasapi.TobiasAPI;
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.xilla.discordcore.command.CommandEventHandler;
@@ -45,6 +46,11 @@ public class DiscordCore {
         }
 
         this.bot.addEventListener(new CommandEventHandler());
+
+        DiscordCore.getInstance().getPlatform().getCommandManager().createSimpleCommand("YouTube", "Sends the YouTube link.", 0, "https://www.youtube.com/");
+
+        EmbedBuilder embedBuilder = new EmbedBuilder().setTitle("YouTube").setDescription("https://www.youtube.com/");
+        DiscordCore.getInstance().getPlatform().getCommandManager().createSimpleCommand("YouTube2", "Sends the YouTube link.", 0, embedBuilder);
     }
 
     public JDA getBot() {
