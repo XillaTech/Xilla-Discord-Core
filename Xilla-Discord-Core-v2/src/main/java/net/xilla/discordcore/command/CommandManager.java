@@ -109,6 +109,7 @@ public class CommandManager extends ManagerParent {
         } else {
             Log.sendMessage(2, "Command (" + command.getName() + ") already exists!");
         }
+
     }
 
     public boolean runCommand(String input, MessageReceivedEvent event) {

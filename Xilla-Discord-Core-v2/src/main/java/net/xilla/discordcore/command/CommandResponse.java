@@ -3,6 +3,9 @@ package net.xilla.discordcore.command;
 import com.tobiassteely.tobiasapi.api.Log;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.TextChannel;
+import net.xilla.discordcore.DiscordCore;
+
+import java.awt.*;
 
 
 public class CommandResponse {
@@ -13,6 +16,8 @@ public class CommandResponse {
     public CommandResponse(EmbedBuilder embed) {
         this.embed = embed;
         this.text = null;
+
+        embed.setColor(Color.decode(DiscordCore.getInstance().getSettings().getEmbedColor()));
     }
 
     public CommandResponse(String text) {

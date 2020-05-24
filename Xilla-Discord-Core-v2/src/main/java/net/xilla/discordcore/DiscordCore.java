@@ -4,6 +4,8 @@ import com.tobiassteely.tobiasapi.TobiasAPI;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.sharding.DefaultShardManagerBuilder;
 import net.xilla.discordcore.command.CommandEventHandler;
 import net.xilla.discordcore.command.CommandManager;
 import net.xilla.discordcore.command.type.basic.BasicCommand;
@@ -43,17 +45,20 @@ public class DiscordCore {
         this.platform.getCommandManager().getCommandWorker().start();
 
         try {
-            this.bot = new JDABuilder(DiscordCore.getInstance().getSettings().getBotToken()).build();
+            JDABuilder shardBuilder = new JDABuilder(settings.getBotToken());
+//
+//            for (int i = 0; i < settings.getShards(); i++) {
+//                shardBuilder.useSharding(i, settings.getShards()).build();
+//            }
+
+            shardBuilder.setActivity(Activity.playing(settings.getActivity()));
+
+            this.bot = shardBuilder.build();
         } catch (LoginException ex) {
             ex.printStackTrace();
         }
 
         this.bot.addEventListener(new CommandEventHandler());
-
-        getCommandManager().createSimpleCommand("YouTube", "Sends the YouTube link.", 0, "https://www.youtube.com/");
-
-        EmbedBuilder embedBuilder = new EmbedBuilder().setTitle("YouTube").setDescription("https://www.youtube.com/");
-        getCommandManager().createSimpleCommand("YouTube2", "Sends the YouTube link.", 0, embedBuilder);
 
         getCommandManager().getTemplateManager().reload();
     }

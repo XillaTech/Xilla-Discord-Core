@@ -1,7 +1,10 @@
 package net.xilla.discordcore.command.type.full;
 
+import com.tobiassteely.tobiasapi.api.Log;
 import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+
+import java.util.Arrays;
 
 public class FullCommand extends ManagerObject {
 

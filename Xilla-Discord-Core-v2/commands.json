@@ -1,10 +1,10 @@
 {
- "Test": {
-  "activators": "test,t",
-  "usage": "test",
-  "name": "Test",
-  "description": "Template command",
-  "text": "This is a test command",
+ "YouTube": {
+  "activators": "youtube,yt",
+  "usage": "youtube",
+  "name": "YouTube",
+  "description": "Get my YouTube link",
+  "text": "https://www.youtube.com/channel/UCFikMfumXwTXRfZbAy0h3VQ?view_as=subscriber",
   "type": "Text",
   "staffLevel": "0"
  }

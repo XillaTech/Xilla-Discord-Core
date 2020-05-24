@@ -1,5 +1,6 @@
 package net.xilla.discordcore.command.type.template;
 
+import com.tobiassteely.tobiasapi.api.Log;
 import com.tobiassteely.tobiasapi.api.config.Config;
 import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
