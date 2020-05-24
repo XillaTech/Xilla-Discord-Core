@@ -4,7 +4,6 @@ import com.tobiassteely.tobiasapi.api.config.Config;
 import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
 import net.dv8tion.jda.api.entities.Role;
 import net.xilla.discordcore.DiscordCore;
-import org.jetbrains.annotations.NotNull;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
@@ -16,16 +15,16 @@ public class Group extends ManagerObject {
 
     private int staffLevel;
     private String groupID;
-    private ArrayList<String> userIds;
+    private ArrayList<String> userIDs;
 
-    public Group(String groupName, int staffLevel, String groupID, String... userIDs) {
+    public Group(String groupName, int staffLevel, String groupID, ArrayList<String> userIDs) {
         super(groupName);
         this.staffLevel = staffLevel;
         this.groupID = groupID;
         if(userIDs != null) {
-            this.userIds = new ArrayList<>(userIds);
+            this.userIDs = new ArrayList<>(userIDs);
         } else {
-            this.userIds = new ArrayList<>();
+            this.userIDs = new ArrayList<>();
         }
     }
 

@@ -13,16 +13,16 @@ public class GroupManager extends ManagerParent {
     public void reload() {
         super.reload();
 
-        Config config = DiscordCore.getInstance().getApi().getConfigManager().getConfig("staff.json");
+        Config config = DiscordCore.getInstance().getApi().getConfigManager().getConfig("staff/groups.json");
         JSONObject json = config.toJson();
         for(Object key : json.keySet()) {
             Group staff = new Group(config.getMap((String)key));
-            addStaff(staff);
+            registerStaff(staff);
         }
     }
 
     public void save() {
-        Config config = DiscordCore.getInstance().getApi().getConfigManager().getConfig("staff.json");
+        Config config = DiscordCore.getInstance().getApi().getConfigManager().getConfig("staff/groups.json");
         for(ManagerObject object : getList()) {
             Group staff = (Group)object;
             config.toJson().put(staff.getKey(), staff.toJson());
@@ -41,7 +41,6 @@ public class GroupManager extends ManagerParent {
         return staffList;
     }
 
-
     public boolean isAuthorized(String id, int level) {
         if(level == 0)
             return true;
@@ -57,7 +56,7 @@ public class GroupManager extends ManagerParent {
         return (Group)getObjectWithKey(name);
     }
 
-    public void addStaff(Group staff) {
+    public void registerStaff(Group staff) {
         super.addObject(staff);
     }
     

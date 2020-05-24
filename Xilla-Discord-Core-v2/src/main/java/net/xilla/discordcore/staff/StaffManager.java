@@ -81,4 +81,5 @@ public class StaffManager extends ManagerParent {
     public void addGroup(Group staff) {
         super.addObject(staff);
     }
+
 }
