@@ -25,8 +25,8 @@ public class DepartmentManager extends ManagerParent {
     public void save() {
         Config config = DiscordCore.getInstance().getApi().getConfigManager().getConfig("staff/departments.json");
         for(ManagerObject object : getList()) {
-            Group staff = (Group)object;
-            config.toJson().put(staff.getKey(), staff.toJson());
+            Department department = (Department) object;
+            config.toJson().put(department.getKey(), department.toJson());
         }
         config.save();
     }

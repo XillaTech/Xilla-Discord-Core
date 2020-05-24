@@ -62,7 +62,7 @@ public class Group extends ManagerObject {
         return roleIDs.contains(groupID);
     }
 
-    public org.json.simple.JSONObject toJson() {
+    public JSONObject toJson() {
         HashMap<String, String> map = new HashMap<>();
         map.put("name", getKey());
         map.put("level", "" + staffLevel);
