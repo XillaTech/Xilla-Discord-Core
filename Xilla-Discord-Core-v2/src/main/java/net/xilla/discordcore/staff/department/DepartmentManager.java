@@ -11,10 +11,14 @@ import java.util.ArrayList;
 
 public class DepartmentManager extends ManagerParent {
 
+    public DepartmentManager() {
+        super(true);
+    }
+
     public void reload() {
         super.reload();
 
-        Config config = DiscordCore.getInstance().getApi().getConfigManager().getConfig("staff/departments.json");
+        Config config = DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("staff/departments.json");
         JSONObject json = config.toJson();
         for(Object key : json.keySet()) {
             Department department = new Department(config.getMap((String)key));
@@ -23,7 +27,7 @@ public class DepartmentManager extends ManagerParent {
     }
 
     public void save() {
-        Config config = DiscordCore.getInstance().getApi().getConfigManager().getConfig("staff/departments.json");
+        Config config = DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("staff/departments.json");
         for(ManagerObject object : getList()) {
             Department department = (Department) object;
             config.toJson().put(department.getKey(), department.toJson());

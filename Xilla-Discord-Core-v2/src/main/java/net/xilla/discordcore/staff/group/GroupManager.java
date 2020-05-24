@@ -10,10 +10,14 @@ import java.util.ArrayList;
 
 public class GroupManager extends ManagerParent {
 
+    public GroupManager() {
+        super(true);
+    }
+
     public void reload() {
         super.reload();
 
-        Config config = DiscordCore.getInstance().getApi().getConfigManager().getConfig("staff/groups.json");
+        Config config = DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("staff/groups.json");
         JSONObject json = config.toJson();
         for(Object key : json.keySet()) {
             Group staff = new Group(config.getMap((String)key));
@@ -22,7 +26,7 @@ public class GroupManager extends ManagerParent {
     }
 
     public void save() {
-        Config config = DiscordCore.getInstance().getApi().getConfigManager().getConfig("staff/groups.json");
+        Config config = DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("staff/groups.json");
         for(ManagerObject object : getList()) {
             Group staff = (Group)object;
             config.toJson().put(staff.getKey(), staff.toJson());

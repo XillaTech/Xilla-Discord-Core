@@ -6,10 +6,13 @@ import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.type.template.type.EmbedCommand;
 import net.xilla.discordcore.command.type.template.type.TextCommand;
-import net.xilla.discordcore.staff.department.Department;
 import org.json.simple.JSONObject;
 
 public class TemplateManager extends ManagerParent {
+
+    public TemplateManager() {
+        super(false);
+    }
 
     public void registerTemplate(TemplateCommand templateCommand) {
         addObject(templateCommand);
@@ -19,7 +22,7 @@ public class TemplateManager extends ManagerParent {
     public void reload() {
         super.reload();
 
-        Config config = DiscordCore.getInstance().getApi().getConfigManager().getConfig("commands.json");
+        Config config = DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("commands.json");
         JSONObject json = config.toJson();
         for(Object key : json.keySet()) {
             String type = config.getMap((String)key).get("type");
@@ -37,7 +40,7 @@ public class TemplateManager extends ManagerParent {
     }
 
     public void save() {
-        Config config = DiscordCore.getInstance().getApi().getConfigManager().getConfig("commands.json");
+        Config config = DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("commands.json");
         for(ManagerObject object : getList()) {
             TemplateCommand templateCommand = (TemplateCommand) object;
             config.toJson().put(templateCommand.getKey(), templateCommand.getJSON());

@@ -5,12 +5,14 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.xilla.discordcore.command.CommandEventHandler;
+import net.xilla.discordcore.command.CommandManager;
 import net.xilla.discordcore.command.type.basic.BasicCommand;
 import net.xilla.discordcore.command.type.basic.BasicCommandExecutor;
 import net.xilla.discordcore.command.CommandResponse;
 import net.xilla.discordcore.command.type.template.type.TextCommand;
 import net.xilla.discordcore.platform.Platform;
 import net.xilla.discordcore.platform.CoreSettings;
+import net.xilla.discordcore.staff.StaffManager;
 
 import javax.security.auth.login.LoginException;
 
@@ -48,23 +50,19 @@ public class DiscordCore {
 
         this.bot.addEventListener(new CommandEventHandler());
 
-        DiscordCore.getInstance().getPlatform().getCommandManager().createSimpleCommand("YouTube", "Sends the YouTube link.", 0, "https://www.youtube.com/");
+        getCommandManager().createSimpleCommand("YouTube", "Sends the YouTube link.", 0, "https://www.youtube.com/");
 
         EmbedBuilder embedBuilder = new EmbedBuilder().setTitle("YouTube").setDescription("https://www.youtube.com/");
-        DiscordCore.getInstance().getPlatform().getCommandManager().createSimpleCommand("YouTube2", "Sends the YouTube link.", 0, embedBuilder);
+        getCommandManager().createSimpleCommand("YouTube2", "Sends the YouTube link.", 0, embedBuilder);
 
-        // String name, String[] activators, String description, String usage, int staffLevel, String text
-        TextCommand textCommand = new TextCommand("Test", new String[] {"test", "t"}, "Template command", "test", 0,  "This is a test command");
-        getPlatform().getCommandManager().getTemplateManager().registerTemplate(textCommand);
-        getPlatform().getCommandManager().getTemplateManager().save();
-
+        getCommandManager().getTemplateManager().reload();
     }
 
     public JDA getBot() {
         return bot;
     }
 
-    public TobiasAPI getApi() {
+    public TobiasAPI getTobiasAPI() {
         return api;
     }
 
@@ -74,5 +72,13 @@ public class DiscordCore {
 
     public CoreSettings getSettings() {
         return settings;
+    }
+
+    public CommandManager getCommandManager() {
+        return getPlatform().getCommandManager();
+    }
+
+    public StaffManager getStaffManager() {
+        return getPlatform().getStaffManager();
     }
 }

@@ -19,6 +19,7 @@ public class StaffManager extends ManagerParent {
     private DepartmentManager departmentManager;
 
     public StaffManager() {
+        super(true);
         this.groupManager = new GroupManager();
         this.departmentManager = new DepartmentManager();
     }
@@ -35,7 +36,7 @@ public class StaffManager extends ManagerParent {
         super.reload();
 
         Log.sendMessage(0, DiscordCore.getInstance().toString());
-        Config config = DiscordCore.getInstance().getApi().getConfigManager().getConfig("staff/groups.json");
+        Config config = DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("staff/groups.json");
         JSONObject json = config.toJson();
         for(Object key : json.keySet()) {
             Group staff = new Group(config.getMap((String)key));
@@ -44,7 +45,7 @@ public class StaffManager extends ManagerParent {
     }
 
     public void save() {
-        Config config = DiscordCore.getInstance().getApi().getConfigManager().getConfig("staff/groups.json");
+        Config config = DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("staff/groups.json");
         for(ManagerObject object : getList()) {
             Group staff = (Group)object;
             config.toJson().put(staff.getKey(), staff.toJson());

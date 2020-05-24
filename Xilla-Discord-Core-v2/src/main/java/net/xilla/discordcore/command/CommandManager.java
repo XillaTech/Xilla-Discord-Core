@@ -23,12 +23,13 @@ public class CommandManager extends ManagerParent {
 
     private ExecutorService executor;
     private CommandWorker commandWorker;
-    private TemplateManager templateManager;
 
     private ConcurrentHashMap<String, Vector<BasicCommand>> basicCommandsByModule;
     private ConcurrentHashMap<String, BasicCommand> basicCommandsByName;
+    private TemplateManager templateManager;
 
     public CommandManager() {
+        super(false);
         addCache("activators", new ManagerCache());
         addCache("modules", new ManagerCache());
         this.executor = Executors.newFixedThreadPool(10);
@@ -176,11 +177,11 @@ public class CommandManager extends ManagerParent {
         else return null;
     }
 
-    public TemplateManager getTemplateManager() {
-        return templateManager;
-    }
-
     public CommandWorker getCommandWorker() {
         return commandWorker;
+    }
+
+    public TemplateManager getTemplateManager() {
+        return templateManager;
     }
 }

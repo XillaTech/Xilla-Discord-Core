@@ -55,7 +55,7 @@ public class Group extends ManagerObject {
     }
 
     public boolean isMember(String id) {
-        Config config = DiscordCore.getInstance().getApi().getConfigManager().getConfig("settings.json");
+        Config config = DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("settings.json");
         ArrayList<String> roleIDs = new ArrayList<>();
         for(Role role : Objects.requireNonNull(Objects.requireNonNull(DiscordCore.getInstance().getBot().getGuildById(config.getString("guildID"))).getMemberById(id)).getRoles())
             roleIDs.add(role.getId());

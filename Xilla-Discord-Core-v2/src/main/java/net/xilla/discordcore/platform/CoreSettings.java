@@ -6,7 +6,7 @@ import net.xilla.discordcore.settings.Settings;
 public class CoreSettings extends Settings {
 
     public CoreSettings() {
-        super(DiscordCore.getInstance().getApi().getConfigManager().getConfig("settings.json"));
+        super(DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("settings.json"));
         getInstaller().install("The discord bot's token from https://discord.com/developers/", "token", "blank");
         getInstaller().install("The discord bot's nickname / public name", "bot-name", "blank");
         getInstaller().install("The discord server's ID", "server-id", "blank");
