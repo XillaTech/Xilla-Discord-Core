@@ -15,7 +15,11 @@ public class TemplateCommand extends FullCommand {
     public boolean run(String[] args, MessageReceivedEvent event) {
         CommandResponse commandResponse = runTemplate(args, event);
         if(commandResponse != null) {
-            commandResponse.send();
+            if(event != null) {
+                commandResponse.send(event.getTextChannel());
+            } else {
+                commandResponse.send();
+            }
         }
 
         return true;

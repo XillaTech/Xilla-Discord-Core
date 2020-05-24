@@ -8,6 +8,7 @@ import net.xilla.discordcore.command.CommandEventHandler;
 import net.xilla.discordcore.command.type.basic.BasicCommand;
 import net.xilla.discordcore.command.type.basic.BasicCommandExecutor;
 import net.xilla.discordcore.command.CommandResponse;
+import net.xilla.discordcore.command.type.template.type.TextCommand;
 import net.xilla.discordcore.platform.Platform;
 import net.xilla.discordcore.platform.CoreSettings;
 
@@ -51,6 +52,12 @@ public class DiscordCore {
 
         EmbedBuilder embedBuilder = new EmbedBuilder().setTitle("YouTube").setDescription("https://www.youtube.com/");
         DiscordCore.getInstance().getPlatform().getCommandManager().createSimpleCommand("YouTube2", "Sends the YouTube link.", 0, embedBuilder);
+
+        // String name, String[] activators, String description, String usage, int staffLevel, String text
+        TextCommand textCommand = new TextCommand("Test", new String[] {"test", "t"}, "Template command", "test", 0,  "This is a test command");
+        getPlatform().getCommandManager().getTemplateManager().registerTemplate(textCommand);
+        getPlatform().getCommandManager().getTemplateManager().save();
+
     }
 
     public JDA getBot() {

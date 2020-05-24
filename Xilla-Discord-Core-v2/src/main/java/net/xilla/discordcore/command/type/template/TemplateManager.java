@@ -13,12 +13,13 @@ public class TemplateManager extends ManagerParent {
 
     public void registerTemplate(TemplateCommand templateCommand) {
         addObject(templateCommand);
+        DiscordCore.getInstance().getPlatform().getCommandManager().registerCommand(templateCommand);
     }
-    
+
     public void reload() {
         super.reload();
 
-        Config config = DiscordCore.getInstance().getApi().getConfigManager().getConfig("templates.json");
+        Config config = DiscordCore.getInstance().getApi().getConfigManager().getConfig("commands.json");
         JSONObject json = config.toJson();
         for(Object key : json.keySet()) {
             String type = config.getMap((String)key).get("type");
@@ -36,7 +37,7 @@ public class TemplateManager extends ManagerParent {
     }
 
     public void save() {
-        Config config = DiscordCore.getInstance().getApi().getConfigManager().getConfig("templates.json");
+        Config config = DiscordCore.getInstance().getApi().getConfigManager().getConfig("commands.json");
         for(ManagerObject object : getList()) {
             TemplateCommand templateCommand = (TemplateCommand) object;
             config.toJson().put(templateCommand.getKey(), templateCommand.getJSON());

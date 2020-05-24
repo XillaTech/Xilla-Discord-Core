@@ -35,6 +35,7 @@ public class TextCommand extends TemplateCommand {
         map.put("staffLevel", "" + getStaffLevel());
         map.put("description", getDescription());
         map.put("usage", getUsage());
+        map.put("type", "Text");
 
         StringBuilder activatorsParsed = new StringBuilder();
         for(int i = 0; i < getActivators().length; i++) {

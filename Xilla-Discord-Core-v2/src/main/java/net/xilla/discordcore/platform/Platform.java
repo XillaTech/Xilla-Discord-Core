@@ -1,6 +1,7 @@
 package net.xilla.discordcore.platform;
 
 import net.xilla.discordcore.command.CommandManager;
+import net.xilla.discordcore.command.type.template.TemplateManager;
 import net.xilla.discordcore.module.JavaModule;
 import net.xilla.discordcore.module.PythonModule;
 import net.xilla.discordcore.staff.StaffManager;

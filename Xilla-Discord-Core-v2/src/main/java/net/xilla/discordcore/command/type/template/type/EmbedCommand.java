@@ -48,6 +48,7 @@ public class EmbedCommand extends TemplateCommand {
     public JSONObject getJSON() {
         HashMap<String, String> map = new HashMap<>();
         map.put("name", getKey());
+        map.put("type", "Embed");
         map.put("staffLevel", "" + getStaffLevel());
         map.put("description", getDescription());
         map.put("usage", getUsage());

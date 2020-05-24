@@ -9,6 +9,7 @@ import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.type.basic.BasicCommand;
 import net.xilla.discordcore.command.type.basic.BasicCommandExecutor;
 import net.xilla.discordcore.command.type.full.FullCommand;
+import net.xilla.discordcore.command.type.template.TemplateManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,6 +23,7 @@ public class CommandManager extends ManagerParent {
 
     private ExecutorService executor;
     private CommandWorker commandWorker;
+    private TemplateManager templateManager;
 
     private ConcurrentHashMap<String, Vector<BasicCommand>> basicCommandsByModule;
     private ConcurrentHashMap<String, BasicCommand> basicCommandsByName;
@@ -33,6 +35,7 @@ public class CommandManager extends ManagerParent {
         this.commandWorker = new CommandWorker();
         this.basicCommandsByModule = new ConcurrentHashMap<>();
         this.basicCommandsByName = new ConcurrentHashMap<>();
+        this.templateManager = new TemplateManager();
 
         registerPingCommand();
         registerEndCommand();
@@ -171,6 +174,10 @@ public class CommandManager extends ManagerParent {
         if(getCache("modules").isCached(module))
             return (ArrayList<FullCommand>)getCache("modules").getObject(module);
         else return null;
+    }
+
+    public TemplateManager getTemplateManager() {
+        return templateManager;
     }
 
     public CommandWorker getCommandWorker() {
