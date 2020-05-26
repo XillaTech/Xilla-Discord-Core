@@ -7,11 +7,21 @@ public class CoreSettings extends Settings {
 
     public CoreSettings() {
         super(DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("settings.json"));
-        getInstaller().install("The discord bot's token from https://discord.com/developers/", "token", "blank");
-        getInstaller().install("The discord bot's nickname / public name", "bot-name", "blank");
-        getInstaller().install("The discord bot's embed coloring (#000000)", "embed-color", "blank");
-        getInstaller().install("The prefix for all commands (-)", "command-prefix", "blank");
-        getInstaller().install("The bot's current activity or game being played", "activity", "blank");
+
+        if(DiscordCore.getInstance().getType().equals(Platform.getPlatform.STANDALONE.getName())) {
+            getInstaller().install("The discord bot's token from https://discord.com/developers/", "token", "blank");
+            getInstaller().install("The discord bot's nickname / public name", "bot-name", "blank");
+            getInstaller().install("The discord bot's embed coloring (#000000)", "embed-color", "blank");
+            getInstaller().install("The prefix for all commands (-)", "command-prefix", "blank");
+            getInstaller().install("The bot's current activity or game being played", "activity", "blank");
+        } else {
+            getConfig().loadDefault("token", "bottoken");
+            getConfig().loadDefault("bot-name", "Sever Name");
+            getConfig().loadDefault("embed-color", "#42daf5");
+            getConfig().loadDefault("command-prefix", "-");
+            getConfig().loadDefault("activity", "mc.serverip.com");
+            getConfig().save();
+        }
         if(getConfig().loadDefault("shards", 1))
             getConfig().save();
 
@@ -36,7 +46,7 @@ public class CoreSettings extends Settings {
     public String getActivity() {
         return getConfig().getString("activity");
     }
-    
+
     public int getShards() {
         try {
             return getConfig().getInt("shards");

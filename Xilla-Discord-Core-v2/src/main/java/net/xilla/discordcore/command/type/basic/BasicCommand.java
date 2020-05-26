@@ -19,7 +19,7 @@ public class BasicCommand {
         this.executor = executor;
     }
 
-    public void run(String[] args, MessageReceivedEvent event) {
+    public void run(MessageReceivedEvent event) {
         CommandResponse response = executor.run(name, event);
         if(response != null) {
             if (event == null) {
@@ -28,6 +28,11 @@ public class BasicCommand {
                 response.send(event.getTextChannel());
             }
         }
+    }
+
+    public CommandResponse runWithResponse(MessageReceivedEvent event) {
+        CommandResponse response = executor.run(name, event);
+        return response;
     }
 
     public String getName() {

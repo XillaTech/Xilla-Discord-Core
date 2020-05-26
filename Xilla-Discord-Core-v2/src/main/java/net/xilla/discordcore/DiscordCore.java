@@ -20,36 +20,49 @@ import javax.security.auth.login.LoginException;
 
 public class DiscordCore {
 
-    private static DiscordCore instance;
+    private static DiscordCore instance = null;
 
     public static DiscordCore getInstance() {
         return instance;
     }
 
     public static void main(String[] args) {
-        new DiscordCore(Platform.getPlatform.STANDALONE.getPlatform());
+        new DiscordCore(Platform.getPlatform.STANDALONE.getName(), null);
     }
 
     private TobiasAPI api;
     private Platform platform;
     private JDA bot;
     private CoreSettings settings;
+    private String type;
 
-    public DiscordCore(String platformType) {
+    public DiscordCore(String platform, String baseFolder) {
         instance = this;
-        this.api = new TobiasAPI(); // Loads base APIs
+        this.type = platform;
+
+        if(baseFolder == null) {
+            this.api = new TobiasAPI(); // Loads base APIs
+        } else {
+            this.api = new TobiasAPI(baseFolder, false, true); // Loads base APIs
+        }
 
         this.settings = new CoreSettings(); // Loads Core Settings
 
-        this.platform = new Platform(platformType); // Loads the rest of the core
-        this.platform.getCommandManager().getCommandWorker().start();
+
+        this.platform = new Platform(platform); // Loads the rest of the core
+
+        if(platform.equals(Platform.getPlatform.STANDALONE.getName())) {
+            this.platform.getCommandManager().getCommandWorker().start();
+        }
 
         try {
             JDABuilder shardBuilder = new JDABuilder(settings.getBotToken());
-//
-//            for (int i = 0; i < settings.getShards(); i++) {
-//                shardBuilder.useSharding(i, settings.getShards()).build();
-//            }
+
+            for (int i = 0; i < settings.getShards(); i++) {
+                shardBuilder.useSharding(i, settings.getShards()).build();
+            }
+
+            shardBuilder.addEventListeners(new CommandEventHandler());
 
             shardBuilder.setActivity(Activity.playing(settings.getActivity()));
 
@@ -57,8 +70,6 @@ public class DiscordCore {
         } catch (LoginException ex) {
             ex.printStackTrace();
         }
-
-        this.bot.addEventListener(new CommandEventHandler());
 
         getCommandManager().getTemplateManager().reload();
     }
@@ -85,5 +96,9 @@ public class DiscordCore {
 
     public StaffManager getStaffManager() {
         return getPlatform().getStaffManager();
+    }
+
+    public String getType() {
+        return type;
     }
 }

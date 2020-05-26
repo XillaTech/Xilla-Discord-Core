@@ -8,7 +8,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.type.basic.BasicCommand;
 import net.xilla.discordcore.command.type.basic.BasicCommandExecutor;
-import net.xilla.discordcore.command.type.full.FullCommand;
+import net.xilla.discordcore.command.type.legacy.LegacyCommand;
 import net.xilla.discordcore.command.type.template.TemplateManager;
 
 import java.util.ArrayList;
@@ -86,7 +86,7 @@ public class CommandManager extends ManagerParent {
         registerBasicCommand(basicCommand);
     }
 
-    public void registerCommand(FullCommand command) {
+    public void registerCommand(LegacyCommand command) {
         addObject(command);
         if(!getCache("modules").isCached(command.getModule()))
             getCache("modules").putObject(command.getModule(), new ArrayList<>());
@@ -130,9 +130,23 @@ public class CommandManager extends ManagerParent {
         return false;
     }
 
+    public boolean runGameCommand(String input) {
+        String commandInput = input.split(" ")[0].toLowerCase();
+        String[] args = Arrays.copyOfRange(input.split(" "), 1, input.split(" ").length);
+
+        if(runLegacyCommand(commandInput, args, null)) {
+            return true;
+        } else if(runBasicCommand(commandInput, args, null)){
+            return true;
+        }
+
+        runLegacyCommand("help", new String[] {}, null);
+        return true;
+    }
+
     public boolean runLegacyCommand(String commandInput, String[] args, MessageReceivedEvent event) {
         if(getCache("activators").isCached(commandInput)) {
-            FullCommand command = (FullCommand)getCache("activators").getObject(commandInput);
+            LegacyCommand command = (LegacyCommand)getCache("activators").getObject(commandInput);
             if(event != null) {
                 if(!DiscordCore.getInstance().getPlatform().getStaffManager().hasPermission(event.getAuthor(), command.getStaffLevel())) {
                     return true;
@@ -162,7 +176,7 @@ public class CommandManager extends ManagerParent {
                 }
             }
             Callable<Object> callableTask = () -> {
-                basicCommand.run(args, event);
+                basicCommand.run(event);
                 return null;
             };
             executor.submit(callableTask);
@@ -172,9 +186,9 @@ public class CommandManager extends ManagerParent {
         }
     }
 
-    public ArrayList<FullCommand> getCommandsByModule(String module) {
+    public ArrayList<LegacyCommand> getCommandsByModule(String module) {
         if(getCache("modules").isCached(module))
-            return (ArrayList<FullCommand>)getCache("modules").getObject(module);
+            return (ArrayList<LegacyCommand>)getCache("modules").getObject(module);
         else return null;
     }
 

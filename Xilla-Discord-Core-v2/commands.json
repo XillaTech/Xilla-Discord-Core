@@ -5,7 +5,17 @@
   "name": "YouTube",
   "description": "Get my YouTube link",
   "text": "https://www.youtube.com/channel/UCFikMfumXwTXRfZbAy0h3VQ?view_as=subscriber",
-  "type": "Text",
+  "type": "Embed",
+  "title": "Youtube",
+  "color": "#eb4034",
   "staffLevel": "0"
- }
+ }, "Minecraft": {
+ "activators": "minecraft,ip,server",
+ "usage": "ip",
+ "name": "Minecraft",
+ "description": "Get the server IP",
+ "text": "mc.breakoutinc.net",
+ "type": "Text",
+ "staffLevel": "0"
+}
 }

@@ -6,6 +6,7 @@ import net.xilla.discordcore.command.CommandResponse;
 import net.xilla.discordcore.command.type.template.TemplateCommand;
 import org.json.simple.JSONObject;
 
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,6 +15,7 @@ public class EmbedCommand extends TemplateCommand {
     private String title;
     private String text;
     private String footer;
+    private Color color;
 
     public EmbedCommand(String name, String[] activators, String description, String usage, int staffLevel, String title, String text, String footer) {
         super(name, activators, description, usage, staffLevel);
@@ -27,6 +29,11 @@ public class EmbedCommand extends TemplateCommand {
         this.title = map.get("title");
         this.text = map.get("text");
         this.footer = map.get("footer");
+        if(map.containsKey("color")) {
+            this.color = Color.decode(map.get("color"));
+        } else {
+            this.color = null;
+        }
     }
 
     @Override
@@ -40,6 +47,10 @@ public class EmbedCommand extends TemplateCommand {
         }
         if(footer != null) {
             embedBuilder.setTitle(footer);
+        }
+        if(color != null) {
+            embedBuilder.setColor(color);
+            return new CommandResponse(embedBuilder, false);
         }
         return new CommandResponse(embedBuilder);
     }
@@ -71,6 +82,9 @@ public class EmbedCommand extends TemplateCommand {
         }
         if(footer != null) {
             map.put("footer", footer);
+        }
+        if(color != null) {
+            map.put("color", color.toString());
         }
 
         return new JSONObject(map);

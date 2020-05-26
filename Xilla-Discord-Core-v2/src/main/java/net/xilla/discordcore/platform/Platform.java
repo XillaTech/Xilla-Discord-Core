@@ -3,9 +3,12 @@ package net.xilla.discordcore.platform;
 import net.xilla.discordcore.command.CommandManager;
 import net.xilla.discordcore.command.type.template.TemplateManager;
 import net.xilla.discordcore.module.ModuleManager;
+import net.xilla.discordcore.module.cmd.ModulesCommand;
 import net.xilla.discordcore.module.type.JavaModule;
 import net.xilla.discordcore.module.type.PythonModule;
+import net.xilla.discordcore.platform.cmd.HelpCommand;
 import net.xilla.discordcore.staff.StaffManager;
+import net.xilla.discordcore.staff.cmd.StaffCommand;
 
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -21,6 +24,10 @@ public class Platform {
         this.commandManager = new CommandManager();
         this.staffManager = new StaffManager();
         this.moduleManager = new ModuleManager();
+
+        this.commandManager.registerCommand(new HelpCommand());
+        this.commandManager.registerCommand(new ModulesCommand());
+        this.commandManager.registerCommand(new StaffCommand());
     }
 
     public String getType() {
@@ -40,8 +47,8 @@ public class Platform {
     }
 
     public enum getPlatform {
-//        BUNGEE("BUNGEE"),
-//        SPIGOT("SPIGOT"),
+        BUNGEE("BUNGEE"),
+        SPIGOT("SPIGOT"),
         STANDALONE("STANDALONE");
 
         private String platform;
@@ -50,7 +57,7 @@ public class Platform {
             this.platform = str;
         }
 
-        public String getPlatform() {
+        public String getName() {
             return platform;
         }
     }

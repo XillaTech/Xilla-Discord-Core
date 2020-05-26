@@ -1,0 +1,10 @@
+name: DiscordCore
+version: 2.0.0
+main: net.xilla.discordcore.DiscordCoreSpigot
+description: A powerful discord API.
+author: Alontrle
+commands:
+  discordcore:
+    usage: /<command>
+    description: "Manage DiscordCore."
+    permission: discordcore.admin
