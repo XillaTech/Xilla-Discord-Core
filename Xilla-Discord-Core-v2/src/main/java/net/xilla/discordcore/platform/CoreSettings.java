@@ -8,13 +8,16 @@ public class CoreSettings extends Settings {
     public CoreSettings() {
         super(DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("settings.json"));
 
-        if(DiscordCore.getInstance().getType().equals(Platform.getPlatform.STANDALONE.getName())) {
+        // Loads settings
+        if(DiscordCore.getInstance().getType().equals(Platform.getPlatform.STANDALONE.name)) {
+            // Fancy installer for standalone
             getInstaller().install("The discord bot's token from https://discord.com/developers/", "token", "blank");
             getInstaller().install("The discord bot's nickname / public name", "bot-name", "blank");
             getInstaller().install("The discord bot's embed coloring (#000000)", "embed-color", "blank");
             getInstaller().install("The prefix for all commands (-)", "command-prefix", "blank");
             getInstaller().install("The bot's current activity or game being played", "activity", "blank");
         } else {
+            // Just setting up the config for other platforms
             getConfig().loadDefault("token", "bottoken");
             getConfig().loadDefault("bot-name", "Sever Name");
             getConfig().loadDefault("embed-color", "#42daf5");
@@ -22,6 +25,8 @@ public class CoreSettings extends Settings {
             getConfig().loadDefault("activity", "mc.serverip.com");
             getConfig().save();
         }
+
+        // Discord sharding doesn't need an installer as you only need it for bots in >2,500 servers
         if(getConfig().loadDefault("shards", 1))
             getConfig().save();
 

@@ -2,6 +2,7 @@ package net.xilla.discordcore.staff.group;
 
 import com.tobiassteely.tobiasapi.api.config.Config;
 import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Role;
 import net.xilla.discordcore.DiscordCore;
 import org.json.simple.JSONObject;
@@ -54,10 +55,10 @@ public class Group extends ManagerObject {
         this.groupID = groupID;
     }
 
-    public boolean isMember(String id) {
+    public boolean isMember(Guild guild, String id) {
         Config config = DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("settings.json");
         ArrayList<String> roleIDs = new ArrayList<>();
-        for(Role role : Objects.requireNonNull(Objects.requireNonNull(DiscordCore.getInstance().getBot().getGuildById(config.getString("guildID"))).getMemberById(id)).getRoles())
+        for(Role role : guild.getMemberById(id).getRoles())
             roleIDs.add(role.getId());
         return roleIDs.contains(groupID);
     }

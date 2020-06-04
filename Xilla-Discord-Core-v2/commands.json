@@ -1,21 +1,11 @@
 {
- "YouTube": {
-  "activators": "youtube,yt",
-  "usage": "youtube",
-  "name": "YouTube",
-  "description": "Get my YouTube link",
-  "text": "https://www.youtube.com/channel/UCFikMfumXwTXRfZbAy0h3VQ?view_as=subscriber",
-  "type": "Embed",
-  "title": "Youtube",
-  "color": "#eb4034",
+ "Minecraft": {
+  "activators": "minecraft,mc,ip,server,play",
+  "usage": "ip",
+  "name": "Minecraft",
+  "description": "Get the server IP",
+  "text": "mc.breakoutinc.net",
+  "type": "Text",
   "staffLevel": "0"
- }, "Minecraft": {
- "activators": "minecraft,ip,server",
- "usage": "ip",
- "name": "Minecraft",
- "description": "Get the server IP",
- "text": "mc.breakoutinc.net",
- "type": "Text",
- "staffLevel": "0"
-}
+ }
 }

@@ -20,7 +20,7 @@ public class DiscordCoreBungee extends Plugin {
 
     @Override
     public void onEnable(){
-        new DiscordCore(Platform.getPlatform.BUNGEE.getName(), getDataFolder().toString());
+        new DiscordCore(Platform.getPlatform.BUNGEE.name, getDataFolder().toString());
         getProxy().getPluginManager().registerCommand(this, new BungeeCommand());
     }
 

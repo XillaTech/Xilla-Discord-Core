@@ -43,7 +43,7 @@ public class CommandManager extends ManagerParent {
     }
 
     private void registerPingCommand() {
-        BasicCommandExecutor executor = (name, event) -> {
+        BasicCommandExecutor executor = (name, args, event) -> {
             if(event != null) {
                 long start = System.currentTimeMillis();
                 event.getTextChannel().sendMessage("Pong!").complete().editMessage("Pong! (" + (System.currentTimeMillis() - start) + "ms)").queue();
@@ -59,7 +59,7 @@ public class CommandManager extends ManagerParent {
     }
 
     private void registerEndCommand() {
-        BasicCommandExecutor executor = (name, event) -> {
+        BasicCommandExecutor executor = (name, args, event) -> {
             if(event != null) {
                 event.getTextChannel().sendMessage("Goodbye.").queue();
             }
@@ -72,15 +72,35 @@ public class CommandManager extends ManagerParent {
         registerBasicCommand(basicCommand);
     }
 
+    private void registereeEndCommand() {
+
+        BasicCommandExecutor executor = (name, args, event) -> {
+            String title = args[0];
+            StringBuilder message = new StringBuilder();
+            for(int i = 1; i < args.length; i++) {
+                message.append(args[i]);
+
+                if(i != args.length - 1) {
+                    message.append(args[i]).append(" ");
+                }
+            }
+
+            return new CommandResponse(new EmbedBuilder().setTitle(title).setDescription(message.toString()));
+        };
+        BasicCommand basicCommand = new BasicCommand("Core", "Embed", "Embed a message!", 5, executor);
+
+        registerBasicCommand(basicCommand);
+    }
+
     public void createSimpleCommand(String command, String description, int staffLevel, String response) {
-        BasicCommandExecutor executor = (name, event) -> new CommandResponse(response);
+        BasicCommandExecutor executor = (name, args, event) -> new CommandResponse(response);
         BasicCommand basicCommand = new BasicCommand("Core", command, description, staffLevel, executor);
 
         registerBasicCommand(basicCommand);
     }
 
     public void createSimpleCommand(String command, String description, int staffLevel, EmbedBuilder response) {
-        BasicCommandExecutor executor = (name, event) -> new CommandResponse(response);
+        BasicCommandExecutor executor = (name, args, event) -> new CommandResponse(response);
         BasicCommand basicCommand = new BasicCommand("Core", command, description, staffLevel, executor);
 
         registerBasicCommand(basicCommand);
@@ -148,7 +168,7 @@ public class CommandManager extends ManagerParent {
         if(getCache("activators").isCached(commandInput)) {
             LegacyCommand command = (LegacyCommand)getCache("activators").getObject(commandInput);
             if(event != null) {
-                if(!DiscordCore.getInstance().getPlatform().getStaffManager().hasPermission(event.getAuthor(), command.getStaffLevel())) {
+                if(!DiscordCore.getInstance().getPlatform().getStaffManager().hasPermission(event.getGuild(), event.getAuthor(), command.getStaffLevel())) {
                     return true;
                 }
             }
@@ -171,12 +191,12 @@ public class CommandManager extends ManagerParent {
         if(basicCommandsByName.containsKey(commandInput.toLowerCase())) {
             BasicCommand basicCommand = basicCommandsByName.get(commandInput.toLowerCase());
             if(event != null) {
-                if(!DiscordCore.getInstance().getPlatform().getStaffManager().hasPermission(event.getAuthor(), basicCommand.getStaffLevel())) {
+                if(!DiscordCore.getInstance().getPlatform().getStaffManager().hasPermission(event.getGuild(), event.getAuthor(), basicCommand.getStaffLevel())) {
                     return true;
                 }
             }
             Callable<Object> callableTask = () -> {
-                basicCommand.run(event);
+                basicCommand.run(event, args);
                 return null;
             };
             executor.submit(callableTask);
@@ -194,6 +214,14 @@ public class CommandManager extends ManagerParent {
 
     public CommandWorker getCommandWorker() {
         return commandWorker;
+    }
+
+    public ConcurrentHashMap<String, BasicCommand> getBasicCommandsByName() {
+        return basicCommandsByName;
+    }
+
+    public ConcurrentHashMap<String, Vector<BasicCommand>> getBasicCommandsByModule() {
+        return basicCommandsByModule;
     }
 
     public TemplateManager getTemplateManager() {

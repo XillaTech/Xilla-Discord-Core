@@ -1,6 +1,7 @@
 package net.xilla.discordcore.module;
 
 import com.tobiassteely.tobiasapi.TobiasAPI;
+import com.tobiassteely.tobiasapi.api.config.ConfigManager;
 import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandManager;
@@ -58,6 +59,10 @@ public class Module extends ManagerObject {
 
     public StaffManager getStaffManager() {
         return DiscordCore.getInstance().getPlatform().getStaffManager();
+    }
+
+    public ConfigManager getConfigManager() {
+        return DiscordCore.getInstance().getTobiasAPI().getConfigManager();
     }
 
 }

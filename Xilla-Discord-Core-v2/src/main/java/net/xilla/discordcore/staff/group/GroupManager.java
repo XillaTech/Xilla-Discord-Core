@@ -3,6 +3,7 @@ package net.xilla.discordcore.staff.group;
 import com.tobiassteely.tobiasapi.api.config.Config;
 import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
+import net.dv8tion.jda.api.entities.Guild;
 import net.xilla.discordcore.DiscordCore;
 import org.json.simple.JSONObject;
 
@@ -34,22 +35,22 @@ public class GroupManager extends ManagerParent {
         config.save();
     }
 
-    public ArrayList<Group> getStaffByUserId(String id) {
+    public ArrayList<Group> getStaffByUserId(Guild guild, String id) {
         ArrayList<Group> staffList = new ArrayList<>();
         for(Object object : getList()) {
             Group staff = (Group)object;
-            if(staff.isMember(id)) {
+            if(staff.isMember(guild, id)) {
                 staffList.add(staff);
             }
         }
         return staffList;
     }
 
-    public boolean isAuthorized(String id, int level) {
+    public boolean isAuthorized(Guild guild, String id, int level) {
         if(level == 0)
             return true;
 
-        ArrayList<Group> staffList = getStaffByUserId(id);
+        ArrayList<Group> staffList = getStaffByUserId(guild, id);
         for(Group staff : staffList)
             if(staff.getLevel() >= level)
                 return true;
@@ -61,7 +62,7 @@ public class GroupManager extends ManagerParent {
     }
 
     public void registerStaff(Group staff) {
-        super.addObject(staff);
+        addObject(staff);
     }
     
 }

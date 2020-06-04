@@ -12,6 +12,7 @@ import net.xilla.discordcore.command.type.basic.BasicCommand;
 import net.xilla.discordcore.command.type.basic.BasicCommandExecutor;
 import net.xilla.discordcore.command.CommandResponse;
 import net.xilla.discordcore.command.type.template.type.TextCommand;
+import net.xilla.discordcore.module.ModuleManager;
 import net.xilla.discordcore.platform.Platform;
 import net.xilla.discordcore.platform.CoreSettings;
 import net.xilla.discordcore.staff.StaffManager;
@@ -27,7 +28,7 @@ public class DiscordCore {
     }
 
     public static void main(String[] args) {
-        new DiscordCore(Platform.getPlatform.STANDALONE.getName(), null);
+        new DiscordCore(Platform.getPlatform.STANDALONE.name, null);
     }
 
     private TobiasAPI api;
@@ -35,26 +36,31 @@ public class DiscordCore {
     private JDA bot;
     private CoreSettings settings;
     private String type;
+    private ModuleManager moduleManager;
 
     public DiscordCore(String platform, String baseFolder) {
         instance = this;
         this.type = platform;
 
+        // Loads base APIs
         if(baseFolder == null) {
-            this.api = new TobiasAPI(); // Loads base APIs
+            this.api = new TobiasAPI(); // Loads from the base server
         } else {
             this.api = new TobiasAPI(baseFolder, false, true); // Loads base APIs
         }
 
-        this.settings = new CoreSettings(); // Loads Core Settings
+        // Loads Core Settings
+        this.settings = new CoreSettings();
 
+        // Loads the rest of the core
+        this.platform = new Platform(platform);
 
-        this.platform = new Platform(platform); // Loads the rest of the core
-
-        if(platform.equals(Platform.getPlatform.STANDALONE.getName())) {
+        // Loads the commandline if it's not piggy backing off spigot or bungee
+        if(platform.equals(Platform.getPlatform.STANDALONE.name)) {
             this.platform.getCommandManager().getCommandWorker().start();
         }
 
+        // Connects to the discord api
         try {
             JDABuilder shardBuilder = new JDABuilder(settings.getBotToken());
 
@@ -67,11 +73,17 @@ public class DiscordCore {
             shardBuilder.setActivity(Activity.playing(settings.getActivity()));
 
             this.bot = shardBuilder.build();
+
+
         } catch (LoginException ex) {
             ex.printStackTrace();
         }
 
+        // Loads up template commands
         getCommandManager().getTemplateManager().reload();
+
+        // Loads up the modules
+        this.moduleManager = new ModuleManager(baseFolder);
     }
 
     public JDA getBot() {
@@ -101,4 +113,9 @@ public class DiscordCore {
     public String getType() {
         return type;
     }
+
+    public ModuleManager getModuleManager() {
+        return moduleManager;
+    }
+
 }

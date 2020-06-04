@@ -7,6 +7,6 @@ import net.xilla.discordcore.command.CommandResponse;
 
 public interface BasicCommandExecutor {
 
-    CommandResponse run(String name, MessageReceivedEvent event);
+    CommandResponse run(String name, String[] args, MessageReceivedEvent event);
 
 }

@@ -20,11 +20,17 @@ import java.util.stream.Stream;
 
 public class ModuleManager extends ManagerParent {
 
-    public ModuleManager() {
+    public ModuleManager(String baseFolder) {
         super(false);
 
         try {
-            Path file = Paths.get("modules/");
+            Path file;
+            if(baseFolder == null) {
+                file = Paths.get("modules/");
+            } else {
+                file = Paths.get(baseFolder + "modules/");
+            }
+
             file.toFile().mkdir();
             Stream<Path> walk = Files.walk(file);
             List<Path> result = walk.filter(Files::isRegularFile).collect(Collectors.toList());

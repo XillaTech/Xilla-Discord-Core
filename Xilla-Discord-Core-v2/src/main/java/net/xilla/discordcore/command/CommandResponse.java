@@ -49,7 +49,7 @@ public class CommandResponse {
 
     public void send() {
         String prefix = "";
-        if(!DiscordCore.getInstance().getPlatform().getType().equals(Platform.getPlatform.STANDALONE.getName())) {
+        if(!DiscordCore.getInstance().getPlatform().getType().equals(Platform.getPlatform.STANDALONE.name)) {
             prefix = "[DiscordCore] ";
         }
         if(text != null) {

@@ -3,6 +3,7 @@ package net.xilla.discordcore.staff.department;
 import com.tobiassteely.tobiasapi.api.config.Config;
 import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
+import net.dv8tion.jda.api.entities.Guild;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.staff.group.Group;
 import org.json.simple.JSONObject;
@@ -47,14 +48,14 @@ public class DepartmentManager extends ManagerParent {
         return departmentList;
     }
 
-    public ArrayList<Department> getDepartmentByUserId(String id) {
+    public ArrayList<Department> getDepartmentByUserId(Guild guild, String id) {
         ArrayList<Department> departmentList = new ArrayList<>();
         for(Object object : getList()) {
             Department department = (Department)object;
 
             for(String groupName : department.getGroupNames()) {
                 Group group = DiscordCore.getInstance().getPlatform().getStaffManager().getGroupManager().getStaff(groupName);
-                if(group.isMember(id)) {
+                if(group.isMember(guild, id)) {
                     departmentList.add(department);
                 }
                 break;

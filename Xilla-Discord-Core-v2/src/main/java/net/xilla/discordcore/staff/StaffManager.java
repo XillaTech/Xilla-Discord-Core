@@ -4,6 +4,7 @@ import com.tobiassteely.tobiasapi.api.Log;
 import com.tobiassteely.tobiasapi.api.config.Config;
 import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.User;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.staff.department.DepartmentManager;
@@ -35,7 +36,6 @@ public class StaffManager extends ManagerParent {
     public void reload() {
         super.reload();
 
-        Log.sendMessage(0, DiscordCore.getInstance().toString());
         Config config = DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("staff/groups.json");
         JSONObject json = config.toJson();
         for(Object key : json.keySet()) {
@@ -53,25 +53,26 @@ public class StaffManager extends ManagerParent {
         config.save();
     }
 
-    public ArrayList<Group> getStaffByUserId(String id) {
+    public ArrayList<Group> getStaffByUserId(Guild guild, String id) {
         ArrayList<Group> staffList = new ArrayList<>();
         for(Object object : getList()) {
             Group staff = (Group)object;
-            if(staff.isMember(id)) {
+            if(staff.isMember(guild, id)) {
                 staffList.add(staff);
             }
         }
         return staffList;
     }
 
-    public boolean hasPermission(User user, int level) {
+    public boolean hasPermission(Guild guild, User user, int level) {
         if(level == 0)
             return true;
 
-        ArrayList<Group> staffList = getStaffByUserId(user.getId());
+        ArrayList<Group> staffList = getStaffByUserId(guild, user.getId());
         for(Group staff : staffList)
             if(staff.getLevel() >= level)
                 return true;
+
         return false;
     }
 

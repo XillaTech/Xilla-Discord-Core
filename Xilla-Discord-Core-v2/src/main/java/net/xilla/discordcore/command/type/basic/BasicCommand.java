@@ -1,5 +1,6 @@
 package net.xilla.discordcore.command.type.basic;
 
+import com.tobiassteely.tobiasapi.api.Log;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.command.CommandResponse;
 
@@ -19,8 +20,9 @@ public class BasicCommand {
         this.executor = executor;
     }
 
-    public void run(MessageReceivedEvent event) {
-        CommandResponse response = executor.run(name, event);
+    public void run(MessageReceivedEvent event, String[] args) {
+        CommandResponse response = executor.run(name, args, event);
+        Log.sendMessage(0, "AA");
         if(response != null) {
             if (event == null) {
                 response.send();
@@ -30,8 +32,8 @@ public class BasicCommand {
         }
     }
 
-    public CommandResponse runWithResponse(MessageReceivedEvent event) {
-        CommandResponse response = executor.run(name, event);
+    public CommandResponse runWithResponse(MessageReceivedEvent event, String[] args) {
+        CommandResponse response = executor.run(name, args, event);
         return response;
     }
 

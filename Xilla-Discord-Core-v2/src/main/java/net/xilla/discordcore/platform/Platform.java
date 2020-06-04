@@ -17,14 +17,13 @@ public class Platform {
     private String type;
     private CommandManager commandManager;
     private StaffManager staffManager;
-    private ModuleManager moduleManager;
 
     public Platform(String type) {
         this.type = type;
         this.commandManager = new CommandManager();
         this.staffManager = new StaffManager();
-        this.moduleManager = new ModuleManager();
 
+        // Registers the commands for the core
         this.commandManager.registerCommand(new HelpCommand());
         this.commandManager.registerCommand(new ModulesCommand());
         this.commandManager.registerCommand(new StaffCommand());
@@ -32,10 +31,6 @@ public class Platform {
 
     public String getType() {
         return type;
-    }
-
-    public ModuleManager getModuleManager() {
-        return moduleManager;
     }
 
     public CommandManager getCommandManager() {
@@ -47,18 +42,15 @@ public class Platform {
     }
 
     public enum getPlatform {
+        // Available platforms
         BUNGEE("BUNGEE"),
         SPIGOT("SPIGOT"),
         STANDALONE("STANDALONE");
 
-        private String platform;
+        public String name;
 
         getPlatform(String str) {
-            this.platform = str;
-        }
-
-        public String getName() {
-            return platform;
+            this.name = str;
         }
     }
 
