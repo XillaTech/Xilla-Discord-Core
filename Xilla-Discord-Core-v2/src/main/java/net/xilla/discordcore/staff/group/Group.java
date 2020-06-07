@@ -1,7 +1,7 @@
 package net.xilla.discordcore.staff.group;
 
-import com.tobiassteely.tobiasapi.api.config.Config;
 import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
+import com.tobiassteely.tobiasapi.config.Config;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Role;
 import net.xilla.discordcore.DiscordCore;

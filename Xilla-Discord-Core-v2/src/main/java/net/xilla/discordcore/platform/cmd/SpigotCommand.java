@@ -16,7 +16,8 @@ public class SpigotCommand implements CommandExecutor {
             for(String str :  args) {
                 message.append(str);
             }
-            DiscordCore.getInstance().getCommandManager().runGameCommand(message.toString());
+            //DiscordCore.getInstance().getCommandManager().runGameCommand(message.toString());
+            sender.sendMessage(ChatColor.RED + "This command is currently disabled.");
         } else {
             sender.sendMessage(ChatColor.RED + "This command is console only.");
         }

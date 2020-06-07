@@ -1,6 +1,5 @@
 package net.xilla.discordcore.platform.cmd;
 
-import com.tobiassteely.tobiasapi.api.Log;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.ComponentBuilder;
@@ -25,7 +24,8 @@ public class BungeeCommand extends Command {
             for(String str :  strings) {
                 message.append(str);
             }
-            DiscordCore.getInstance().getCommandManager().runGameCommand(message.toString());
+            commandSender.sendMessage(new ComponentBuilder("This command is currently disabled.").color(ChatColor.RED).create());
+            //DiscordCore.getInstance().getCommandManager().runGameCommand(message.toString());
         } else {
             commandSender.sendMessage(new ComponentBuilder("This command is console only.").color(ChatColor.RED).create());
         }

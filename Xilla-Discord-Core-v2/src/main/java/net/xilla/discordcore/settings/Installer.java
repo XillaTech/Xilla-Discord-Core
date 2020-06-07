@@ -1,6 +1,6 @@
 package net.xilla.discordcore.settings;
 
-import com.tobiassteely.tobiasapi.api.config.Config;
+import com.tobiassteely.tobiasapi.config.Config;
 
 import java.util.Scanner;
 

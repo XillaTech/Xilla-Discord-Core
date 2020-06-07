@@ -1,13 +1,7 @@
 package net.xilla.discordcore.module;
 
-import com.tobiassteely.tobiasapi.api.Log;
-import com.tobiassteely.tobiasapi.api.config.Config;
-import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
-import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.module.type.JavaModule;
-import net.xilla.discordcore.staff.group.Group;
-import org.json.simple.JSONObject;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -43,8 +37,8 @@ public class ModuleManager extends ManagerParent {
                         ModuleLoader moduleLoader = new ModuleLoader(path, "Java");
                         javaModule = (JavaModule)moduleLoader.getModule();
                     } catch (LoadModuleException ex) {
-                        Log.sendMessage(2, "Module (" + path + ") failed to load...");
-                        Log.sendMessage(2, ex.getMessage());
+                        getLog().sendMessage(2, "Module (" + path + ") failed to load...");
+                        getLog().sendMessage(2, ex.getMessage());
                     }
 
                     if(javaModule != null) {
@@ -61,7 +55,7 @@ public class ModuleManager extends ManagerParent {
 
     @Override
     public void reload() {
-        Log.sendMessage(2, "As of now you cannot reload the module manager. Sorry!");
+        getLog().sendMessage(2, "As of now you cannot reload the module manager. Sorry!");
     }
 
     public void registerModule(Module module) {

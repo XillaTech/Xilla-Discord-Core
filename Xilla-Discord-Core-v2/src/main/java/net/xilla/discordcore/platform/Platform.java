@@ -1,40 +1,31 @@
 package net.xilla.discordcore.platform;
 
-import net.xilla.discordcore.command.CommandManager;
-import net.xilla.discordcore.command.type.template.TemplateManager;
-import net.xilla.discordcore.module.ModuleManager;
+import com.tobiassteely.tobiasapi.api.TobiasObject;
+import net.xilla.discordcore.command.CoreCommandResponse;
+import net.xilla.discordcore.command.template.TemplateManager;
 import net.xilla.discordcore.module.cmd.ModulesCommand;
-import net.xilla.discordcore.module.type.JavaModule;
-import net.xilla.discordcore.module.type.PythonModule;
-import net.xilla.discordcore.platform.cmd.HelpCommand;
 import net.xilla.discordcore.staff.StaffManager;
 import net.xilla.discordcore.staff.cmd.StaffCommand;
 
-import java.util.concurrent.ConcurrentHashMap;
-
-public class Platform {
+public class Platform extends TobiasObject {
 
     private String type;
-    private CommandManager commandManager;
     private StaffManager staffManager;
+    private TemplateManager templateManager;
 
     public Platform(String type) {
         this.type = type;
-        this.commandManager = new CommandManager();
         this.staffManager = new StaffManager();
 
-        // Registers the commands for the core
-        this.commandManager.registerCommand(new HelpCommand());
-        this.commandManager.registerCommand(new ModulesCommand());
-        this.commandManager.registerCommand(new StaffCommand());
+        getCommandManager().setResponse(new CoreCommandResponse());
+        this.templateManager = new TemplateManager();
+
+        getCommandManager().registerCommand(new ModulesCommand().build());
+        getCommandManager().registerCommand(new StaffCommand().build());
     }
 
     public String getType() {
         return type;
-    }
-
-    public CommandManager getCommandManager() {
-        return commandManager;
     }
 
     public StaffManager getStaffManager() {
@@ -54,4 +45,7 @@ public class Platform {
         }
     }
 
+    public TemplateManager getTemplateManager() {
+        return templateManager;
+    }
 }

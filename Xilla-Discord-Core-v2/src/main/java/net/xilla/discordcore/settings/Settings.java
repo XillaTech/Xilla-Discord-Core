@@ -1,14 +1,12 @@
 package net.xilla.discordcore.settings;
 
 import com.tobiassteely.tobiasapi.TobiasAPI;
-import com.tobiassteely.tobiasapi.api.config.Config;
-import com.tobiassteely.tobiasapi.api.config.ConfigManager;
+import com.tobiassteely.tobiasapi.command.CommandManager;
+import com.tobiassteely.tobiasapi.config.Config;
+import com.tobiassteely.tobiasapi.config.ConfigManager;
 import net.xilla.discordcore.DiscordCore;
-import net.xilla.discordcore.command.CommandManager;
 import net.xilla.discordcore.platform.Platform;
 import net.xilla.discordcore.staff.StaffManager;
-
-import java.util.Scanner;
 
 public class Settings {
 

@@ -1,9 +1,8 @@
 package net.xilla.discordcore.staff;
 
-import com.tobiassteely.tobiasapi.api.Log;
-import com.tobiassteely.tobiasapi.api.config.Config;
 import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
+import com.tobiassteely.tobiasapi.config.Config;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.User;
 import net.xilla.discordcore.DiscordCore;
