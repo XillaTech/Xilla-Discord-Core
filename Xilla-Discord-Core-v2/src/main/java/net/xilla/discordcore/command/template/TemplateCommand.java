@@ -1,12 +1,8 @@
 package net.xilla.discordcore.command.template;
 
-import com.tobiassteely.tobiasapi.command.Command;
 import com.tobiassteely.tobiasapi.command.CommandExecutor;
-import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.command.CoreCommand;
 import net.xilla.discordcore.command.CoreCommandExecutor;
-import net.xilla.discordcore.command.event.BungeeCommandEvent;
-import net.xilla.discordcore.command.event.SpigotCommandEvent;
 import org.json.simple.JSONObject;
 
 public class TemplateCommand extends CoreCommand {

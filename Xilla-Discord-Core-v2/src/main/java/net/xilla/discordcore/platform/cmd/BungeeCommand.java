@@ -4,12 +4,6 @@ import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.plugin.Command;
-import net.xilla.discordcore.DiscordCore;
-import net.xilla.discordcore.DiscordCoreBungee;
-import org.bukkit.command.ConsoleCommandSender;
-import org.bukkit.entity.Player;
-
-import java.util.Arrays;
 
 public class BungeeCommand extends Command {
 

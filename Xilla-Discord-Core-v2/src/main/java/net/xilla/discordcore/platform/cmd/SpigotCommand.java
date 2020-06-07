@@ -1,6 +1,5 @@
 package net.xilla.discordcore.platform.cmd;
 
-import net.xilla.discordcore.DiscordCore;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

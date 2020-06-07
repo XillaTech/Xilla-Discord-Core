@@ -8,8 +8,8 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.xilla.discordcore.command.CommandEventHandler;
 import net.xilla.discordcore.module.ModuleManager;
-import net.xilla.discordcore.platform.Platform;
 import net.xilla.discordcore.platform.CoreSettings;
+import net.xilla.discordcore.platform.Platform;
 import net.xilla.discordcore.staff.StaffManager;
 
 import javax.security.auth.login.LoginException;

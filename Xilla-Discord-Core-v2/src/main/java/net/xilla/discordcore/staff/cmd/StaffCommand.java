@@ -2,9 +2,7 @@ package net.xilla.discordcore.staff.cmd;
 
 import com.tobiassteely.tobiasapi.api.TobiasObject;
 import com.tobiassteely.tobiasapi.command.Command;
-import com.tobiassteely.tobiasapi.command.CommandExecutor;
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CoreCommand;
 import net.xilla.discordcore.command.CoreCommandExecutor;

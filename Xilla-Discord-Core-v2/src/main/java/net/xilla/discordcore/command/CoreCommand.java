@@ -5,7 +5,6 @@ import com.tobiassteely.tobiasapi.command.CommandExecutor;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.command.event.BungeeCommandEvent;
 import net.xilla.discordcore.command.event.SpigotCommandEvent;
-import sun.rmi.runtime.Log;
 
 public class CoreCommand extends Command {
 
