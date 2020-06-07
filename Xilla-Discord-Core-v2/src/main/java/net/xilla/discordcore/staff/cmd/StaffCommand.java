@@ -6,17 +6,18 @@ import com.tobiassteely.tobiasapi.command.CommandExecutor;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.DiscordCore;
+import net.xilla.discordcore.command.CoreCommand;
+import net.xilla.discordcore.command.CoreCommandExecutor;
 import net.xilla.discordcore.command.CoreCommandResponse;
 import net.xilla.discordcore.platform.CoreSettings;
 
 public class StaffCommand extends TobiasObject {
 
-    private CommandExecutor executor;
+    private CoreCommandExecutor executor;
 
     // String name, String[] activators, String module, String description, String usage, int staffLevel
     public StaffCommand() {
-        this.executor = (command, args, inputType, data) -> {
-            MessageReceivedEvent event = (MessageReceivedEvent)data[0];
+        this.executor = (name, args, inputType, data) -> {
             if(args.length > 0) {
                 if(args[0].equalsIgnoreCase("groups")) {
                     if(args.length > 1) {
@@ -62,7 +63,7 @@ public class StaffCommand extends TobiasObject {
     }
 
     public Command build() {
-        return new Command("Core", "Staff", new String[] {"staff", "s"}, "staff", "View and manage your staff", 10, executor);
+        return new CoreCommand("Core", "Staff", new String[] {"staff", "s"}, "staff", "View and manage your staff", 10, executor);
     }
 
 }

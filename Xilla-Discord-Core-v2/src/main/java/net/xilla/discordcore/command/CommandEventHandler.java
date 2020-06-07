@@ -13,7 +13,9 @@ public class CommandEventHandler extends ListenerAdapter {
 
             String message = event.getMessage().getContentRaw();
             if (message.length() > commandPrefix.length() && message.substring(0, commandPrefix.length()).equalsIgnoreCase(commandPrefix)) {
-                DiscordCore.getInstance().getCommandManager().runCommand(message.substring(commandPrefix.length()), event.getChannel().getId());
+
+                DiscordCore.getInstance().getCommandManager().runRawCommandInput(message.substring(commandPrefix.length()), CoreCommandExecutor.discord_input, event);
+
             }
         }
     }

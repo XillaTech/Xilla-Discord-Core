@@ -6,6 +6,7 @@ import com.tobiassteely.tobiasapi.command.CommandExecutor;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.DiscordCore;
+import net.xilla.discordcore.command.CoreCommand;
 import net.xilla.discordcore.command.CoreCommandResponse;
 import net.xilla.discordcore.platform.CoreSettings;
 
@@ -42,7 +43,7 @@ public class ModulesCommand extends TobiasObject {
     }
 
     public Command build() {
-        return new Command("Core", "Modules", new String[] {"modules", "m"}, "modules", "View and manage your discord modules", 10, executor);
+        return new CoreCommand("Core", "Modules", new String[] {"modules", "m"}, "modules", "View and manage your discord modules", 10, executor);
     }
 
 }

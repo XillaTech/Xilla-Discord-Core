@@ -15,7 +15,7 @@ public class TextCommand extends TemplateCommand {
     public TextCommand(String name, String[] activators, String description, String usage, int staffLevel, String text) {
         super(name, activators, description, usage, staffLevel, (command, args, inputType, data) -> {
             CoreCommandResponse commandResponse = (CoreCommandResponse)TobiasAPI.getInstance().getCommandManager().getResponse();
-            commandResponse.send(text, inputType);
+            commandResponse.send(text, inputType, data);
         });
         this.text = text;
     }
@@ -23,7 +23,7 @@ public class TextCommand extends TemplateCommand {
     public TextCommand(Map<String, String> map) {
         super(map.get("name"), map.get("activators").split(","), map.get("description"), map.get("usage"), Integer.parseInt(map.get("staffLevel")), (command, args, inputType, data) -> {
             CoreCommandResponse commandResponse = (CoreCommandResponse)TobiasAPI.getInstance().getCommandManager().getResponse();
-            commandResponse.send(map.get("text"), inputType);
+            commandResponse.send(map.get("text"), inputType, data);
         });
         this.text = map.get("text");
     }
