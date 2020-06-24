@@ -1,13 +1,21 @@
 package net.xilla.discordcore.platform;
 
 import com.tobiassteely.tobiasapi.api.TobiasObject;
+import com.tobiassteely.tobiasapi.command.CommandPermissionError;
+import com.tobiassteely.tobiasapi.command.response.CommandResponder;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.command.cmd.HelpCommand;
+import net.xilla.discordcore.command.cmd.ModulesCommand;
 import net.xilla.discordcore.command.response.CoreCommandResponder;
+import net.xilla.discordcore.command.response.CoreCommandResponse;
 import net.xilla.discordcore.command.template.TemplateManager;
-import net.xilla.discordcore.module.cmd.ModulesCommand;
 import net.xilla.discordcore.staff.StaffManager;
-import net.xilla.discordcore.staff.cmd.StaffCommand;
+import net.xilla.discordcore.command.cmd.StaffCommand;
 
-public class Platform extends TobiasObject {
+import java.awt.*;
+
+public class Platform extends CoreObject {
 
     private String type;
     private StaffManager staffManager;
@@ -20,8 +28,17 @@ public class Platform extends TobiasObject {
         getCommandManager().setResponder(new CoreCommandResponder());
         this.templateManager = new TemplateManager();
 
-        //new ModulesCommand();
-        getCommandManager().registerCommand(new StaffCommand().build());
+        new ModulesCommand();
+        new StaffCommand();
+        new HelpCommand();
+
+        getCommandManager().setPermissionError((args, data) -> {
+            EmbedBuilder builder = new EmbedBuilder().setTitle("Error!");
+            builder.setDescription("You do not have permission for that command!");
+            builder.setColor(Color.decode(getCoreSetting().getEmbedColor()));
+
+            return new CoreCommandResponse(data).setEmbed(builder.build());
+        });
     }
 
     public String getType() {

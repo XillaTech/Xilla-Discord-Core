@@ -13,8 +13,8 @@ public class TextCommand extends TemplateCommand {
 
     private String text;
 
-    public TextCommand(String name, String[] activators, String description, String usage, String text) {
-        super(name, activators, description, usage, (command, args, data) -> new CommandResponse(data).setDescription(text));
+    public TextCommand(String name, String[] activators, String description, String usage, String text, String permission) {
+        super(name, activators, description, usage, permission, (command, args, data) -> new CommandResponse(data).setDescription(text));
         this.text = text;
     }
 
@@ -23,6 +23,7 @@ public class TextCommand extends TemplateCommand {
                 map.get("name"),
                 map.get("activators").split(","),
                 map.get("description"), map.get("usage"),
+                map.get("permission"),
                 (command, args, data) -> new CommandResponse(data).setDescription(map.get("text"))
         );
         this.text = map.get("text");
@@ -34,6 +35,7 @@ public class TextCommand extends TemplateCommand {
         map.put("name", getKey());
         map.put("description", getDescription());
         map.put("usage", getUsage());
+        map.put("permission", getPermission());
         map.put("type", "Text");
 
         StringBuilder activatorsParsed = new StringBuilder();

@@ -43,9 +43,7 @@ public class DiscordUser extends CoreObject implements PermissionUser {
 
     @Override
     public boolean hasPermission(String permission) {
-        getLog().sendMessage(0, "permission check: " + permission);
         for(PermissionGroup group : groups) {
-            getLog().sendMessage(0, "permission check g: " + group.getIdentifier());
             if(group.hasPermission(permission)) {
                 return true;
             }

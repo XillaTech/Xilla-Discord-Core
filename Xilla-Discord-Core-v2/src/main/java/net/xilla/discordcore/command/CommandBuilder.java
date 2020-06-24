@@ -13,6 +13,7 @@ public class CommandBuilder extends TobiasObject {
     private String[] activators = null;
     private String usage = null;
     private String description = null;
+    private String permission = null;
     private CommandExecutor commandExecutor = null;
 
     public CommandBuilder CommandBuilder(String module, String name) {
@@ -50,6 +51,11 @@ public class CommandBuilder extends TobiasObject {
         return this;
     }
 
+    public CommandBuilder setPermission(String permission) {
+        this.permission = permission;
+        return this;
+    }
+
     public CommandBuilder setActivators(String... activators) {
         this.activators = activators;
         return this;
@@ -77,7 +83,7 @@ public class CommandBuilder extends TobiasObject {
         if(description == null) {
             this.usage = "Command belongs to module: " + module;
         }
-        Command command = new Command(module, name, activators, usage, description, Collections.singletonList(commandExecutor));
+        Command command = new Command(module, name, activators, usage, description, permission, Collections.singletonList(commandExecutor));
 
         getCommandManager().registerCommand(command);
     }

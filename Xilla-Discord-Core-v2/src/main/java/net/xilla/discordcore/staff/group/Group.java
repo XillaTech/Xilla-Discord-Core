@@ -45,18 +45,18 @@ public class Group extends ManagerObject implements PermissionGroup {
     public boolean hasPermission(String permission) {
         for(String groupPerm : permissions) {
 
-            String[] temp = permission.split(".");
+            String[] temp = permission.split("\\.");
             StringBuilder wildcard = new StringBuilder();
             for(int i = 0; i <= temp.length - 2; i++) {
                 wildcard.append(temp[0]);
             }
-            wildcard.append("*");
-            System.out.println("permission " + permission);
-            System.out.println("wildcard " + wildcard);
+            wildcard.append(".*");
 
-            if(permission.equalsIgnoreCase(groupPerm)) {
+            if(groupPerm.equalsIgnoreCase(permission)) {
                 return true;
-            } else if(permission.equalsIgnoreCase(wildcard.toString())) {
+            } else if(groupPerm.equalsIgnoreCase(wildcard.toString())) {
+                return true;
+            } else if(groupPerm.equalsIgnoreCase("*")) {
                 return true;
             }
         }

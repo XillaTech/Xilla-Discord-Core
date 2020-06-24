@@ -1,0 +1,57 @@
+package net.xilla.discordcore.command.cmd;
+
+import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
+import com.tobiassteely.tobiasapi.command.Command;
+import com.tobiassteely.tobiasapi.command.CommandExecutor;
+import com.tobiassteely.tobiasapi.command.data.CommandData;
+import com.tobiassteely.tobiasapi.command.response.CommandResponse;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.command.response.CoreCommandResponse;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class HelpCommand extends CoreObject {
+
+    public HelpCommand() {
+        Command command = getCommandManager().getCommand("Help");
+
+        ArrayList<CommandExecutor> executors = new ArrayList<>();
+        executors.add((name, args, data) -> {
+            HashMap<String, ArrayList<String>> commands = new HashMap<>();
+
+            for(ManagerObject object : getCommandManager().getList()) {
+                Command legacyCommand = (Command) object;
+                if(!commands.containsKey(legacyCommand.getModule())) {
+                    commands.put(legacyCommand.getModule(), new ArrayList<>());
+                }
+
+                if(legacyCommand.getPermission() == null || data.getUser().hasPermission(legacyCommand.getPermission())) {
+                    commands.get(legacyCommand.getModule()).add(legacyCommand.getUsage() + " - " + legacyCommand.getDescription());
+                }
+            }
+
+            StringBuilder description = new StringBuilder();
+
+            for(String module : commands.keySet()) {
+                ArrayList<String> lines = commands.get(module);
+
+                description.append("**").append(module).append(" Commands**\n");
+                for (String line : lines) {
+                    description.append(line).append("\n");
+                }
+            }
+
+            EmbedBuilder embedBuilder = new EmbedBuilder().setTitle("Available Commands");
+            embedBuilder.setDescription(description.toString());
+            embedBuilder.setColor(Color.decode(getCoreSetting().getEmbedColor()));
+
+            return new CoreCommandResponse(data).setEmbed(embedBuilder.build());
+        });
+
+        command.setExecutors(executors);
+    }
+
+}

@@ -7,6 +7,6 @@
   "Admin": {
     "groupID": "680131160025858066",
     "name": "Admin",
-    "permissions": ["staff.admin"]
+    "permissions": ["staff.admin", "*"]
   }
 }

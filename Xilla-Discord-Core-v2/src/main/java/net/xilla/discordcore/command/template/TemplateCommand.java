@@ -15,8 +15,8 @@ import static org.bukkit.Bukkit.recipeIterator;
 
 public class TemplateCommand extends Command {
 
-    public TemplateCommand(String name, String[] activators, String description, String usage, CommandExecutor executor) {
-        super("Core", name, activators, usage, description, Collections.singletonList(executor));
+    public TemplateCommand(String name, String[] activators, String description, String usage, String permission, CommandExecutor executor) {
+        super("Core", name, activators, usage, description, permission, Collections.singletonList(executor));
     }
 
     @Override
