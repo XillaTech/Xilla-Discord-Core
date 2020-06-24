@@ -1,12 +1,12 @@
 {
   "Mod": {
-    "level": "5",
     "groupID": "680131143617478735",
-    "name": "Mod"
+    "name": "Mod",
+    "permissions": ["permission1", "permission2"]
   },
   "Admin": {
-    "level": "10",
     "groupID": "680131160025858066",
-    "name": "Admin"
+    "name": "Admin",
+    "permissions": ["staff.admin"]
   }
 }

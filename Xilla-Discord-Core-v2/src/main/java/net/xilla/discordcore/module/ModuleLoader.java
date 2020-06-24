@@ -46,7 +46,7 @@ public class ModuleLoader {
                 this.mainClass = (String)json.get("mainClass");
                 // Load The Module
 
-                this.module = loadClass(file.toFile(), mainClass, JavaModule.class);
+                this.module = loadClass(file.toFile(), mainClass);
 
             } catch (IOException | ParseException ex) {
                 throw new LoadModuleException("File (" + file.toString() + ") does not contain a valid plugin.json file. Please make sure all files in the module folder are valid addons!");
@@ -63,15 +63,15 @@ public class ModuleLoader {
         return module;
     }
 
-    public JavaModule loadClass(File jar, String classpath, Class<JavaModule> parentClass) {
+    public Module loadClass(File jar, String classpath) {
         try {
             ClassLoader loader = URLClassLoader.newInstance(
                     new URL[] { jar.toURL() },
                     getClass().getClassLoader()
             );
             Class<?> clazz = Class.forName(classpath, true, loader);
-            Class<? extends JavaModule> newClass = clazz.asSubclass(parentClass);
-            Constructor<? extends JavaModule> constructor = newClass.getConstructor();
+            Class<? extends Module> newClass = clazz.asSubclass(Module.class);
+            Constructor<? extends Module> constructor = newClass.getConstructor();
             return constructor.newInstance();
 
         } catch (ClassNotFoundException | MalformedURLException | InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {

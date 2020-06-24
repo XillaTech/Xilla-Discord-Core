@@ -22,7 +22,7 @@ public class ModuleManager extends ManagerParent {
             if(baseFolder == null) {
                 file = Paths.get("modules/");
             } else {
-                file = Paths.get(baseFolder + "modules/");
+                file = Paths.get(baseFolder + "/modules/");
             }
 
             file.toFile().mkdir();
@@ -32,17 +32,17 @@ public class ModuleManager extends ManagerParent {
 
             for(Path path : result) {
                 if(!paths.containsKey(path.toString()) && path.toString().endsWith(".jar")) {
-                    JavaModule javaModule = null;
+                    Module module = null;
                     try {
                         ModuleLoader moduleLoader = new ModuleLoader(path, "Java");
-                        javaModule = (JavaModule)moduleLoader.getModule();
+                        module = moduleLoader.getModule();
                     } catch (LoadModuleException ex) {
                         getLog().sendMessage(2, "Module (" + path + ") failed to load...");
                         getLog().sendMessage(2, ex.getMessage());
                     }
 
-                    if(javaModule != null) {
-                        registerModule(javaModule);
+                    if(module != null) {
+                        registerModule(module);
                     }
                 }
                 paths.put(path.toString(), path);
@@ -60,6 +60,7 @@ public class ModuleManager extends ManagerParent {
 
     public void registerModule(Module module) {
         addObject(module);
+        module.onEnable();
     }
 
     public JavaModule getJavaModule(String name) {

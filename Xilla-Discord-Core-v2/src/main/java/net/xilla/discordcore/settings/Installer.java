@@ -1,10 +1,11 @@
 package net.xilla.discordcore.settings;
 
 import com.tobiassteely.tobiasapi.config.Config;
+import net.xilla.discordcore.CoreObject;
 
 import java.util.Scanner;
 
-public class Installer {
+public class Installer extends CoreObject {
 
     private Config config;
     private Scanner scanner;

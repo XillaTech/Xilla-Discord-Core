@@ -1,6 +1,7 @@
 package net.xilla.discordcore.staff.group;
 
 import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
+import com.tobiassteely.tobiasapi.command.permission.group.PermissionGroup;
 import com.tobiassteely.tobiasapi.config.Config;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Role;
@@ -9,37 +10,66 @@ import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class Group extends ManagerObject {
+public class Group extends ManagerObject implements PermissionGroup {
 
     private int staffLevel;
     private String groupID;
-    private ArrayList<String> userIDs;
+    private List<String> permissions;
 
-    public Group(String groupName, int staffLevel, String groupID, ArrayList<String> userIDs) {
+    public Group(String groupName, int staffLevel, String groupID, ArrayList<String> permissions) {
         super(groupName);
         this.staffLevel = staffLevel;
         this.groupID = groupID;
-        if(userIDs != null) {
-            this.userIDs = new ArrayList<>(userIDs);
-        } else {
-            this.userIDs = new ArrayList<>();
-        }
+        this.permissions = permissions;
     }
 
-    public Group(Map<String, String> map) {
-        super(map.get("name"));
-        this.staffLevel = Integer.parseInt(map.get("level"));
-        this.groupID = map.get("groupID");
+    public Group(Map<String, Object> object) {
+        super(object.get("name").toString());
+        this.groupID = object.get("groupID").toString();
+        this.permissions = (List<String>)object.get("permissions");
     }
 
     public String getName() {
         return getKey();
     }
 
+    @Override
+    public List<String> getPermissions() {
+        return permissions;
+    }
+
+    @Override
+    public boolean hasPermission(String permission) {
+        for(String groupPerm : permissions) {
+
+            String[] temp = permission.split(".");
+            StringBuilder wildcard = new StringBuilder();
+            for(int i = 0; i <= temp.length - 2; i++) {
+                wildcard.append(temp[0]);
+            }
+            wildcard.append("*");
+            System.out.println("permission " + permission);
+            System.out.println("wildcard " + wildcard);
+
+            if(permission.equalsIgnoreCase(groupPerm)) {
+                return true;
+            } else if(permission.equalsIgnoreCase(wildcard.toString())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public int getLevel() {
         return staffLevel;
+    }
+
+    @Override
+    public String getIdentifier() {
+        return getKey();
     }
 
     public String getGroupID() {
@@ -63,10 +93,11 @@ public class Group extends ManagerObject {
     }
 
     public JSONObject toJson() {
-        HashMap<String, String> map = new HashMap<>();
+        HashMap<String, Object> map = new HashMap<>();
         map.put("name", getKey());
         map.put("level", "" + staffLevel);
         map.put("groupID", groupID);
+        map.put("permissions", permissions);
         return new JSONObject(map);
     }
 }

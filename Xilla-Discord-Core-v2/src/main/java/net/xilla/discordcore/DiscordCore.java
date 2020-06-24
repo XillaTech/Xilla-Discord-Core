@@ -2,7 +2,6 @@ package net.xilla.discordcore;
 
 import com.tobiassteely.tobiasapi.TobiasAPI;
 import com.tobiassteely.tobiasapi.TobiasBuilder;
-import com.tobiassteely.tobiasapi.api.TobiasObject;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
@@ -14,7 +13,7 @@ import net.xilla.discordcore.staff.StaffManager;
 
 import javax.security.auth.login.LoginException;
 
-public class DiscordCore extends TobiasObject {
+public class DiscordCore extends CoreObject {
 
     private static DiscordCore instance = null;
 

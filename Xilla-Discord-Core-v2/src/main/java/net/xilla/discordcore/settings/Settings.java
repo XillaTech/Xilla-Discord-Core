@@ -4,11 +4,12 @@ import com.tobiassteely.tobiasapi.TobiasAPI;
 import com.tobiassteely.tobiasapi.command.CommandManager;
 import com.tobiassteely.tobiasapi.config.Config;
 import com.tobiassteely.tobiasapi.config.ConfigManager;
+import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.platform.Platform;
 import net.xilla.discordcore.staff.StaffManager;
 
-public class Settings {
+public class Settings extends CoreObject {
 
     private Config config;
     private Installer installer;

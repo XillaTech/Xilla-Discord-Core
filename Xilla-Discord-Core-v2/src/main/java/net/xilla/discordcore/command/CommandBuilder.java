@@ -1,7 +1,10 @@
 package net.xilla.discordcore.command;
 
 import com.tobiassteely.tobiasapi.api.TobiasObject;
+import com.tobiassteely.tobiasapi.command.Command;
 import com.tobiassteely.tobiasapi.command.CommandExecutor;
+
+import java.util.Collections;
 
 public class CommandBuilder extends TobiasObject {
 
@@ -10,13 +13,11 @@ public class CommandBuilder extends TobiasObject {
     private String[] activators = null;
     private String usage = null;
     private String description = null;
-    private int staffLevel = -1;
     private CommandExecutor commandExecutor = null;
 
-    public CommandBuilder CommandBuilder(String module, String name, int staffLevel) {
+    public CommandBuilder CommandBuilder(String module, String name) {
         this.module = module;
         this.name = name;
-        this.staffLevel = staffLevel;
         return this;
     }
 
@@ -36,11 +37,6 @@ public class CommandBuilder extends TobiasObject {
 
     public CommandBuilder setCommandExecutor(CommandExecutor commandExecutor) {
         this.commandExecutor = commandExecutor;
-        return this;
-    }
-
-    public CommandBuilder setStaffLevel(int staffLevel) {
-        this.staffLevel = staffLevel;
         return this;
     }
 
@@ -72,9 +68,6 @@ public class CommandBuilder extends TobiasObject {
             getLog().sendMessage(2, "Could not build command... Missing command executor.");
             return;
         }
-        if(staffLevel == -1) {
-            this.staffLevel = 0;
-        }
         if(activators == null) {
             this.activators = new String[] {name.toLowerCase()};
         }
@@ -84,7 +77,7 @@ public class CommandBuilder extends TobiasObject {
         if(description == null) {
             this.usage = "Command belongs to module: " + module;
         }
-        CoreCommand command = new CoreCommand(module, name, activators, usage, description, staffLevel, commandExecutor);
+        Command command = new Command(module, name, activators, usage, description, Collections.singletonList(commandExecutor));
 
         getCommandManager().registerCommand(command);
     }

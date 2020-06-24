@@ -54,7 +54,7 @@ public class DepartmentManager extends ManagerParent {
             Department department = (Department)object;
 
             for(String groupName : department.getGroupNames()) {
-                Group group = DiscordCore.getInstance().getPlatform().getStaffManager().getGroupManager().getStaff(groupName);
+                Group group = DiscordCore.getInstance().getPlatform().getStaffManager().getGroupManager().getGroup(groupName);
                 if(group.isMember(guild, id)) {
                     departmentList.add(department);
                 }

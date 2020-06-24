@@ -1,13 +1,16 @@
 package net.xilla.discordcore.staff.group;
 
+import com.tobiassteely.tobiasapi.api.manager.ManagerCache;
 import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
 import com.tobiassteely.tobiasapi.config.Config;
 import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.User;
 import net.xilla.discordcore.DiscordCore;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class GroupManager extends ManagerParent {
 
@@ -15,14 +18,17 @@ public class GroupManager extends ManagerParent {
         super(true);
     }
 
+    @Override
     public void reload() {
         super.reload();
+
+        addCache("id", new ManagerCache());
 
         Config config = DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("staff/groups.json");
         JSONObject json = config.toJson();
         for(Object key : json.keySet()) {
-            Group staff = new Group(config.getMap((String)key));
-            registerStaff(staff);
+            Group staff = new Group((Map<String, Object>)config.get(key.toString()));
+            addGroup(staff);
         }
     }
 
@@ -46,23 +52,30 @@ public class GroupManager extends ManagerParent {
         return staffList;
     }
 
-    public boolean isAuthorized(Guild guild, String id, int level) {
+    public boolean hasPermission(Guild guild, User user, int level) {
         if(level == 0)
             return true;
 
-        ArrayList<Group> staffList = getStaffByUserId(guild, id);
+        ArrayList<Group> staffList = getStaffByUserId(guild, user.getId());
         for(Group staff : staffList)
             if(staff.getLevel() >= level)
                 return true;
+
         return false;
     }
 
-    public Group getStaff(String name) {
+    public Group getGroup(String name) {
         return (Group)getObjectWithKey(name);
     }
 
-    public void registerStaff(Group staff) {
-        addObject(staff);
+    public Group getGroupByID(String id) {
+        return (Group)getCache("id").getObject(id);
+    }
+
+    public void addGroup(Group staff) {
+        super.addObject(staff);
+
+        getCache("id").putObject(staff.getGroupID(), staff);
     }
     
 }

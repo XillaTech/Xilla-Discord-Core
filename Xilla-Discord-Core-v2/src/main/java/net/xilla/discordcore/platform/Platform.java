@@ -1,7 +1,7 @@
 package net.xilla.discordcore.platform;
 
 import com.tobiassteely.tobiasapi.api.TobiasObject;
-import net.xilla.discordcore.command.CoreCommandResponse;
+import net.xilla.discordcore.command.response.CoreCommandResponder;
 import net.xilla.discordcore.command.template.TemplateManager;
 import net.xilla.discordcore.module.cmd.ModulesCommand;
 import net.xilla.discordcore.staff.StaffManager;
@@ -17,10 +17,10 @@ public class Platform extends TobiasObject {
         this.type = type;
         this.staffManager = new StaffManager();
 
-        getCommandManager().setResponse(new CoreCommandResponse());
+        getCommandManager().setResponder(new CoreCommandResponder());
         this.templateManager = new TemplateManager();
 
-        getCommandManager().registerCommand(new ModulesCommand().build());
+        //new ModulesCommand();
         getCommandManager().registerCommand(new StaffCommand().build());
     }
 

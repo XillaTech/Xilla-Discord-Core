@@ -1,5 +1,6 @@
 package net.xilla.discordcore.staff;
 
+import com.tobiassteely.tobiasapi.api.manager.ManagerCache;
 import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
 import com.tobiassteely.tobiasapi.config.Config;
@@ -13,13 +14,12 @@ import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 
-public class StaffManager extends ManagerParent {
+public class StaffManager {
 
     private GroupManager groupManager;
     private DepartmentManager departmentManager;
 
     public StaffManager() {
-        super(true);
         this.groupManager = new GroupManager();
         this.departmentManager = new DepartmentManager();
     }
@@ -30,57 +30,6 @@ public class StaffManager extends ManagerParent {
 
     public GroupManager getGroupManager() {
         return groupManager;
-    }
-
-    public void reload() {
-        super.reload();
-
-        Config config = DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("staff/groups.json");
-        JSONObject json = config.toJson();
-        for(Object key : json.keySet()) {
-            Group staff = new Group(config.getMap((String)key));
-            addGroup(staff);
-        }
-    }
-
-    public void save() {
-        Config config = DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("staff/groups.json");
-        for(ManagerObject object : getList()) {
-            Group staff = (Group)object;
-            config.toJson().put(staff.getKey(), staff.toJson());
-        }
-        config.save();
-    }
-
-    public ArrayList<Group> getStaffByUserId(Guild guild, String id) {
-        ArrayList<Group> staffList = new ArrayList<>();
-        for(Object object : getList()) {
-            Group staff = (Group)object;
-            if(staff.isMember(guild, id)) {
-                staffList.add(staff);
-            }
-        }
-        return staffList;
-    }
-
-    public boolean hasPermission(Guild guild, User user, int level) {
-        if(level == 0)
-            return true;
-
-        ArrayList<Group> staffList = getStaffByUserId(guild, user.getId());
-        for(Group staff : staffList)
-            if(staff.getLevel() >= level)
-                return true;
-
-        return false;
-    }
-
-    public Group getGroup(String name) {
-        return (Group)getObjectWithKey(name);
-    }
-
-    public void addGroup(Group staff) {
-        super.addObject(staff);
     }
 
 }

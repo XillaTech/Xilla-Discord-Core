@@ -3,11 +3,11 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
-import net.xilla.discordcore.command.CoreCommand;
 import net.xilla.discordcore.command.CoreCommandExecutor;
-import net.xilla.discordcore.command.CoreCommandResponse;
+import net.xilla.discordcore.command.response.CoreCommandResponder;
 import net.xilla.discordcore.command.event.BungeeCommandEvent;
 import net.xilla.discordcore.command.event.SpigotCommandEvent;
+import net.xilla.discordcore.command.response.CoreCommandResponse;
 import net.xilla.discordcore.platform.Platform;
 
 public class Test extends TobiasObject {
@@ -26,20 +26,20 @@ public class Test extends TobiasObject {
     }
 
     public CoreCommandExecutor getExecutor() {
-        CoreCommandExecutor executor = (name, arguments, inputType, data) -> {
+        return (name, arguments, data) -> {
 
             String description = "The sender's name is: ";
 
-            if(inputType.equals(CoreCommandExecutor.discord_input)) {
-                MessageReceivedEvent event = (MessageReceivedEvent)data[0];
+            if(data.getInputType().equals(CoreCommandExecutor.discord_input)) {
+                MessageReceivedEvent event = (MessageReceivedEvent)data.get();
                 description = description + event.getAuthor().getAsMention();
 
-            } else if(inputType.equals(CoreCommandExecutor.bungee_input)) {
-                BungeeCommandEvent event = (BungeeCommandEvent)data[0];
+            } else if(data.getInputType().equals(CoreCommandExecutor.bungee_input)) {
+                BungeeCommandEvent event = (BungeeCommandEvent)data.get();
                 description = description + event.getSender().getName();
 
-            } else if(inputType.equals(CoreCommandExecutor.spigot_input)) {
-                SpigotCommandEvent event = (SpigotCommandEvent)data[0];
+            } else if(data.getInputType().equals(CoreCommandExecutor.spigot_input)) {
+                SpigotCommandEvent event = (SpigotCommandEvent)data.get();
                 description = description + event.getSender().getName();
 
             } else {
@@ -47,10 +47,8 @@ public class Test extends TobiasObject {
             }
 
             EmbedBuilder builder = new EmbedBuilder().setTitle("Test Command").setDescription(description);
-            CoreCommandResponse response = (CoreCommandResponse)getCommandManager().getResponse();
-            response.send(builder, inputType, data);
+            return new CoreCommandResponse(data).setEmbed(builder.build());
         };
-        return executor;
     }
 
 }
