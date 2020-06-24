@@ -35,12 +35,6 @@ A Module<br>
  4 - Upload the newer updated module<br>
  5 - Start the bot and fill in any missing settings.<br><br>
 
-# Official Modules<br> 
-All modules are available for free with branding in the footer, you can purchase a license if you'd like to remove this branding.<br>
-Tickets - <a href="http://api.xilla.net/download/xilla-ticket-bot.jar">Download here</a><br>
-Music - <a href="http://api.xilla.net/download/xilla-music-bot.jar">Download here</a><br>
-<a href="https://xilla.net/cart.php?gid=5">Remove Branding Here</a><br><br>
-
 # Community Modules<br> 
 Join our discord for community modules! https://discord.gg/HFCCqJ6<br>
 We are working on a custom resource platform for users to release, sell, and license their softwares.<br><br>
