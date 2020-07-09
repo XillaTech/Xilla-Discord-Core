@@ -19,7 +19,9 @@ public class SpigotCommand implements CommandExecutor {
         CommandData data = new CommandData<>(new SpigotCommandEvent(sender, command), CoreCommandExecutor.spigot_input, new SpigotUser(sender));
 
         if (args.length >= 2) {
-            DiscordCore.getInstance().getCommandManager().runCommand(args[0], Arrays.copyOfRange(args, 1, args.length - 1), data);
+            System.out.println("pre: " + Arrays.deepToString(args));
+            System.out.println("post1: " + Arrays.deepToString(Arrays.copyOfRange(args, 1, args.length)));
+            DiscordCore.getInstance().getCommandManager().runCommand(args[0], Arrays.copyOfRange(args, 1, args.length), data);
         } else  if (args.length == 1) {
             DiscordCore.getInstance().getCommandManager().runCommand(args[0], new String[] {}, data);
         } else {

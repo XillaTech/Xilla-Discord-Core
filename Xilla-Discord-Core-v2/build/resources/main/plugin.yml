@@ -6,5 +6,6 @@ author: Alontrle
 commands:
   discordcore:
     usage: /<command>
+    aliases: ["discord", "account"]
     description: "Manage DiscordCore."
     permission: discordcore.admin

@@ -13,13 +13,14 @@ public class TextCommand extends TemplateCommand {
 
     private String text;
 
-    public TextCommand(String name, String[] activators, String description, String usage, String text, String permission) {
-        super(name, activators, description, usage, permission, (command, args, data) -> new CommandResponse(data).setDescription(text));
+    public TextCommand(String module, String name, String[] activators, String description, String usage, String text, String permission) {
+        super(module, name, activators, description, usage, permission, (command, args, data) -> new CommandResponse(data).setDescription(text));
         this.text = text;
     }
 
     public TextCommand(Map<String, String> map) {
         super(
+                map.get("module"),
                 map.get("name"),
                 map.get("activators").split(","),
                 map.get("description"), map.get("usage"),
@@ -33,6 +34,7 @@ public class TextCommand extends TemplateCommand {
     public JSONObject getJSON() {
         HashMap<String, String> map = new HashMap<>();
         map.put("name", getKey());
+        map.put("module", getModule());
         map.put("description", getDescription());
         map.put("usage", getUsage());
         map.put("permission", getPermission());

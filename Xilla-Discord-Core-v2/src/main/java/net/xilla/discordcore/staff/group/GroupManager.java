@@ -10,6 +10,8 @@ import net.xilla.discordcore.DiscordCore;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 public class GroupManager extends ManagerParent {
@@ -25,6 +27,27 @@ public class GroupManager extends ManagerParent {
         addCache("id", new ManagerCache());
 
         Config config = DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("staff/groups.json");
+
+        JSONObject userDefault = new JSONObject();
+        userDefault.put("groupID", "default applies to all users");
+        userDefault.put("name", "Default");
+        userDefault.put("permissions", Arrays.asList(""));
+        config.loadDefault("Default", userDefault);
+
+        JSONObject modDefault = new JSONObject();
+        modDefault.put("groupID", "example");
+        modDefault.put("name", "Mod");
+        modDefault.put("permissions", Arrays.asList(""));
+        config.loadDefault("Mod", modDefault);
+
+        JSONObject adminDefault = new JSONObject();
+        adminDefault.put("groupID", "example");
+        adminDefault.put("name", "Admin");
+        adminDefault.put("permissions", Arrays.asList("*"));
+        config.loadDefault("Admin", adminDefault);
+
+        config.save();
+
         JSONObject json = config.toJson();
         for(Object key : json.keySet()) {
             Group staff = new Group((Map<String, Object>)config.get(key.toString()));

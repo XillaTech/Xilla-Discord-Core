@@ -1,12 +1,12 @@
 package net.xilla.discordcore.platform;
 
 import net.xilla.discordcore.DiscordCore;
-import net.xilla.discordcore.settings.Settings;
+import net.xilla.discordcore.api.settings.Settings;
 
 public class CoreSettings extends Settings {
 
     public CoreSettings() {
-        super(DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("settings.json"));
+        super("settings.json");
 
         // Loads settings
         if(DiscordCore.getInstance().getType().equals(Platform.getPlatform.STANDALONE.name)) {

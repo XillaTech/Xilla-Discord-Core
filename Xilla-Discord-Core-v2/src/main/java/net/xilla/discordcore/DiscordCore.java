@@ -5,8 +5,11 @@ import com.tobiassteely.tobiasapi.TobiasBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
+import net.xilla.discordcore.api.DiscordAPI;
+import net.xilla.discordcore.api.form.FormHandler;
+import net.xilla.discordcore.api.form.FormManager;
 import net.xilla.discordcore.command.CommandEventHandler;
-import net.xilla.discordcore.module.ModuleManager;
+import net.xilla.discordcore.api.module.ModuleManager;
 import net.xilla.discordcore.platform.CoreSettings;
 import net.xilla.discordcore.platform.Platform;
 import net.xilla.discordcore.staff.StaffManager;
@@ -39,7 +42,7 @@ public class DiscordCore extends CoreObject {
         // Loads base APIs
         boolean commandLine = platform.equals(Platform.getPlatform.STANDALONE.name);
         TobiasBuilder builder = new TobiasBuilder().loadCommandManager("Xilla Discord Core", commandLine);
-        this.api = builder.loadConfigManager(baseFolder).build();
+        this.api = builder.loadConfigManager(baseFolder).build(false);
 
         // Loads Core Settings
         this.settings = new CoreSettings();
@@ -56,6 +59,7 @@ public class DiscordCore extends CoreObject {
             }
 
             shardBuilder.addEventListeners(new CommandEventHandler());
+            shardBuilder.addEventListeners(new FormHandler());
 
             shardBuilder.setActivity(Activity.playing(settings.getActivity()));
 
@@ -70,6 +74,12 @@ public class DiscordCore extends CoreObject {
 
         // Loads up the modules
         this.moduleManager = new ModuleManager(baseFolder);
+
+        // Starting Command Line
+        api.getCommandManager().getCommandWorker().start();
+
+        // Starts up the API
+        new DiscordAPI();
     }
 
     public JDA getBot() {

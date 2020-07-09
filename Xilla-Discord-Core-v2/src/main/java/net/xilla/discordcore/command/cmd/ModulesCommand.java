@@ -1,17 +1,13 @@
 package net.xilla.discordcore.command.cmd;
 
-import com.tobiassteely.tobiasapi.api.TobiasObject;
-import com.tobiassteely.tobiasapi.command.Command;
 import com.tobiassteely.tobiasapi.command.CommandExecutor;
-import com.tobiassteely.tobiasapi.command.response.CommandResponse;
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.CoreObject;
-import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
-import net.xilla.discordcore.command.response.CoreCommandResponder;
 import net.xilla.discordcore.command.response.CoreCommandResponse;
-import net.xilla.discordcore.platform.CoreSettings;
+import net.xilla.discordcore.api.module.Module;
+
+import java.awt.*;
 
 public class ModulesCommand extends CoreObject {
 
@@ -19,7 +15,7 @@ public class ModulesCommand extends CoreObject {
         CommandBuilder commandBuilder = new CommandBuilder();
         commandBuilder.setModule("Core");
         commandBuilder.setName("Module");
-        commandBuilder.setActivators("modules", "m");
+        commandBuilder.setActivators("module", "modules", "m");
         commandBuilder.setDescription("View and manage your discord modules");
         commandBuilder.setPermission("core.module");
         commandBuilder.setCommandExecutor(getExecutor());
@@ -28,25 +24,37 @@ public class ModulesCommand extends CoreObject {
 
     public CommandExecutor getExecutor() {
         return (command, args, data) -> {
+
+            StringBuilder description = new StringBuilder();
+            description.append("*Available Commands*\n").append(getCoreSetting().getCommandPrefix())
+                    .append("m download <market id> - Download a Module\n").append(getCoreSetting().getCommandPrefix())
+                    .append("m info <module name> - Get a modules information\n").append(getCoreSetting().getCommandPrefix())
+                    .append("m list - View all modules\n")
+                    .append("\n*You can find modules and their market IDs in <https://discord.gg/aSKqa5W>. To delete a module, remove the module from the /modules/ folder. Then restart the bot.*");
+
             if(args.length > 0) {
                 if(args[0].equalsIgnoreCase("download")) {
 
                 } else if(args[0].equalsIgnoreCase("list")) {
-
+                    if(getModuleManager().getList().size() == 0) {
+                        description = new StringBuilder();
+                        description.append("*There are no available modules*");
+                    } else {
+                        description = new StringBuilder();
+                        description.append("*Modules:*\n");
+                        for(Object object : getModuleManager().getList()) {
+                            Module module = (Module)object;
+                            description.append(module.getName()).append(" - ").append(module.getVersion())
+                                    .append(" (").append(module.getType()).append(")");
+                        }
+                    }
                 } else if(args[0].equalsIgnoreCase("info")) {
 
                 }
             }
-
-            CoreSettings settings = DiscordCore.getInstance().getSettings();
-            String description = "*Available Commands*\n"
-                    + settings.getCommandPrefix() + "m download <market id> - Download a Module\n"
-                    + settings.getCommandPrefix() + "m info <module name> - Get a modules information\n"
-                    + settings.getCommandPrefix() + "m list - View all modules\n"
-                    + "\n*You can find modules and their market IDs in <https://discord.gg/aSKqa5W>. To delete a module, turn the plugin off and remove it from the /modules/ folder. Then turn the bot back on.*";
-
             EmbedBuilder builder = new EmbedBuilder().setTitle("Market");
             builder.setDescription(description);
+            builder.setColor(Color.decode(getCoreSetting().getEmbedColor()));
 
             return new CoreCommandResponse(data).setEmbed(builder.build());
         };

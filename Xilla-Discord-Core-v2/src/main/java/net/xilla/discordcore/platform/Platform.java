@@ -1,17 +1,12 @@
 package net.xilla.discordcore.platform;
 
-import com.tobiassteely.tobiasapi.api.TobiasObject;
-import com.tobiassteely.tobiasapi.command.CommandPermissionError;
-import com.tobiassteely.tobiasapi.command.response.CommandResponder;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.xilla.discordcore.CoreObject;
-import net.xilla.discordcore.command.cmd.HelpCommand;
-import net.xilla.discordcore.command.cmd.ModulesCommand;
+import net.xilla.discordcore.command.cmd.*;
 import net.xilla.discordcore.command.response.CoreCommandResponder;
 import net.xilla.discordcore.command.response.CoreCommandResponse;
 import net.xilla.discordcore.command.template.TemplateManager;
 import net.xilla.discordcore.staff.StaffManager;
-import net.xilla.discordcore.command.cmd.StaffCommand;
 
 import java.awt.*;
 
@@ -31,6 +26,8 @@ public class Platform extends CoreObject {
         new ModulesCommand();
         new StaffCommand();
         new HelpCommand();
+        new TemplateCommand();
+        new SettingsCommand();
 
         getCommandManager().setPermissionError((args, data) -> {
             EmbedBuilder builder = new EmbedBuilder().setTitle("Error!");

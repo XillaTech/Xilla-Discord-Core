@@ -16,6 +16,7 @@ public class DiscordUser extends CoreObject implements PermissionUser {
 
     public DiscordUser(Member member) {
         this.groups = new ArrayList<>();
+        this.groups.add(getStaffManager().getGroupManager().getGroup("Default"));
         this.identifier = member.getId();
 
         for(Role role : member.getRoles()) {

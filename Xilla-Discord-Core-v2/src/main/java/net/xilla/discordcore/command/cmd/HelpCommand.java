@@ -29,18 +29,27 @@ public class HelpCommand extends CoreObject {
                 }
 
                 if(legacyCommand.getPermission() == null || data.getUser().hasPermission(legacyCommand.getPermission())) {
-                    commands.get(legacyCommand.getModule()).add(legacyCommand.getUsage() + " - " + legacyCommand.getDescription());
+                    commands.get(legacyCommand.getModule()).add(getCoreSetting().getCommandPrefix() + legacyCommand.getUsage() + " - " + legacyCommand.getDescription());
                 }
             }
 
             StringBuilder description = new StringBuilder();
 
+            int loop = 0;
             for(String module : commands.keySet()) {
+                loop++;
                 ArrayList<String> lines = commands.get(module);
 
-                description.append("**").append(module).append(" Commands**\n");
-                for (String line : lines) {
-                    description.append(line).append("\n");
+                if(lines.size() > 0) {
+
+                    description.append("**").append(module).append(" Commands**\n");
+                    for (String line : lines) {
+                        description.append(line).append("\n");
+                    }
+
+                    if (loop != commands.size()) {
+                        description.append("\n");
+                    }
                 }
             }
 

@@ -2,7 +2,7 @@ package net.xilla.discordcore;
 
 import com.tobiassteely.tobiasapi.api.TobiasObject;
 import net.dv8tion.jda.api.JDA;
-import net.xilla.discordcore.module.ModuleManager;
+import net.xilla.discordcore.api.module.ModuleManager;
 import net.xilla.discordcore.platform.CoreSettings;
 import net.xilla.discordcore.platform.Platform;
 import net.xilla.discordcore.staff.StaffManager;
