@@ -6,7 +6,7 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.api.DiscordAPI;
 
-public class MessageFormBuilder extends CoreObject {
+public class MessageFormBuilder extends CoreObject implements FormBuilder {
 
     private String name;
     private String ownerID;
@@ -57,6 +57,10 @@ public class MessageFormBuilder extends CoreObject {
 
     public void register(Form form) {
         DiscordAPI.getInstance().getFormManager().addForm(form);
+    }
+
+    public String getType() {
+        return "Message";
     }
 
 }

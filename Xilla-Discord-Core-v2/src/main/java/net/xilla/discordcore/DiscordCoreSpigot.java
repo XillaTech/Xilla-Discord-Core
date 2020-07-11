@@ -18,7 +18,7 @@ public class DiscordCoreSpigot extends JavaPlugin {
 
     @Override
     public void onEnable(){
-        new DiscordCore(Platform.getPlatform.SPIGOT.name, getDataFolder().toString());
+        new DiscordCore(Platform.getPlatform.SPIGOT.name, getDataFolder().toString(), true, "Xilla Discord Core");
         getCommand("discordcore").setExecutor(new SpigotCommand());
     }
 

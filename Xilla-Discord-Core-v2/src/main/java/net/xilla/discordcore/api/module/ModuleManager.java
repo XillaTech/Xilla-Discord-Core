@@ -64,7 +64,7 @@ public class ModuleManager extends ManagerParent {
     }
 
     public JavaModule getJavaModule(String name) {
-        Module module = (Module)getObjectWithKey(name);
+        Module module = (Module)getObject(name);
         if(module.getType().equals("Java")) {
             return (JavaModule)module;
         }
@@ -72,7 +72,7 @@ public class ModuleManager extends ManagerParent {
     }
 
     public JavaModule getPythonModule(String name) {
-        Module module = (Module)getObjectWithKey(name);
+        Module module = (Module)getObject(name);
         if(module.getType().equals("Java")) {
             return (JavaModule)module;
         }

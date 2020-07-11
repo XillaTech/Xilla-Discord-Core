@@ -17,7 +17,7 @@ public class Test extends TobiasObject {
     }
 
     public Test() {
-        DiscordCore core = new DiscordCore(Platform.getPlatform.STANDALONE.name, null);
+        DiscordCore core = new DiscordCore(Platform.getPlatform.STANDALONE.name, null, true, "Xilla Discord Core");
 
         CommandBuilder commandBuilder = new CommandBuilder().setModule("Test");
         commandBuilder.setName("Test").setActivators("test", "t");

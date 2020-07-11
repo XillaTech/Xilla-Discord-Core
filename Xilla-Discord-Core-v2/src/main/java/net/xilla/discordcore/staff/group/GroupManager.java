@@ -75,20 +75,8 @@ public class GroupManager extends ManagerParent {
         return staffList;
     }
 
-    public boolean hasPermission(Guild guild, User user, int level) {
-        if(level == 0)
-            return true;
-
-        ArrayList<Group> staffList = getStaffByUserId(guild, user.getId());
-        for(Group staff : staffList)
-            if(staff.getLevel() >= level)
-                return true;
-
-        return false;
-    }
-
     public Group getGroup(String name) {
-        return (Group)getObjectWithKey(name);
+        return (Group)getObject(name);
     }
 
     public Group getGroupByID(String id) {

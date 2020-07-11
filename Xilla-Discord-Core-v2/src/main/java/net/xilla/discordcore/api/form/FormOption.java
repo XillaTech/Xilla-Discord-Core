@@ -7,7 +7,7 @@ public class FormOption {
     private String emote;
     private String option;
 
-    private FormOption(String emote, String option) {
+    public FormOption(String emote, String option) {
         this.emote = EmojiParser.parseToUnicode(emote);
         this.option = option;
     }

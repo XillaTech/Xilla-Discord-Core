@@ -18,7 +18,7 @@ public class DiscordCoreBungee extends Plugin {
 
     @Override
     public void onEnable(){
-        new DiscordCore(Platform.getPlatform.BUNGEE.name, getDataFolder().toString());
+        new DiscordCore(Platform.getPlatform.BUNGEE.name, getDataFolder().toString(), true, "Xilla Discord Core");
         getProxy().getPluginManager().registerCommand(this, new BungeeCommand());
     }
 

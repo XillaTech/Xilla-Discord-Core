@@ -25,7 +25,7 @@ public class DiscordCore extends CoreObject {
     }
 
     public static void main(String[] args) {
-        new DiscordCore(Platform.getPlatform.STANDALONE.name, null);
+        new DiscordCore(Platform.getPlatform.STANDALONE.name, null, true, "Xilla Discord Core");
     }
 
     private TobiasAPI api;
@@ -35,13 +35,13 @@ public class DiscordCore extends CoreObject {
     private String type;
     private ModuleManager moduleManager;
 
-    public DiscordCore(String platform, String baseFolder) {
+    public DiscordCore(String platform, String baseFolder, boolean startCommandLine, String name) {
         instance = this;
         this.type = platform;
 
         // Loads base APIs
         boolean commandLine = platform.equals(Platform.getPlatform.STANDALONE.name);
-        TobiasBuilder builder = new TobiasBuilder().loadCommandManager("Xilla Discord Core", commandLine);
+        TobiasBuilder builder = new TobiasBuilder().loadCommandManager(name, commandLine);
         this.api = builder.loadConfigManager(baseFolder).build(false);
 
         // Loads Core Settings
@@ -76,7 +76,9 @@ public class DiscordCore extends CoreObject {
         this.moduleManager = new ModuleManager(baseFolder);
 
         // Starting Command Line
-        api.getCommandManager().getCommandWorker().start();
+        if(startCommandLine) {
+            api.getCommandManager().getCommandWorker().start();
+        }
 
         // Starts up the API
         new DiscordAPI();

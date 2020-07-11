@@ -65,7 +65,7 @@ public class DepartmentManager extends ManagerParent {
     }
 
     public Department getDepartment(String name) {
-        return (Department)getObjectWithKey(name);
+        return (Department)getObject(name);
     }
 
     public void registerDepartment(Department department) {

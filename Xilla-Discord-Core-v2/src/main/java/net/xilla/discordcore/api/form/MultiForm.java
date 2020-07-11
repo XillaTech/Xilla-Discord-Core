@@ -1,5 +1,6 @@
 package net.xilla.discordcore.api.form;
 
+import com.vdurmont.emoji.EmojiParser;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.xilla.discordcore.CoreObject;
@@ -13,7 +14,7 @@ import java.util.List;
 public class MultiForm extends CoreObject {
 
     private String name;
-    private List<MessageFormBuilder> formBuilders;
+    private List<FormBuilder> formBuilders;
     private HashMap<String, FormResponse> formResults;
     private int index;
     private MultiFormExecutor executor;
@@ -52,9 +53,33 @@ public class MultiForm extends CoreObject {
         formBuilders.add(builder);
     }
 
+    public void addReactionQuestion(String name, String question, HashMap<String, String> options, TextChannel channel, String ownerID) {
+        ReactionFormBuilder builder = new ReactionFormBuilder();
+        builder.setName(name);
+        builder.setTextChannel(channel);
+        builder.setOwnerID(ownerID);
+        EmbedBuilder embedBuilder = new EmbedBuilder().setTitle(name).setDescription(question).setColor(Color.decode(getCoreSetting().getEmbedColor()));
+        builder.setMessage(embedBuilder.build());
+
+        List<FormOption> formOptions = new ArrayList<>();
+
+        for(String emoji : options.keySet()) {
+            formOptions.add(new FormOption(emoji, options.get(emoji)));
+        }
+
+        builder.setOptions(formOptions);
+        builder.setFormReactionEvent((form, event) -> {
+            formResults.put(name, new FormResponse(name, question, options.get(event.getReactionEmote().getEmoji()), event.getReactionEmote().getEmoji()));
+            form.getMessage().delete().queue();
+            askQuestion();
+            return true;
+        });
+        formBuilders.add(builder);
+    }
+
     private void askQuestion() {
         if(index < formBuilders.size()) {
-            MessageFormBuilder builder = formBuilders.get(index);
+            FormBuilder builder = formBuilders.get(index);
             Form form = builder.build();
             builder.register(form);
             index++;
