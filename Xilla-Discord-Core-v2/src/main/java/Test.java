@@ -22,11 +22,7 @@ public class Test extends TobiasObject {
         CommandBuilder commandBuilder = new CommandBuilder().setModule("Test");
         commandBuilder.setName("Test").setActivators("test", "t");
         commandBuilder.setDescription("Test command");
-        commandBuilder.setCommandExecutor(getExecutor()).build();
-    }
-
-    public CoreCommandExecutor getExecutor() {
-        return (name, arguments, data) -> {
+        commandBuilder.setCommandExecutor((name, arguments, data) -> {
 
             String description = "The sender's name is: ";
 
@@ -48,7 +44,6 @@ public class Test extends TobiasObject {
 
             EmbedBuilder builder = new EmbedBuilder().setTitle("Test Command").setDescription(description);
             return new CoreCommandResponse(data).setEmbed(builder.build());
-        };
+        }).build();
     }
-
 }
