@@ -1,8 +1,14 @@
 {
- "openTicketDescription": "Please leave a message and our support will get back to you as soon as possible@",
- "ticketCategory": "731323908036493403",
+ "openTicketDescription": "Please leave a message and our support will get back to you as soon as possible!",
+ "ticketPanelEmoji": ":white_check_mark:",
+ "ticketCategory": "610092857730138132",
  "duplicateTickets": false,
+ "ticketPanelChannelID": "732029366518677606",
  "pingOnStaffResponse": true,
  "openTicketTitle": "Welcome!",
- "ticketPrefix": "ticket-"
+ "logChannel": "693540334872952832",
+ "ticketPanelTitle": "Open a ticket",
+ "ticketPanelMessageID": "732030400796426373",
+ "ticketPrefix": "ticket-",
+ "ticketPanelMessage": "React with :white_check_mark: to open a ticket!"
 }

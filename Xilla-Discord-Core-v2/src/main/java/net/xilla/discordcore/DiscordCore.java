@@ -69,8 +69,6 @@ public class DiscordCore extends CoreObject {
             ex.printStackTrace();
         }
 
-        // Loads up template commands
-        getPlatform().getTemplateManager().reload();
 
         // Loads up the modules
         this.moduleManager = new ModuleManager(baseFolder);
@@ -79,6 +77,9 @@ public class DiscordCore extends CoreObject {
         if(startCommandLine) {
             api.getCommandManager().getCommandWorker().start();
         }
+
+        // Loads up template commands
+        getPlatform().getTemplateManager().reload();
 
         // Starts up the API
         new DiscordAPI();

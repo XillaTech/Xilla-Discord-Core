@@ -4,14 +4,14 @@
    "permission1",
    "permission2"
   ],
-  "groupID": "680131143617478735",
+  "groupID": "661988214713745429",
   "name": "Mod"
  },
  "Admin": {
   "permissions": [
    "*"
   ],
-  "groupID": "680131160025858066",
+  "groupID": "605983260840820748",
   "name": "Admin"
  },
  "Default": {
