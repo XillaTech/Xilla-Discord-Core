@@ -8,6 +8,7 @@ import net.dv8tion.jda.api.entities.Activity;
 import net.xilla.discordcore.api.DiscordAPI;
 import net.xilla.discordcore.api.form.FormHandler;
 import net.xilla.discordcore.api.form.FormManager;
+import net.xilla.discordcore.api.settings.SettingsManager;
 import net.xilla.discordcore.command.CommandEventHandler;
 import net.xilla.discordcore.api.module.ModuleManager;
 import net.xilla.discordcore.platform.CoreSettings;
@@ -34,17 +35,19 @@ public class DiscordCore extends CoreObject {
     private CoreSettings settings;
     private String type;
     private ModuleManager moduleManager;
+    private SettingsManager settingsManager;
 
     public DiscordCore(String platform, String baseFolder, boolean startCommandLine, String name) {
         instance = this;
         this.type = platform;
 
         // Loads base APIs
-        boolean commandLine = platform.equals(Platform.getPlatform.STANDALONE.name);
+        boolean commandLine = platform.equals(Platform.getPlatform.STANDALONE.name) || platform.equals(Platform.getPlatform.EMBEDDED.name);
         TobiasBuilder builder = new TobiasBuilder().loadCommandManager(name, commandLine);
         this.api = builder.loadConfigManager(baseFolder).build(false);
 
         // Loads Core Settings
+        this.settingsManager = new SettingsManager();
         this.settings = new CoreSettings();
 
         // Loads the rest of the core
@@ -113,4 +116,7 @@ public class DiscordCore extends CoreObject {
         return moduleManager;
     }
 
+    public SettingsManager getSettingsManager() {
+        return settingsManager;
+    }
 }

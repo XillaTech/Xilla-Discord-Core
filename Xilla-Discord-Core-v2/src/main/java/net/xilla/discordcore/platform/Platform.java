@@ -50,7 +50,8 @@ public class Platform extends CoreObject {
         // Available platforms
         BUNGEE("BUNGEE"),
         SPIGOT("SPIGOT"),
-        STANDALONE("STANDALONE");
+        STANDALONE("STANDALONE"),
+        EMBEDDED("EMBEDDED");
 
         public String name;
 

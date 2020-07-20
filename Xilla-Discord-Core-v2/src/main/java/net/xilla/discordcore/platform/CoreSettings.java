@@ -6,10 +6,10 @@ import net.xilla.discordcore.api.settings.Settings;
 public class CoreSettings extends Settings {
 
     public CoreSettings() {
-        super("settings.json");
+        super("Core", "settings.json");
 
         // Loads settings
-        if(DiscordCore.getInstance().getType().equals(Platform.getPlatform.STANDALONE.name)) {
+        if(DiscordCore.getInstance().getType().equals(Platform.getPlatform.STANDALONE.name) || DiscordCore.getInstance().getType().equals(Platform.getPlatform.EMBEDDED.name)) {
             // Fancy installer for standalone
             getInstaller().install("The discord bot's token from https://discord.com/developers/", "token", "blank");
             getInstaller().install("The discord bot's nickname / public name", "bot-name", "blank");

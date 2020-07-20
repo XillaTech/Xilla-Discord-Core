@@ -42,10 +42,4 @@ dependencies {
 jar {
     from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     manifest { attributes 'Main-Class': 'net.xilla.discordcore.DiscordCore' }
-//
-//    from('src/main/resources') {
-//        include '*.yml'
-//    }
-
-
 }

@@ -1,6 +1,7 @@
 package net.xilla.discordcore.api.settings;
 
 import com.tobiassteely.tobiasapi.TobiasAPI;
+import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
 import com.tobiassteely.tobiasapi.command.CommandManager;
 import com.tobiassteely.tobiasapi.config.Config;
 import com.tobiassteely.tobiasapi.config.ConfigManager;
@@ -9,14 +10,16 @@ import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.platform.Platform;
 import net.xilla.discordcore.staff.StaffManager;
 
-public class Settings extends CoreObject {
+public class Settings extends ManagerObject {
 
     private Config config;
     private Installer installer;
 
-    public Settings(String configName) {
+    public Settings(String name, String configName) {
+        super(name.toLowerCase());
         this.config = DiscordCore.getInstance().getConfigManager().getConfig(configName);
         this.installer = new Installer(config);
+        DiscordCore.getInstance().getSettingsManager().addSettings(this);
     }
 
     public Config getConfig() {

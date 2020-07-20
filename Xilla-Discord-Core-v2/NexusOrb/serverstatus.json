@@ -1,8 +1,0 @@
-{
- "servers": {
-  "default": {
-   "port": 25565,
-   "host": "mc.hypixel.net"
-  }
- }
-}

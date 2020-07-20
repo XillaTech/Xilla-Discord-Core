@@ -33,7 +33,6 @@ public class TemplateCommand extends CoreObject {
             StringBuilder description = new StringBuilder();
             description.append("*Available Commands*\n");
             description.append(getCoreSetting().getCommandPrefix()).append("tm list - List available template commands\n");
-            description.append(getCoreSetting().getCommandPrefix()).append("tm edit <name> - Edit a template command\n");
             description.append(getCoreSetting().getCommandPrefix()).append("tm delete <name> - Delete a template command\n");
             description.append(getCoreSetting().getCommandPrefix()).append("tm info <name> - View a template command\n");
             description.append(getCoreSetting().getCommandPrefix()).append("tm create - View a template command\n");
