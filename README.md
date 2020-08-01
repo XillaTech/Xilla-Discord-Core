@@ -1,8 +1,10 @@
 # Xilla Discord Core<br>
 Managed and Developed by Tobias Steely<br>
 
+
+
 # Version / Download<br>
-Lastest Version : 2.0.0 BETA-2 - https://github.com/Alontrle/Xilla-Discord-Core/blob/master/Xilla-Discord-Core-v2/build/libs/Xilla%20Discord%20Core-2.0.0.jar <br><br>
+Lastest Version : 2.0.0-BETA-2 STABLE - <a href="https://api.xilla.net/download/Xilla%20Discord%20Core-2.0.0.jar">Download Here</a><br><br>
 
 # Installing<br>
 Manual Installation : <br>
@@ -24,7 +26,7 @@ https://api.xilla.net/download/egg-xilla-discord-core.json<br><br>
 The Core<br>
  1 - Navigate to your installation (Easy installer's location is /srv/xilla-discord-core/)<br>
  2 - Delete the bot.jar<br>
- 3 - Upload the newer updated bot.jar from <a href="https://github.com/Alontrle/Xilla-Discord-Core/blob/master/Xilla-Discord-Core-v2/build/libs/Xilla%20Discord%20Core-2.0.0.jar">here</a><br>
+ 3 - Upload the newer updated bot.jar from <a href="https://api.xilla.net/download/Xilla%20Discord%20Core-2.0.0.jar">here</a><br>
  4 - Start the bot and fill in any updated settings.<br><br>
 
 A Module<br>
