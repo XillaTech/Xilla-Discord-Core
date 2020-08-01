@@ -24,12 +24,25 @@ public class HelpCommand extends CoreObject {
 
             for(ManagerObject object : getCommandManager().getList()) {
                 Command legacyCommand = (Command) object;
-                if(!commands.containsKey(legacyCommand.getModule())) {
-                    commands.put(legacyCommand.getModule(), new ArrayList<>());
-                }
 
-                if(legacyCommand.getPermission() == null || data.getUser().hasPermission(legacyCommand.getPermission())) {
-                    commands.get(legacyCommand.getModule()).add(getCoreSetting().getCommandPrefix() + legacyCommand.getUsage() + " - " + legacyCommand.getDescription());
+                if(data.getInputType().equalsIgnoreCase("commandline")) {
+                    if(legacyCommand.isConsoleSupported()) {
+                        if(!commands.containsKey(legacyCommand.getModule())) {
+                            commands.put(legacyCommand.getModule(), new ArrayList<>());
+                        }
+
+                        if(legacyCommand.getPermission() == null || data.getUser().hasPermission(legacyCommand.getPermission())) {
+                            commands.get(legacyCommand.getModule()).add(getCoreSetting().getCommandPrefix() + legacyCommand.getUsage() + " - " + legacyCommand.getDescription());
+                        }
+                    }
+                } else {
+                    if(!commands.containsKey(legacyCommand.getModule())) {
+                        commands.put(legacyCommand.getModule(), new ArrayList<>());
+                    }
+
+                    if(legacyCommand.getPermission() == null || data.getUser().hasPermission(legacyCommand.getPermission())) {
+                        commands.get(legacyCommand.getModule()).add(getCoreSetting().getCommandPrefix() + legacyCommand.getUsage() + " - " + legacyCommand.getDescription());
+                    }
                 }
             }
 

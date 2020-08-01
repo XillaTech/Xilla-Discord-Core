@@ -17,7 +17,7 @@ import java.util.Collections;
 public class StaffCommand extends CoreObject {
 
     public StaffCommand() {
-        CommandBuilder commandBuilder = new CommandBuilder();
+        CommandBuilder commandBuilder = new CommandBuilder("Core", "Staff");
         commandBuilder.setModule("Core");
         commandBuilder.setName("Staff");
         commandBuilder.setActivators("staff", "s");

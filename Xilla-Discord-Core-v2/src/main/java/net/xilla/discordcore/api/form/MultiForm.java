@@ -1,10 +1,14 @@
 package net.xilla.discordcore.api.form;
 
-import com.vdurmont.emoji.EmojiParser;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.xilla.discordcore.CoreObject;
-import net.xilla.discordcore.api.form.Form;
+import net.xilla.discordcore.api.form.form.Form;
+import net.xilla.discordcore.api.form.form.FormBuilder;
+import net.xilla.discordcore.api.form.form.FormOption;
+import net.xilla.discordcore.api.form.form.FormResponse;
+import net.xilla.discordcore.api.form.form.reaction.ReactionQuestion;
+import net.xilla.discordcore.api.form.form.reaction.ReactionQuestionList;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -18,13 +22,15 @@ public class MultiForm extends CoreObject {
     private HashMap<String, FormResponse> formResults;
     private int index;
     private MultiFormExecutor executor;
+    private String channelID;
 
-    public MultiForm(String name, MultiFormExecutor executor) {
+    public MultiForm(String name, String channelID, MultiFormExecutor executor) {
         this.name = name;
         this.formResults = new HashMap<>();
         this.formBuilders = new ArrayList<>();
         this.index = 0;
         this.executor = executor;
+        this.channelID = channelID;
     }
 
     public void start() {
@@ -53,7 +59,7 @@ public class MultiForm extends CoreObject {
         formBuilders.add(builder);
     }
 
-    public void addReactionQuestion(String name, String question, HashMap<String, String> options, TextChannel channel, String ownerID) {
+    public void addReactionQuestion(String name, String question, ReactionQuestionList questions, TextChannel channel, String ownerID) {
         ReactionFormBuilder builder = new ReactionFormBuilder();
         builder.setName(name);
         builder.setTextChannel(channel);
@@ -63,13 +69,13 @@ public class MultiForm extends CoreObject {
 
         List<FormOption> formOptions = new ArrayList<>();
 
-        for(String emoji : options.keySet()) {
-            formOptions.add(new FormOption(emoji, options.get(emoji)));
+        for(ReactionQuestion q : questions.getQuestions()) {
+            formOptions.add(new FormOption(q.getReaction(), q.getResponse()));
         }
 
         builder.setOptions(formOptions);
         builder.setFormReactionEvent((form, event) -> {
-            formResults.put(name, new FormResponse(name, question, options.get(event.getReactionEmote().getEmoji()), event.getReactionEmote().getEmoji()));
+            formResults.put(name, new FormResponse(name, question, questions.getQuestionByEmote(event.getReactionEmote().getEmoji()).getResponse(), event.getReactionEmote().getEmoji()));
             form.getMessage().delete().queue();
             askQuestion();
             return true;
@@ -80,7 +86,7 @@ public class MultiForm extends CoreObject {
     private void askQuestion() {
         if(index < formBuilders.size()) {
             FormBuilder builder = formBuilders.get(index);
-            Form form = builder.build();
+            Form form = builder.build(channelID);
             builder.register(form);
             index++;
         } else {

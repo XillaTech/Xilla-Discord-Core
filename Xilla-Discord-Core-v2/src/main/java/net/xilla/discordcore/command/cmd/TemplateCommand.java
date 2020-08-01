@@ -16,7 +16,7 @@ import java.awt.*;
 public class TemplateCommand extends CoreObject {
 
     public TemplateCommand() {
-        CommandBuilder commandBuilder = new CommandBuilder();
+        CommandBuilder commandBuilder = new CommandBuilder("Core", "TemplateManager", false);
         commandBuilder.setModule("Core");
         commandBuilder.setName("TemplateManager");
         commandBuilder.setActivators("template", "templatemanager", "tm");
@@ -92,7 +92,7 @@ public class TemplateCommand extends CoreObject {
                     embedBuilder.setColor(Color.decode(getCoreSetting().getEmbedColor()));
                     return new CoreCommandResponse(data).setEmbed(embedBuilder.build());
                 } else if (args.length > 0 && args[0].equalsIgnoreCase("create")) {
-                    MultiForm form = new MultiForm("Template", (results) -> {
+                    MultiForm form = new MultiForm("Template", event.getTextChannel().getId(), (results) -> {
                         try {
                             boolean embed = Boolean.parseBoolean(results.get("Embed").getResponse());
                             String permission = results.get("Permission").getResponse();

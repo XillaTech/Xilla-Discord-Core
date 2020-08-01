@@ -1,7 +1,7 @@
 package net.xilla.discordcore.api;
 
 import net.xilla.discordcore.CoreObject;
-import net.xilla.discordcore.api.form.FormManager;
+import net.xilla.discordcore.api.form.form.FormManager;
 
 public class DiscordAPI extends CoreObject {
 

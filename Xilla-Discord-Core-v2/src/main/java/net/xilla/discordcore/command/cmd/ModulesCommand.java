@@ -12,9 +12,7 @@ import java.awt.*;
 public class ModulesCommand extends CoreObject {
 
     public ModulesCommand() {
-        CommandBuilder commandBuilder = new CommandBuilder();
-        commandBuilder.setModule("Core");
-        commandBuilder.setName("Module");
+        CommandBuilder commandBuilder = new CommandBuilder("Core", "Module", true);
         commandBuilder.setActivators("module", "modules", "m");
         commandBuilder.setDescription("View and manage your discord modules");
         commandBuilder.setPermission("core.module");

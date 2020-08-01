@@ -5,6 +5,9 @@ import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.api.DiscordAPI;
+import net.xilla.discordcore.api.form.form.Form;
+import net.xilla.discordcore.api.form.form.FormBuilder;
+import net.xilla.discordcore.api.form.form.FormMessageEvent;
 
 public class MessageFormBuilder extends CoreObject implements FormBuilder {
 
@@ -46,13 +49,13 @@ public class MessageFormBuilder extends CoreObject implements FormBuilder {
         return this;
     }
 
-    public Form build() {
+    public Form build(String channelID) {
         Message message = textChannel.sendMessage(embed).complete();
-        return new Form(name, message, ownerID, null, null, event);
+        return new Form(name, message, ownerID, null, channelID, null, event);
     }
 
-    public void register() {
-        DiscordAPI.getInstance().getFormManager().addForm(build());
+    public void register(String channelID) {
+        DiscordAPI.getInstance().getFormManager().addForm(build(channelID));
     }
 
     public void register(Form form) {

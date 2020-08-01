@@ -13,9 +13,7 @@ import java.awt.*;
 public class SettingsCommand extends CoreObject {
 
     public SettingsCommand() {
-        CommandBuilder commandBuilder = new CommandBuilder();
-        commandBuilder.setModule("Core");
-        commandBuilder.setName("Settings");
+        CommandBuilder commandBuilder = new CommandBuilder("Core", "Settings", true);
         commandBuilder.setActivators("settings");
         commandBuilder.setDescription("View and manage your bot settings");
         commandBuilder.setPermission("core.settings");

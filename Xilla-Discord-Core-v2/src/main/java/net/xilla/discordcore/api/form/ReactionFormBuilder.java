@@ -5,6 +5,10 @@ import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.api.DiscordAPI;
+import net.xilla.discordcore.api.form.form.Form;
+import net.xilla.discordcore.api.form.form.FormBuilder;
+import net.xilla.discordcore.api.form.form.FormOption;
+import net.xilla.discordcore.api.form.form.reaction.FormReactionEvent;
 
 import java.util.List;
 
@@ -54,18 +58,18 @@ public class ReactionFormBuilder extends CoreObject implements FormBuilder {
         return this;
     }
 
-    public Form build() {
+    public Form build(String channelID) {
         Message message = textChannel.sendMessage(embed).complete();
 
         for(FormOption option : options) {
             message.addReaction(option.getEmote()).queue();
         }
 
-        return new Form(name, message, ownerID, options, event, null);
+        return new Form(name, message, ownerID, options, channelID, event, null);
     }
 
-    public void register() {
-        DiscordAPI.getInstance().getFormManager().addForm(build());
+    public void register(String channelID) {
+        DiscordAPI.getInstance().getFormManager().addForm(build(channelID));
     }
 
     public void register(Form form) {
