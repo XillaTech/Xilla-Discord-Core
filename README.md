@@ -14,7 +14,11 @@ Manual Installation : <br>
  3 - Make sure your linux installation has screen installed, if not, please install it. (Ubuntu: sudo apt-get install screen) (CentOS / Fedora: sudo yum install screen)
  4 - Run the bot, and input your settings. (screen java -jar "Xilla Discord Core-2.0.0.jar")<br>
  5 - Download the modules you want, and put them in the /modules/ folder.<br>
- 6 - Restart your bot and input any required settings.<br>
+ 6 - Restart your bot and input any required settings.<br><br>
+ 
+ Pterodactyl Panel : <br>
+ This egg supports Java 11, Python 3.6, NodeJS 12, and the Microsoft .NET Framework. <br>
+https://api.xilla.net/download/egg-xilla-discord-core.json<br><br>
  
 # Updating<br>
 The Core<br>
