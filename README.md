@@ -1,7 +1,5 @@
 # Xilla Discord Core<br>
-Managed and Developed by Tobias Steely<br>
-
-
+Xilla Discord Core is a Discord JDA library extension designed to make coding bots much easier. This core handles commands and offers many tool sets and features designed to make better bots, and do it in signifigantly less time. This project is managed and maintained by Tobias Steely. Check out our website @ <a href="https://xilla.net">https://xilla.net</a><br><br>
 
 # Version / Download<br>
 Lastest Version : 2.0.0-BETA-2 STABLE - <a href="https://api.xilla.net/download/Xilla%20Discord%20Core-2.0.0.jar">Download Here</a><br><br>
@@ -18,15 +16,15 @@ Manual Installation : <br>
  5 - Download the modules you want, and put them in the /modules/ folder.<br>
  6 - Restart your bot and input any required settings.<br><br>
  
- Pterodactyl Panel : <br>
+Pterodactyl Panel : <br>
  This egg supports Java 11, Python 3.6, NodeJS 12, and the Microsoft .NET Framework. <br>
-https://api.xilla.net/download/egg-xilla-discord-core.json<br><br>
+ https://api.xilla.net/download/egg-xilla-discord-core.json<br><br>
  
 # Updating<br>
 The Core<br>
  1 - Navigate to your installation (Easy installer's location is /srv/xilla-discord-core/)<br>
- 2 - Delete the bot.jar<br>
- 3 - Upload the newer updated bot.jar from <a href="https://api.xilla.net/download/Xilla%20Discord%20Core-2.0.0.jar">here</a><br>
+ 2 - Delete the core jar file<br>
+ 3 - Upload the newer updated core jar file from <a href="https://api.xilla.net/download/Xilla%20Discord%20Core-2.0.0.jar">here</a><br>
  4 - Start the bot and fill in any updated settings.<br><br>
 
 A Module<br>
@@ -36,7 +34,10 @@ A Module<br>
  4 - Upload the newer updated module<br>
  5 - Start the bot and fill in any updated settings.<br><br>
 
-# Community Modules<br> 
+# Modules<br> 
+Ticket Module - <a href="https://www.mc-market.org/resources/16500/">Purchase Here</a><br>
+Review Module - <a href="https://api.xilla.net/download/ReviewBot-1.0-SNAPSHOT.jar">Download Here</a><br>
+Utility Module - <a href="https://api.xilla.net/download/UtilityBot-1.0-SNAPSHOT.jar">Download Here</a><br>
 Join our discord for community modules! https://discord.gg/aSKqa5W<br>
 We are working on a custom resource platform for users to release, sell, and license their softwares.<br><br>
 
