@@ -28,7 +28,12 @@ public class CommandEventHandler extends ListenerAdapter {
 
                 String raw = message.substring(prefix.length());
                 String command = raw.split(" ")[0].toLowerCase();
-                String[] args = raw.substring(command.length()).split(" ");
+                String[] args;
+                if(raw.split(" ").length == 1) {
+                    args = new String[] {};
+                } else {
+                    args = raw.substring(command.length() + 1).split(" ");
+                }
 
                 CommandData<MessageReceivedEvent> data = new CommandData<>(command, args, event, CoreCommandExecutor.discord_input, new DiscordUser(Objects.requireNonNull(event.getMember())));
                 commandManager.runCommand(data);

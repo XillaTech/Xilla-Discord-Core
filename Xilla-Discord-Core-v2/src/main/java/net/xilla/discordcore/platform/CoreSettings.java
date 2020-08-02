@@ -23,13 +23,14 @@ public class CoreSettings extends Settings {
             getConfig().loadDefault("embed-color", "#42daf5");
             getConfig().loadDefault("command-prefix", "-");
             getConfig().loadDefault("activity", "mc.serverip.com");
-            getConfig().save();
         }
 
         // Discord sharding doesn't need an installer as you only need it for bots in >2,500 servers
         if(getConfig().loadDefault("shards", 1))
             getConfig().save();
 
+        getConfig().loadDefault("minimize-help", false);
+        getConfig().save();
     }
 
     public String getBotToken() {
@@ -79,6 +80,10 @@ public class CoreSettings extends Settings {
     public void setCommandPrefix(String key) {
         getConfig().set("command-prefix", key);
         getConfig().save();
+    }
+
+    public Boolean isMinimizeHelp() {
+        return getConfig().getBoolean("minimize-help");
     }
 
 }
