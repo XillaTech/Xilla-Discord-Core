@@ -24,17 +24,17 @@ configurations {
 
 dependencies {
     // Including File Libraries
-    compileOnly files('build/resources/libs/Paper 1.15.2.jar')
-    compileOnly files('modules/TicketCore-1.0-SNAPSHOT.jar')
+    compileOnly files('build/resources/libs/Paper-1.16.1-latest.jar')
 
     // Puts Files Inside of Compiled Jar
     jarLibs files('build/resources/libs/TobiasAPI-1.0-SNAPSHOT-all.jar')
-    jarLibs files('build/resources/libs/JDA-4.2.0_168-withDependencies.jar')
+    //jarLibs files('build/resources/libs/JDA-4.2.0_168-withDependencies.jar')
+    jarLibs files('build/resources/libs/JDA-4.2.0_168-withDependencies-min.jar')
     jarLibs 'com.vdurmont:emoji-java:5.1.1'
 
     // Including External Libraries
     jarLibs 'org.slf4j:slf4j-nop:1.7.29'
-    compileOnly  'net.md-5:bungeecord-api:1.15-SNAPSHOT'
+    compileOnly  'net.md-5:bungeecord-api:1.16-R0.2-SNAPSHOT'
 
     configurations.compile.extendsFrom(configurations.jarLibs)
 }

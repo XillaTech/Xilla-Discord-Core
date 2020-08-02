@@ -3,7 +3,6 @@ package net.xilla.discordcore.command.cmd;
 import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
 import com.tobiassteely.tobiasapi.command.Command;
 import com.tobiassteely.tobiasapi.command.CommandExecutor;
-import com.tobiassteely.tobiasapi.command.data.CommandData;
 import com.tobiassteely.tobiasapi.command.response.CommandResponse;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.xilla.discordcore.CoreObject;
@@ -19,7 +18,7 @@ public class HelpCommand extends CoreObject {
         Command command = getCommandManager().getCommand("Help");
 
         ArrayList<CommandExecutor> executors = new ArrayList<>();
-        executors.add((name, args, data) -> {
+        executors.add((data) -> {
             HashMap<String, ArrayList<String>> commands = new HashMap<>();
 
             for(ManagerObject object : getCommandManager().getList()) {

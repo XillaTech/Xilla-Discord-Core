@@ -1,6 +1,6 @@
 package net.xilla.discordcore.command.response;
 
-import com.tobiassteely.tobiasapi.command.data.CommandData;
+import com.tobiassteely.tobiasapi.command.CommandData;
 import com.tobiassteely.tobiasapi.command.response.CommandResponder;
 import com.tobiassteely.tobiasapi.command.response.CommandResponse;
 import net.dv8tion.jda.api.entities.MessageEmbed;

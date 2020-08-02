@@ -28,24 +28,24 @@ public class StaffCommand extends CoreObject {
     }
 
     public CoreCommandExecutor getExecutor() {
-        return (name, args, data) -> {
+        return (data) -> {
 
             StringBuilder description = new StringBuilder("*Available Commands*\n"
                     + getCoreSetting().getCommandPrefix() + "s groups - Manage staff groups\n"
                     + getCoreSetting().getCommandPrefix() + "s departments - Manage staff departments\n");
 
-            if (args.length > 0) {
-                if (args[0].equalsIgnoreCase("groups")) {
-                    if (args.length > 1) {
-                        if (args[1].equalsIgnoreCase("create")) {
+            if (data.getArgs().length > 0) {
+                if (data.getArgs()[0].equalsIgnoreCase("groups")) {
+                    if (data.getArgs().length > 1) {
+                        if (data.getArgs()[1].equalsIgnoreCase("create")) {
 
-                        } else if (args[1].equalsIgnoreCase("delete")) {
+                        } else if (data.getArgs()[1].equalsIgnoreCase("delete")) {
 
-                        } else if (args[1].equalsIgnoreCase("edit")) {
+                        } else if (data.getArgs()[1].equalsIgnoreCase("edit")) {
 
-                        } else if (args[1].equalsIgnoreCase("info")) {
-                            if(args.length == 3) {
-                                Group group = getStaffManager().getGroupManager().getGroup(args[2]);
+                        } else if (data.getArgs()[1].equalsIgnoreCase("info")) {
+                            if(data.getArgs().length == 3) {
+                                Group group = getStaffManager().getGroupManager().getGroup(data.getArgs()[2]);
                                 if(group != null) {
                                     description = new StringBuilder("Name: " + group.getName() + "\n" +
                                             "Role: <@" + group.getGroupID() + ">\n" +
@@ -66,7 +66,7 @@ public class StaffCommand extends CoreObject {
                             } else {
                                 description = new StringBuilder(getCoreSetting().getCommandPrefix() + "s groups info <group>");
                             }
-                        } else if (args[1].equalsIgnoreCase("list")) {
+                        } else if (data.getArgs()[1].equalsIgnoreCase("list")) {
                             description = new StringBuilder("Available Groups: `");
                             for(int i = 0; i < getStaffManager().getGroupManager().getList().size(); i++) {
                                 Group group = (Group)getStaffManager().getGroupManager().getList().get(i);
@@ -92,17 +92,17 @@ public class StaffCommand extends CoreObject {
                                 + getCoreSetting().getCommandPrefix() + "s groups info <group> - View a staff group\n"
                                 + getCoreSetting().getCommandPrefix() + "s groups list - List staff groups\n");
                     }
-                } else if (args[0].equalsIgnoreCase("departments")) {
-                    if (args.length > 1) {
-                        if (args[1].equalsIgnoreCase("create")) {
+                } else if (data.getArgs()[0].equalsIgnoreCase("departments")) {
+                    if (data.getArgs().length > 1) {
+                        if (data.getArgs()[1].equalsIgnoreCase("create")) {
 
-                        } else if (args[1].equalsIgnoreCase("delete")) {
+                        } else if (data.getArgs()[1].equalsIgnoreCase("delete")) {
 
-                        } else if (args[1].equalsIgnoreCase("edit")) {
+                        } else if (data.getArgs()[1].equalsIgnoreCase("edit")) {
 
-                        } else if (args[1].equalsIgnoreCase("info")) {
+                        } else if (data.getArgs()[1].equalsIgnoreCase("info")) {
 
-                        } else if (args[1].equalsIgnoreCase("list")) {
+                        } else if (data.getArgs()[1].equalsIgnoreCase("list")) {
 
                         }
                     }

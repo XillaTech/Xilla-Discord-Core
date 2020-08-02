@@ -14,7 +14,7 @@ public class TextCommand extends TemplateCommand {
     private String text;
 
     public TextCommand(String module, String name, String[] activators, String description, String usage, String text, String permission) {
-        super(module, name, activators, description, usage, permission, (command, args, data) -> new CommandResponse(data).setDescription(text));
+        super(module, name, activators, description, usage, permission, (data) -> new CommandResponse(data).setDescription(text));
         this.text = text;
     }
 
@@ -25,7 +25,7 @@ public class TextCommand extends TemplateCommand {
                 map.get("activators").split(","),
                 map.get("description"), map.get("usage"),
                 map.get("permission"),
-                (command, args, data) -> new CommandResponse(data).setDescription(map.get("text"))
+                (data) -> new CommandResponse(data).setDescription(map.get("text"))
         );
         this.text = map.get("text");
     }

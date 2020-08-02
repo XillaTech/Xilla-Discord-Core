@@ -1,8 +1,8 @@
 package net.xilla.discordcore.command.template;
 
 import com.tobiassteely.tobiasapi.command.Command;
+import com.tobiassteely.tobiasapi.command.CommandData;
 import com.tobiassteely.tobiasapi.command.CommandExecutor;
-import com.tobiassteely.tobiasapi.command.data.CommandData;
 import com.tobiassteely.tobiasapi.command.response.CommandResponse;
 import net.xilla.discordcore.command.CoreCommandExecutor;
 import org.json.simple.JSONObject;
@@ -10,8 +10,6 @@ import org.json.simple.JSONObject;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import static org.bukkit.Bukkit.getName;
-import static org.bukkit.Bukkit.recipeIterator;
 
 public class TemplateCommand extends Command {
 
@@ -20,16 +18,16 @@ public class TemplateCommand extends Command {
     }
 
     @Override
-    public ArrayList<CommandResponse> run(String[] args, CommandData data) {
-        return runTemplate(args, data);
+    public ArrayList<CommandResponse> run(CommandData data) {
+        return runTemplate(data);
     }
 
-    public ArrayList<CommandResponse> runTemplate(String[] args, CommandData data) {
+    public ArrayList<CommandResponse> runTemplate(CommandData data) {
         ArrayList<CommandResponse> responses = new ArrayList<>();
         for(CommandExecutor commandExecutor : getExecutors()) {
             CommandExecutor executor = commandExecutor;
 
-            CommandResponse response = executor.run(getName(), args, data);
+            CommandResponse response = executor.run(data);
             if(response != null) {
                 responses.add(response);
             }

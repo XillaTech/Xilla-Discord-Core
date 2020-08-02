@@ -1,7 +1,7 @@
 package net.xilla.discordcore.command;
 
+import com.tobiassteely.tobiasapi.command.CommandData;
 import com.tobiassteely.tobiasapi.command.CommandManager;
-import com.tobiassteely.tobiasapi.command.data.CommandData;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.xilla.discordcore.DiscordCore;
@@ -25,8 +25,13 @@ public class CommandEventHandler extends ListenerAdapter {
             if (message.length() > prefix.length() && message.toLowerCase().startsWith(prefix.toLowerCase())) {
 
                 // Passes the command over to the internal command system (Part of TobiasAPI)
-                CommandData<MessageReceivedEvent> data = new CommandData<>(event, CoreCommandExecutor.discord_input, new DiscordUser(Objects.requireNonNull(event.getMember())));
-                commandManager.runRawCommandInput(message.substring(prefix.length()), data);
+
+                String raw = message.substring(prefix.length());
+                String command = raw.split(" ")[0].toLowerCase();
+                String[] args = raw.substring(command.length()).split(" ");
+
+                CommandData<MessageReceivedEvent> data = new CommandData<>(command, args, event, CoreCommandExecutor.discord_input, new DiscordUser(Objects.requireNonNull(event.getMember())));
+                commandManager.runCommand(data);
             }
         }
     }

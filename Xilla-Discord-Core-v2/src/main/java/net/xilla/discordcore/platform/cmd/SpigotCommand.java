@@ -1,6 +1,6 @@
 package net.xilla.discordcore.platform.cmd;
 
-import com.tobiassteely.tobiasapi.command.data.CommandData;
+import com.tobiassteely.tobiasapi.command.CommandData;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CoreCommandExecutor;
 import net.xilla.discordcore.command.event.SpigotCommandEvent;
@@ -16,17 +16,16 @@ public class SpigotCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        CommandData data = new CommandData<>(new SpigotCommandEvent(sender, command), CoreCommandExecutor.spigot_input, new SpigotUser(sender));
-
+        CommandData data;
         if (args.length >= 2) {
-            System.out.println("pre: " + Arrays.deepToString(args));
-            System.out.println("post1: " + Arrays.deepToString(Arrays.copyOfRange(args, 1, args.length)));
-            DiscordCore.getInstance().getCommandManager().runCommand(args[0], Arrays.copyOfRange(args, 1, args.length), data);
+             data = new CommandData<>(args[0], Arrays.copyOfRange(args, 1, args.length), new SpigotCommandEvent(sender, command), CoreCommandExecutor.spigot_input, new SpigotUser(sender));
         } else  if (args.length == 1) {
-            DiscordCore.getInstance().getCommandManager().runCommand(args[0], new String[] {}, data);
+            data = new CommandData<>(args[0], new String[] {}, new SpigotCommandEvent(sender, command), CoreCommandExecutor.spigot_input, new SpigotUser(sender));
         } else {
             sender.sendMessage(ChatColor.RED + "That is not a valid command!");
+            return true;
         }
+        DiscordCore.getInstance().getCommandManager().runCommand(data);
         return true;
     }
 

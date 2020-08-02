@@ -22,7 +22,7 @@ public class SettingsCommand extends CoreObject {
     }
 
     public CommandExecutor getExecutor() {
-        return (command, args, data) -> {
+        return (data) -> {
 
             StringBuilder description = new StringBuilder();
             description.append("*Available Commands*\n").append(getCoreSetting().getCommandPrefix())
@@ -33,7 +33,7 @@ public class SettingsCommand extends CoreObject {
             builder.setColor(Color.decode(getCoreSetting().getEmbedColor()));
             builder.setDescription(description);
 
-            if (args.length == 1 && args[0].equalsIgnoreCase("list")) {
+            if (data.getArgs().length == 1 && data.getArgs()[0].equalsIgnoreCase("list")) {
                 StringBuilder configs = new StringBuilder();
                 configs.append("**Available Configs**\n");
                 for(String settingsName : DiscordCore.getInstance().getSettingsManager().getSettingsNames()) {
@@ -42,8 +42,8 @@ public class SettingsCommand extends CoreObject {
                 configs.append("\n").append(DiscordCore.getInstance().getSettings().getCommandPrefix()).append("settings info <config>");
                 configs.append("\n").append(DiscordCore.getInstance().getSettings().getCommandPrefix()).append("settings set <config> <setting> <value>");
                 builder.setDescription(configs.toString());
-            } else if (args.length == 2 && args[0].equalsIgnoreCase("info")) {
-                Settings settings = DiscordCore.getInstance().getSettingsManager().getSettings(args[1].toLowerCase());
+            } else if (data.getArgs().length == 2 && data.getArgs()[0].equalsIgnoreCase("info")) {
+                Settings settings = DiscordCore.getInstance().getSettingsManager().getSettings(data.getArgs()[1].toLowerCase());
                 if(settings != null) {
                     StringBuilder configs = new StringBuilder();
                     configs.append("**Available Settings** (").append(settings.getKey()).append(")\n\n");
@@ -59,19 +59,19 @@ public class SettingsCommand extends CoreObject {
                 } else {
                     builder.setDescription("That is not a valid config!");
                 }
-            } else if (args.length >= 4 && args[0].equalsIgnoreCase("set")) {
-                Settings settings = DiscordCore.getInstance().getSettingsManager().getSettings(args[1].toLowerCase());
+            } else if (data.getArgs().length >= 4 && data.getArgs()[0].equalsIgnoreCase("set")) {
+                Settings settings = DiscordCore.getInstance().getSettingsManager().getSettings(data.getArgs()[1].toLowerCase());
                 if (settings != null) {
-                    if(settings.getConfig().getJSON().containsKey(args[2])) {
-                        if(settings.getConfig().getJSON().get(args[2]) instanceof String) {
+                    if(settings.getConfig().getJSON().containsKey(data.getArgs()[2])) {
+                        if(settings.getConfig().getJSON().get(data.getArgs()[2]) instanceof String) {
                             String value = "";
-                            for (int i = 3; i < args.length; i++) {
-                                value = value + args[i];
-                                if (i != args.length - 1) {
+                            for (int i = 3; i < data.getArgs().length; i++) {
+                                value = value + data.getArgs()[i];
+                                if (i != data.getArgs().length - 1) {
                                     value = value + " ";
                                 }
                             }
-                            settings.getConfig().set(args[2], value);
+                            settings.getConfig().set(data.getArgs()[2], value);
                             settings.getConfig().save();
                             builder.setDescription("You have successfully updated that message.");
                         } else {

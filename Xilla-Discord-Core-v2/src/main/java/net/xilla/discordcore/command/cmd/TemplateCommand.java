@@ -28,7 +28,7 @@ public class TemplateCommand extends CoreObject {
     }
 
     public CoreCommandExecutor getExecutor() {
-        return (name, args, data) -> {
+        return (data) -> {
 
             StringBuilder description = new StringBuilder();
             description.append("*Available Commands*\n");
@@ -39,7 +39,7 @@ public class TemplateCommand extends CoreObject {
 
             if(data.get() instanceof MessageReceivedEvent) {
                 MessageReceivedEvent event = (MessageReceivedEvent)data.get();
-                if (args.length > 0 && args[0].equalsIgnoreCase("list")) {
+                if (data.getArgs().length > 0 && data.getArgs()[0].equalsIgnoreCase("list")) {
                     EmbedBuilder embedBuilder = new EmbedBuilder().setTitle("Template");
 
                     if(getPlatform().getTemplateManager().getCommands().getCache().keySet().size() == 0) {
@@ -59,14 +59,14 @@ public class TemplateCommand extends CoreObject {
                     embedBuilder.setColor(Color.decode(getCoreSetting().getEmbedColor()));
 
                     return new CoreCommandResponse(data).setEmbed(embedBuilder.build());
-                } else if (args.length > 1 && args[0].equalsIgnoreCase("delete")) {
-                    net.xilla.discordcore.command.template.TemplateCommand command = getPlatform().getTemplateManager().getTemplateCommand(args[1]);
+                } else if (data.getArgs().length > 1 && data.getArgs()[0].equalsIgnoreCase("delete")) {
+                    net.xilla.discordcore.command.template.TemplateCommand command = getPlatform().getTemplateManager().getTemplateCommand(data.getArgs()[1]);
 
                     EmbedBuilder embedBuilder = new EmbedBuilder().setTitle("Template");
                     if(command != null) {
-                        getPlatform().getTemplateManager().removeObject(args[1]);
+                        getPlatform().getTemplateManager().removeObject(data.getArgs()[1]);
                         getPlatform().getTemplateManager().save();
-                        getCommandManager().removeObject(args[1]);
+                        getCommandManager().removeObject(data.getArgs()[1]);
                         embedBuilder.setDescription("You have deleted that command!");
                         embedBuilder.setColor(Color.decode(getCoreSetting().getEmbedColor()));
                     } else {
@@ -75,10 +75,10 @@ public class TemplateCommand extends CoreObject {
 
                     embedBuilder.setColor(Color.decode(getCoreSetting().getEmbedColor()));
                     return new CoreCommandResponse(data).setEmbed(embedBuilder.build());
-                } else if (args.length > 1 && args[0].equalsIgnoreCase("info")) {
+                } else if (data.getArgs().length > 1 && data.getArgs()[0].equalsIgnoreCase("info")) {
                     EmbedBuilder embedBuilder = new EmbedBuilder().setTitle("Template");
 
-                    net.xilla.discordcore.command.template.TemplateCommand command = getPlatform().getTemplateManager().getTemplateCommand(args[1]);
+                    net.xilla.discordcore.command.template.TemplateCommand command = getPlatform().getTemplateManager().getTemplateCommand(data.getArgs()[1]);
                     if(command != null) {
 
                         embedBuilder.setDescription("*Command Name*\n```" + command.getName() + "```\n"
@@ -91,7 +91,7 @@ public class TemplateCommand extends CoreObject {
 
                     embedBuilder.setColor(Color.decode(getCoreSetting().getEmbedColor()));
                     return new CoreCommandResponse(data).setEmbed(embedBuilder.build());
-                } else if (args.length > 0 && args[0].equalsIgnoreCase("create")) {
+                } else if (data.getArgs().length > 0 && data.getArgs()[0].equalsIgnoreCase("create")) {
                     MultiForm form = new MultiForm("Template", event.getTextChannel().getId(), (results) -> {
                         try {
                             boolean embed = Boolean.parseBoolean(results.get("Embed").getResponse());

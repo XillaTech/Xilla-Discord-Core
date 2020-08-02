@@ -21,7 +21,7 @@ public class ModulesCommand extends CoreObject {
     }
 
     public CommandExecutor getExecutor() {
-        return (command, args, data) -> {
+        return (data) -> {
 
             StringBuilder description = new StringBuilder();
             description.append("*Available Commands*\n").append(getCoreSetting().getCommandPrefix())
@@ -30,10 +30,10 @@ public class ModulesCommand extends CoreObject {
                     .append("m list - View all modules\n")
                     .append("\n*You can find modules and their market IDs in <https://discord.gg/aSKqa5W>. To delete a module, remove the module from the /modules/ folder. Then restart the bot.*");
 
-            if(args.length > 0) {
-                if(args[0].equalsIgnoreCase("download")) {
+            if(data.getArgs().length > 0) {
+                if(data.getArgs()[0].equalsIgnoreCase("download")) {
 
-                } else if(args[0].equalsIgnoreCase("list")) {
+                } else if(data.getArgs()[0].equalsIgnoreCase("list")) {
                     if(getModuleManager().getList().size() == 0) {
                         description = new StringBuilder();
                         description.append("*There are no available modules*");
@@ -46,7 +46,7 @@ public class ModulesCommand extends CoreObject {
                                     .append(" (").append(module.getType()).append(")");
                         }
                     }
-                } else if(args[0].equalsIgnoreCase("info")) {
+                } else if(data.getArgs()[0].equalsIgnoreCase("info")) {
 
                 }
             }

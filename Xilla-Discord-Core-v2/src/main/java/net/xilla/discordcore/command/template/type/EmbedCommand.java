@@ -16,7 +16,7 @@ public class EmbedCommand extends TemplateCommand {
     private String text;
 
     public EmbedCommand(String module, String name, String[] activators, String description, String usage, String title, String text, String permission) {
-        super(module, name, activators, description, usage, permission, (command, args, data) ->
+        super(module, name, activators, description, usage, permission, (data) ->
                 new CoreCommandResponse(data).setEmbed(new EmbedBuilder().setTitle(title)
                 .setDescription(text).setColor(Color.decode(DiscordCore.getInstance().getSettings()
                 .getEmbedColor())).build()));
@@ -30,7 +30,7 @@ public class EmbedCommand extends TemplateCommand {
                 map.get("activators").split(","),
                 map.get("description"), map.get("usage"),
                 map.get("permission"),
-                (command, args, data) -> new CoreCommandResponse(data).setEmbed(new EmbedBuilder().setTitle(map.get("title"))
+                (data) -> new CoreCommandResponse(data).setEmbed(new EmbedBuilder().setTitle(map.get("title"))
                         .setDescription(map.get("text")).setColor(Color.decode(DiscordCore.getInstance().getSettings()
                         .getEmbedColor())).build())
         );

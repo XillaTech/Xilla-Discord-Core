@@ -36,7 +36,7 @@ public class Test extends TobiasObject {
         CommandBuilder commandBuilder = new CommandBuilder("Test", "Test", false);
         commandBuilder.setActivators("test", "t");
         commandBuilder.setDescription("Test command");
-        commandBuilder.setCommandExecutor((name, arguments, data) -> {
+        commandBuilder.setCommandExecutor((data) -> {
 
             String description = "The sender's name is: ";
 
