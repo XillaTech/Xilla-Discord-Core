@@ -11,7 +11,7 @@ Manual Installation : <br>
  --- Ubuntu 18.04 - <a href="https://computingforgeeks.com/install-oracle-java-openjdk-14-on-ubuntu-debian-linux/">Click Here</a><br>
  --- CentOS 7 / 8 or Fedora - <a href="https://computingforgeeks.com/install-oracle-java-openjdk-14-on-centosfedora-linux/">Click Here</a><br>
  2 - Download the bot from <a href="https://github.com/Alontrle/Xilla-Discord-Core/blob/master/Xilla-Discord-Core-v2/build/libs/Xilla%20Discord%20Core-2.0.0.jar">here</a><br>
- 3 - Make sure your linux installation has screen installed, if not, please install it. (Ubuntu: sudo apt-get install screen) (CentOS / Fedora: sudo yum install screen)
+ 3 - Make sure your linux installation has screen installed, if not, please install it. (Ubuntu: sudo apt-get install screen) (CentOS / Fedora: sudo yum install screen)<br>
  4 - Run the bot, and input your settings. (screen java -jar "Xilla Discord Core-2.0.0.jar")<br>
  5 - Download the modules you want, and put them in the /modules/ folder.<br>
  6 - Restart your bot and input any required settings.<br><br>
