@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-public class GroupManager extends ManagerParent {
+public class GroupManager extends ManagerParent<Group> {
 
     public GroupManager() {
         super(true);
@@ -57,8 +57,7 @@ public class GroupManager extends ManagerParent {
 
     public void save() {
         Config config = DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("staff/groups.json");
-        for(ManagerObject object : getList()) {
-            Group staff = (Group)object;
+        for(Group staff : getList()) {
             config.toJson().put(staff.getKey(), staff.toJson());
         }
         config.save();
@@ -66,8 +65,7 @@ public class GroupManager extends ManagerParent {
 
     public ArrayList<Group> getStaffByUserId(Guild guild, String id) {
         ArrayList<Group> staffList = new ArrayList<>();
-        for(Object object : getList()) {
-            Group staff = (Group)object;
+        for(Group staff : getList()) {
             if(staff.isMember(guild, id)) {
                 staffList.add(staff);
             }

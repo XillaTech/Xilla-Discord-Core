@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class ModuleManager extends ManagerParent {
+public class ModuleManager extends ManagerParent<Module> {
 
     public ModuleManager(String baseFolder) {
         super(false);
@@ -64,7 +64,7 @@ public class ModuleManager extends ManagerParent {
     }
 
     public JavaModule getJavaModule(String name) {
-        Module module = (Module)getObject(name);
+        Module module = getObject(name);
         if(module.getType().equals("Java")) {
             return (JavaModule)module;
         }
@@ -72,7 +72,7 @@ public class ModuleManager extends ManagerParent {
     }
 
     public JavaModule getPythonModule(String name) {
-        Module module = (Module)getObject(name);
+        Module module = getObject(name);
         if(module.getType().equals("Java")) {
             return (JavaModule)module;
         }

@@ -47,9 +47,9 @@ public class TemplateCommand extends CoreObject {
                     } else {
                         String commands = "";
                         int loop = 0;
-                        for(String command : getPlatform().getTemplateManager().getCommands().getCache().keySet()) {
+                        for(Object obj : getPlatform().getTemplateManager().getCommands().getCache().keySet()) {
                             loop++;
-                            commands = commands + command;
+                            commands = commands + obj;
                             if(loop != getPlatform().getTemplateManager().getCommands().getCache().keySet().size()) {
                                 commands = commands + "\n";
                             }

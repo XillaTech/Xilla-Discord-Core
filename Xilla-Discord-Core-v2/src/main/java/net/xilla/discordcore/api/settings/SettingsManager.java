@@ -4,7 +4,7 @@ import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
 
 import java.util.Set;
 
-public class SettingsManager extends ManagerParent {
+public class SettingsManager extends ManagerParent<Settings> {
 
     public SettingsManager() {
         super(true);
@@ -15,7 +15,7 @@ public class SettingsManager extends ManagerParent {
     }
 
     public Settings getSettings(String name) {
-        return (Settings)getObject(name);
+        return getObject(name);
     }
 
     public Set<String> getSettingsNames() {

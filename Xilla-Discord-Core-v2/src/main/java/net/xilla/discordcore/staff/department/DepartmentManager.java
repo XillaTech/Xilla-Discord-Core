@@ -10,7 +10,7 @@ import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 
-public class DepartmentManager extends ManagerParent {
+public class DepartmentManager extends ManagerParent<Department> {
 
     public DepartmentManager() {
         super(true);
@@ -29,8 +29,7 @@ public class DepartmentManager extends ManagerParent {
 
     public void save() {
         Config config = DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("staff/departments.json");
-        for(ManagerObject object : getList()) {
-            Department department = (Department) object;
+        for(Department department : getList()) {
             config.toJson().put(department.getKey(), department.toJson());
         }
         config.save();
@@ -38,8 +37,7 @@ public class DepartmentManager extends ManagerParent {
 
     public ArrayList<Department> getDepartmentByGroupName(String name) {
         ArrayList<Department> departmentList = new ArrayList<>();
-        for(Object object : getList()) {
-            Department department = (Department)object;
+        for(Department department : getList()) {
 
             if(department.getGroupNames().contains(name)) {
                 departmentList.add(department);
@@ -50,8 +48,7 @@ public class DepartmentManager extends ManagerParent {
 
     public ArrayList<Department> getDepartmentByUserId(Guild guild, String id) {
         ArrayList<Department> departmentList = new ArrayList<>();
-        for(Object object : getList()) {
-            Department department = (Department)object;
+        for(Department department : getList()) {
 
             for(String groupName : department.getGroupNames()) {
                 Group group = DiscordCore.getInstance().getPlatform().getStaffManager().getGroupManager().getGroup(groupName);
@@ -65,7 +62,7 @@ public class DepartmentManager extends ManagerParent {
     }
 
     public Department getDepartment(String name) {
-        return (Department)getObject(name);
+        return getObject(name);
     }
 
     public void registerDepartment(Department department) {

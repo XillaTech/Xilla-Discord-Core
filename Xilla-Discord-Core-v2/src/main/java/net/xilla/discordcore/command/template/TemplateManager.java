@@ -9,7 +9,7 @@ import net.xilla.discordcore.command.template.type.EmbedCommand;
 import net.xilla.discordcore.command.template.type.TextCommand;
 import org.json.simple.JSONObject;
 
-public class TemplateManager extends ManagerParent {
+public class TemplateManager extends ManagerParent<TemplateCommand> {
 
     public TemplateManager() {
         super(false);
@@ -40,8 +40,7 @@ public class TemplateManager extends ManagerParent {
     public void save() {
         Config config = TobiasAPI.getInstance().getConfigManager().getConfig("commands.json");
         config.clear();
-        for(ManagerObject object : getList()) {
-            TemplateCommand templateCommand = (TemplateCommand) object;
+        for(TemplateCommand templateCommand : getList()) {
             config.toJson().put(templateCommand.getKey(), templateCommand.getJSON());
         }
         config.save();
