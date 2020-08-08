@@ -35,9 +35,10 @@ A Module<br>
  5 - Start the bot and fill in any updated settings.<br><br>
 
 # Modules<br> 
-Ticket Module - <a href="https://www.mc-market.org/resources/16500/">Purchase Here</a><br>
-Review Module - <a href="https://api.xilla.net/download/ReviewBot-1.0-SNAPSHOT.jar">Download Here</a><br>
-Utility Module - <a href="https://api.xilla.net/download/UtilityBot-1.0-SNAPSHOT.jar">Download Here</a><br>
+Ticket Module - (Tickets & Support) <a href="https://www.mc-market.org/resources/16500/">Purchase Here</a><br>
+Invoice Module - (PayPal Billing) <a href="https://minemen.com/resources/488/">Purchase Here</a><br>
+Review Module - (User Reviews) <a href="https://api.xilla.net/download/ReviewBot-1.0-SNAPSHOT.jar">Download Here</a><br>
+Utility Module - (Polls & Suggestions) <a href="https://api.xilla.net/download/UtilityBot-1.0-SNAPSHOT.jar">Download Here</a><br>
 Join our discord for community modules! https://discord.gg/aSKqa5W<br>
 We are working on a custom resource platform for users to release, sell, and license their softwares.<br><br>
 
