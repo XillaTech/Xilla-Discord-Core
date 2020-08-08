@@ -17,8 +17,6 @@ public class TemplateCommand extends CoreObject {
 
     public TemplateCommand() {
         CommandBuilder commandBuilder = new CommandBuilder("Core", "TemplateManager", false);
-        commandBuilder.setModule("Core");
-        commandBuilder.setName("TemplateManager");
         commandBuilder.setActivators("template", "templatemanager", "tm");
         commandBuilder.setUsage("template");
         commandBuilder.setDescription("View and manage your template commands");

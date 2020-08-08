@@ -26,25 +26,27 @@ public class HelpCommand extends CoreObject {
 
             for(ManagerObject object : getCommandManager().getList()) {
                 Command legacyCommand = (Command) object;
-                String finalName = legacyCommand.getModule().substring(0, 1).toUpperCase() + legacyCommand.getModule().substring(1).toLowerCase();
+                if (getCommandSettings().isCommand(data, legacyCommand.getName())) {
+                    String finalName = legacyCommand.getModule().substring(0, 1).toUpperCase() + legacyCommand.getModule().substring(1).toLowerCase();
 
-                if(data.getInputType().equalsIgnoreCase("commandline")) {
-                    if(legacyCommand.isConsoleSupported()) {
-                        if(!commands.containsKey(finalName)) {
+                    if (data.getInputType().equalsIgnoreCase("commandline")) {
+                        if (legacyCommand.isConsoleSupported()) {
+                            if (!commands.containsKey(finalName)) {
+                                commands.put(finalName, new ArrayList<>());
+                            }
+
+                            if (legacyCommand.getPermission() == null || data.getUser().hasPermission(legacyCommand.getPermission())) {
+                                commands.get(finalName).add(getCoreSetting().getCommandPrefix() + legacyCommand.getUsage() + " - " + legacyCommand.getDescription());
+                            }
+                        }
+                    } else {
+                        if (!commands.containsKey(finalName)) {
                             commands.put(finalName, new ArrayList<>());
                         }
 
-                        if(legacyCommand.getPermission() == null || data.getUser().hasPermission(legacyCommand.getPermission())) {
+                        if (legacyCommand.getPermission() == null || data.getUser().hasPermission(legacyCommand.getPermission())) {
                             commands.get(finalName).add(getCoreSetting().getCommandPrefix() + legacyCommand.getUsage() + " - " + legacyCommand.getDescription());
                         }
-                    }
-                } else {
-                    if(!commands.containsKey(finalName)) {
-                        commands.put(finalName, new ArrayList<>());
-                    }
-
-                    if(legacyCommand.getPermission() == null || data.getUser().hasPermission(legacyCommand.getPermission())) {
-                        commands.get(finalName).add(getCoreSetting().getCommandPrefix() + legacyCommand.getUsage() + " - " + legacyCommand.getDescription());
                     }
                 }
             }
@@ -87,7 +89,6 @@ public class HelpCommand extends CoreObject {
                 }
                 String finalCategory = category.toString().toLowerCase();
                 finalCategory = finalCategory.substring(0, 1).toUpperCase() + finalCategory.substring(1);
-                System.out.println(finalCategory);
                 if(commands.containsKey(finalCategory)) {
                     ArrayList<String> lines = commands.get(finalCategory);
 

@@ -15,14 +15,12 @@ import java.util.Map;
 
 public class Group extends ManagerObject implements PermissionGroup {
 
-    private int staffLevel;
     private String groupID;
     private String serverID;
     private List<String> permissions;
 
-    public Group(String groupName, int staffLevel, String groupID, String serverID, ArrayList<String> permissions) {
+    public Group(String groupName, String groupID, String serverID, ArrayList<String> permissions) {
         super(groupName);
-        this.staffLevel = staffLevel;
         this.groupID = groupID;
         this.serverID = serverID;
         this.permissions = permissions;
@@ -30,6 +28,12 @@ public class Group extends ManagerObject implements PermissionGroup {
 
     public Group(Map<String, Object> object) {
         super(object.get("name").toString());
+        this.groupID = object.get("groupID").toString();
+        if(object.containsKey("serverID")) {
+            this.serverID = object.get(serverID).toString();
+        } else {
+            this.serverID = null;
+        }
         this.groupID = object.get("groupID").toString();
         this.permissions = (List<String>)object.get("permissions");
     }
@@ -64,11 +68,6 @@ public class Group extends ManagerObject implements PermissionGroup {
         }
         return false;
     }
-
-    public int getLevel() {
-        return staffLevel;
-    }
-
     public String getServerID() {
         return serverID;
     }
@@ -82,16 +81,11 @@ public class Group extends ManagerObject implements PermissionGroup {
         return groupID;
     }
 
-    public void setLevel(int level) {
-        this.staffLevel = level;
-    }
-
     public void setGroupID(String groupID) {
         this.groupID = groupID;
     }
 
     public boolean isMember(Guild guild, String id) {
-        Config config = DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("settings.json");
         ArrayList<String> roleIDs = new ArrayList<>();
         for(Role role : guild.getMemberById(id).getRoles())
             roleIDs.add(role.getId());
@@ -101,8 +95,8 @@ public class Group extends ManagerObject implements PermissionGroup {
     public JSONObject toJson() {
         HashMap<String, Object> map = new HashMap<>();
         map.put("name", getKey());
-        map.put("level", "" + staffLevel);
         map.put("groupID", groupID);
+        map.put("serverID", serverID);
         map.put("permissions", permissions);
         return new JSONObject(map);
     }

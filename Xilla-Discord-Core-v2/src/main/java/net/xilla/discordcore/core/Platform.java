@@ -33,6 +33,7 @@ public class Platform extends CoreObject {
         new HelpCommand();
         new TemplateCommand();
         new SettingsCommand();
+        new EmbedCommand();
 
         getCommandManager().setPermissionError((args, data) -> {
             EmbedBuilder builder = new EmbedBuilder().setTitle("Error!");

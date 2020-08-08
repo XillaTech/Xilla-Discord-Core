@@ -7,15 +7,14 @@ import net.dv8tion.jda.api.entities.Guild;
 import net.xilla.discordcore.DiscordCore;
 import org.json.simple.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Map;
+import java.util.*;
 
 public class GroupManager extends ManagerParent<Group> {
 
     public GroupManager() {
         super(true);
     }
+    private HashMap<String, List<Group>> serverCache;
 
     @Override
     public void reload() {
@@ -30,12 +29,6 @@ public class GroupManager extends ManagerParent<Group> {
         userDefault.put("name", "Default");
         userDefault.put("permissions", Arrays.asList(""));
         config.loadDefault("Default", userDefault);
-
-        JSONObject modDefault = new JSONObject();
-        modDefault.put("groupID", "example");
-        modDefault.put("name", "Mod");
-        modDefault.put("permissions", Arrays.asList(""));
-        config.loadDefault("Mod", modDefault);
 
         JSONObject adminDefault = new JSONObject();
         adminDefault.put("groupID", "example");

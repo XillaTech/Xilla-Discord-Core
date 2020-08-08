@@ -13,8 +13,6 @@ public class StaffCommand extends CoreObject {
 
     public StaffCommand() {
         CommandBuilder commandBuilder = new CommandBuilder("Core", "Staff");
-        commandBuilder.setModule("Core");
-        commandBuilder.setName("Staff");
         commandBuilder.setActivators("staff", "s");
         commandBuilder.setDescription("View and manage your staff");
         commandBuilder.setPermission("core.staff");
@@ -44,7 +42,6 @@ public class StaffCommand extends CoreObject {
                                 if(group != null) {
                                     description = new StringBuilder("Name: " + group.getName() + "\n" +
                                             "Role: <@" + group.getGroupID() + ">\n" +
-                                            "Staff Level: " + group.getLevel() + "\n" +
                                             "Permissions: `"
                                     );
                                     for(int i = 0; i < group.getPermissions().size(); i++) {

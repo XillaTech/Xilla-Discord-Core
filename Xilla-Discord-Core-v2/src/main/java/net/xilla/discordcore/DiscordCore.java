@@ -10,8 +10,10 @@ import net.xilla.discordcore.api.form.form.FormHandler;
 import net.xilla.discordcore.api.settings.SettingsManager;
 import net.xilla.discordcore.api.startup.PostStartupExecutor;
 import net.xilla.discordcore.api.startup.PostStartupManager;
+import net.xilla.discordcore.command.CommandCheck;
 import net.xilla.discordcore.command.CommandEventHandler;
 import net.xilla.discordcore.api.module.ModuleManager;
+import net.xilla.discordcore.command.CommandSettings;
 import net.xilla.discordcore.core.CoreSettings;
 import net.xilla.discordcore.core.Platform;
 import net.xilla.discordcore.core.staff.GroupManager;
@@ -38,6 +40,7 @@ public class DiscordCore extends CoreObject {
     private ModuleManager moduleManager;
     private SettingsManager settingsManager;
     private PostStartupManager postStartupManager;
+    private CommandSettings commandSettings;
 
     public DiscordCore(String platform, String baseFolder, boolean startCommandLine, String name) {
         instance = this;
@@ -53,6 +56,8 @@ public class DiscordCore extends CoreObject {
         // Loads Core Settings
         this.settingsManager = new SettingsManager();
         this.settings = new CoreSettings();
+        this.commandSettings = new CommandSettings();
+        this.getCommandManager().setCommandRunCheck(new CommandCheck());
 
         // Loads the rest of the core
         this.platform = new Platform(platform);
@@ -102,6 +107,10 @@ public class DiscordCore extends CoreObject {
             getLog().sendMessage(0, "Running post startup executors now... Some things may only startup now!");
             postStartupManager.run();
         }).start();
+    }
+
+    public CommandSettings getCommandSettings() {
+        return commandSettings;
     }
 
     public JDA getBot() {
