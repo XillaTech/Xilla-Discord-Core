@@ -1,18 +1,13 @@
 package net.xilla.discordcore.command.cmd;
 
-import com.tobiassteely.tobiasapi.command.Command;
-import com.tobiassteely.tobiasapi.command.permission.user.PermissionUser;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.xilla.discordcore.CoreObject;
-import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.command.CoreCommandExecutor;
 import net.xilla.discordcore.command.response.CoreCommandResponse;
-import net.xilla.discordcore.platform.CoreSettings;
-import net.xilla.discordcore.staff.group.Group;
+import net.xilla.discordcore.core.staff.Group;
 
 import java.awt.*;
-import java.util.Collections;
 
 public class StaffCommand extends CoreObject {
 
@@ -45,7 +40,7 @@ public class StaffCommand extends CoreObject {
 
                         } else if (data.getArgs()[1].equalsIgnoreCase("info")) {
                             if(data.getArgs().length == 3) {
-                                Group group = getStaffManager().getGroupManager().getGroup(data.getArgs()[2]);
+                                Group group = getGroupManager().getGroup(data.getArgs()[2]);
                                 if(group != null) {
                                     description = new StringBuilder("Name: " + group.getName() + "\n" +
                                             "Role: <@" + group.getGroupID() + ">\n" +
@@ -68,9 +63,9 @@ public class StaffCommand extends CoreObject {
                             }
                         } else if (data.getArgs()[1].equalsIgnoreCase("list")) {
                             description = new StringBuilder("Available Groups: `");
-                            for(int i = 0; i < getStaffManager().getGroupManager().getList().size(); i++) {
-                                Group group = (Group)getStaffManager().getGroupManager().getList().get(i);
-                                if(i == getStaffManager().getGroupManager().getList().size() - 1) {
+                            for(int i = 0; i < getGroupManager().getList().size(); i++) {
+                                Group group = getGroupManager().getList().get(i);
+                                if(i == getGroupManager().getList().size() - 1) {
                                     description.append(group.getIdentifier()).append("`");
                                 } else {
                                     description.append(group.getIdentifier()).append(", ");

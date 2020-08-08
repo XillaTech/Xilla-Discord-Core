@@ -8,11 +8,13 @@ import net.dv8tion.jda.api.entities.Activity;
 import net.xilla.discordcore.api.DiscordAPI;
 import net.xilla.discordcore.api.form.form.FormHandler;
 import net.xilla.discordcore.api.settings.SettingsManager;
+import net.xilla.discordcore.api.startup.PostStartupExecutor;
+import net.xilla.discordcore.api.startup.PostStartupManager;
 import net.xilla.discordcore.command.CommandEventHandler;
 import net.xilla.discordcore.api.module.ModuleManager;
-import net.xilla.discordcore.platform.CoreSettings;
-import net.xilla.discordcore.platform.Platform;
-import net.xilla.discordcore.staff.StaffManager;
+import net.xilla.discordcore.core.CoreSettings;
+import net.xilla.discordcore.core.Platform;
+import net.xilla.discordcore.core.staff.GroupManager;
 
 import javax.security.auth.login.LoginException;
 
@@ -35,10 +37,13 @@ public class DiscordCore extends CoreObject {
     private String type;
     private ModuleManager moduleManager;
     private SettingsManager settingsManager;
+    private PostStartupManager postStartupManager;
 
     public DiscordCore(String platform, String baseFolder, boolean startCommandLine, String name) {
         instance = this;
         this.type = platform;
+
+        this.postStartupManager = new PostStartupManager();
 
         // Loads base APIs
         boolean commandLine = platform.equals(Platform.getPlatform.STANDALONE.name) || platform.equals(Platform.getPlatform.EMBEDDED.name);
@@ -85,6 +90,18 @@ public class DiscordCore extends CoreObject {
 
         // Starts up the API
         new DiscordAPI();
+
+        new Thread(() -> {
+
+            try {
+                Thread.sleep(15000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            getLog().sendMessage(0, "Running post startup executors now... Some things may only startup now!");
+            postStartupManager.run();
+        }).start();
     }
 
     public JDA getBot() {
@@ -103,8 +120,12 @@ public class DiscordCore extends CoreObject {
         return settings;
     }
 
-    public StaffManager getStaffManager() {
-        return getPlatform().getStaffManager();
+    public GroupManager getGroupManager() {
+        return getPlatform().getGroupManager();
+    }
+
+    public void addExecutor(PostStartupExecutor executor) {
+        postStartupManager.addExecutor(executor);
     }
 
     public String getType() {

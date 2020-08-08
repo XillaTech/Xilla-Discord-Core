@@ -5,8 +5,8 @@ import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
 import com.tobiassteely.tobiasapi.command.CommandManager;
 import com.tobiassteely.tobiasapi.config.ConfigManager;
 import net.xilla.discordcore.DiscordCore;
-import net.xilla.discordcore.platform.Platform;
-import net.xilla.discordcore.staff.StaffManager;
+import net.xilla.discordcore.core.Platform;
+import net.xilla.discordcore.core.staff.GroupManager;
 
 public class Module extends ManagerObject {
 
@@ -57,8 +57,8 @@ public class Module extends ManagerObject {
         return DiscordCore.getInstance().getPlatform().getCommandManager();
     }
 
-    public StaffManager getStaffManager() {
-        return DiscordCore.getInstance().getPlatform().getStaffManager();
+    public GroupManager getGroupManager() {
+        return DiscordCore.getInstance().getPlatform().getGroupManager();
     }
 
     public ConfigManager getConfigManager() {

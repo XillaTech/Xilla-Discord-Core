@@ -1,7 +1,7 @@
 package net.xilla.discordcore;
 
-import net.xilla.discordcore.platform.Platform;
-import net.xilla.discordcore.platform.cmd.SpigotCommand;
+import net.xilla.discordcore.core.Platform;
+import net.xilla.discordcore.core.cmd.SpigotCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class DiscordCoreSpigot extends JavaPlugin {

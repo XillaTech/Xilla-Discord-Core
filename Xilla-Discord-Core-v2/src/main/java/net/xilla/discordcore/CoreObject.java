@@ -3,9 +3,9 @@ package net.xilla.discordcore;
 import com.tobiassteely.tobiasapi.api.TobiasObject;
 import net.dv8tion.jda.api.JDA;
 import net.xilla.discordcore.api.module.ModuleManager;
-import net.xilla.discordcore.platform.CoreSettings;
-import net.xilla.discordcore.platform.Platform;
-import net.xilla.discordcore.staff.StaffManager;
+import net.xilla.discordcore.core.CoreSettings;
+import net.xilla.discordcore.core.Platform;
+import net.xilla.discordcore.core.staff.GroupManager;
 
 public class CoreObject extends TobiasObject {
 
@@ -13,8 +13,8 @@ public class CoreObject extends TobiasObject {
         return DiscordCore.getInstance();
     }
 
-    public StaffManager getStaffManager() {
-        return DiscordCore.getInstance().getStaffManager();
+    public GroupManager getGroupManager() {
+        return DiscordCore.getInstance().getGroupManager();
     }
 
     public ModuleManager getModuleManager() {
