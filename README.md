@@ -38,7 +38,7 @@ A Module<br>
 Ticket Module - (Tickets & Support) <a href="https://www.mc-market.org/resources/16500/">Purchase Here for $4.99</a><br>
 Invoice Module - (PayPal Billing) <a href="https://minemen.com/resources/488/">Purchase Here for $2.99</a><br>
 Review Module - (User Reviews) <a href="https://api.xilla.net/download/ReviewBot-1.0-SNAPSHOT.jar">Download Here for FREE</a><br>
-Utility Module - (Polls & Suggestions) <a href="https://api.xilla.net/download/UtilityBot-1.0-SNAPSHOT.jar">Download Here for FREE</a><br>
+Utility Module - (Polls & Suggestions) <a href="https://api.xilla.net/download/UtilityBot-1.0-SNAPSHOT.jar">Download Here for FREE</a><br><br>
 Join our discord for community modules! https://discord.gg/aSKqa5W<br>
 We are working on a custom resource platform for users to release, sell, and license their softwares.<br><br>
 
