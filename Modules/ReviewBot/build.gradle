@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+}
+
+group 'com.tobiassteely'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile files('libs/Xilla Discord Core-2.0.0.jar')
+}
