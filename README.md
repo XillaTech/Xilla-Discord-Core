@@ -36,9 +36,30 @@ A Module<br>
 
 # Modules<br> 
 Ticket Module - (Tickets & Support) <a href="https://www.mc-market.org/resources/16500/">Purchase Here for $4.99</a><br>
+- Java Ticket System<br>
+- Ticket Reaction Panel<br>
+- Ask user for information on ticket openv
+- Pings user on staff response<br>
+- Overdue Ticket Warning<br>
+- Web Transcripts<br><br>
+
 Invoice Module - (PayPal Billing) <a href="https://minemen.com/resources/488/">Purchase Here for $2.99</a><br>
+- Discord Invoices<br>
+- PayPal Integration<br>
+- Works with Xilla Tickets as a module<br><br>
+
 Review Module - (User Reviews) <a href="https://api.xilla.net/download/ReviewBot-1.0-SNAPSHOT.jar">Download Here for FREE</a><br>
-Utility Module - (Polls & Suggestions) <a href="https://api.xilla.net/download/UtilityBot-1.0-SNAPSHOT.jar">Download Here for FREE</a><br><br>
+- User Reviews<br>
+- Review Management Command<br><br>
+
+Utility Module - (Polls & Suggestions) <a href="https://api.xilla.net/download/UtilityBot-1.0-SNAPSHOT.jar">Download Here for FREE</a><br>
+- Polls<br>
+- User Suggestions<br>
+- Server Information Command<br>
+- User Information Command<br>
+- Role Information Command<br>
+- Punishments (Coming soon)<br><br>
+
 Join our discord for community modules! https://discord.gg/aSKqa5W<br>
 We are working on a custom resource platform for users to release, sell, and license their softwares.<br><br>
 
