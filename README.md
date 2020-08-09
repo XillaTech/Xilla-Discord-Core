@@ -49,11 +49,11 @@ Invoice Module - (PayPal Billing) <a href="https://minemen.com/resources/488/">P
 - PayPal Integration<br>
 - Works with Xilla Tickets as a module<br><br>
 
-Review Module - (User Reviews) <a href="https://api.xilla.net/download/ReviewBot-1.0-SNAPSHOT.jar">Download Here for FREE</a><br>
+Review Module - (User Reviews) <a href="https://api.xilla.net/download/ReviewBot-1.0-SNAPSHOT.jar">Download Here for FREE</a> <a href="https://github.com/Alontrle/Xilla-Discord-Core/blob/master/Modules/ReviewBot">Click here for infomation and source</a><br>
 - User Reviews<br>
 - Review Management Command<br><br>
 
-Utility Module - (Polls & Suggestions) <a href="https://api.xilla.net/download/UtilityBot-1.0-SNAPSHOT.jar">Download Here for FREE</a><br>
+Utility Module - (Polls & Suggestions) <a href="https://api.xilla.net/download/UtilityBot-1.0-SNAPSHOT.jar">Download Here for FREE</a> <a href="https://github.com/Alontrle/Xilla-Discord-Core/tree/master/Modules/UtilityBot">Click here for infomation and source</a><br>
 - Polls<br>
 - User Suggestions<br>
 - Server Information Command<br>
