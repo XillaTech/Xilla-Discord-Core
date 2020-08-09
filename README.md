@@ -15,6 +15,7 @@ Manual Installation : <br>
  4 - Run the bot, and input your settings. (screen java -jar "Xilla Discord Core-2.0.0.jar")<br>
  5 - Download the modules you want, and put them in the /modules/ folder.<br>
  6 - Restart your bot and input any required settings.<br><br>
+ 7 - Make sure to edit the /staff/groups.json file with the admin role settings to make sure all commands work for you.
  
 Pterodactyl Panel : <br>
  This egg supports Java 11, Python 3.6, NodeJS 12, and the Microsoft .NET Framework. <br>
@@ -35,10 +36,31 @@ A Module<br>
  5 - Start the bot and fill in any updated settings.<br><br>
 
 # Modules<br> 
-Ticket Module - (Tickets & Support) <a href="https://www.mc-market.org/resources/16500/">Purchase Here</a><br>
-Invoice Module - (PayPal Billing) <a href="https://minemen.com/resources/488/">Purchase Here</a><br>
-Review Module - (User Reviews) <a href="https://api.xilla.net/download/ReviewBot-1.0-SNAPSHOT.jar">Download Here</a><br>
-Utility Module - (Polls & Suggestions) <a href="https://api.xilla.net/download/UtilityBot-1.0-SNAPSHOT.jar">Download Here</a><br>
+Ticket Module - (Tickets & Support) <a href="https://www.mc-market.org/resources/16500/">Purchase Here for $4.99</a><br>
+- Java Ticket System<br>
+- Ticket Reaction Panel<br>
+- Ask user for information on ticket openv
+- Pings user on staff response<br>
+- Overdue Ticket Warning<br>
+- Web Transcripts<br><br>
+
+Invoice Module - (PayPal Billing) <a href="https://minemen.com/resources/488/">Purchase Here for $2.99</a><br>
+- Discord Invoices<br>
+- PayPal Integration<br>
+- Works with Xilla Tickets as a module<br><br>
+
+Review Module - (User Reviews) <a href="https://api.xilla.net/download/ReviewBot-1.0-SNAPSHOT.jar">Download Here for FREE</a><br>
+- User Reviews<br>
+- Review Management Command<br><br>
+
+Utility Module - (Polls & Suggestions) <a href="https://api.xilla.net/download/UtilityBot-1.0-SNAPSHOT.jar">Download Here for FREE</a><br>
+- Polls<br>
+- User Suggestions<br>
+- Server Information Command<br>
+- User Information Command<br>
+- Role Information Command<br>
+- Punishments (Coming soon)<br><br>
+
 Join our discord for community modules! https://discord.gg/aSKqa5W<br>
 We are working on a custom resource platform for users to release, sell, and license their softwares.<br><br>
 
