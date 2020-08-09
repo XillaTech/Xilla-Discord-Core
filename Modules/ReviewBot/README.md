@@ -1,0 +1,2 @@
+# Review Bot<br>
+This section contains the source code for the review bot. Feel free to customize it as you want, or as source material for a new bot. This code is included under the GNU GPL v3 license.
