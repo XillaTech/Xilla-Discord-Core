@@ -15,6 +15,7 @@ Manual Installation : <br>
  4 - Run the bot, and input your settings. (screen java -jar "Xilla Discord Core-2.0.0.jar")<br>
  5 - Download the modules you want, and put them in the /modules/ folder.<br>
  6 - Restart your bot and input any required settings.<br><br>
+ 7 - Make sure to edit the /staff/groups.json file with the admin role settings to make sure all commands work for you.
  
 Pterodactyl Panel : <br>
  This egg supports Java 11, Python 3.6, NodeJS 12, and the Microsoft .NET Framework. <br>
