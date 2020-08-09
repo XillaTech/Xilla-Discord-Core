@@ -1,5 +1,5 @@
 # Utility Bot<br>
-This section contains the source code for the utility bot. Feel free to customize it as you want, or as source material for a new bot. This code is included under the GNU GPL v3 license.<br><br.
+This section contains the source code for the utility bot. Feel free to customize it as you want, or as source material for a new bot. This code is included under the GNU GPL v3 license.<br><br>
 
 # Commands<br>
 - suggest (No permissions) A user command for suggesting stuff.
