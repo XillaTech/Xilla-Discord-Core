@@ -7,6 +7,7 @@ net.xilla.discordcore.api.form.form.reaction
 net.xilla.discordcore.api.module
 net.xilla.discordcore.api.module.type
 net.xilla.discordcore.api.settings
+net.xilla.discordcore.api.startup
 net.xilla.discordcore.command
 net.xilla.discordcore.command.cmd
 net.xilla.discordcore.command.event
@@ -14,8 +15,7 @@ net.xilla.discordcore.command.permission
 net.xilla.discordcore.command.response
 net.xilla.discordcore.command.template
 net.xilla.discordcore.command.template.type
-net.xilla.discordcore.platform
-net.xilla.discordcore.platform.cmd
-net.xilla.discordcore.staff
-net.xilla.discordcore.staff.department
-net.xilla.discordcore.staff.group
+net.xilla.discordcore.core
+net.xilla.discordcore.core.cmd
+net.xilla.discordcore.core.server
+net.xilla.discordcore.core.staff

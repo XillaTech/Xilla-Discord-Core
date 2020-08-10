@@ -86,7 +86,7 @@ public class UtilityCommands extends CoreObject {
     public void serverInfoCommand() {
         CommandBuilder builder = new CommandBuilder("Utility", "ServerInfo");
         builder.setDescription("View the server info.");
-        builder.setPermission("core.serverinfo");
+        builder.setPermission("utility.serverinfo");
         builder.setCommandExecutor((data) -> {
 
             if(data.getInputType().equals(CoreCommandExecutor.discord_input)) {
@@ -152,7 +152,7 @@ public class UtilityCommands extends CoreObject {
     public void userInfoCommand() {
         CommandBuilder builder = new CommandBuilder("Utility", "UserInfo");
         builder.setDescription("View the user's info.");
-        builder.setPermission("core.userinfo");
+        builder.setPermission("utility.userinfo");
         builder.setCommandExecutor((data) -> {
             try {
 
@@ -206,7 +206,7 @@ public class UtilityCommands extends CoreObject {
     public void roleInfoCommand() {
         CommandBuilder builder = new CommandBuilder("Utility", "RoleInfo");
         builder.setDescription("View the role's info.");
-        builder.setPermission("core.roleinfo");
+        builder.setPermission("utility.roleinfo");
         builder.setCommandExecutor((data) -> {
 
             if(data.getInputType().equals(CoreCommandExecutor.discord_input)) {

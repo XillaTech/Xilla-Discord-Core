@@ -34,7 +34,7 @@ public class PunishmentCommands extends CoreObject {
     public void banCommand() {
         CommandBuilder builder = new CommandBuilder("Moderation", "Ban");
         builder.setDescription("Ban a user.");
-        builder.setPermission("core.ban");
+        builder.setPermission("utility.ban");
         builder.setCommandExecutor((data) -> {
 
             if(data.getInputType().equals(CoreCommandExecutor.discord_input)) {
@@ -78,7 +78,7 @@ public class PunishmentCommands extends CoreObject {
     public void tempbanCommand() {
         CommandBuilder builder = new CommandBuilder("Moderation", "TempBan");
         builder.setDescription("Temp Ban a user.");
-        builder.setPermission("core.tempban");
+        builder.setPermission("utility.tempban");
         builder.setCommandExecutor((data) -> {
 
             if(data.getInputType().equals(CoreCommandExecutor.discord_input)) {
@@ -126,7 +126,7 @@ public class PunishmentCommands extends CoreObject {
     public void unbanCommand() {
         CommandBuilder builder = new CommandBuilder("Moderation", "Unban");
         builder.setDescription("Unban a user.");
-        builder.setPermission("core.unban");
+        builder.setPermission("utility.unban");
         builder.setCommandExecutor((data) -> {
 
             if(data.getInputType().equals(CoreCommandExecutor.discord_input)) {
@@ -163,7 +163,7 @@ public class PunishmentCommands extends CoreObject {
     public void muteCommand() {
         CommandBuilder builder = new CommandBuilder("Moderation", "Mute");
         builder.setDescription("Mute a user.");
-        builder.setPermission("core.mute");
+        builder.setPermission("utility.mute");
         builder.setCommandExecutor((data) -> {
 
             if(data.getInputType().equals(CoreCommandExecutor.discord_input)) {
@@ -205,7 +205,7 @@ public class PunishmentCommands extends CoreObject {
     public void tempmuteCommand() {
         CommandBuilder builder = new CommandBuilder("Moderation", "TempMute");
         builder.setDescription("Temp Mute a user.");
-        builder.setPermission("core.tempmute");
+        builder.setPermission("utility.tempmute");
         builder.setCommandExecutor((data) -> {
 
             if(data.getInputType().equals(CoreCommandExecutor.discord_input)) {
@@ -253,7 +253,7 @@ public class PunishmentCommands extends CoreObject {
     public void unMuteCommand() {
         CommandBuilder builder = new CommandBuilder("Moderation", "Unmute");
         builder.setDescription("Unmute a user.");
-        builder.setPermission("core.unmute");
+        builder.setPermission("utility.unmute");
         builder.setCommandExecutor((data) -> {
 
             if(data.getInputType().equals(CoreCommandExecutor.discord_input)) {
@@ -273,7 +273,7 @@ public class PunishmentCommands extends CoreObject {
     public void warnCommand() {
         CommandBuilder builder = new CommandBuilder("Moderation", "Warn");
         builder.setDescription("Warn a user.");
-        builder.setPermission("core.warn");
+        builder.setPermission("utility.warn");
         builder.setCommandExecutor((data) -> {
 
             if(data.getInputType().equals(CoreCommandExecutor.discord_input)) {
@@ -316,7 +316,7 @@ public class PunishmentCommands extends CoreObject {
     public void removewarnCommand() {
         CommandBuilder builder = new CommandBuilder("Moderation", "RemoveWarn");
         builder.setDescription("Remove a warn");
-        builder.setPermission("core.removewarn");
+        builder.setPermission("utility.removewarn");
         builder.setCommandExecutor((data) -> {
 
             if(data.getInputType().equals(CoreCommandExecutor.discord_input)) {
@@ -337,7 +337,7 @@ public class PunishmentCommands extends CoreObject {
         CommandBuilder builder = new CommandBuilder("Moderation", "History");
         builder.setActivators("history", "punishments");
         builder.setDescription("View a users punishment history.");
-        builder.setPermission("core.warn");
+        builder.setPermission("utility.warn");
         builder.setCommandExecutor((data) -> {
 
             if(data.getInputType().equals(CoreCommandExecutor.discord_input)) {
@@ -357,7 +357,7 @@ public class PunishmentCommands extends CoreObject {
     public void kickCommand() {
         CommandBuilder builder = new CommandBuilder("Moderation", "Kick");
         builder.setDescription("Kick a user.");
-        builder.setPermission("core.kick");
+        builder.setPermission("utility.kick");
         builder.setCommandExecutor((data) -> {
 
             if(data.getInputType().equals(CoreCommandExecutor.discord_input)) {
@@ -402,7 +402,7 @@ public class PunishmentCommands extends CoreObject {
         CommandBuilder builder = new CommandBuilder("Moderation", "Purge");
         builder.setActivators("purge", "clear");
         builder.setDescription("Purge a channel.");
-        builder.setPermission("core.purge");
+        builder.setPermission("utility.purge");
         builder.setCommandExecutor((data) -> {
 
             if(data.getInputType().equals(CoreCommandExecutor.discord_input)) {
