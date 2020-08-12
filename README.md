@@ -44,7 +44,7 @@ Ticket Module - (Tickets & Support) <a href="https://www.mc-market.org/resources
 - Overdue Ticket Warning<br>
 - Web Transcripts<br><br>
 
-Invoice Module - (PayPal Billing) <a href="https://minemen.com/resources/488/">Purchase Here for $2.99</a><br>
+Invoice Module - (PayPal Billing) <a href="https://www.mc-market.org/resources/16811/">Purchase Here for $2.99</a><br>
 - Discord Invoices<br>
 - PayPal Integration<br>
 - Works with Xilla Tickets as a module<br><br>
