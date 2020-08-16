@@ -12,7 +12,7 @@ import java.util.*;
 public class GroupManager extends ManagerParent<Group> {
 
     public GroupManager() {
-        super(true);
+        super("XDC.Group", true);
     }
     private HashMap<String, List<Group>> serverCache;
 

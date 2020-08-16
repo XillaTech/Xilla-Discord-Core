@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 public class ModuleManager extends ManagerParent<Module> {
 
     public ModuleManager(String baseFolder) {
-        super(false);
+        super("XDC.Module", false);
 
         try {
             Path file;

@@ -12,7 +12,7 @@ import org.json.simple.JSONObject;
 public class TemplateManager extends ManagerParent<TemplateCommand> {
 
     public TemplateManager() {
-        super(false);
+        super("Template", false);
     }
 
     public void registerTemplate(TemplateCommand templateCommand) {

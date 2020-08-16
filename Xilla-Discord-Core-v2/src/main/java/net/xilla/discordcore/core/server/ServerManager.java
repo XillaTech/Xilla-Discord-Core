@@ -7,7 +7,7 @@ import org.json.simple.JSONObject;
 public class ServerManager extends ManagerParent<CoreServer> {
 
     public ServerManager() {
-        super(false, "servers.json");
+        super("XDC.Server", false, "servers.json");
         DiscordCore.getInstance().addExecutor(this::reload);
     }
 

@@ -27,9 +27,19 @@ public class TemplateCommand extends Command {
         for(CommandExecutor commandExecutor : getExecutors()) {
             CommandExecutor executor = commandExecutor;
 
-            CommandResponse response = executor.run(data);
-            if(response != null) {
-                responses.add(response);
+            if(getPermission() == null || data.getUser().hasPermission(getPermission())) {
+                try {
+                    CommandResponse response = executor.run(data);
+                    if (response != null) {
+                        responses.add(response);
+                    }
+                } catch (Exception ex) {
+                    getLog().sendMessage(2, "Error while running command: " + data.getCommand());
+                    ex.printStackTrace();
+                    responses.add(new CommandResponse(data));
+                }
+            } else {
+                responses.add(getCommandManager().getPermissionError().getResponse(data.getArgs(), data));
             }
         }
 

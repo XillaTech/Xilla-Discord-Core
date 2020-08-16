@@ -7,7 +7,7 @@ import java.util.Set;
 public class SettingsManager extends ManagerParent<Settings> {
 
     public SettingsManager() {
-        super(true);
+        super("XDC.Settings", true);
     }
 
     public void addSettings(Settings settings) {
