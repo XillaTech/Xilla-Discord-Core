@@ -69,6 +69,11 @@ public class CoreObject extends TobiasObject {
         return user;
     }
 
+    public String getPrefix() {
+        return getCoreSetting().getCommandPrefix();
+
+    }
+
     public Member getMember(Guild guild, String id) {
         User user = getUser(id);
 
