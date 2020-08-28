@@ -103,8 +103,8 @@ public class DiscordAPI {
     /**
      * Used to get a message object from a channel and message id
      *
-     * @param channelID
-     * @param messageID
+     * @param channelID Channel ID
+     * @param messageID Message ID
      *
      * @return Message
      */
@@ -119,8 +119,8 @@ public class DiscordAPI {
     /**
      * Checks if the user has the permission
      *
-     * @param user
-     * @param permission
+     * @param user Discord Member
+     * @param permission Permission
      */
     public static void hasPermission(Member user, String permission) {
         new DiscordUser(user).hasPermission(permission);
@@ -129,9 +129,9 @@ public class DiscordAPI {
     /**
      * Checks if the user has the permission
      *
-     * @param guild
-     * @param user
-     * @param permission
+     * @param guild Discord Guild
+     * @param user Discord User ID
+     * @param permission Permission
      */
     public static void hasPermission(Guild guild, String user, String permission) {
         new DiscordUser(getMember(guild, user)).hasPermission(permission);
@@ -140,7 +140,7 @@ public class DiscordAPI {
     /**
      * Gets the user from a string ID
      *
-     * @param id
+     * @param id Discord User ID
      *
      * @return User
      */
@@ -178,8 +178,8 @@ public class DiscordAPI {
     /**
      * Gets a group from the core with a name or id
      *
-     * @param guild
-     * @param name
+     * @param guild Discord Guild
+     * @param name Group Name
      *
      * @return Group
      */
@@ -205,8 +205,8 @@ public class DiscordAPI {
     /**
      * Gets a member from a guild with a string ID
      *
-     * @param guild
-     * @param id
+     * @param guild Discord Guild
+     * @param id Member ID
      *
      * @return Member
      */

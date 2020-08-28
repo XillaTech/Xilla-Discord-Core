@@ -41,7 +41,7 @@ public class DiscordCore extends CoreObject {
      * This argument is used for stand-alone application of the
      * discord core.
      *
-     * @param args
+     * @param args Java Startup Arguments
      */
     public static void main(String[] args) {
         new DiscordCore(Platform.getPlatform.STANDALONE.name, null, true, "Xilla Discord Core");
@@ -192,7 +192,7 @@ public class DiscordCore extends CoreObject {
      * discord API. Useful for things that may need to connect to the
      * API on start up.
      *
-     * @param executor
+     * @param executor Startup Executor
      */
     public void addExecutor(PostStartupExecutor executor) {
         postStartupManager.addExecutor(executor);

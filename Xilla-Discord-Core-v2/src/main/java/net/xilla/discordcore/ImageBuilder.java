@@ -47,8 +47,8 @@ public class ImageBuilder {
      * uses a Graphics2D and BufferedImage to send an image over
      * discord.
      *
-     * @param width
-     * @param height
+     * @param width Image Width
+     * @param height Image Height
      */
     public ImageBuilder(int width, int height) {
 
@@ -65,7 +65,7 @@ public class ImageBuilder {
     /**
      * Used to load a pre-made groph
      *
-     * @param points
+     * @param points List of points
      */
     public void loadGraph(List<Long> points) {
         int header = 50;
@@ -113,7 +113,8 @@ public class ImageBuilder {
 
     /**
      * Used to send the graph to a text chanel and clear it from the memory.
-     * @param channel
+     *
+     * @param channel Discord Channel
      */
     public void build(TextChannel channel) {
         // Disposes of this graphics context and releases any system resources that it is using.
