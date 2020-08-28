@@ -6,331 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37d8c549-8a87-467e-875c-2ccea043db24" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Xilla-Discord-Bot.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.gradle/5.2.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.gradle/5.2.1/fileContent/fileContent.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.gradle/5.2.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.gradle/5.2.1/javaCompile/jarAnalysis.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/DiscordCore.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/api/Data.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/api/ExtensionLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/api/Log.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/api/config/Config.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/api/config/ConfigManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/api/form/Form.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/api/form/FormManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/api/form/FormQuestion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/api/manager/ManagerCache.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/api/manager/ManagerObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/api/manager/ManagerParent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/api/staff/Staff.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/api/staff/StaffManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/api/timer/TimerManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/api/timer/TimerObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/api/worker/ObjectWorker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/api/worker/Worker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/commandsystem/CommandDiscord.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/commandsystem/CommandManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/commandsystem/CommandObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/commandsystem/CommandResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/commandsystem/CommandWorker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/commandsystem/MessageEventHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/commandsystem/MessageEventManger.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/commandsystem/cmd/End.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/commandsystem/cmd/Help.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/commandsystem/cmd/Module.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/commandsystem/cmd/Settings.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/commandsystem/cmd/Staff.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/installer/InstallerManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/installer/InstallerObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/installer/SettingObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/module/Module.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/module/ModuleLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/module/ModuleManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/classes/java/main/net/xilla/discordcore/module/exception/LoadModuleException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/libs/discordcore-1.0.4-all.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/libs/discordcore-1.0.5-all.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/libs/discordcore-1.0.6-all.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/libs/discordcore-1.0.7-all.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/libs/discordcore-1.0.8-all.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/libs/discordcore-1.0.9-all.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/build/tmp/shadowJar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/libs/TobiasAPI-1.0-SNAPSHOT-all.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/modules/ExampleModule.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/modules/ModerationBot.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/modules/MusicBot.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/modules/SuggestionBot.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/modules/moderation/license.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/modules/moderation/warns.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/modules/musicbot/license.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/modules/tickets/departments.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/modules/tickets/license.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/modules/tickets/reactions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/modules/tickets/tickets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/modules/tickets/transcripts/2620b4bb-4a15-4930-bd85-3021c1db115a.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/modules/tickets/transcripts/34daea35-ba82-455c-ac71-4693c0dac64e.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/modules/tickets/transcripts/80f2fc40-0962-411d-9c95-4317f6f9f22a.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/modules/tickets/transcripts/9de7e288-f974-4c94-b2b1-4aa7cc82922d.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/modules/tickets/transcripts/b1762781-4d72-4e53-a0fa-e7e5086e6f61.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/modules/tickets/transcripts/b82ec573-685a-47c9-8fd2-33d236e1d332.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/modules/tickets/transcripts/f554ba40-e55b-458e-8e23-f07fad7e5a63.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/modules/tickets/transcripts/fd8906c8-07d4-41fd-8e28-54476fa37650.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/DiscordCore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/api/Data.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/api/ExtensionLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/api/Log.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/api/config/Config.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/api/config/ConfigManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/api/form/Form.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/api/form/FormManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/api/form/FormQuestion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/api/manager/ManagerCache.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/api/manager/ManagerObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/api/manager/ManagerParent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/api/staff/Staff.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/api/staff/StaffManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/api/timer/TimerManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/api/timer/TimerObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/api/worker/ObjectWorker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/api/worker/Worker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/commandsystem/CommandDiscord.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/commandsystem/CommandManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/commandsystem/CommandObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/commandsystem/CommandResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/commandsystem/CommandWorker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/commandsystem/MessageEventHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/commandsystem/MessageEventManger.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/commandsystem/cmd/End.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/commandsystem/cmd/Help.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/commandsystem/cmd/Module.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/commandsystem/cmd/Settings.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/commandsystem/cmd/Staff.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/installer/InstallerManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/installer/InstallerObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/installer/SettingObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/module/Module.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/module/ModuleLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/module/ModuleManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/src/main/java/net/xilla/discordcore/module/exception/LoadModuleException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/staff.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v1/timers.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.gradle/5.2.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.gradle/5.2.1/fileContent/fileContent.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.gradle/5.2.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.gradle/5.2.1/javaCompile/jarAnalysis.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/Test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/CoreObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/DiscordAPI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/DiscordCore.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/DiscordCoreBungee.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/DiscordCoreSpigot.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/ImageBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/CommandBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/CommandCheck.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/CommandEventHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/CommandSettings.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/CommandWorker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/CoreCommandExecutor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/cmd/EmbedCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/cmd/HelpCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/cmd/ModulesCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/cmd/SettingsCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/cmd/StaffCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/cmd/TemplateCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/event/BungeeCommandEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/event/SpigotCommandEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/permission/BungeeUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/permission/DiscordUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/permission/SpigotUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/response/CoreCommandResponder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/response/CoreCommandResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/template/TemplateCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/template/TemplateManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/template/type/EmbedCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/command/template/type/TextCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/core/CoreCommands.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/core/CoreSettings.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/core/CoreWorker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/core/Platform$getPlatform.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/core/Platform.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/core/cmd/BungeeCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/core/cmd/SpigotCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/core/server/CoreServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/core/server/ServerEventHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/core/server/ServerManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/core/staff/Group.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/core/staff/GroupEventHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/core/staff/GroupManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/form/MessageFormBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/form/MultiForm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/form/MultiFormExecutor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/form/ReactionFormBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/form/form/Form.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/form/form/FormBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/form/form/FormHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/form/form/FormManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/form/form/FormMessageEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/form/form/FormOption.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/form/form/FormResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/form/form/reaction/FormReactionEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/form/form/reaction/ReactionQuestion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/form/form/reaction/ReactionQuestionList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/module/JavaModule.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/module/LoadModuleException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/module/Module.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/module/ModuleLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/module/ModuleManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/module/type/JavaModule.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/settings/Installer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/settings/Settings.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/settings/SettingsManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/startup/PostStartupExecutor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/main/net/xilla/discordcore/startup/PostStartupManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/test/Interfaces.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/test/Resizeable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/test/Rotatable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/classes/java/test/Vehicle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/libs/Xilla Discord Core-2.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/libs/commands.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/libs/staff/departments.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/libs/staff/groups.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/resources/libs/JDA-4.2.0_168-withDependencies-min.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/resources/libs/Paper-1.16.1-latest.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/resources/libs/TobiasAPI-1.0-SNAPSHOT-all.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/resources/main/bungee.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/resources/main/lib/JDA-4.1.1_101-withDependencies.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/resources/main/lib/TobiasAPI-1.0-SNAPSHOT-all.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/resources/main/plugin.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/build/tmp/javadoc/javadoc.options" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/commands.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/myimage.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/myimage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/CoreObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/DiscordAPI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/DiscordCore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/DiscordCoreBungee.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/DiscordCoreSpigot.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/ImageBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/CommandBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/CommandCheck.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/CommandEventHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/CommandSettings.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/CommandWorker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/CoreCommandExecutor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/cmd/EmbedCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/cmd/HelpCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/cmd/ModulesCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/cmd/SettingsCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/cmd/StaffCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/cmd/TemplateCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/event/BungeeCommandEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/event/SpigotCommandEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/permission/BungeeUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/permission/DiscordUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/permission/SpigotUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/response/CoreCommandResponder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/response/CoreCommandResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/template/TemplateCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/template/TemplateManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/template/type/EmbedCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/command/template/type/TextCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/core/CoreCommands.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/core/CoreSettings.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/core/CoreWorker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/core/Platform.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/core/cmd/BungeeCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/core/cmd/SpigotCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/core/server/CoreServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/core/server/ServerEventHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/core/server/ServerManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/core/staff/Group.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/core/staff/GroupEventHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/core/staff/GroupManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/form/MessageFormBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/form/MultiForm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/form/MultiFormExecutor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/form/ReactionFormBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/form/form/Form.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/form/form/FormBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/form/form/FormHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/form/form/FormManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/form/form/FormMessageEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/form/form/FormOption.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/form/form/FormResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/form/form/reaction/FormReactionEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/form/form/reaction/ReactionQuestion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/form/form/reaction/ReactionQuestionList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/module/JavaModule.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/module/LoadModuleException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/module/Module.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/module/ModuleLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/module/ModuleManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/module/type/JavaModule.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/settings/Installer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/settings/Settings.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/settings/SettingsManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/startup/PostStartupExecutor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/java/net/xilla/discordcore/startup/PostStartupManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/resources/bungee.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/src/main/resources/plugin.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/staff.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/staff/departments.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xilla-Discord-Core-v2/staff/groups.json" beforeDir="false" />
-    </list>
+    <list default="true" id="37d8c549-8a87-467e-875c-2ccea043db24" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -353,7 +29,23 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Xilla Discord Core" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Xilla Discord Core" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Xilla Discord Core" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -530,6 +222,12 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+      <path value="$PROJECT_DIR$/../" />
+    </ignored-roots>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
