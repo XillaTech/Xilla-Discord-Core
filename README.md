@@ -65,7 +65,7 @@ Join our discord for community modules! https://discord.gg/aSKqa5W<br>
 We are working on a custom resource platform for users to release, sell, and license their softwares.<br><br>
 
 # Documentation<br>
-Java Docs can be found <a href="https://xdc-docs.xilla.net">here.</a>
+Java Docs can be found <a href="https://xdc-docs.xilla.net">here.</a> More documenation will be added soon.
 
 # Compiling / Editing<br>
 We use gradle, so make sure to use gradle and use our build file.
