@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+}
+
+group 'net.xilla'
+version '2.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+
+    maven {
+        url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
+    }
+    maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url = 'https://oss.sonatype.org/content/repositories/central' }
+}
+
+configurations {
+    jarLibs
+}
+
+dependencies {
+    // Including File Libraries
+    compileOnly files('build/resources/libs/Paper-1.16.1-latest.jar')
+
+    // Puts Files Inside of Compiled Jar
+    jarLibs files('build/resources/libs/TobiasAPI-1.0-SNAPSHOT-all.jar')
+    jarLibs files('build/resources/libs/JDA-4.2.0_168-withDependencies-min.jar')
+    jarLibs 'com.vdurmont:emoji-java:5.1.1'
+
+    // Including External Libraries
+    jarLibs 'org.slf4j:slf4j-nop:1.7.29'
+    compileOnly  'net.md-5:bungeecord-api:1.16-R0.2-SNAPSHOT'
+
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.12'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+    configurations.compile.extendsFrom(configurations.jarLibs)
+}
+
+jar {
+    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    manifest { attributes 'Main-Class': 'net.xilla.discordcore.DiscordCore' }
+}
