@@ -64,8 +64,8 @@ Utility Module - (Polls & Suggestions) <a href="https://api.xilla.net/download/U
 Join our discord for community modules! https://discord.gg/aSKqa5W<br>
 We are working on a custom resource platform for users to release, sell, and license their softwares.<br><br>
 
-# Creating a module<br>
-We will add an actual video guide soon.<br><br>
+# Documentation<br>
+Java Docs can be found <a href="https://xdc-docs.xilla.net">here.</a>
 
 # Compiling / Editing<br>
 We use gradle, so make sure to use gradle and use our build file.
