@@ -46,7 +46,7 @@ public class GroupEventHandler implements ManagerEventExecutor<Group> {
     }
 
     @Override
-    public void onSave(ManagerParent<Group> managerParent) {
+    public void onSave(ManagerParent<Group> managerParent, JSONObject json) {
 
     }
 }

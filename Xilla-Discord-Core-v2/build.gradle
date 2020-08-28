@@ -28,7 +28,6 @@ dependencies {
 
     // Puts Files Inside of Compiled Jar
     jarLibs files('build/resources/libs/TobiasAPI-1.0-SNAPSHOT-all.jar')
-    //jarLibs files('build/resources/libs/JDA-4.2.0_168-withDependencies.jar')
     jarLibs files('build/resources/libs/JDA-4.2.0_168-withDependencies-min.jar')
     jarLibs 'com.vdurmont:emoji-java:5.1.1'
 

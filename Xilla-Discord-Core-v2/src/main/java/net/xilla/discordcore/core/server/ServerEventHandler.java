@@ -39,7 +39,7 @@ public class ServerEventHandler extends CoreObject implements ManagerEventExecut
     }
 
     @Override
-    public void onSave(ManagerParent<CoreServer> managerParent) {
+    public void onSave(ManagerParent<CoreServer> managerParent, JSONObject json) {
 
     }
 
