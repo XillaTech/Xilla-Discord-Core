@@ -1,13 +1,4 @@
-
 net.xilla.discordcore
-net.xilla.discordcore.api
-net.xilla.discordcore.api.form
-net.xilla.discordcore.api.form.form
-net.xilla.discordcore.api.form.form.reaction
-net.xilla.discordcore.api.module
-net.xilla.discordcore.api.module.type
-net.xilla.discordcore.api.settings
-net.xilla.discordcore.api.startup
 net.xilla.discordcore.command
 net.xilla.discordcore.command.cmd
 net.xilla.discordcore.command.event
@@ -19,3 +10,10 @@ net.xilla.discordcore.core
 net.xilla.discordcore.core.cmd
 net.xilla.discordcore.core.server
 net.xilla.discordcore.core.staff
+net.xilla.discordcore.form
+net.xilla.discordcore.form.form
+net.xilla.discordcore.form.form.reaction
+net.xilla.discordcore.module
+net.xilla.discordcore.module.type
+net.xilla.discordcore.settings
+net.xilla.discordcore.startup
