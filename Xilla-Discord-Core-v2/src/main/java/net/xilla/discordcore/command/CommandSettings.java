@@ -2,16 +2,29 @@ package net.xilla.discordcore.command;
 
 import com.tobiassteely.tobiasapi.command.CommandData;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-import net.xilla.discordcore.DiscordCore;
-import net.xilla.discordcore.api.settings.Settings;
+import net.xilla.discordcore.settings.Settings;
 import org.json.simple.JSONArray;
 
 public class CommandSettings extends Settings {
 
     public CommandSettings() {
         super("Commands", "command-settings.json");
+        getConfig().loadDefault("rate-limit-toggle", true);
+        getConfig().loadDefault("rate-limit", 3);
+        getConfig().loadDefault("rate-limit-seconds", 5);
+        getConfig().save();
+    }
 
-        setCommand("605983021501382656", "end", false);
+    public boolean isRateLimit() {
+        return getConfig().getBoolean("rate-limit-toggle");
+    }
+
+    public int getRateLimit() {
+        return getConfig().getInt("rate-limit");
+    }
+
+    public int getRateLimitSeconds() {
+        return getConfig().getInt("rate-limit-seconds");
     }
 
     public boolean isCommand(CommandData data) {

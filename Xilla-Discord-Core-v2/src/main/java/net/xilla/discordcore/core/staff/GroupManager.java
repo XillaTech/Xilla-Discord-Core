@@ -12,45 +12,21 @@ import java.util.*;
 public class GroupManager extends ManagerParent<Group> {
 
     public GroupManager() {
-        super("XDC.Group", true);
+        super("XDC.Group", true, "groups.json", new GroupEventHandler());
     }
-    private HashMap<String, List<Group>> serverCache;
+    private HashMap<String, List<Group>> groupCache;
 
     @Override
     public void reload() {
         super.reload();
 
-        addCache("id", new ManagerCache());
+        this.groupCache = new HashMap<>();
 
-        Config config = DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("staff/groups.json");
-
-        JSONObject userDefault = new JSONObject();
-        userDefault.put("groupID", "default applies to all users");
-        userDefault.put("name", "Default");
-        userDefault.put("permissions", Arrays.asList(""));
-        config.loadDefault("Default", userDefault);
-
-        JSONObject adminDefault = new JSONObject();
-        adminDefault.put("groupID", "example");
-        adminDefault.put("name", "Admin");
-        adminDefault.put("permissions", Arrays.asList("*"));
-        config.loadDefault("Admin", adminDefault);
-
-        config.save();
-
-        JSONObject json = config.toJson();
+        JSONObject json = getData().toJson();
         for(Object key : json.keySet()) {
-            Group staff = new Group((Map<String, Object>)config.get(key.toString()));
+            Group staff = new Group((Map<String, Object>)getData().get(key.toString()));
             addGroup(staff);
         }
-    }
-
-    public void save() {
-        Config config = DiscordCore.getInstance().getTobiasAPI().getConfigManager().getConfig("staff/groups.json");
-        for(Group staff : getList()) {
-            config.toJson().put(staff.getKey(), staff.toJson());
-        }
-        config.save();
     }
 
     public ArrayList<Group> getStaffByUserId(Guild guild, String id) {
@@ -63,18 +39,21 @@ public class GroupManager extends ManagerParent<Group> {
         return staffList;
     }
 
-    public Group getGroup(String name) {
-        return (Group)getObject(name);
+    public List<Group> getGroupsByName(String name) {
+        return groupCache.get(name);
     }
 
-    public Group getGroupByID(String id) {
-        return (Group)getCache("id").getObject(id);
+    public Group getGroup(String id) {
+        return getObject(id);
     }
 
     public void addGroup(Group staff) {
         super.addObject(staff);
 
-        getCache("id").putObject(staff.getGroupID(), staff);
+        if (!groupCache.containsKey(staff.getName())) {
+            groupCache.put(staff.getName(), new Vector<>());
+        }
+        groupCache.get(staff.getName()).add(staff);
     }
     
 }

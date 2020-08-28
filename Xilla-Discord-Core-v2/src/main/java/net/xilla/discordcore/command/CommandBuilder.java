@@ -90,7 +90,7 @@ public class CommandBuilder extends TobiasObject {
         }
         Command command = new Command(module, name, activators, usage, description, permission, Collections.singletonList(commandExecutor), consoleSupported);
 
-        getCommandManager().registerCommand(command);
+        getCommandManager().addObject(command);
     }
 
 }

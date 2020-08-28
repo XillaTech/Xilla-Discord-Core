@@ -19,12 +19,19 @@ public class DiscordUser extends CoreObject implements PermissionUser {
 
     public DiscordUser(Member member) {
         this.groups = new ArrayList<>();
-        this.groups.add(getGroupManager().getGroup("Default"));
+
+        Group defaultGroup = getGroupManager().getGroup(member.getGuild().getId() + "-default applies to all users");
+        if(defaultGroup != null) {
+            this.groups.add(defaultGroup);
+        } else {
+            getLog().sendMessage(1, "Could not find the default role!");
+        }
+
         this.identifier = member.getId();
         this.member = member;
 
         for(Role role : member.getRoles()) {
-            Group group = getGroupManager().getGroupByID(role.getId());
+            Group group = getGroupManager().getObject(role.getId());
             if(group != null) {
                 groups.add(group);
             }
@@ -55,9 +62,11 @@ public class DiscordUser extends CoreObject implements PermissionUser {
             }
         }
 
-        for(PermissionGroup group : groups) {
-            if(group.hasPermission(permission)) {
-                return true;
+        if(groups != null) {
+            for (PermissionGroup group : new ArrayList<>(groups)) {
+                if (group.hasPermission(permission)) {
+                    return true;
+                }
             }
         }
         return false;

@@ -36,6 +36,12 @@ dependencies {
     jarLibs 'org.slf4j:slf4j-nop:1.7.29'
     compileOnly  'net.md-5:bungeecord-api:1.16-R0.2-SNAPSHOT'
 
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.12'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+
     configurations.compile.extendsFrom(configurations.jarLibs)
 }
 

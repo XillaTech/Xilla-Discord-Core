@@ -2,6 +2,8 @@ package net.xilla.discordcore.core;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.DiscordCore;
+import net.xilla.discordcore.command.CommandWorker;
 import net.xilla.discordcore.command.cmd.*;
 import net.xilla.discordcore.command.response.CoreCommandResponder;
 import net.xilla.discordcore.command.response.CoreCommandResponse;
@@ -18,6 +20,7 @@ public class Platform extends CoreObject {
     private TemplateManager templateManager;
     private ServerManager serverManager;
     private CoreWorker coreWorker;
+    private CommandWorker commandWorker;
 
     public Platform(String type) {
         this.type = type;
@@ -34,6 +37,12 @@ public class Platform extends CoreObject {
         new TemplateCommand();
         new SettingsCommand();
         new EmbedCommand();
+        new CoreCommands();
+
+        if(getCommandSettings().isRateLimit()) {
+            this.commandWorker = new CommandWorker();
+            commandWorker.start();
+        }
 
         getCommandManager().setPermissionError((args, data) -> {
             EmbedBuilder builder = new EmbedBuilder().setTitle("Error!");

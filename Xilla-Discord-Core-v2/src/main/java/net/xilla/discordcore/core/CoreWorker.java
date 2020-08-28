@@ -8,15 +8,19 @@ import net.xilla.discordcore.core.server.CoreServer;
 public class CoreWorker extends Worker {
 
     public CoreWorker() {
-        super(60000);
-        DiscordCore.getInstance().addExecutor(this::start);
+        super("XDC.Core",60000);
     }
 
     @Override
     public Boolean runWorker(long start) {
 
         for(Guild guild : DiscordCore.getInstance().getBot().getGuilds()) {
-            DiscordCore.getInstance().getPlatform().getServerManager().addServer(new CoreServer(guild));
+            if(DiscordCore.getInstance().getPlatform().getServerManager().contains(guild.getId())) {
+                CoreServer obj = DiscordCore.getInstance().getPlatform().getServerManager().getObject(guild.getId());
+                obj.update(guild);
+            } else {
+                DiscordCore.getInstance().getPlatform().getServerManager().addObject(new CoreServer(guild));
+            }
         }
 
         if(DiscordCore.getInstance().getCoreSetting().isClearOldGuilds()) {

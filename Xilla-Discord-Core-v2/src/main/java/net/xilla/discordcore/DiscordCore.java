@@ -2,17 +2,18 @@ package net.xilla.discordcore;
 
 import com.tobiassteely.tobiasapi.TobiasAPI;
 import com.tobiassteely.tobiasapi.TobiasBuilder;
+import lombok.Getter;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
-import net.xilla.discordcore.api.DiscordAPI;
-import net.xilla.discordcore.api.form.form.FormHandler;
-import net.xilla.discordcore.api.settings.SettingsManager;
-import net.xilla.discordcore.api.startup.PostStartupExecutor;
-import net.xilla.discordcore.api.startup.PostStartupManager;
+import net.xilla.discordcore.form.form.FormHandler;
+import net.xilla.discordcore.form.form.FormManager;
+import net.xilla.discordcore.settings.SettingsManager;
+import net.xilla.discordcore.startup.PostStartupExecutor;
+import net.xilla.discordcore.startup.PostStartupManager;
 import net.xilla.discordcore.command.CommandCheck;
 import net.xilla.discordcore.command.CommandEventHandler;
-import net.xilla.discordcore.api.module.ModuleManager;
+import net.xilla.discordcore.module.ModuleManager;
 import net.xilla.discordcore.command.CommandSettings;
 import net.xilla.discordcore.core.CoreSettings;
 import net.xilla.discordcore.core.Platform;
@@ -22,25 +23,93 @@ import javax.security.auth.login.LoginException;
 
 public class DiscordCore extends CoreObject {
 
+    /**
+     * Used to store the main instance of the DiscordCore
+     */
     private static DiscordCore instance = null;
 
+    /**
+     * Used to access the main instance of the DiscordCore
+     *
+     * @return DiscordCore
+     */
     public static DiscordCore getInstance() {
         return instance;
     }
 
+    /**
+     * This argument is used for stand-alone application of the
+     * discord core.
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         new DiscordCore(Platform.getPlatform.STANDALONE.name, null, true, "Xilla Discord Core");
     }
 
-    private TobiasAPI api;
+    /**
+     * The Platform class is used to store information and managers
+     * that depend on the specific platform. As the core supports
+     * various platforms.
+     */
+    @Getter
     private Platform platform;
+
+    /**
+     * The JDA is the Discord JDA wrapper. It runs all discord API calls
+     */
+    @Getter
     private JDA bot;
+
+    /**
+     * The CoreSettings stores all the main settings used for various
+     * functions and features around the bot.
+     */
+    @Getter
     private CoreSettings settings;
+
+    /**
+     * Used to store which platform the core is being ran on
+     */
+    @Getter
     private String type;
+
+    /**
+     * This manager is used to manage the discord core modules
+     */
+    @Getter
     private ModuleManager moduleManager;
+
+    /**
+     * This manager is used to manager the settings files loaded by the core
+     */
+    @Getter
     private SettingsManager settingsManager;
-    private PostStartupManager postStartupManager;
+
+    /**
+     * This manager is used to disable commands and modules per discord server
+     */
+    @Getter
     private CommandSettings commandSettings;
+
+    /**
+     * This manager is used to run events after the core has connected
+     * to the discord API.
+     */
+    private PostStartupManager postStartupManager;
+
+    /**
+     * This manager is used to process the built in forms to collect
+     * command data and such from discord users.
+     */
+    @Getter
+    private FormManager formManager;
+
+    /**
+     * This is used to store the main library (ignore that it's called
+     * an API, it is a library).
+     */
+    private TobiasAPI api;
 
     public DiscordCore(String platform, String baseFolder, boolean startCommandLine, String name) {
         instance = this;
@@ -109,43 +178,24 @@ public class DiscordCore extends CoreObject {
         }).start();
     }
 
-    public CommandSettings getCommandSettings() {
-        return commandSettings;
-    }
-
-    public JDA getBot() {
-        return bot;
-    }
-
-    public TobiasAPI getTobiasAPI() {
-        return api;
-    }
-
-    public Platform getPlatform() {
-        return platform;
-    }
-
-    public CoreSettings getSettings() {
-        return settings;
-    }
-
+    /**
+     * Pulls and returns the group manager from the Platform system
+     *
+     * @return GroupManager
+     */
     public GroupManager getGroupManager() {
         return getPlatform().getGroupManager();
     }
 
+    /**
+     * Used to execute events after the core has connected to the
+     * discord API. Useful for things that may need to connect to the
+     * API on start up.
+     *
+     * @param executor
+     */
     public void addExecutor(PostStartupExecutor executor) {
         postStartupManager.addExecutor(executor);
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public ModuleManager getModuleManager() {
-        return moduleManager;
-    }
-
-    public SettingsManager getSettingsManager() {
-        return settingsManager;
-    }
 }

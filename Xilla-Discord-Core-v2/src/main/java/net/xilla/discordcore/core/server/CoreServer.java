@@ -28,6 +28,11 @@ public class CoreServer extends ManagerObject {
         }
     }
 
+    public void update(Guild guild) {
+        this.members = guild.getMemberCount();
+        this.lastUpdated = System.currentTimeMillis();
+    }
+
     public int getMembers() {
         return members;
     }

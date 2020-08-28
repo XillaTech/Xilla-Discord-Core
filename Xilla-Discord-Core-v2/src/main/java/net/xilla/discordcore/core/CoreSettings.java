@@ -1,7 +1,7 @@
 package net.xilla.discordcore.core;
 
 import net.xilla.discordcore.DiscordCore;
-import net.xilla.discordcore.api.settings.Settings;
+import net.xilla.discordcore.settings.Settings;
 
 public class CoreSettings extends Settings {
 

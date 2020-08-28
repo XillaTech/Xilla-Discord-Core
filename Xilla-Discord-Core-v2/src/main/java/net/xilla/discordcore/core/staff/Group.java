@@ -6,45 +6,53 @@ import com.tobiassteely.tobiasapi.config.Config;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Role;
 import net.xilla.discordcore.DiscordCore;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Group extends ManagerObject implements PermissionGroup {
 
-    private String groupID;
+    private String groupName;
     private String serverID;
+    private String groupID;
     private List<String> permissions;
 
-    public Group(String groupName, String groupID, String serverID, ArrayList<String> permissions) {
-        super(groupName);
+    public Group(String groupID, String groupName, String serverID, ArrayList<String> permissions) {
+        super(serverID + "-" + groupID);
         this.groupID = groupID;
+        this.groupName = groupName;
         this.serverID = serverID;
         this.permissions = permissions;
     }
 
     public Group(Map<String, Object> object) {
-        super(object.get("name").toString());
+        super(object.get("serverID").toString() + "-" + object.get("groupID").toString());
+        this.groupName = object.get("name").toString();
         this.groupID = object.get("groupID").toString();
-        if(object.containsKey("serverID")) {
-            this.serverID = object.get(serverID).toString();
-        } else {
-            this.serverID = null;
+        this.serverID = object.get("serverID").toString();
+
+        this.permissions = new Vector<>();
+        for(Object obj : (JSONArray)object.get("permissions")) {
+            permissions.add(obj.toString());
         }
-        this.groupID = object.get("groupID").toString();
-        this.permissions = (List<String>)object.get("permissions");
     }
 
     public String getName() {
-        return getKey();
+        return groupName;
     }
 
     @Override
     public List<String> getPermissions() {
         return permissions;
+    }
+
+    public void addPermission(String permission) {
+        permissions.add(permission);
+    }
+
+    public void removePermission(String permission) {
+        permissions.remove(permission);
     }
 
     @Override
@@ -81,20 +89,16 @@ public class Group extends ManagerObject implements PermissionGroup {
         return groupID;
     }
 
-    public void setGroupID(String groupID) {
-        this.groupID = groupID;
-    }
-
     public boolean isMember(Guild guild, String id) {
         ArrayList<String> roleIDs = new ArrayList<>();
         for(Role role : guild.getMemberById(id).getRoles())
             roleIDs.add(role.getId());
-        return roleIDs.contains(groupID);
+        return roleIDs.contains(getGroupID());
     }
 
     public JSONObject toJson() {
         HashMap<String, Object> map = new HashMap<>();
-        map.put("name", getKey());
+        map.put("name", groupName);
         map.put("groupID", groupID);
         map.put("serverID", serverID);
         map.put("permissions", permissions);
