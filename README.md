@@ -5,9 +5,9 @@ Xilla Discord Core is a Discord JDA library extension designed to make coding bo
 Lastest Version : 2.0.0-BETA-3 STABLE - <a href="https://github.com/XillaTech/Xilla-Discord-Core/blob/master/build/libs/Xilla%20Discord%20Core-2.0.0.jar">Download Here</a><br><br>
 
 # Wiki<br>
- - Installation:<a href="https://github.com/XillaTech/Xilla-Discord-Core/wiki/Installation">Click Here</a><br>
- - Updating:<a href="https://github.com/XillaTech/Xilla-Discord-Core/wiki/Updating">Click Here</a><br>
- - Create a Module:<a href="https://github.com/XillaTech/Xilla-Discord-Core/wiki/Creating-a-Java-Module">Click Here</a><br><br>
+ - Installation: <a href="https://github.com/XillaTech/Xilla-Discord-Core/wiki/Installation">Click Here</a><br>
+ - Updating: <a href="https://github.com/XillaTech/Xilla-Discord-Core/wiki/Updating">Click Here</a><br>
+ - Create a Module: <a href="https://github.com/XillaTech/Xilla-Discord-Core/wiki/Creating-a-Java-Module">Click Here</a><br><br>
 
 # Modules<br> 
 Ticket Module - (Tickets & Support) <a href="https://www.mc-market.org/resources/16500/">Purchase Here for $4.99</a><br>
