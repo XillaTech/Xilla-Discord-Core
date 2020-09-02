@@ -1,5 +1,5 @@
 # Xilla Discord Core<br>
-Xilla Discord Core is a Discord JDA library extension designed to make coding bots much easier. This core handles commands and offers many tool sets and features designed to make better bots, and do it in signifigantly less time. This project is managed and maintained by Tobias Steely. Check out our website @ <a href="https://xilla.net">https://xilla.net</a><br><br>
+Xilla Discord Core is a Discord JDA library extension designed to make coding bots much easier. This core handles commands and offers many tool sets and features designed to make better bots, and do it in signifigantly less time. This project is managed and maintained by Tobias S. Check out our website @ <a href="https://xilla.net">https://xilla.net</a><br><br>
 
 # Version / Download<br>
 Lastest Version : 2.0.0-BETA-3 STABLE - <a href="https://github.com/XillaTech/Xilla-Discord-Core/blob/master/build/libs/Xilla%20Discord%20Core-2.0.0.jar">Download Here</a><br><br>
