@@ -34,6 +34,8 @@ public class Platform extends CoreObject {
         new ModulesCommand();
         new StaffCommand();
         new HelpCommand();
+        new EndCommand();
+        new RestartCommand();
         new TemplateCommand();
         new SettingsCommand();
         new EmbedCommand();

@@ -24,6 +24,6 @@ public class DiscordCoreBungee extends Plugin {
 
     @Override
     public void onDisable(){
-        DiscordCore.getInstance().getLog().sendMessage(1, "This plugin is not able to be reloaded! If this is a reload it will continue as normal in the background until a full restart.");
+        DiscordCore.getInstance().shutdown();
     }
 }
