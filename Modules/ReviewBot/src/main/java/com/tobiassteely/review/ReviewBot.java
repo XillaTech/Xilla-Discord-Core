@@ -1,6 +1,6 @@
 package com.tobiassteely.review;
 
-import net.xilla.discordcore.api.module.JavaModule;
+import net.xilla.discordcore.module.JavaModule;
 
 public class ReviewBot extends JavaModule {
 

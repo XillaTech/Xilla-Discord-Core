@@ -7,9 +7,9 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.User;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.DiscordCore;
-import net.xilla.discordcore.api.form.MultiForm;
-import net.xilla.discordcore.api.form.form.reaction.ReactionQuestion;
-import net.xilla.discordcore.api.form.form.reaction.ReactionQuestionList;
+import net.xilla.discordcore.form.MultiForm;
+import net.xilla.discordcore.form.form.reaction.ReactionQuestion;
+import net.xilla.discordcore.form.form.reaction.ReactionQuestionList;
 
 import java.awt.*;
 import java.io.BufferedInputStream;

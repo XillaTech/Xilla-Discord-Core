@@ -1,6 +1,6 @@
 package com.tobiassteely.review;
 
-import net.xilla.discordcore.api.settings.Settings;
+import net.xilla.discordcore.settings.Settings;
 
 public class ReviewSettings extends Settings {
 

@@ -2,51 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d94e9f7-2b0b-4f47-8060-fb69018b2f68" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/utility/punishment/PunishmentManagerHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/utility/suggestion/SuggestionManagerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReviewBot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/utility/UtilityBot.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/utility/UtilityCommands.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/utility/UtilitySettings.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/utility/punishment/Punishment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/utility/punishment/PunishmentCommands.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/utility/punishment/PunishmentManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/utility/punishment/PunishmentSettings.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/utility/punishment/PunishmentWorker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/utility/suggestion/Suggestion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/utility/suggestion/SuggestionCommands.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/utility/suggestion/SuggestionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/utility/suggestion/SuggestionManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/utility/suggestion/SuggestionSettings.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/Xilla Discord Core-2.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/Xilla Discord Core-2.0.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/utility/UtilityBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/utility/UtilityBot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/utility/UtilitySettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/utility/UtilitySettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/utility/punishment/PunishmentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/utility/punishment/PunishmentManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/utility/punishment/PunishmentSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/utility/punishment/PunishmentSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/utility/punishment/PunishmentWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/utility/punishment/PunishmentWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/utility/suggestion/SuggestionCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/utility/suggestion/SuggestionCommands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/utility/suggestion/SuggestionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/utility/suggestion/SuggestionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/utility/suggestion/SuggestionSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/utility/suggestion/SuggestionSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../build/classes/java/main/net/xilla/discordcore/DiscordCore.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../build/classes/java/main/net/xilla/discordcore/DiscordCore.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../build/classes/java/main/net/xilla/discordcore/DiscordCoreBungee.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../build/classes/java/main/net/xilla/discordcore/DiscordCoreBungee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../build/classes/java/main/net/xilla/discordcore/DiscordCoreSpigot.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../build/classes/java/main/net/xilla/discordcore/DiscordCoreSpigot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../build/libs/Xilla Discord Core-2.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../build/libs/Xilla Discord Core-2.0.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/java/net/xilla/discordcore/DiscordCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/net/xilla/discordcore/DiscordCore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ReviewBot/src/main/java/com/tobiassteely/review/ReviewManagerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/.gradle/5.2.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/.gradle/5.2.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewBot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewCommands.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewCommands.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewSettings.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewSettings.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/build/libs/ReviewBot-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/build/libs/ReviewBot-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/libs/Xilla Discord Core-2.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/libs/Xilla Discord Core-2.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/src/main/java/com/tobiassteely/review/ReviewBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/src/main/java/com/tobiassteely/review/ReviewBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/src/main/java/com/tobiassteely/review/ReviewBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/src/main/java/com/tobiassteely/review/ReviewBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/src/main/java/com/tobiassteely/review/ReviewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/src/main/java/com/tobiassteely/review/ReviewManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReviewBot/src/main/java/com/tobiassteely/review/ReviewSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ReviewBot/src/main/java/com/tobiassteely/review/ReviewSettings.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
