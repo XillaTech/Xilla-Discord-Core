@@ -1,6 +1,6 @@
 package com.tobiassteely.utility.suggestion;
 
-import net.xilla.discordcore.api.settings.Settings;
+import net.xilla.discordcore.settings.Settings;
 
 public class SuggestionSettings extends Settings {
 

@@ -133,6 +133,8 @@ public class DiscordCore extends CoreObject {
         this.commandSettings = new CommandSettings();
         this.getCommandManager().setCommandRunCheck(new CommandCheck());
 
+        this.formManager = new FormManager();
+
         // Loads the rest of the core
         this.platform = new Platform(platform);
 

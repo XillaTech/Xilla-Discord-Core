@@ -1,6 +1,6 @@
 package com.tobiassteely.utility.punishment;
 
-import net.xilla.discordcore.api.settings.Settings;
+import net.xilla.discordcore.settings.Settings;
 import org.json.simple.JSONArray;
 
 public class PunishmentSettings extends Settings {

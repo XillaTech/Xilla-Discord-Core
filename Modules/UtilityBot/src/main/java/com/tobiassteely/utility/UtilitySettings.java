@@ -1,6 +1,6 @@
 package com.tobiassteely.utility;
 
-import net.xilla.discordcore.api.settings.Settings;
+import net.xilla.discordcore.settings.Settings;
 
 public class UtilitySettings extends Settings {
 

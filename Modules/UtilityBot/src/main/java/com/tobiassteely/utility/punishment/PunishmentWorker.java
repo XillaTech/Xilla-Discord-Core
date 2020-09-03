@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class PunishmentWorker extends Worker {
 
     public PunishmentWorker() {
-        super(60000);
+        super("UTB.Punishment", 60000);
     }
 
     @Override

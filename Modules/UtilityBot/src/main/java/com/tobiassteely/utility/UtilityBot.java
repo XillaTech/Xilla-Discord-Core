@@ -7,8 +7,7 @@ import com.tobiassteely.utility.suggestion.SuggestionCommands;
 import com.tobiassteely.utility.suggestion.SuggestionHandler;
 import com.tobiassteely.utility.suggestion.SuggestionManager;
 import com.tobiassteely.utility.suggestion.SuggestionSettings;
-import net.xilla.discordcore.api.module.JavaModule;
-
+import net.xilla.discordcore.module.JavaModule;
 
 public class UtilityBot extends JavaModule {
 
