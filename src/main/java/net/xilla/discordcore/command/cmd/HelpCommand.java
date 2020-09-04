@@ -3,15 +3,12 @@ package net.xilla.discordcore.command.cmd;
 import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
 import com.tobiassteely.tobiasapi.command.Command;
 import com.tobiassteely.tobiasapi.command.CommandExecutor;
-import com.tobiassteely.tobiasapi.command.response.CommandResponse;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.xilla.discordcore.CoreObject;
-import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.response.CoreCommandResponse;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class HelpCommand extends CoreObject {

@@ -2,7 +2,6 @@ package net.xilla.discordcore.command.template;
 
 import com.tobiassteely.tobiasapi.TobiasAPI;
 import com.tobiassteely.tobiasapi.api.manager.ManagerCache;
-import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
 import com.tobiassteely.tobiasapi.config.Config;
 import net.xilla.discordcore.command.template.type.EmbedCommand;

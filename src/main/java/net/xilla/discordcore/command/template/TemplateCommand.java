@@ -4,7 +4,6 @@ import com.tobiassteely.tobiasapi.command.Command;
 import com.tobiassteely.tobiasapi.command.CommandData;
 import com.tobiassteely.tobiasapi.command.CommandExecutor;
 import com.tobiassteely.tobiasapi.command.response.CommandResponse;
-import net.xilla.discordcore.command.CoreCommandExecutor;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;

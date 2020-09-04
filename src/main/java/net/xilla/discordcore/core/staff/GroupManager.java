@@ -1,10 +1,7 @@
 package net.xilla.discordcore.core.staff;
 
-import com.tobiassteely.tobiasapi.api.manager.ManagerCache;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
-import com.tobiassteely.tobiasapi.config.Config;
 import net.dv8tion.jda.api.entities.Guild;
-import net.xilla.discordcore.DiscordCore;
 import org.json.simple.JSONObject;
 
 import java.util.*;

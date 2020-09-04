@@ -5,10 +5,11 @@ import com.tobiassteely.tobiasapi.command.CommandManager;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.xilla.discordcore.DiscordCore;
-import net.xilla.discordcore.command.CoreCommandExecutor;
 import net.xilla.discordcore.command.permission.DiscordUser;
 
-import java.util.*;
+import java.util.List;
+import java.util.Objects;
+import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class CommandEventHandler extends ListenerAdapter {

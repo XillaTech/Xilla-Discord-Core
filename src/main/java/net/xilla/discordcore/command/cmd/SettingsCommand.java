@@ -4,9 +4,9 @@ import com.tobiassteely.tobiasapi.command.CommandExecutor;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.DiscordCore;
-import net.xilla.discordcore.settings.Settings;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.command.response.CoreCommandResponse;
+import net.xilla.discordcore.settings.Settings;
 
 import java.awt.*;
 

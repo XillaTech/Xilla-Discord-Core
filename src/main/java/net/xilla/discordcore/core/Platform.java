@@ -2,7 +2,6 @@ package net.xilla.discordcore.core;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.xilla.discordcore.CoreObject;
-import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandWorker;
 import net.xilla.discordcore.command.cmd.*;
 import net.xilla.discordcore.command.response.CoreCommandResponder;

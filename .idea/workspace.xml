@@ -1,35 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="Xilla-Discord-Core" />
-    </artifacts-to-build>
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="37d8c549-8a87-467e-875c-2ccea043db24" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewManagerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewBot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewCommands.class" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewCommands.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewSettings.class" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewSettings.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/build/libs/ReviewBot-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/build/libs/ReviewBot-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/libs/Xilla Discord Core-2.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/libs/Xilla Discord Core-2.0.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewBot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewSettings.java" afterDir="false" />
+    <list default="true" id="88152db3-ecf2-46e7-9607-ea5fd7b475cb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/jarAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ReviewBot/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/UtilityBot/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/CoreObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/DiscordAPI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/DiscordCore.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/DiscordCoreBungee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/DiscordCoreSpigot.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/ImageBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/CommandBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/CommandCheck.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/CommandEventHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/CommandSettings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/CommandWorker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/CoreCommandExecutor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/cmd/EmbedCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/cmd/EndCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/cmd/HelpCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/cmd/ModulesCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/cmd/RestartCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/cmd/SettingsCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/cmd/StaffCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/cmd/TemplateCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/event/BungeeCommandEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/event/SpigotCommandEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/permission/BungeeUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/permission/DiscordUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/permission/SpigotUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/response/CoreCommandResponder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/response/CoreCommandResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/template/TemplateCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/template/TemplateManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/template/type/EmbedCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/command/template/type/TextCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/core/CoreCommands.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/core/CoreSettings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/core/CoreWorker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/core/Platform$getPlatform.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/core/Platform.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/core/cmd/BungeeCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/core/cmd/SpigotCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/core/server/CoreServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/core/server/ServerEventHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/core/server/ServerManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/core/staff/Group.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/core/staff/GroupEventHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/core/staff/GroupManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/form/MessageFormBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/form/MultiForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/form/MultiFormExecutor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/form/ReactionFormBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/form/form/Form.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/form/form/FormBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/form/form/FormHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/form/form/FormManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/form/form/FormMessageEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/form/form/FormOption.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/form/form/FormResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/form/form/reaction/FormReactionEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/form/form/reaction/ReactionQuestion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/form/form/reaction/ReactionQuestionList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/module/JavaModule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/module/LoadModuleException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/module/Module.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/module/ModuleLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/module/ModuleManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/module/type/JavaModule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/settings/Installer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/settings/Settings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/settings/SettingsManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/startup/PostStartupExecutor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/xilla/discordcore/startup/PostStartupManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/Interfaces.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/Resizeable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/Rotatable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/Vehicle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/Xilla Discord Core-2.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/libs/JDA-4.2.0_168-withDependencies-min.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/libs/Paper-1.16.1-latest.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/libs/TobiasAPI-1.0-SNAPSHOT-all.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/bungee.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/plugin.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/javadoc/javadoc.options" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/CoreObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/CoreObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/DiscordCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/DiscordCore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/ImageBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/ImageBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/CommandCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/CommandCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/CommandEventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/CommandEventHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/EndCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/EndCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/HelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/RestartCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/RestartCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/SettingsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/SettingsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/TemplateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/TemplateCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/template/TemplateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/template/TemplateCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/template/TemplateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/template/TemplateManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/template/type/EmbedCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/template/type/EmbedCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/template/type/TextCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/template/type/TextCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/CoreCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/CoreCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/Platform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/Platform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/server/ServerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/server/ServerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/staff/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/staff/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/staff/GroupEventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/staff/GroupEventHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/staff/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/staff/GroupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/form/form/FormManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/form/form/FormManager.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,102 +143,22 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CoverageViewManager">
-    <option name="myElementSize" value="239" />
-  </component>
-  <component name="ExternalProjectsData">
-    <projectState path="$PROJECT_DIR$">
-      <ProjectState />
-    </projectState>
-  </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <task path="$PROJECT_DIR$">
-          <activation />
-        </task>
-        <projects_view>
-          <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Xilla Discord Core" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Xilla Discord Core" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Xilla Discord Core" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-            </expand>
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="Xilla Discord Core" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Enum" />
-        <option value="Kotlin Class" />
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\Xilla-Discord-Core-v3\.idea" />
-      </set>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1bmcSNeM2cjNabPrTgmaizEJZBm" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1h0o5tGq08tqnPUbd9zJifYKzip" />
   <component name="PropertiesComponent">
-    <property name="ToolWindowRun.ShowToolbar" value="false" />
-    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.15722656" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\Xilla-Discord-Core-v2\modules" />
-      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\Xilla-Discord-Core-v2\build\resources\libs" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\Xilla-Discord-Core-v2\build\resources\libs" />
-      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\Xilla-Discord-Core-v2\build\libs" />
-      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\Xilla-Discord-Core-v2\modules" />
-      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\Xilla-Discord-Core-v2\modules\tickets" />
-      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\Xilla-Discord-Core-v2\src\main\java\net\xilla\discordcore\command" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="net.xilla.discordcore.command.cmd" />
-      <recent name="net.xilla.discordcore.api.form" />
-      <recent name="net.xilla.discordcore.command.template.type" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="net.xilla.discordcore.module" />
-    </key>
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -146,10 +172,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.Xilla-Discord-Core-v2 [jar]">
+  <component name="RunManager">
     <configuration name="DiscordCore" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11.0.4" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="net.xilla.discordcore.DiscordCore" />
-      <module name="Xilla_Discord_Core.main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="net.xilla.discordcore.*" />
@@ -160,65 +187,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Test" />
-      <module name="Xilla_Discord_Core.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Vehicle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Vehicle" />
-      <module name="Xilla_Discord_Core.test" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Xilla-Discord-Core-v2 [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Xilla-Discord-Core-v2 [javadoc]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="javadoc" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Xilla-Discord-Core-v2 [jar]" />
-        <item itemvalue="Gradle.Xilla-Discord-Core-v2 [javadoc]" />
         <item itemvalue="Application.DiscordCore" />
-        <item itemvalue="Application.Test" />
-        <item itemvalue="Application.Vehicle" />
       </list>
     </recent_temporary>
   </component>
@@ -227,11 +198,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="37d8c549-8a87-467e-875c-2ccea043db24" name="Default Changelist" comment="" />
-      <created>1589240708818</created>
+      <changelist id="88152db3-ecf2-46e7-9607-ea5fd7b475cb" name="Default Changelist" comment="" />
+      <created>1599157191009</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1589240708818</updated>
+      <updated>1599157191009</updated>
     </task>
     <servers />
   </component>
@@ -247,137 +218,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/.." />
-      <path value="$PROJECT_DIR$/../" />
-    </ignored-roots>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketBot.jar!/net/xilla/ticketbot/TicketCommands.class</url>
-          <line>37</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketBot.jar!/net/xilla/ticketbot/TicketCommands.class</url>
-          <line>38</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketBot.jar!/net/xilla/ticketbot/TicketCommands.class</url>
-          <line>39</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketBot.jar!/net/xilla/ticketbot/TicketCommands.class</url>
-          <line>41</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketBot.jar!/net/xilla/ticketbot/TicketCommands.class</url>
-          <line>40</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketBot.jar!/net/xilla/ticketbot/TicketCommands.class</url>
-          <line>36</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketBot.jar!/net/xilla/ticketbot/TicketCommands.class</url>
-          <line>31</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketBot.jar!/net/xilla/ticketbot/TicketCommands.class</url>
-          <line>32</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketBot.jar!/net/xilla/ticketbot/ticket/TicketManager.class</url>
-          <line>131</line>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketBot.jar!/net/xilla/ticketbot/ticket/TicketManager.class</url>
-          <line>84</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketBot.jar!/net/xilla/ticketbot/ticket/Ticket.class</url>
-          <line>51</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketBot.jar!/net/xilla/ticketbot/ticket/Ticket.class</url>
-          <line>52</line>
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketBot.jar!/net/xilla/ticketbot/statistics/StaffStatistics.class</url>
-          <line>32</line>
-          <option name="timeStamp" value="70" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketBot.jar!/net/xilla/ticketbot/statistics/StaffStatistics.class</url>
-          <line>31</line>
-          <option name="timeStamp" value="71" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketBot.jar!/net/xilla/ticketbot/statistics/StaffStatistics.class</url>
-          <line>30</line>
-          <option name="timeStamp" value="72" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketBot.jar!/net/xilla/ticketbot/statistics/StaffStatistics.class</url>
-          <line>28</line>
-          <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketBot.jar!/net/xilla/ticketbot/statistics/StaffStatistics.class</url>
-          <line>27</line>
-          <option name="timeStamp" value="74" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketBot.jar!/net/xilla/ticketbot/statistics/StaffStatistics.class</url>
-          <line>26</line>
-          <option name="timeStamp" value="76" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketBot.jar!/net/xilla/ticketbot/statistics/StaffStatistics.class</url>
-          <line>94</line>
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketCore-1.0-SNAPSHOT.jar!/com/tobiassteely/ticketcore/ticket/TicketHandler.class</url>
-          <line>39</line>
-          <option name="timeStamp" value="78" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketCore-1.0-SNAPSHOT.jar!/com/tobiassteely/ticketcore/TicketCore.class</url>
-          <line>45</line>
-          <option name="timeStamp" value="79" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketCore-1.0-SNAPSHOT.jar!/com/tobiassteely/ticketcore/ticket/Transcript.class</url>
-          <line>45</line>
-          <option name="timeStamp" value="80" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/modules/TicketCore-1.0-SNAPSHOT.jar!/com/tobiassteely/ticketcore/ticket/Transcript.class</url>
-          <line>64</line>
-          <option name="timeStamp" value="82" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Xilla_Discord_Core$DiscordCore.ic" NAME="DiscordCore Coverage Results" MODIFIED="1595050157785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>net.xilla.discordcore.*</FILTER>
-    </SUITE>
   </component>
 </project>

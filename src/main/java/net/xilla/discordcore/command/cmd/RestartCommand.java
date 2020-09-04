@@ -1,12 +1,8 @@
 package net.xilla.discordcore.command.cmd;
 
-import com.tobiassteely.tobiasapi.command.Command;
-import com.tobiassteely.tobiasapi.command.CommandExecutor;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.command.response.CoreCommandResponse;
-
-import java.util.ArrayList;
 
 public class RestartCommand extends CoreObject {
 

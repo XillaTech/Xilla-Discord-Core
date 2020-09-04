@@ -1,8 +1,6 @@
 package net.xilla.discordcore.command.template.type;
 
-import com.tobiassteely.tobiasapi.TobiasAPI;
 import com.tobiassteely.tobiasapi.command.response.CommandResponse;
-import net.xilla.discordcore.command.response.CoreCommandResponder;
 import net.xilla.discordcore.command.template.TemplateCommand;
 import org.json.simple.JSONObject;
 

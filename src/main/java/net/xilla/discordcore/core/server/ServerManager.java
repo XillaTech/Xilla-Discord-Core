@@ -2,7 +2,6 @@ package net.xilla.discordcore.core.server;
 
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
 import net.xilla.discordcore.DiscordCore;
-import org.json.simple.JSONObject;
 
 public class ServerManager extends ManagerParent<CoreServer> {
 

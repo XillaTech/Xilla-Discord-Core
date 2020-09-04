@@ -4,8 +4,6 @@ import com.tobiassteely.tobiasapi.api.manager.ManagerEventExecutor;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
 import org.json.simple.JSONObject;
 
-import java.util.Vector;
-
 public class GroupEventHandler implements ManagerEventExecutor<Group> {
 
     @Override

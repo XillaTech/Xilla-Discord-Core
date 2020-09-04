@@ -1,6 +1,5 @@
 package net.xilla.discordcore.command.template.type;
 
-import com.tobiassteely.tobiasapi.command.response.CommandResponse;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.response.CoreCommandResponse;

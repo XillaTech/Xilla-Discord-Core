@@ -3,12 +3,12 @@ package net.xilla.discordcore.command.cmd;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.CoreObject;
-import net.xilla.discordcore.form.MultiForm;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.command.CoreCommandExecutor;
 import net.xilla.discordcore.command.response.CoreCommandResponse;
 import net.xilla.discordcore.command.template.type.EmbedCommand;
 import net.xilla.discordcore.command.template.type.TextCommand;
+import net.xilla.discordcore.form.MultiForm;
 
 import java.awt.*;
 

@@ -2,10 +2,8 @@ package net.xilla.discordcore.core.staff;
 
 import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
 import com.tobiassteely.tobiasapi.command.permission.group.PermissionGroup;
-import com.tobiassteely.tobiasapi.config.Config;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Role;
-import net.xilla.discordcore.DiscordCore;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 

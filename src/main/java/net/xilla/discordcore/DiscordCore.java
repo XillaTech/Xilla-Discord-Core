@@ -4,24 +4,25 @@ import com.tobiassteely.tobiasapi.TobiasAPI;
 import com.tobiassteely.tobiasapi.TobiasBuilder;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
 import com.tobiassteely.tobiasapi.api.worker.Worker;
+import com.tobiassteely.tobiasapi.command.CommandManager;
 import lombok.Getter;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
-import net.xilla.discordcore.form.form.FormHandler;
-import net.xilla.discordcore.form.form.FormManager;
-import net.xilla.discordcore.module.Module;
-import net.xilla.discordcore.settings.Settings;
-import net.xilla.discordcore.settings.SettingsManager;
-import net.xilla.discordcore.startup.PostStartupExecutor;
-import net.xilla.discordcore.startup.PostStartupManager;
 import net.xilla.discordcore.command.CommandCheck;
 import net.xilla.discordcore.command.CommandEventHandler;
-import net.xilla.discordcore.module.ModuleManager;
 import net.xilla.discordcore.command.CommandSettings;
 import net.xilla.discordcore.core.CoreSettings;
 import net.xilla.discordcore.core.Platform;
 import net.xilla.discordcore.core.staff.GroupManager;
+import net.xilla.discordcore.form.form.FormHandler;
+import net.xilla.discordcore.form.form.FormManager;
+import net.xilla.discordcore.module.Module;
+import net.xilla.discordcore.module.ModuleManager;
+import net.xilla.discordcore.settings.Settings;
+import net.xilla.discordcore.settings.SettingsManager;
+import net.xilla.discordcore.startup.PostStartupExecutor;
+import net.xilla.discordcore.startup.PostStartupManager;
 
 import javax.security.auth.login.LoginException;
 import java.util.ArrayList;
@@ -114,6 +115,7 @@ public class DiscordCore extends CoreObject {
      * This is used to store the main library (ignore that it's called
      * an API, it is a library).
      */
+    @Getter
     private TobiasAPI api;
 
     public DiscordCore(String platform, String baseFolder, boolean startCommandLine, String name) {
@@ -249,6 +251,15 @@ public class DiscordCore extends CoreObject {
         shutdown();
         getLog().sendMessage(1, "Restarting does NOT restart the java file. If you are trying to update the core, you will need to stop and start the bot. However for modules or for small issues, a soft reboot should work.");
         new DiscordCore(Platform.getPlatform.STANDALONE.name, null, true, "Xilla Discord Core");
+    }
+
+    /**
+     * Returns the Command Manager for easy access
+     *
+     * @return Command Manager
+     */
+    public CommandManager getCommandManager() {
+        return api.getCommandManager();
     }
 
 }
