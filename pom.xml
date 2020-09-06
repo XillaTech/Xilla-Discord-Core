@@ -20,6 +20,10 @@
             <url>https://jcenter.bintray.com</url>
         </repository>
         <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+        <repository>
             <id>papermc</id>
             <url>https://papermc.io/repo/repository/maven-public/</url>
         </repository>
@@ -44,9 +48,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.tobiassteely.tobiasapi</groupId>
-            <artifactId>TobiasAPI</artifactId>
-            <version>1.0.0</version>
+            <groupId>com.github.Alontrle</groupId>
+            <artifactId>TobiasLibrary</artifactId>
+            <version>-a1c085f898-1</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.vdurmont/emoji-java -->
