@@ -1,5 +1,8 @@
 package net.xilla.discordcore;
 
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.Logger;
+import ch.qos.logback.classic.LoggerContext;
 import com.tobiassteely.tobiasapi.TobiasAPI;
 import com.tobiassteely.tobiasapi.TobiasBuilder;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
@@ -23,6 +26,7 @@ import net.xilla.discordcore.settings.Settings;
 import net.xilla.discordcore.settings.SettingsManager;
 import net.xilla.discordcore.startup.PostStartupExecutor;
 import net.xilla.discordcore.startup.PostStartupManager;
+import org.slf4j.LoggerFactory;
 
 import javax.security.auth.login.LoginException;
 import java.util.ArrayList;
@@ -135,6 +139,8 @@ public class DiscordCore extends CoreObject {
         this.commandSettings = new CommandSettings();
         this.getCommandManager().setCommandRunCheck(new CommandCheck());
 
+        setLogLevel(settings.getLogLevel(), "net.dv8tion.jda");
+
         this.formManager = new FormManager();
 
         // Loads the rest of the core
@@ -151,7 +157,9 @@ public class DiscordCore extends CoreObject {
             shardBuilder.addEventListeners(new CommandEventHandler());
             shardBuilder.addEventListeners(new FormHandler());
 
-            shardBuilder.setActivity(Activity.playing(settings.getActivity()));
+            if(settings.getActivity() != null && !settings.getActivity().equalsIgnoreCase("none")) {
+                shardBuilder.setActivity(Activity.playing(settings.getActivity()));
+            }
 
             this.bot = shardBuilder.build();
 
@@ -175,13 +183,11 @@ public class DiscordCore extends CoreObject {
         new DiscordAPI();
 
         new Thread(() -> {
-
             try {
-                Thread.sleep(15000);
+                bot.awaitReady();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
             getLog().sendMessage(0, "Running post startup executors now... Some things may only startup now!");
             postStartupManager.run();
         }).start();
@@ -205,6 +211,11 @@ public class DiscordCore extends CoreObject {
      */
     public void addExecutor(PostStartupExecutor executor) {
         postStartupManager.addExecutor(executor);
+    }
+
+
+    private void setLogLevel(String logLevel, String packageName) {
+        ((ch.qos.logback.classic.Logger)LoggerFactory.getLogger(packageName)) .setLevel(Level.toLevel(logLevel));
     }
 
     /**

@@ -82,13 +82,28 @@ public class CoreObject extends TobiasObject {
         return user;
     }
 
+    public Role getRole(String id) {
+        Role role = null;
+        String roleID = id.replace("<@&", "").replace("<@", "").replace(">", "");
+        try {
+            role = getBot().getRoleById(roleID);
+        } catch (Exception ignored) {}
+        if(role == null) {
+            try {
+                role = getBot().getRolesByName(id, true).get(0);
+            } catch (Exception ignored) {
+            }
+        }
+        return role;
+    }
+
     public String getPrefix() {
         return getCoreSetting().getCommandPrefix();
 
     }
 
     public Group getGroup(Guild guild, String name) {
-        Group group = getGroupManager().getGroup(name);
+        Group group = getGroupManager().getGroup(name.replace("<@&", "").replace("<@", "").replace(">", ""));
 
         if(group != null) {
             return group;

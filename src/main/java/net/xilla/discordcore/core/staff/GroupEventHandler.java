@@ -2,13 +2,15 @@ package net.xilla.discordcore.core.staff;
 
 import com.tobiassteely.tobiasapi.api.manager.ManagerEventExecutor;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
+import net.xilla.discordcore.DiscordCore;
 import org.json.simple.JSONObject;
 
 public class GroupEventHandler implements ManagerEventExecutor<Group> {
 
     @Override
     public Group loadObject(JSONObject jsonObject) {
-        return new Group(jsonObject);
+        Group group = new Group(jsonObject);
+        return group;
     }
 
     @Override
@@ -18,9 +20,8 @@ public class GroupEventHandler implements ManagerEventExecutor<Group> {
 
     @Override
     public void onObjectAdd(ManagerParent<Group> managerParent, Group group) {
-        if(group.getGroupID() != null) {
-            managerParent.getCache("groupID").putObject(group.getGroupID(), group);
-        }
+        managerParent.getCache("groupID").putObject(group.getGroupID(), group);
+        DiscordCore.getInstance().getGroupManager().addGroup(group);
     }
 
     @Override

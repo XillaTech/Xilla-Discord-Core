@@ -12,5 +12,5 @@ repositories {
 }
 
 dependencies {
-    compileOnly files("libs/Xilla Discord Core-2.0.0.jar")
+    compile files('libs/Xilla-Discord-Core-v2.0.0-BETA-3.jar')
 }

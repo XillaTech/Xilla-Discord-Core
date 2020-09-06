@@ -1,8 +1,10 @@
 package net.xilla.discordcore.command.cmd;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.command.CoreCommandExecutor;
 import net.xilla.discordcore.command.response.CoreCommandResponse;
@@ -42,10 +44,15 @@ public class StaffCommand extends CoreObject {
                             builder.append(" ");
                         }
                     }
-                    Group group = new Group(data.getArgs()[1], builder.toString(), event.getGuild().getId(), new ArrayList<>());
-                    getGroupManager().addGroup(group);
-                    getGroupManager().save();
-                    description.append("That group has been created!");
+                    Role role = getRole(data.getArgs()[1]);
+                    if(role != null) {
+                        Group group = new Group(role.getId(), builder.toString(), role.getGuild().getId(), new ArrayList<>());
+                        getGroupManager().addObject(group);
+                        getGroupManager().save();
+                        description.append("That group has been created!");
+                    } else {
+                        description.append("That is not a valid discord role!");
+                    }
                 } else {
                     if(data.getArgs().length >= 4) {
                         StringBuilder builder = new StringBuilder();
@@ -55,12 +62,17 @@ public class StaffCommand extends CoreObject {
                                 builder.append(" ");
                             }
                         }
-                        Group group = new Group(data.getArgs()[1], builder.toString(), data.getArgs()[2], new ArrayList<>());
-                        getGroupManager().addGroup(group);
-                        getGroupManager().save();
-                        description.append("That group has been created!");
+                        Role role = getRole(data.getArgs()[1]);
+                        if(role != null) {
+                            Group group = new Group(role.getId(), builder.toString(), role.getGuild().getId(), new ArrayList<>());
+                            getGroupManager().addObject(group);
+                            getGroupManager().save();
+                            description.append("That group has been created!");
+                        } else {
+                            description.append("That is not a valid discord role!");
+                        }
                     } else {
-                        description.append(getPrefix()).append("s create <role id> <group id> <name>");
+                        description.append(getPrefix()).append("s create <role id> <name>");
                     }
                 }
 
@@ -95,7 +107,7 @@ public class StaffCommand extends CoreObject {
             } else if (data.getArgs().length > 3 && data.getArgs()[0].equalsIgnoreCase("removepermission")) {
                 Group group;
                 if(event == null) {
-                    group= getGroup(null, data.getArgs()[1]);
+                    group = getGroup(null, data.getArgs()[1]);
                 } else {
                     group = getGroup(event.getGuild(), data.getArgs()[1]);
                 }
@@ -113,9 +125,9 @@ public class StaffCommand extends CoreObject {
                 } else {
                     group = getGroup(event.getGuild(), data.getArgs()[1]);
                 }
-                if(group != null && (event == null || group.getGroupID().equalsIgnoreCase(event.getAuthor().getId()))) {
+                if(group != null && (event == null || group.getServerID().equalsIgnoreCase(event.getGuild().getId()))) {
                     description = new StringBuilder("Name: " + group.getName() + "\n" +
-                            "Role: <@" + group.getGroupID() + ">\n" +
+                            "Role: <@&" + group.getGroupID() + ">\n" +
                             "Permissions: `"
                     );
                     for(int i = 0; i < group.getPermissions().size(); i++) {
@@ -130,25 +142,22 @@ public class StaffCommand extends CoreObject {
                     description = new StringBuilder("That is not an available group.");
                 }
             } else if (data.getArgs().length == 1 && data.getArgs()[0].equalsIgnoreCase("list")) {
-
-                List<Group> groups = new ArrayList<>();
-                for(int i = 0; i < getGroupManager().getList().size(); i++) {
-                    Group group = getGroupManager().getList().get(i);
-                    if(event == null || group.getGroupID().equalsIgnoreCase(event.getAuthor().getId())) {
-                        groups.add(group);
-                    }
+                List<Group> groups;
+                if(event != null) {
+                    groups = DiscordCore.getInstance().getGroupManager().getGroupsByServer(event.getGuild().getId());
+                } else {
+                    groups = DiscordCore.getInstance().getGroupManager().getList();
                 }
 
                 if(groups.size() > 0) {
                     description = new StringBuilder("Available Groups: `");
 
-                    System.out.println(groups.size());
-
                     for(int i = 0; i < groups.size(); i++) {
-                        if (i == getGroupManager().getList().size() - 1) {
-                            description.append(groups.get(i).getIdentifier()).append("`");
+                        description.append(groups.get(i).getName()).append(" (").append(groups.get(i).getGroupID()).append(")");
+                        if (i == groups.size() - 1) {
+                            description.append("`");
                         } else {
-                            description.append(groups.get(i).getIdentifier()).append(", ");
+                            description.append(", ");
                         }
                     }
                 } else {
