@@ -1,5 +1,5 @@
 # Xilla Discord Core<br>
-[![](https://jitpack.io/v/XillaTech/Xilla-Discord-Core.svg)](https://jitpack.io/#XillaTech/Xilla-Discord-Core)
+[![](https://jitpack.io/v/XillaTech/Xilla-Discord-Core.svg)](https://jitpack.io/#XillaTech/Xilla-Discord-Core)<br>
 Xilla Discord Core is a Discord JDA library extension designed to make coding bots much easier. This core handles commands and offers many tool sets and features designed to make better bots, and do it in signifigantly less time. This project is managed and maintained by Tobias S. Check out our website @ <a href="https://xilla.net">https://xilla.net</a><br><br>
 
 # Version / Download<br>
