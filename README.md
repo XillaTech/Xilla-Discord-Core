@@ -34,7 +34,7 @@ Utility Module - (Polls & Suggestions) <a href="https://api.xilla.net/download/U
 - Server Information Command<br>
 - User Information Command<br>
 - Role Information Command<br>
-- Punishments (Coming soon)<br><br>
+- Punishments<br><br>
 
 Join our discord for community modules! https://discord.gg/aSKqa5W<br>
 We are working on a custom resource platform for users to release, sell, and license their softwares.<br><br>
