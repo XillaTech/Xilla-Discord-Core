@@ -1,13 +1,15 @@
 # Xilla Discord Core<br>
+[![](https://jitpack.io/v/XillaTech/Xilla-Discord-Core.svg)](https://jitpack.io/#XillaTech/Xilla-Discord-Core)<br>
 Xilla Discord Core is a Discord JDA library extension designed to make coding bots much easier. This core handles commands and offers many tool sets and features designed to make better bots, and do it in signifigantly less time. This project is managed and maintained by Tobias S. Check out our website @ <a href="https://xilla.net">https://xilla.net</a><br><br>
 
 # Version / Download<br>
-Lastest Version : 2.0.0-BETA-3 STABLE - <a href="https://github.com/XillaTech/Xilla-Discord-Core/raw/master/target/Xilla-Discord-Core-v2.0.0-BETA-3.jar">Download Here</a><br><br>
+Lastest Version : 2.0.0-BETA-3.2 STABLE - <a href="https://github.com/XillaTech/Xilla-Discord-Core/raw/master/target/Xilla-Discord-Core-v2.0.0-BETA-3.jar">Download Here</a><br><br>
 
-# Wiki<br>
+# Quick Links<br>
  - Installation: <a href="https://github.com/XillaTech/Xilla-Discord-Core/wiki/Installation">Click Here</a><br>
+ - How to Setup the bot: <a href="https://github.com/XillaTech/Xilla-Discord-Core/wiki/Setup">Click Here</a><br>
  - Updating: <a href="https://github.com/XillaTech/Xilla-Discord-Core/wiki/Updating">Click Here</a><br>
- - Creating a Module: <a href="https://github.com/XillaTech/Xilla-Discord-Core/wiki/Creating-a-Java-Module">Click Here</a><br><br>
+ - Create a Module: <a href="https://github.com/XillaTech/Xilla-Discord-Core/wiki/Creating-a-Java-Module">Click Here</a><br><br>
 
 # Modules<br> 
 Ticket Module - (Tickets & Support) <a href="https://www.mc-market.org/resources/16500/">Purchase Here for $4.99</a><br>
@@ -33,7 +35,7 @@ Utility Module - (Polls & Suggestions) <a href="https://api.xilla.net/download/U
 - Server Information Command<br>
 - User Information Command<br>
 - Role Information Command<br>
-- Punishments (Coming soon)<br><br>
+- Punishments<br><br>
 
 Join our discord for community modules! https://discord.gg/aSKqa5W<br>
 We are working on a custom resource platform for users to release, sell, and license their softwares.<br><br>
