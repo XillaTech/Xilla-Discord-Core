@@ -18,6 +18,7 @@ import net.xilla.discordcore.command.CommandSettings;
 import net.xilla.discordcore.core.CoreSettings;
 import net.xilla.discordcore.core.Platform;
 import net.xilla.discordcore.core.staff.GroupManager;
+import net.xilla.discordcore.embed.EmbedManager;
 import net.xilla.discordcore.form.form.FormHandler;
 import net.xilla.discordcore.form.form.FormManager;
 import net.xilla.discordcore.module.Module;
@@ -70,6 +71,12 @@ public class DiscordCore extends CoreObject {
      */
     @Getter
     private JDA bot;
+
+    /**
+     * The manager used to manage, edit, and control embeds.
+     */
+    @Getter
+    private EmbedManager embedManager;
 
     /**
      * The CoreSettings stores all the main settings used for various
@@ -170,6 +177,8 @@ public class DiscordCore extends CoreObject {
 
         // Loads up the modules
         this.moduleManager = new ModuleManager(baseFolder);
+
+        this.embedManager = new EmbedManager();
 
         // Starting Command Line
         if(startCommandLine) {

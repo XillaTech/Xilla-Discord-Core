@@ -3,6 +3,7 @@ C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java
 C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\core\CoreWorker.java
 C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\form\form\Form.java
 C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\core\CoreSettings.java
+C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\command\cmd\CoreCommands.java
 C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\startup\PostStartupManager.java
 C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\command\cmd\TemplateCommand.java
 C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\form\MultiFormExecutor.java
@@ -42,6 +43,7 @@ C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java
 C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\command\CommandSettings.java
 C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\command\cmd\RestartCommand.java
 C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\form\form\FormMessageEvent.java
+C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\embed\EmbedManager.java
 C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\command\cmd\SettingsCommand.java
 C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\command\template\TemplateCommand.java
 C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\command\template\type\TextCommand.java
@@ -57,7 +59,8 @@ C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java
 C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\command\CoreCommandExecutor.java
 C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\form\form\reaction\ReactionQuestion.java
 C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\core\cmd\SpigotCommand.java
-C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\core\CoreCommands.java
+C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\embed\EmbedStorage.java
+C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\embed\JSONEmbed.java
 C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\CoreObject.java
 C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\form\form\reaction\ReactionQuestionList.java
 C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\form\form\FormHandler.java

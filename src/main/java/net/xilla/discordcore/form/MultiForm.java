@@ -38,7 +38,11 @@ public class MultiForm extends CoreObject {
     }
 
     public void finish() {
-        executor.finish(formResults);
+        try {
+            executor.finish(formResults);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         index = formBuilders.size();
     }
 
@@ -51,7 +55,9 @@ public class MultiForm extends CoreObject {
         builder.setMessage(embedBuilder.build());
         builder.setFormMessageEvent((form, event) -> {
             formResults.put(name, new FormResponse(name, question, event.getMessage().getContentRaw()));
-            form.getMessage().delete().queue();
+            if(form.getMessage() != null) {
+                form.getMessage().delete().queue();
+            }
             event.getMessage().delete().queue();
             askQuestion();
             return true;

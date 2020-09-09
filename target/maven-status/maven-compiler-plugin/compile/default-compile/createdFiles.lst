@@ -2,6 +2,7 @@ net\xilla\discordcore\ImageBuilder.class
 net\xilla\discordcore\command\cmd\EmbedCommand.class
 net\xilla\discordcore\form\form\reaction\ReactionQuestion.class
 net\xilla\discordcore\command\template\type\EmbedCommand.class
+net\xilla\discordcore\embed\EmbedStorage.class
 net\xilla\discordcore\startup\PostStartupExecutor.class
 net\xilla\discordcore\command\template\type\TextCommand.class
 net\xilla\discordcore\form\form\FormResponse.class
@@ -16,7 +17,6 @@ net\xilla\discordcore\form\form\reaction\ReactionQuestionList.class
 net\xilla\discordcore\startup\PostStartupManager.class
 net\xilla\discordcore\module\type\JavaModule.class
 net\xilla\discordcore\command\event\SpigotCommandEvent.class
-net\xilla\discordcore\core\CoreCommands.class
 net\xilla\discordcore\form\form\FormHandler.class
 net\xilla\discordcore\command\cmd\RestartCommand.class
 net\xilla\discordcore\form\MessageFormBuilder.class
@@ -30,6 +30,7 @@ net\xilla\discordcore\command\cmd\SettingsCommand.class
 net\xilla\discordcore\command\cmd\EndCommand.class
 net\xilla\discordcore\command\cmd\HelpCommand.class
 net\xilla\discordcore\settings\SettingsManager.class
+net\xilla\discordcore\embed\EmbedManager.class
 net\xilla\discordcore\DiscordCoreBungee.class
 net\xilla\discordcore\command\permission\SpigotUser.class
 net\xilla\discordcore\command\event\BungeeCommandEvent.class
@@ -56,6 +57,7 @@ net\xilla\discordcore\core\server\CoreServer.class
 net\xilla\discordcore\settings\Installer.class
 net\xilla\discordcore\CoreObject.class
 net\xilla\discordcore\command\CommandWorker.class
+net\xilla\discordcore\embed\JSONEmbed.class
 net\xilla\discordcore\module\ModuleManager.class
 net\xilla\discordcore\command\CommandBuilder.class
 net\xilla\discordcore\form\MultiFormExecutor.class
@@ -64,6 +66,7 @@ net\xilla\discordcore\command\CommandEventHandler.class
 net\xilla\discordcore\command\response\CoreCommandResponder.class
 net\xilla\discordcore\command\cmd\TemplateCommand.class
 net\xilla\discordcore\form\form\Form.class
+net\xilla\discordcore\command\cmd\CoreCommands.class
 net\xilla\discordcore\core\staff\GroupManager.class
 net\xilla\discordcore\form\form\reaction\FormReactionEvent.class
 net\xilla\discordcore\module\LoadModuleException.class
