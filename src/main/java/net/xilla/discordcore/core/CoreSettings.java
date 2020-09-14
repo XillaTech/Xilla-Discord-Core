@@ -14,6 +14,8 @@ public class CoreSettings extends Settings {
         getConfig().loadDefault("embed-color", "#018ed1");
         getConfig().loadDefault("command-prefix", "-");
         getConfig().loadDefault("activity", "none");
+        getConfig().loadDefault("activity-type", "Playing");
+        getConfig().loadDefault("activity-stream", "https://www.youtube.com/watch?v=5IXQ6f6eMxQ");
         getConfig().loadDefault("respect-discord-admin", true);
         getConfig().loadDefault("clear-old-guilds", false);
         getConfig().loadDefault("clear-old-guild-time", 86400);
@@ -53,6 +55,14 @@ public class CoreSettings extends Settings {
 
     public String getActivity() {
         return getConfig().getString("activity");
+    }
+
+    public String getActivityURL() {
+        return getConfig().getString("activity-stream");
+    }
+
+    public String getActivityType() {
+        return getConfig().getString("activity-type");
     }
 
     public int getShards() {

@@ -26,7 +26,6 @@ public class UtilitySettings extends Settings {
         return getConfig().getBoolean("punishments-feature");
     }
 
-
     public boolean isInfoCommandsEnabled() {
         return getConfig().getBoolean("info-commands-feature");
     }

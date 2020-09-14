@@ -12,6 +12,7 @@ import net.xilla.discordcore.embed.EmbedStorage;
 import net.xilla.discordcore.embed.JSONEmbed;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -86,7 +87,7 @@ public class EmbedCommand extends CoreObject {
 
             if(data.getArgs().length == 1 && data.getArgs()[0].equalsIgnoreCase("list")) {
                 response.append("**Available Categories**\n");
-                for (EmbedStorage storage : DiscordCore.getInstance().getEmbedManager().getList()) {
+                for (EmbedStorage storage : new ArrayList<>(DiscordCore.getInstance().getEmbedManager().getList())) {
                     response.append("> ").append(storage.getKey()).append("\n");
                 }
             } else if(data.getArgs().length == 2 && data.getArgs()[0].equalsIgnoreCase("info")) {

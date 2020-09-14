@@ -24,7 +24,7 @@ public class Group extends ManagerObject implements PermissionGroup {
         this.permissions = permissions;
     }
 
-    public Group(Map<String, Object> object) {
+    public Group(JSONObject object) {
         super(object.get("serverID").toString() + "-" + object.get("groupID").toString());
         this.groupName = object.get("name").toString();
         this.groupID = object.get("groupID").toString();

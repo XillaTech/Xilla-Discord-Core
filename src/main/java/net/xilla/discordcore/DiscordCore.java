@@ -1,8 +1,6 @@
 package net.xilla.discordcore;
 
 import ch.qos.logback.classic.Level;
-import ch.qos.logback.classic.Logger;
-import ch.qos.logback.classic.LoggerContext;
 import com.tobiassteely.tobiasapi.TobiasAPI;
 import com.tobiassteely.tobiasapi.TobiasBuilder;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
@@ -164,8 +162,16 @@ public class DiscordCore extends CoreObject {
             shardBuilder.addEventListeners(new CommandEventHandler());
             shardBuilder.addEventListeners(new FormHandler());
 
-            if(settings.getActivity() != null && !settings.getActivity().equalsIgnoreCase("none")) {
-                shardBuilder.setActivity(Activity.playing(settings.getActivity()));
+            if (settings.getActivity() != null && !settings.getActivity().equalsIgnoreCase("none")) {
+                if (settings.getActivityType().equalsIgnoreCase("Playing")) {
+                    shardBuilder.setActivity(Activity.playing(settings.getActivity()));
+                } else if (settings.getActivityType().equalsIgnoreCase("Listening")) {
+                    shardBuilder.setActivity(Activity.listening(settings.getActivity()));
+                } else if (settings.getActivityType().equalsIgnoreCase("Streaming")) {
+                    shardBuilder.setActivity(Activity.streaming(settings.getActivity(), settings.getActivityURL()));
+                } else if (settings.getActivityType().equalsIgnoreCase("Watching")) {
+                    shardBuilder.setActivity(Activity.watching(settings.getActivity()));
+                }
             }
 
             this.bot = shardBuilder.build();

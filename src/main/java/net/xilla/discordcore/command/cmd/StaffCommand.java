@@ -90,28 +90,31 @@ public class StaffCommand extends CoreObject {
                 } else {
                     description.append("That is not a valid group!");
                 }
-            } else if (data.getArgs().length > 3 && data.getArgs()[0].equalsIgnoreCase("addpermission")) {
+            } else if (data.getArgs().length >= 3 && data.getArgs()[0].equalsIgnoreCase("addpermission")) {
                 Group group;
                 if(event == null) {
                     group= getGroup(null, data.getArgs()[1]);
                 } else {
                     group = getGroup(event.getGuild(), data.getArgs()[1]);
                 }
-                if(group != null && (event == null || group.getGroupID().equalsIgnoreCase(event.getAuthor().getId()))) {
+                System.out.println(group);
+                System.out.println(group.getGroupID());
+                System.out.println(group.getGroupID());
+                if(group != null && (event == null || group.getServerID().equalsIgnoreCase(event.getGuild().getId()))) {
                     group.addPermission(data.getArgs()[2]);
                     getGroupManager().save();
                     description.append("That permission has been added!");
                 } else {
                     description.append("That is not a valid group!");
                 }
-            } else if (data.getArgs().length > 3 && data.getArgs()[0].equalsIgnoreCase("removepermission")) {
+            } else if (data.getArgs().length >= 3 && data.getArgs()[0].equalsIgnoreCase("removepermission")) {
                 Group group;
                 if(event == null) {
                     group = getGroup(null, data.getArgs()[1]);
                 } else {
                     group = getGroup(event.getGuild(), data.getArgs()[1]);
                 }
-                if(group != null && (event == null || group.getGroupID().equalsIgnoreCase(event.getAuthor().getId()))) {
+                if(group != null && (event == null || group.getServerID().equalsIgnoreCase(event.getGuild().getId()))) {
                     group.removePermission(data.getArgs()[2]);
                     getGroupManager().save();
                     description.append("That permission has been removed!");
