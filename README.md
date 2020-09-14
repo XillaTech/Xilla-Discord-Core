@@ -11,6 +11,18 @@ Lastest Version : 2.0.0-BETA-3.2 STABLE - <a href="https://github.com/XillaTech/
  - Updating: <a href="https://github.com/XillaTech/Xilla-Discord-Core/wiki/Updating">Click Here</a><br>
  - Create a Module: <a href="https://github.com/XillaTech/Xilla-Discord-Core/wiki/Creating-a-Java-Module">Click Here</a><br><br>
 
+# Commands<br>
+ Help - Get your available commands<br>
+ End - (core.end) Shutdown the bot<br>
+ Restart - (core.end) Soft-restart the bot<br>
+ Module - (core.module) View where to get more modules<br>
+ Staff - (core.staff) Manage your staff<br>
+ Template - (core.builder) Manage/Create template commands<br>
+ Settings - (core.settings) Manage the bot's settings<br>
+ Embed - (core.embed) Create an embedded message<br>
+ EmbedManager - (core.embedmanager) Manage the bots embeds<br>
+ CoreInfo - (core.coreinfo) View the bot's core information<br>
+
 # Modules<br> 
 Ticket Module - (Tickets & Support) <a href="https://www.mc-market.org/resources/16500/">Purchase Here for $4.99</a><br>
 - Java Ticket System<br>
