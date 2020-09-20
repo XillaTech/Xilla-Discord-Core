@@ -16,12 +16,12 @@ public class JSONEmbed {
 
     public JSONEmbed(String name, EmbedBuilder embedBuilder) {
         this.embedBuilder = embedBuilder;
-        this.name = name;
+        this.name = name.replace(" ", "_");
     }
 
     public JSONEmbed(String name, JSONObject json) {
         this.embedBuilder = new EmbedBuilder();
-        this.name = name;
+        this.name = name.replace(" ", "_");
 
         if (json.containsKey("title")) {
             embedBuilder.setTitle(json.get("title").toString());

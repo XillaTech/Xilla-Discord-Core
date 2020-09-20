@@ -27,7 +27,7 @@ public class EmbedStorage extends ManagerObject {
     }
 
     public void addEmbed(String name, EmbedBuilder embedBuilder) {
-        embedMap.put(name, new JSONEmbed(name, embedBuilder));
+        embedMap.put(name.replace(" ", "_"), new JSONEmbed(name, embedBuilder));
     }
 
     public void addEmbed(JSONEmbed jsonEmbed) {
@@ -39,7 +39,7 @@ public class EmbedStorage extends ManagerObject {
     }
 
     public JSONEmbed getEmbed(String name) {
-        return embedMap.get(name);
+        return embedMap.get(name.replace(" ", "_"));
     }
 
     public void save() {

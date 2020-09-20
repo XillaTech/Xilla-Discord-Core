@@ -1,12 +1,13 @@
 package net.xilla.discordcore;
 
-import ch.qos.logback.classic.Level;
 import com.tobiassteely.tobiasapi.TobiasAPI;
 import com.tobiassteely.tobiasapi.TobiasBuilder;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
 import com.tobiassteely.tobiasapi.api.worker.Worker;
 import com.tobiassteely.tobiasapi.command.CommandManager;
 import lombok.Getter;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
@@ -144,7 +145,7 @@ public class DiscordCore extends CoreObject {
         this.commandSettings = new CommandSettings();
         this.getCommandManager().setCommandRunCheck(new CommandCheck());
 
-        setLogLevel(settings.getLogLevel(), "net.dv8tion.jda");
+        setLogLevel(settings.getLogLevel());
 
         this.formManager = new FormManager();
 
@@ -229,8 +230,9 @@ public class DiscordCore extends CoreObject {
     }
 
 
-    private void setLogLevel(String logLevel, String packageName) {
-        ((ch.qos.logback.classic.Logger)LoggerFactory.getLogger(packageName)) .setLevel(Level.toLevel(logLevel));
+    private void setLogLevel(String logLevel) {
+        Logger rootLogger = Logger.getRootLogger();
+        rootLogger.setLevel(Level.toLevel(logLevel));
     }
 
     /**
