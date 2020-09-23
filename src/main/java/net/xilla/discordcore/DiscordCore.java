@@ -6,8 +6,6 @@ import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
 import com.tobiassteely.tobiasapi.api.worker.Worker;
 import com.tobiassteely.tobiasapi.command.CommandManager;
 import lombok.Getter;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
@@ -26,7 +24,6 @@ import net.xilla.discordcore.settings.Settings;
 import net.xilla.discordcore.settings.SettingsManager;
 import net.xilla.discordcore.startup.PostStartupExecutor;
 import net.xilla.discordcore.startup.PostStartupManager;
-import org.slf4j.LoggerFactory;
 
 import javax.security.auth.login.LoginException;
 import java.util.ArrayList;
@@ -145,8 +142,6 @@ public class DiscordCore extends CoreObject {
         this.commandSettings = new CommandSettings();
         this.getCommandManager().setCommandRunCheck(new CommandCheck());
 
-        setLogLevel(settings.getLogLevel());
-
         this.formManager = new FormManager();
 
         // Loads the rest of the core
@@ -227,12 +222,6 @@ public class DiscordCore extends CoreObject {
      */
     public void addExecutor(PostStartupExecutor executor) {
         postStartupManager.addExecutor(executor);
-    }
-
-
-    private void setLogLevel(String logLevel) {
-        Logger rootLogger = Logger.getRootLogger();
-        rootLogger.setLevel(Level.toLevel(logLevel));
     }
 
     /**
