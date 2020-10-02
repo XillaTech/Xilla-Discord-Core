@@ -50,7 +50,7 @@
         <dependency>
             <groupId>com.github.Alontrle</groupId>
             <artifactId>TobiasLibrary</artifactId>
-            <version>27f6762fe7</version>
+            <version>58593bd12c</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.vdurmont/emoji-java -->

@@ -1,15 +1,16 @@
 package net.xilla.discordcore.command;
 
+import com.tobiassteely.tobiasapi.TobiasAPI;
 import com.tobiassteely.tobiasapi.command.CommandData;
 import com.tobiassteely.tobiasapi.command.CommandManager;
+import com.tobiassteely.tobiasapi.command.flag.CommandFlag;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.xilla.discordcore.DiscordAPI;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.permission.DiscordUser;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Vector;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class CommandEventHandler extends ListenerAdapter {
@@ -41,7 +42,7 @@ public class CommandEventHandler extends ListenerAdapter {
             // Then checks if the message starts with the prefix
             if (message.length() > prefix.length() && message.toLowerCase().startsWith(prefix.toLowerCase())) {
 
-                // Passes the command over to the internal command system (Part of TobiasAPI)
+                // Passes the command over to the internal command system (Part of the core)
 
                 if(DiscordCore.getInstance().getPlatform().getCommandSettings().isRateLimit()) {
                     if (commandCache.containsKey(event.getAuthor().getId())) {
@@ -51,12 +52,52 @@ public class CommandEventHandler extends ListenerAdapter {
                     }
                 }
                 String raw = message.substring(prefix.length());
-                String command = raw.split(" ")[0].toLowerCase();
+
+                int level = 1;
+                ArrayList<String> parts = new ArrayList<>(Arrays.asList(raw.split(" ")));
+                ArrayList<String> tempparts = new ArrayList<>(parts);
+
+                Map<CommandFlag, String> flags = new HashMap<>();
+                for(int i = 1; i < parts.size(); i++) {
+                    boolean found = false;
+                    for(CommandFlag flag : new ArrayList<>(TobiasAPI.getInstance().getCommandManager().getFlagManager().getList())) {
+
+                        for(String identifier : flag.getIdentifier()) {
+                            if (tempparts.get(i).equalsIgnoreCase("-" + identifier)) {
+                                try {
+                                    String input = parts.remove(level + 1);
+                                    parts.remove(level);
+
+                                    flags.put(flag, input);
+                                    found = true;
+                                    break;
+                                } catch (Exception ex) {
+                                    ex.printStackTrace();
+                                }
+                            }
+                        }
+
+                        System.out.println(parts);
+                    }
+
+                    if(!found) {
+                        level++;
+                    }
+                }
+
+                if(flags.size() == 0) {
+                    flags = null;
+                }
+
+                String command = parts.get(0).toLowerCase();
                 String[] args;
-                if(raw.split(" ").length == 1) {
-                    args = new String[] {};
+                if(parts.size() == 1) {
+                    args = new String[0];
                 } else {
-                    args = raw.substring(command.length() + 1).split(" ");
+                    args = new String[parts.size() - 1];
+                    for(int i = 1; i < parts.size(); i++) {
+                        args[i - 1] = parts.get(i);
+                    }
                 }
 
                 if(DiscordCore.getInstance().getPlatform().getCommandSettings().isRateLimit()) {
@@ -66,7 +107,7 @@ public class CommandEventHandler extends ListenerAdapter {
                     commandCache.get(event.getAuthor().getId()).add(System.currentTimeMillis());
                 }
 
-                CommandData<MessageReceivedEvent> data = new CommandData<>(command, args, event, CoreCommandExecutor.discord_input, new DiscordUser(Objects.requireNonNull(event.getMember())));
+                CommandData<MessageReceivedEvent> data = new CommandData<>(command, args, event, CoreCommandExecutor.discord_input, new DiscordUser(Objects.requireNonNull(event.getMember())), flags);
                 commandManager.runCommand(data);
             }
         }

@@ -22,6 +22,7 @@ public class ReviewCommands extends CoreObject {
         commandBuilder.setActivators("review");
         commandBuilder.setDescription("review");
         commandBuilder.setDescription("Leave a review!");
+        commandBuilder.setPermission("review.use");
         commandBuilder.setCommandExecutor((data) -> {
             if(data.get() instanceof MessageReceivedEvent) {
 
@@ -44,7 +45,7 @@ public class ReviewCommands extends CoreObject {
         commandBuilder.setActivators("reviewadmin", "ra");
         commandBuilder.setName("ReviewAdmin");
         commandBuilder.setDescription("Manage the reviews.");
-        commandBuilder.setPermission("core.review");
+        commandBuilder.setPermission("review.admin");
         commandBuilder.setCommandExecutor((data) -> {
             if(data.get() instanceof MessageReceivedEvent) {
 

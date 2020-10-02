@@ -1,5 +1,6 @@
 package net.xilla.discordcore.core;
 
+import lombok.Getter;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.command.CommandWorker;
