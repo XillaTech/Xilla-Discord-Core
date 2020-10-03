@@ -1,11 +1,12 @@
 package net.xilla.discordcore.module;
 
-import com.tobiassteely.tobiasapi.TobiasAPI;
-import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
-import com.tobiassteely.tobiasapi.command.CommandManager;
-import com.tobiassteely.tobiasapi.config.ConfigManager;
+import net.xilla.core.library.config.ConfigManager;
+import net.xilla.core.library.json.XillaJson;
+import net.xilla.core.library.manager.ManagerObject;
+import net.xilla.core.library.manager.XillaManager;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.core.Platform;
+import net.xilla.discordcore.core.command.CommandManager;
 import net.xilla.discordcore.core.staff.GroupManager;
 
 public class Module extends ManagerObject {
@@ -15,7 +16,7 @@ public class Module extends ManagerObject {
     private String version;
 
     public Module(String type, String name, String version) {
-        super(name);
+        super(name, XillaManager.getInstance().get("Modules"));
         this.type = type;
         this.name = name;
         this.version = version;
@@ -49,12 +50,8 @@ public class Module extends ManagerObject {
         return DiscordCore.getInstance().getPlatform();
     }
 
-    public TobiasAPI getTobiasAPI() {
-        return DiscordCore.getInstance().getTobiasAPI();
-    }
-
     public CommandManager getCommandManager() {
-        return DiscordCore.getInstance().getPlatform().getCommandManager();
+        return DiscordCore.getInstance().getCommandManager();
     }
 
     public GroupManager getGroupManager() {
@@ -62,7 +59,16 @@ public class Module extends ManagerObject {
     }
 
     public ConfigManager getConfigManager() {
-        return DiscordCore.getInstance().getTobiasAPI().getConfigManager();
+        return ConfigManager.getInstance();
     }
 
+    @Override
+    public XillaJson getSerializedData() {
+        return null;
+    }
+
+    @Override
+    public void loadSerializedData(XillaJson xillaJson) {
+
+    }
 }

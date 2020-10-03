@@ -1,12 +1,25 @@
 package net.xilla.discordcore.embed;
 
-import com.tobiassteely.tobiasapi.api.manager.ManagerEventExecutor;
-import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
+import net.xilla.core.library.manager.Manager;
 
-public class EmbedManager extends ManagerParent<EmbedStorage> {
+public class EmbedManager extends Manager<EmbedStorage> {
 
     public EmbedManager() {
-        super("XDC.Embed", true);
+        super("Embeds");
     }
 
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void objectAdded(EmbedStorage embedStorage) {
+
+    }
+
+    @Override
+    protected void objectRemoved(EmbedStorage embedStorage) {
+
+    }
 }

@@ -1,17 +1,18 @@
 package net.xilla.discordcore.command.response;
 
-import com.tobiassteely.tobiasapi.command.CommandData;
-import com.tobiassteely.tobiasapi.command.response.CommandResponder;
-import com.tobiassteely.tobiasapi.command.response.CommandResponse;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.xilla.core.log.LogLevel;
+import net.xilla.core.log.Logger;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.command.CoreCommandExecutor;
 import net.xilla.discordcore.command.event.BungeeCommandEvent;
 import net.xilla.discordcore.command.event.SpigotCommandEvent;
+import net.xilla.discordcore.core.command.CommandData;
+import net.xilla.discordcore.core.command.response.CommandResponder;
+import net.xilla.discordcore.core.command.response.CommandResponse;
 import org.bukkit.ChatColor;
-
 
 public class CoreCommandResponder extends CoreObject implements CommandResponder {
 
@@ -57,9 +58,9 @@ public class CoreCommandResponder extends CoreObject implements CommandResponder
         // Sends a response back to command line
         } else {
             if(response.getTitle() != null)
-               getLog().sendMessage(0, response.getTitle(), response.getDescription());
+                Logger.log(LogLevel.INFO, response.getTitle() + "\n" + response.getDescription(), getClass());
             else
-                getLog().sendMessage(0, response.getDescription());
+                Logger.log(LogLevel.INFO, response.getDescription(), getClass());
         }
     }
 
@@ -90,9 +91,9 @@ public class CoreCommandResponder extends CoreObject implements CommandResponder
         // Sends a response back to command line
         } else {
             if(embed.getTitle() != null) {
-                getLog().sendMessage(0, embed.getTitle(), embed.getDescription());
+                Logger.log(LogLevel.INFO, embed.getTitle() + "\n" + embed.getDescription(), getClass());
             }
-            getLog().sendMessage(0, embed.getDescription());
+            Logger.log(LogLevel.INFO, embed.getDescription(), getClass());
         }
     }
 

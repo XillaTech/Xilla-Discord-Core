@@ -1,13 +1,12 @@
 package net.xilla.discordcore.settings;
 
-import com.tobiassteely.tobiasapi.TobiasAPI;
-import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
-import com.tobiassteely.tobiasapi.command.CommandManager;
-import com.tobiassteely.tobiasapi.config.Config;
-import com.tobiassteely.tobiasapi.config.ConfigManager;
+import net.xilla.core.library.config.Config;
+import net.xilla.core.library.config.ConfigManager;
+import net.xilla.core.library.json.XillaJson;
+import net.xilla.core.library.manager.ManagerObject;
+import net.xilla.core.library.manager.XillaManager;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.core.Platform;
-import net.xilla.discordcore.core.staff.GroupManager;
 
 public class Settings extends ManagerObject {
 
@@ -15,8 +14,9 @@ public class Settings extends ManagerObject {
     private Installer installer;
 
     public Settings(String name, String configName) {
-        super(name.toLowerCase());
-        this.config = DiscordCore.getInstance().getConfigManager().getConfig(configName);
+        super(name.toLowerCase(), XillaManager.getInstance().get("Settings"));
+        this.config = new Config(configName);
+        ConfigManager.getInstance().put(config);
         this.installer = new Installer(config);
         DiscordCore.getInstance().getSettingsManager().addSettings(this);
     }
@@ -29,28 +29,17 @@ public class Settings extends ManagerObject {
         return installer;
     }
 
-    public DiscordCore getDiscordCore() {
-        return DiscordCore.getInstance();
-    }
-
     public Platform getPlatform() {
         return DiscordCore.getInstance().getPlatform();
     }
 
-    public TobiasAPI getTobiasAPI() {
-        return DiscordCore.getInstance().getTobiasAPI();
+    @Override
+    public XillaJson getSerializedData() {
+        return null;
     }
 
-    public CommandManager getCommandManager() {
-        return DiscordCore.getInstance().getPlatform().getCommandManager();
-    }
+    @Override
+    public void loadSerializedData(XillaJson xillaJson) {
 
-    public GroupManager getGroupManager() {
-        return DiscordCore.getInstance().getPlatform().getGroupManager();
     }
-
-    public ConfigManager getConfigManager() {
-        return DiscordCore.getInstance().getTobiasAPI().getConfigManager();
-    }
-
 }

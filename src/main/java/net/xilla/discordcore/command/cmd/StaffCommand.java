@@ -47,7 +47,7 @@ public class StaffCommand extends CoreObject {
                     Role role = getRole(data.getArgs()[1]);
                     if(role != null) {
                         Group group = new Group(role.getId(), builder.toString(), role.getGuild().getId(), new ArrayList<>());
-                        getGroupManager().addObject(group);
+                        getGroupManager().put(group);
                         getGroupManager().save();
                         description.append("That group has been created!");
                     } else {
@@ -65,7 +65,7 @@ public class StaffCommand extends CoreObject {
                         Role role = getRole(data.getArgs()[1]);
                         if(role != null) {
                             Group group = new Group(role.getId(), builder.toString(), role.getGuild().getId(), new ArrayList<>());
-                            getGroupManager().addObject(group);
+                            getGroupManager().put(group);
                             getGroupManager().save();
                             description.append("That group has been created!");
                         } else {
@@ -84,7 +84,7 @@ public class StaffCommand extends CoreObject {
                     group = getGroup(event.getGuild(), data.getArgs()[1]);
                 }
                 if(group != null && (event == null || group.getGroupID().equalsIgnoreCase(event.getAuthor().getId()))) {
-                    getGroupManager().removeObject(group.getKey());
+                    getGroupManager().remove(group.getKey());
                     getGroupManager().save();
                     description.append("That group has been removed!");
                 } else {
@@ -97,9 +97,6 @@ public class StaffCommand extends CoreObject {
                 } else {
                     group = getGroup(event.getGuild(), data.getArgs()[1]);
                 }
-                System.out.println(group);
-                System.out.println(group.getGroupID());
-                System.out.println(group.getGroupID());
                 if(group != null && (event == null || group.getServerID().equalsIgnoreCase(event.getGuild().getId()))) {
                     group.addPermission(data.getArgs()[2]);
                     getGroupManager().save();
@@ -149,7 +146,7 @@ public class StaffCommand extends CoreObject {
                 if(event != null) {
                     groups = DiscordCore.getInstance().getGroupManager().getGroupsByServer(event.getGuild().getId());
                 } else {
-                    groups = DiscordCore.getInstance().getGroupManager().getList();
+                    groups = new ArrayList<>(DiscordCore.getInstance().getGroupManager().getData().values());
                 }
 
                 if(groups.size() > 0) {

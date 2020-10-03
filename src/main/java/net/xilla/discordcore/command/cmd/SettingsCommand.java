@@ -1,11 +1,11 @@
 package net.xilla.discordcore.command.cmd;
 
-import com.tobiassteely.tobiasapi.command.CommandExecutor;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.command.response.CoreCommandResponse;
+import net.xilla.discordcore.core.command.CommandExecutor;
 import net.xilla.discordcore.settings.Settings;
 
 import java.awt.*;
@@ -47,8 +47,8 @@ public class SettingsCommand extends CoreObject {
                 if(settings != null) {
                     StringBuilder configs = new StringBuilder();
                     configs.append("**Available Settings** (").append(settings.getKey()).append(")\n\n");
-                    for (Object object : settings.getConfig().getJSON().keySet()) {
-                        if(settings.getConfig().getJSON().get(object) instanceof String) {
+                    for (Object object : settings.getConfig().getJson().getJson().keySet()) {
+                        if(settings.getConfig().getJson().getJson().get(object) instanceof String) {
                             if (!object.toString().equalsIgnoreCase("token")) {
                                 configs.append("> ").append(object.toString()).append(": `").append(settings.getConfig().get(object.toString()).toString()).append("`\n");
                             }
@@ -62,8 +62,8 @@ public class SettingsCommand extends CoreObject {
             } else if (data.getArgs().length >= 4 && data.getArgs()[0].equalsIgnoreCase("set")) {
                 Settings settings = DiscordCore.getInstance().getSettingsManager().getSettings(data.getArgs()[1].toLowerCase());
                 if (settings != null) {
-                    if(settings.getConfig().getJSON().containsKey(data.getArgs()[2])) {
-                        if(settings.getConfig().getJSON().get(data.getArgs()[2]) instanceof String) {
+                    if(settings.getConfig().getJson().getJson().containsKey(data.getArgs()[2])) {
+                        if(settings.getConfig().getJson().getJson().get(data.getArgs()[2]) instanceof String) {
                             String value = "";
                             for (int i = 3; i < data.getArgs().length; i++) {
                                 value = value + data.getArgs()[i];

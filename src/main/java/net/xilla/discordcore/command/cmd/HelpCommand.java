@@ -1,11 +1,13 @@
 package net.xilla.discordcore.command.cmd;
 
-import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
-import com.tobiassteely.tobiasapi.command.Command;
-import com.tobiassteely.tobiasapi.command.CommandExecutor;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.xilla.core.library.manager.ManagerObject;
 import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.DiscordCore;
+import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.command.response.CoreCommandResponse;
+import net.xilla.discordcore.core.command.Command;
+import net.xilla.discordcore.core.command.CommandExecutor;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -14,14 +16,13 @@ import java.util.HashMap;
 public class HelpCommand extends CoreObject {
 
     public HelpCommand() {
-        Command command = getCommandManager().getCommand("Help");
-
-        ArrayList<CommandExecutor> executors = new ArrayList<>();
-        executors.add((data) -> {
+        CommandBuilder commandBuilder = new CommandBuilder("Core", "Help");
+        commandBuilder.setDescription("View the commands you can access.");
+        commandBuilder.setCommandExecutor((data) -> {
             try {
             HashMap<String, ArrayList<String>> commands = new HashMap<>();
 
-            for(ManagerObject object : getCommandManager().getList()) {
+            for(ManagerObject object : new ArrayList<>(DiscordCore.getInstance().getCommandManager().getData().values())) {
                 Command legacyCommand = (Command) object;
                 if (getCommandSettings().isCommand(data, legacyCommand.getName())) {
                     String finalName = legacyCommand.getModule().substring(0, 1).toUpperCase() + legacyCommand.getModule().substring(1).toLowerCase();
@@ -111,7 +112,7 @@ public class HelpCommand extends CoreObject {
             }
         });
 
-        command.setExecutors(executors);
+        commandBuilder.build();
     }
 
 }

@@ -1,14 +1,13 @@
 package net.xilla.discordcore.command;
 
-import com.tobiassteely.tobiasapi.TobiasAPI;
-import com.tobiassteely.tobiasapi.command.CommandData;
-import com.tobiassteely.tobiasapi.command.CommandManager;
-import com.tobiassteely.tobiasapi.command.flag.CommandFlag;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.xilla.discordcore.DiscordAPI;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.permission.DiscordUser;
+import net.xilla.discordcore.core.command.CommandData;
+import net.xilla.discordcore.core.command.CommandManager;
+import net.xilla.discordcore.core.command.flag.CommandFlag;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -60,7 +59,7 @@ public class CommandEventHandler extends ListenerAdapter {
                 Map<CommandFlag, String> flags = new HashMap<>();
                 for(int i = 1; i < parts.size(); i++) {
                     boolean found = false;
-                    for(CommandFlag flag : new ArrayList<>(TobiasAPI.getInstance().getCommandManager().getFlagManager().getList())) {
+                    for(CommandFlag flag : new ArrayList<>(DiscordCore.getInstance().getCommandManager().getFlagManager().getData().values())) {
 
                         for(String identifier : flag.getIdentifier()) {
                             if (tempparts.get(i).equalsIgnoreCase("-" + identifier)) {

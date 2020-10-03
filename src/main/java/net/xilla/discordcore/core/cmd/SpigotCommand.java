@@ -1,10 +1,10 @@
 package net.xilla.discordcore.core.cmd;
 
-import com.tobiassteely.tobiasapi.command.CommandData;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CoreCommandExecutor;
 import net.xilla.discordcore.command.event.SpigotCommandEvent;
 import net.xilla.discordcore.command.permission.SpigotUser;
+import net.xilla.discordcore.core.command.CommandData;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

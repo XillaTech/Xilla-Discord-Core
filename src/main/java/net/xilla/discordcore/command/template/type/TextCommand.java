@@ -1,7 +1,7 @@
 package net.xilla.discordcore.command.template.type;
 
-import com.tobiassteely.tobiasapi.command.response.CommandResponse;
 import net.xilla.discordcore.command.template.TemplateCommand;
+import net.xilla.discordcore.core.command.response.CommandResponse;
 import org.json.simple.JSONObject;
 
 import java.util.HashMap;

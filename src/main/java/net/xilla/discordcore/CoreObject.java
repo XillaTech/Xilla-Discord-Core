@@ -1,9 +1,9 @@
 package net.xilla.discordcore;
 
-import com.tobiassteely.tobiasapi.api.TobiasObject;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.*;
+import net.xilla.core.library.XillaLibrary;
 import net.xilla.discordcore.command.CommandSettings;
 import net.xilla.discordcore.command.permission.DiscordUser;
 import net.xilla.discordcore.core.CoreSettings;
@@ -15,7 +15,7 @@ import net.xilla.discordcore.module.ModuleManager;
 import java.awt.*;
 import java.util.List;
 
-public class CoreObject extends TobiasObject {
+public class CoreObject extends XillaLibrary {
 
     public DiscordCore getDiscordCore() {
         return DiscordCore.getInstance();

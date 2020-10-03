@@ -1,8 +1,8 @@
 package net.xilla.discordcore.command.permission;
 
-import com.tobiassteely.tobiasapi.command.permission.group.PermissionGroup;
-import com.tobiassteely.tobiasapi.command.permission.user.PermissionUser;
 import net.md_5.bungee.api.CommandSender;
+import net.xilla.discordcore.core.command.permission.group.PermissionGroup;
+import net.xilla.discordcore.core.command.permission.user.PermissionUser;
 
 import java.util.List;
 

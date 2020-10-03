@@ -1,6 +1,5 @@
 package net.xilla.discordcore.core.cmd;
 
-import com.tobiassteely.tobiasapi.command.CommandData;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.ComponentBuilder;
@@ -9,6 +8,7 @@ import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CoreCommandExecutor;
 import net.xilla.discordcore.command.event.BungeeCommandEvent;
 import net.xilla.discordcore.command.permission.BungeeUser;
+import net.xilla.discordcore.core.command.CommandData;
 
 import java.util.Arrays;
 

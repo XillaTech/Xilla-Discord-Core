@@ -1,14 +1,13 @@
 package net.xilla.discordcore.command.cmd;
 
-import com.tobiassteely.tobiasapi.api.manager.CoreManager;
-import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
-import com.tobiassteely.tobiasapi.api.manager.ManagerObjectInterface;
-import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.TextChannel;
+import net.xilla.core.library.manager.Manager;
+import net.xilla.core.library.manager.ManagerObject;
+import net.xilla.core.library.manager.XillaManager;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.command.response.CoreCommandResponse;
@@ -43,7 +42,7 @@ public class CoreCommands extends CoreObject {
                     }
                 }
 
-                CoreServer coreServer = getPlatform().getServerManager().getObject(argument.toString());
+                CoreServer coreServer = getPlatform().getServerManager().get(argument.toString());
                 if(coreServer != null && coreServer.getGuild() != null) {
                     Guild g = coreServer.getGuild();
                     embedBuilder.setThumbnail(g.getIconUrl());
@@ -98,13 +97,11 @@ public class CoreCommands extends CoreObject {
                     }
                 }
 
-                ManagerParent manager = CoreManager.getInstance().getManager(data.getArgs()[1]);
+                Manager manager = XillaManager.getInstance().get(data.getArgs()[1]);
                 if(manager != null) {
-                    System.out.println(argument.toString());
-                    ManagerObjectInterface object = manager.getObject(argument.toString());
-                    System.out.println(object);
+                    ManagerObject object = manager.get(argument.toString());
                     if(object != null) {
-                        embedBuilder.setDescription("Object Data: ```" + object.toJson() + "```");
+                        embedBuilder.setDescription("Object Data: ```" + object.getSerializedData().getJson().toJSONString() + "```");
                     } else {
                         embedBuilder.setDescription("That is not a valid object!");
                     }
@@ -121,14 +118,14 @@ public class CoreCommands extends CoreObject {
                     }
                 }
 
-                ManagerParent manager = CoreManager.getInstance().getManager(argument.toString());
+                Manager manager = XillaManager.getInstance().get(argument.toString());
                 if(manager != null) {
                     StringBuilder str = new StringBuilder();
 
-                    List<ManagerObject> objects = new ArrayList<>(manager.getList());
+                    List<ManagerObject> objects = new ArrayList<>(manager.getData().values());
 
                     int loop = 0;
-                    for(ManagerObjectInterface object : objects) {
+                    for(ManagerObject object : objects) {
                         str.append(object.getKey());
                         loop++;
                         if(loop != objects.size()) {
@@ -144,32 +141,32 @@ public class CoreCommands extends CoreObject {
             } else {
                 StringBuilder stb = new StringBuilder();
                 int sloop = 0;
-                for (CoreServer server : getDiscordCore().getPlatform().getServerManager().getList()) {
+                for (CoreServer server : new ArrayList<>(getDiscordCore().getPlatform().getServerManager().getData().values())) {
                     if (server != null && server.getGuild() != null) {
                         stb.append(server.getGuild().getName()).append(" (ID: ").append(server.getKey()).append(")");
                     }
                     sloop++;
-                    if(sloop != getDiscordCore().getPlatform().getServerManager().getList().size()) {
+                    if(sloop != getDiscordCore().getPlatform().getServerManager().getData().size()) {
                         stb.append(", ");
                     }
                 }
 
                 StringBuilder mtb = new StringBuilder();
                 int mloop = 0;
-                for (ManagerParent manager : CoreManager.getInstance().getManagers()) {
-                    mtb.append("> ").append(manager.getIdentifier()).append(" (" ).append(manager.getList().size()).append(")");
+                for (Manager manager : new ArrayList<>(XillaManager.getInstance().getData().values())) {
+                    mtb.append("> ").append(manager.getName()).append(" (" ).append(manager.getData().size()).append(")");
                     mloop++;
-                    if(mloop != CoreManager.getInstance().getManagers().size()) {
+                    if(mloop != XillaManager.getInstance().getData().size()) {
                         mtb.append("\n");
                     }
                 }
-                if(getDiscordCore().getPlatform().getServerManager().getList().size() > 0) {
-                    embedBuilder.setDescription("Servers (" + getDiscordCore().getPlatform().getServerManager().getList().size() + "): `" + stb.toString()
-                            + "`\n\nManagers (" + CoreManager.getInstance().getManagers().size()
+                if(getDiscordCore().getPlatform().getServerManager().getData().size() > 0) {
+                    embedBuilder.setDescription("Servers (" + getDiscordCore().getPlatform().getServerManager().getData().size() + "): `" + stb.toString()
+                            + "`\n\nManagers (" + XillaManager.getInstance().getData().size()
                             + "): \n" + mtb.toString() + "\n\n" + getPrefix() + "coreinfo server (server name)\n"
                             + getPrefix() + "coreinfo manager (manager name)\n" + getPrefix() + "coreinfo object (manager name) (object name)");
                 } else {
-                    embedBuilder.setDescription("Servers (0): None\n\nManagers (" + CoreManager.getInstance().getManagers().size()
+                    embedBuilder.setDescription("Servers (0): None\n\nManagers (" + XillaManager.getInstance().getData().size()
                             + "): \n" + mtb.toString() + "\n\n" + getPrefix() + "coreinfo server (server name)\n"
                             + getPrefix() + "coreinfo manager (manager name)\n" + getPrefix() + "coreinfo object (manager name) (object name)");
                 }

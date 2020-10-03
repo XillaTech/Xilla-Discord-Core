@@ -1,8 +1,10 @@
 package net.xilla.discordcore.core.server;
 
-import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
 import net.dv8tion.jda.api.entities.Guild;
+import net.xilla.core.library.json.XillaJson;
+import net.xilla.core.library.manager.ManagerObject;
 import net.xilla.discordcore.DiscordCore;
+import org.json.simple.JSONObject;
 
 public class CoreServer extends ManagerObject {
 
@@ -11,13 +13,13 @@ public class CoreServer extends ManagerObject {
     private long lastUpdated;
 
     public CoreServer(Guild guild) {
-        super(guild.getId());
+        super(guild.getId(), "Servers");
         this.members = guild.getMemberCount();
         this.lastUpdated = System.currentTimeMillis();
     }
 
     public CoreServer(String id, int members, long lastUpdated) {
-        super(id);
+        super(id, "Servers");
         this.guild = DiscordCore.getInstance().getBot().getGuildById(id);
         if(guild != null) {
             this.members = guild.getMemberCount();
@@ -43,5 +45,21 @@ public class CoreServer extends ManagerObject {
 
     public Guild getGuild() {
         return guild;
+    }
+
+    @Override
+    public XillaJson getSerializedData() {
+        JSONObject jsonObject = new JSONObject();
+
+        jsonObject.put("members", this.getMembers());
+        jsonObject.put("lastUpdated", this.getLastUpdated());
+
+        return new XillaJson(jsonObject);
+    }
+
+    @Override
+    public void loadSerializedData(XillaJson json) {
+        this.members = Integer.parseInt(json.get("members").toString());
+        this.lastUpdated = Long.parseLong(json.get("lastUpdated").toString());
     }
 }

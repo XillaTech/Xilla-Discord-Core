@@ -1,16 +1,15 @@
 package net.xilla.discordcore.command;
 
-import com.tobiassteely.tobiasapi.api.worker.Worker;
+import net.xilla.core.library.worker.Worker;
 
 public class CommandWorker extends Worker {
 
     public CommandWorker() {
-        super("XDC.Command", 1000);
+        super("Commands", 1000);
     }
 
-    public Boolean runWorker(long start) {
+    public void runWorker(long start) {
         CommandEventHandler.processCache();
-        return true;
     }
 
 }

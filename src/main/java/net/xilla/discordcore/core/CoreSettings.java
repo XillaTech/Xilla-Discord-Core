@@ -9,21 +9,24 @@ public class CoreSettings extends Settings {
         super("Core", "settings.json");
 
         // Discord sharding doesn't need an installer as you only need it for bots in >2,500 servers
-        getConfig().loadDefault("shards", 1);
-        getConfig().loadDefault("bot-name", "Bot Name");
-        getConfig().loadDefault("embed-color", "#018ed1");
-        getConfig().loadDefault("command-prefix", "-");
-        getConfig().loadDefault("activity", "none");
-        getConfig().loadDefault("activity-type", "Playing");
-        getConfig().loadDefault("activity-stream", "https://www.youtube.com/watch?v=5IXQ6f6eMxQ");
-        getConfig().loadDefault("respect-discord-admin", true);
-        getConfig().loadDefault("clear-old-guilds", false);
-        getConfig().loadDefault("clear-old-guild-time", 86400);
-        getConfig().loadDefault("check-time", 60);
-        getConfig().loadDefault("last-check-time", -1);
-        getConfig().loadDefault("minimize-help", false);
-        getConfig().loadDefault("token", "bottoken");
-        getConfig().loadDefault("log-level", "INFO");
+
+        System.out.println(getConfig());
+
+        getConfig().setDefault("shards", 1);
+        getConfig().setDefault("bot-name", "Bot Name");
+        getConfig().setDefault("embed-color", "#018ed1");
+        getConfig().setDefault("command-prefix", "-");
+        getConfig().setDefault("activity", "none");
+        getConfig().setDefault("activity-type", "Playing");
+        getConfig().setDefault("activity-stream", "https://www.youtube.com/watch?v=5IXQ6f6eMxQ");
+        getConfig().setDefault("respect-discord-admin", true);
+        getConfig().setDefault("clear-old-guilds", false);
+        getConfig().setDefault("clear-old-guild-time", 86400);
+        getConfig().setDefault("check-time", 60);
+        getConfig().setDefault("last-check-time", -1);
+        getConfig().setDefault("minimize-help", false);
+        getConfig().setDefault("token", "bottoken");
+        getConfig().setDefault("log-level", "INFO");
         getConfig().save();
 
         // Loads settings

@@ -1,6 +1,8 @@
 package net.xilla.discordcore.module;
 
-import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
+import net.xilla.core.library.manager.Manager;
+import net.xilla.core.log.LogLevel;
+import net.xilla.core.log.Logger;
 import net.xilla.discordcore.module.type.JavaModule;
 
 import java.io.IOException;
@@ -12,10 +14,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class ModuleManager extends ManagerParent<Module> {
+public class ModuleManager extends Manager<Module> {
 
     public ModuleManager(String baseFolder) {
-        super("XDC.Module", false);
+        super("Modules");
 
         try {
             Path file;
@@ -37,8 +39,8 @@ public class ModuleManager extends ManagerParent<Module> {
                         ModuleLoader moduleLoader = new ModuleLoader(path, "Java");
                         module = moduleLoader.getModule();
                     } catch (LoadModuleException ex) {
-                        getLog().sendMessage(2, "Module (" + path + ") failed to load...");
-                        getLog().sendMessage(2, ex.getMessage());
+                        Logger.log(LogLevel.FATAL, "Module (" + path + ") failed to load...", this.getClass());
+                        Logger.log(LogLevel.FATAL, ex, this.getClass());
                     }
 
                     if(module != null) {
@@ -54,17 +56,27 @@ public class ModuleManager extends ManagerParent<Module> {
     }
 
     @Override
-    public void reload() {
-        getLog().sendMessage(2, "As of now you cannot reload the module manager. Sorry!");
+    public void load() {
+
+    }
+
+    @Override
+    protected void objectAdded(Module module) {
+
+    }
+
+    @Override
+    protected void objectRemoved(Module module) {
+
     }
 
     public void registerModule(Module module) {
-        addObject(module);
+        put(module);
         module.onEnable();
     }
 
     public JavaModule getJavaModule(String name) {
-        Module module = getObject(name);
+        Module module = get(name);
         if(module.getType().equals("Java")) {
             return (JavaModule)module;
         }
@@ -72,7 +84,7 @@ public class ModuleManager extends ManagerParent<Module> {
     }
 
     public JavaModule getPythonModule(String name) {
-        Module module = getObject(name);
+        Module module = get(name);
         if(module.getType().equals("Java")) {
             return (JavaModule)module;
         }

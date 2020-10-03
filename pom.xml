@@ -48,9 +48,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.Alontrle</groupId>
-            <artifactId>TobiasLibrary</artifactId>
-            <version>58593bd12c</version>
+            <groupId>com.github.XillaTech</groupId>
+            <artifactId>Xilla-Core</artifactId>
+            <version>38900278c5</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.vdurmont/emoji-java -->

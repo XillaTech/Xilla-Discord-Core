@@ -3,6 +3,7 @@ package net.xilla.discordcore.command.cmd;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.command.CoreCommandExecutor;
 import net.xilla.discordcore.command.response.CoreCommandResponse;
@@ -61,9 +62,9 @@ public class TemplateCommand extends CoreObject {
 
                     EmbedBuilder embedBuilder = new EmbedBuilder().setTitle("Template");
                     if(command != null) {
-                        getPlatform().getTemplateManager().removeObject(data.getArgs()[1]);
+                        getPlatform().getTemplateManager().remove(data.getArgs()[1]);
                         getPlatform().getTemplateManager().save();
-                        getCommandManager().removeObject(data.getArgs()[1]);
+                        DiscordCore.getInstance().getCommandManager().remove(data.getArgs()[1]);
                         embedBuilder.setDescription("You have deleted that command!");
                         embedBuilder.setColor(Color.decode(getCoreSetting().getEmbedColor()));
                     } else {

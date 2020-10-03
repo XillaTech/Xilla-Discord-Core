@@ -1,8 +1,8 @@
 package net.xilla.discordcore.command;
 
-import com.tobiassteely.tobiasapi.command.CommandData;
-import com.tobiassteely.tobiasapi.command.CommandExecutor;
 import net.xilla.discordcore.command.response.CoreCommandResponse;
+import net.xilla.discordcore.core.command.CommandData;
+import net.xilla.discordcore.core.command.CommandExecutor;
 
 public interface CoreCommandExecutor extends CommandExecutor {
 

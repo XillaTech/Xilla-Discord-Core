@@ -1,29 +1,43 @@
 package net.xilla.discordcore.command.template;
 
-import com.tobiassteely.tobiasapi.TobiasAPI;
-import com.tobiassteely.tobiasapi.api.manager.ManagerCache;
-import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
-import com.tobiassteely.tobiasapi.config.Config;
+import net.xilla.core.library.config.Config;
+import net.xilla.core.library.config.ConfigManager;
+import net.xilla.core.library.manager.Manager;
+import net.xilla.core.library.manager.ManagerCache;
+import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.template.type.EmbedCommand;
 import net.xilla.discordcore.command.template.type.TextCommand;
 import org.json.simple.JSONObject;
 
-public class TemplateManager extends ManagerParent<TemplateCommand> {
+import java.util.ArrayList;
+
+public class TemplateManager extends Manager<TemplateCommand> {
 
     public TemplateManager() {
-        super("XDC.Template", false);
+        super("Templates");
     }
 
     public void registerTemplate(TemplateCommand templateCommand) {
-        addObject(templateCommand);
-        TobiasAPI.getInstance().getCommandManager().addObject(templateCommand);
+        put(templateCommand);
+        DiscordCore.getInstance().getCommandManager().put(templateCommand);
     }
 
     public void reload() {
-        super.reload();
+    }
 
-        Config config = TobiasAPI.getInstance().getConfigManager().getConfig("commands.json");
-        JSONObject json = config.toJson();
+    public void save() {
+        Config config = ConfigManager.getInstance().get("commands.json");
+        config.clear();
+        for(TemplateCommand templateCommand : new ArrayList<>(getData().values())) {
+            config.set(templateCommand.getKey(), templateCommand.getJSON());
+        }
+        config.save();
+    }
+
+    @Override
+    protected void load() {
+        Config config = ConfigManager.getInstance().get("commands.json");
+        JSONObject json = config.getJson().getJson();
         for(Object key : json.keySet()) {
             String type = config.getMap((String)key).get("type");
             TemplateCommand command;
@@ -36,13 +50,14 @@ public class TemplateManager extends ManagerParent<TemplateCommand> {
         }
     }
 
-    public void save() {
-        Config config = TobiasAPI.getInstance().getConfigManager().getConfig("commands.json");
-        config.clear();
-        for(TemplateCommand templateCommand : getList()) {
-            config.toJson().put(templateCommand.getKey(), templateCommand.getJSON());
-        }
-        config.save();
+    @Override
+    protected void objectAdded(TemplateCommand templateCommand) {
+
+    }
+
+    @Override
+    protected void objectRemoved(TemplateCommand templateCommand) {
+
     }
 
     public ManagerCache getCommands() {
@@ -54,7 +69,7 @@ public class TemplateManager extends ManagerParent<TemplateCommand> {
     }
 
     public void removeTemplateCommand(String name) {
-        removeObject(name);
+        remove(name);
     }
 
 }

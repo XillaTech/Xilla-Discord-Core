@@ -2,15 +2,264 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88152db3-ecf2-46e7-9607-ea5fd7b475cb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/5.2.1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/5.2.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/vcs-1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.idea/modules/ReviewBot.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.idea/modules/ReviewBot.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.idea/modules/ReviewBot.test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/build/libs/ReviewBot-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/libs/Xilla-Discord-Core-v2.0.0-BETA-3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/5.2.1/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/5.2.1/fileContent/fileContent.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/5.2.1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/5.2.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/vcs-1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/build/libs/UtilityBot-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/libs/Xilla-Discord-Core-v2.0.0-BETA-3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/src/main/java/com/tobiassteely/utility/punishment/PunishmentHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/command/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/command/CommandData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/command/CommandExecutor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/command/CommandManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/command/CommandPermissionError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/command/CommandRunCheck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/command/CommandWorker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/command/ConsoleUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/command/flag/CommandFlag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/command/flag/FlagManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/command/permission/group/PermissionGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/command/permission/user/PermissionUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/command/response/BaseCommandResponder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/command/response/CommandResponder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/command/response/CommandResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/server/ServerSettings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/fileChanges/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/5.2.1/fileChanges/last-build.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/gc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/javaCompile/jarAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.gradle/vcs-1/gc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/build/classes/java/main/com/tobiassteely/review/Review.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewBot.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewCommands.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewManagerHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/build/classes/java/main/com/tobiassteely/review/ReviewSettings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/build/libs/ReviewBot-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/build/tmp/jar/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/libs/Xilla-Discord-Core-v2.0.0-BETA-3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/src/main/java/com/tobiassteely/review/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/src/main/java/com/tobiassteely/review/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewManagerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewManagerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/src/main/java/com/tobiassteely/review/ReviewSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.gradle/5.2.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.gradle/5.2.1/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.gradle/5.2.1/gc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/5.2.1/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.gradle/5.2.1/javaCompile/jarAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.gradle/vcs-1/gc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/build/classes/java/main/com/tobiassteely/utility/UtilityBot.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/build/classes/java/main/com/tobiassteely/utility/UtilityCommands.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/build/classes/java/main/com/tobiassteely/utility/UtilitySettings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/build/classes/java/main/com/tobiassteely/utility/punishment/Punishment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/build/classes/java/main/com/tobiassteely/utility/punishment/PunishmentCommands.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/build/classes/java/main/com/tobiassteely/utility/punishment/PunishmentManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/build/classes/java/main/com/tobiassteely/utility/punishment/PunishmentManagerHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/build/classes/java/main/com/tobiassteely/utility/punishment/PunishmentSettings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/build/classes/java/main/com/tobiassteely/utility/punishment/PunishmentWorker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/build/classes/java/main/com/tobiassteely/utility/suggestion/Suggestion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/build/classes/java/main/com/tobiassteely/utility/suggestion/SuggestionCommands.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/build/classes/java/main/com/tobiassteely/utility/suggestion/SuggestionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/build/classes/java/main/com/tobiassteely/utility/suggestion/SuggestionManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/build/classes/java/main/com/tobiassteely/utility/suggestion/SuggestionManagerHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/build/classes/java/main/com/tobiassteely/utility/suggestion/SuggestionSettings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/build/libs/UtilityBot-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/build/tmp/jar/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/libs/Xilla-Discord-Core-v2.0.0-BETA-3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/src/main/java/com/tobiassteely/utility/UtilityBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/src/main/java/com/tobiassteely/utility/UtilityBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/src/main/java/com/tobiassteely/utility/UtilityCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/src/main/java/com/tobiassteely/utility/UtilityCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/src/main/java/com/tobiassteely/utility/UtilitySettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/src/main/java/com/tobiassteely/utility/UtilitySettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/src/main/java/com/tobiassteely/utility/punishment/Punishment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/src/main/java/com/tobiassteely/utility/punishment/Punishment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/src/main/java/com/tobiassteely/utility/punishment/PunishmentCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/src/main/java/com/tobiassteely/utility/punishment/PunishmentCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/src/main/java/com/tobiassteely/utility/punishment/PunishmentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/src/main/java/com/tobiassteely/utility/punishment/PunishmentManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/src/main/java/com/tobiassteely/utility/punishment/PunishmentManagerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/src/main/java/com/tobiassteely/utility/punishment/PunishmentManagerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/src/main/java/com/tobiassteely/utility/punishment/PunishmentSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/src/main/java/com/tobiassteely/utility/punishment/PunishmentSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/src/main/java/com/tobiassteely/utility/punishment/PunishmentWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/src/main/java/com/tobiassteely/utility/punishment/PunishmentWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/src/main/java/com/tobiassteely/utility/suggestion/Suggestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/src/main/java/com/tobiassteely/utility/suggestion/Suggestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/src/main/java/com/tobiassteely/utility/suggestion/SuggestionCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/src/main/java/com/tobiassteely/utility/suggestion/SuggestionCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/src/main/java/com/tobiassteely/utility/suggestion/SuggestionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/src/main/java/com/tobiassteely/utility/suggestion/SuggestionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/src/main/java/com/tobiassteely/utility/suggestion/SuggestionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/src/main/java/com/tobiassteely/utility/suggestion/SuggestionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/src/main/java/com/tobiassteely/utility/suggestion/SuggestionManagerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/src/main/java/com/tobiassteely/utility/suggestion/SuggestionManagerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/UtilityBot/src/main/java/com/tobiassteely/utility/suggestion/SuggestionSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/src/main/java/com/tobiassteely/utility/suggestion/SuggestionSettings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/CoreObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/CoreObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/DiscordAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/DiscordAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/DiscordCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/DiscordCore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/CommandBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/CommandBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/CommandCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/CommandCheck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/CommandEventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/CommandEventHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/CommandSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/CommandSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/CommandWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/CommandWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/CoreCommandExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/CoreCommandExecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/CoreCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/CoreCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/EmbedCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/EmbedCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/EndCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/EndCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/HelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/ModulesCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/ModulesCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/SettingsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/SettingsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/StaffCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/StaffCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/TemplateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/TemplateCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/permission/BungeeUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/permission/BungeeUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/permission/DiscordUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/permission/DiscordUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/permission/SpigotUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/permission/SpigotUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/response/CoreCommandResponder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/response/CoreCommandResponder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/response/CoreCommandResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/response/CoreCommandResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/template/TemplateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/template/TemplateCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/template/TemplateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/template/TemplateManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/template/type/TextCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/template/type/TextCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/CoreSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/CoreSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/CoreWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/CoreWorker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/Platform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/Platform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/cmd/BungeeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/cmd/BungeeCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/cmd/SpigotCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/cmd/SpigotCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/server/CoreServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/server/CoreServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/server/ServerEventHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/server/ServerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/server/ServerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/staff/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/staff/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/staff/GroupEventHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/staff/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/staff/GroupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/embed/EmbedManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/embed/EmbedManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/embed/EmbedStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/embed/EmbedStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/module/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/module/Module.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/module/ModuleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/module/ModuleManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/module/type/JavaModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/module/type/JavaModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/settings/Installer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/settings/Installer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/settings/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/settings/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/settings/SettingsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/settings/SettingsManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Xilla-Discord-Core-v2.0.0-BETA-3-shaded.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/Xilla-Discord-Core-v2.0.0-BETA-3-shaded.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Xilla-Discord-Core-v2.0.0-BETA-3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/Xilla-Discord-Core-v2.0.0-BETA-3.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/CoreObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/CoreObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/DiscordAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/DiscordAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/DiscordCore.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/DiscordCore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/CommandBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/CommandBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/CommandCheck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/CommandCheck.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/CommandEventHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/CommandEventHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/CommandSettings.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/CommandSettings.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/CommandWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/CommandWorker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/CoreCommandExecutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/CoreCommandExecutor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/cmd/CoreCommands.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/cmd/CoreCommands.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/cmd/EmbedCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/cmd/EmbedCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/cmd/EndCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/cmd/EndCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/cmd/HelpCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/cmd/HelpCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/cmd/ModulesCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/cmd/ModulesCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/cmd/RestartCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/cmd/RestartCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/cmd/SettingsCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/cmd/SettingsCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/cmd/StaffCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/cmd/StaffCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/cmd/TemplateCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/cmd/TemplateCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/permission/BungeeUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/permission/BungeeUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/permission/DiscordUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/permission/DiscordUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/permission/SpigotUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/permission/SpigotUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/response/CoreCommandResponder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/response/CoreCommandResponder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/response/CoreCommandResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/response/CoreCommandResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/template/TemplateCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/template/TemplateCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/template/TemplateManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/template/TemplateManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/template/type/EmbedCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/template/type/EmbedCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/template/type/TextCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/template/type/TextCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/CoreSettings.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/CoreSettings.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/CoreWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/CoreWorker.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/Platform$getPlatform.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/Platform$getPlatform.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/Platform.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/Platform.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/cmd/BungeeCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/cmd/BungeeCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/cmd/SpigotCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/cmd/SpigotCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/server/CoreServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/server/CoreServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/server/ServerEventHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/server/ServerManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/server/ServerManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/staff/Group.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/staff/Group.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/staff/GroupEventHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/staff/GroupManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/staff/GroupManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/embed/EmbedManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/embed/EmbedManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/embed/EmbedStorage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/embed/EmbedStorage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/module/Module.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/module/Module.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/module/ModuleManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/module/ModuleManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/module/type/JavaModule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/module/type/JavaModule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/settings/Installer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/settings/Installer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/settings/Settings.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/settings/Settings.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/settings/SettingsManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/settings/SettingsManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/original-Xilla-Discord-Core-v2.0.0-BETA-3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-Xilla-Discord-Core-v2.0.0-BETA-3.jar" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,6 +267,10 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ErrorTreeViewConfiguration">
+    <option name="autoscrollToSource" value="true" />
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -39,10 +292,15 @@
   <component name="ProjectId" id="1h0o5tGq08tqnPUbd9zJifYKzip" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Tobias\Documents\GitHub\XillaDiscordBot\Xilla-Discord-Bot\src\main\java\net\xilla\discordcore\core" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -56,11 +314,12 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="Application.DiscordCore">
     <configuration name="DiscordCore" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="11.0.4" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="net.xilla.discordcore.DiscordCore" />
+      <module name="Xilla-Discord-Core" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="net.xilla.discordcore.*" />
@@ -78,10 +337,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.DiscordCore" />
+      <item itemvalue="Application.Test" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test" />
         <item itemvalue="Application.DiscordCore" />
+        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>

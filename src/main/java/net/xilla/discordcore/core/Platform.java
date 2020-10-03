@@ -2,7 +2,10 @@ package net.xilla.discordcore.core;
 
 import lombok.Getter;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.xilla.core.library.manager.XillaManager;
+import net.xilla.core.library.worker.WorkerManager;
 import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandWorker;
 import net.xilla.discordcore.command.cmd.*;
 import net.xilla.discordcore.command.response.CoreCommandResponder;
@@ -28,7 +31,7 @@ public class Platform extends CoreObject {
         this.coreWorker = new CoreWorker();
         this.serverManager = new ServerManager();
 
-        getCommandManager().setResponder(new CoreCommandResponder());
+        DiscordCore.getInstance().getCommandManager().setResponder(new CoreCommandResponder());
         this.templateManager = new TemplateManager();
 
         new ModulesCommand();
@@ -46,7 +49,7 @@ public class Platform extends CoreObject {
             commandWorker.start();
         }
 
-        getCommandManager().setPermissionError((args, data) -> {
+        DiscordCore.getInstance().getCommandManager().setPermissionError((args, data) -> {
             EmbedBuilder builder = new EmbedBuilder().setTitle("Error!");
             builder.setDescription("You do not have permission for that command!");
             builder.setColor(Color.decode(getCoreSetting().getEmbedColor()));

@@ -1,9 +1,10 @@
 package net.xilla.discordcore.core.staff;
 
-import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
-import com.tobiassteely.tobiasapi.command.permission.group.PermissionGroup;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Role;
+import net.xilla.core.library.json.XillaJson;
+import net.xilla.core.library.manager.ManagerObject;
+import net.xilla.discordcore.core.command.permission.group.PermissionGroup;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -17,7 +18,7 @@ public class Group extends ManagerObject implements PermissionGroup {
     private List<String> permissions;
 
     public Group(String groupID, String groupName, String serverID, ArrayList<String> permissions) {
-        super(serverID + "-" + groupID);
+        super(serverID + "-" + groupID, "Groups");
         this.groupID = groupID;
         this.groupName = groupName;
         this.serverID = serverID;
@@ -25,7 +26,7 @@ public class Group extends ManagerObject implements PermissionGroup {
     }
 
     public Group(JSONObject object) {
-        super(object.get("serverID").toString() + "-" + object.get("groupID").toString());
+        super(object.get("serverID").toString() + "-" + object.get("groupID").toString(), "Groups");
         this.groupName = object.get("name").toString();
         this.groupID = object.get("groupID").toString();
         this.serverID = object.get("serverID").toString();
@@ -101,5 +102,15 @@ public class Group extends ManagerObject implements PermissionGroup {
         map.put("serverID", serverID);
         map.put("permissions", permissions);
         return new JSONObject(map);
+    }
+
+    @Override
+    public XillaJson getSerializedData() {
+        return null;
+    }
+
+    @Override
+    public void loadSerializedData(XillaJson xillaJson) {
+
     }
 }

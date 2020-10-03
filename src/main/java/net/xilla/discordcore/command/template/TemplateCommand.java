@@ -1,9 +1,12 @@
 package net.xilla.discordcore.command.template;
 
-import com.tobiassteely.tobiasapi.command.Command;
-import com.tobiassteely.tobiasapi.command.CommandData;
-import com.tobiassteely.tobiasapi.command.CommandExecutor;
-import com.tobiassteely.tobiasapi.command.response.CommandResponse;
+import net.xilla.core.log.LogLevel;
+import net.xilla.core.log.Logger;
+import net.xilla.discordcore.DiscordCore;
+import net.xilla.discordcore.core.command.Command;
+import net.xilla.discordcore.core.command.CommandData;
+import net.xilla.discordcore.core.command.CommandExecutor;
+import net.xilla.discordcore.core.command.response.CommandResponse;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
@@ -33,12 +36,12 @@ public class TemplateCommand extends Command {
                         responses.add(response);
                     }
                 } catch (Exception ex) {
-                    getLog().sendMessage(2, "Error while running command: " + data.getCommand());
-                    ex.printStackTrace();
+                    Logger.log(LogLevel.ERROR, "Error while running command: " + data.getCommand(), getClass());
+                    Logger.log(ex, getClass());
                     responses.add(new CommandResponse(data));
                 }
             } else {
-                responses.add(getCommandManager().getPermissionError().getResponse(data.getArgs(), data));
+                responses.add(DiscordCore.getInstance().getCommandManager().getPermissionError().getResponse(data.getArgs(), data));
             }
         }
 

@@ -1,12 +1,14 @@
 package net.xilla.discordcore.command.permission;
 
-import com.tobiassteely.tobiasapi.command.permission.group.PermissionGroup;
-import com.tobiassteely.tobiasapi.command.permission.user.PermissionUser;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
+import net.xilla.core.log.LogLevel;
+import net.xilla.core.log.Logger;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.DiscordCore;
+import net.xilla.discordcore.core.command.permission.group.PermissionGroup;
+import net.xilla.discordcore.core.command.permission.user.PermissionUser;
 import net.xilla.discordcore.core.staff.Group;
 
 import java.util.ArrayList;
@@ -24,14 +26,14 @@ public class DiscordUser extends CoreObject implements PermissionUser {
         if(defaultGroup != null) {
             this.groups.add(defaultGroup);
         } else {
-            getLog().sendMessage(1, "Could not find the default role!");
+            Logger.log(LogLevel.WARN, "Could not find the default role!", getClass());
         }
 
         this.identifier = member.getId();
         this.member = member;
 
         for(Role role : member.getRoles()) {
-            Group group = getGroupManager().getObject(role.getId());
+            Group group = getGroupManager().get(role.getId());
             if(group != null) {
                 groups.add(group);
             }

@@ -87,11 +87,11 @@ public class EmbedCommand extends CoreObject {
 
             if(data.getArgs().length == 1 && data.getArgs()[0].equalsIgnoreCase("list")) {
                 response.append("**Available Categories**\n");
-                for (EmbedStorage storage : new ArrayList<>(DiscordCore.getInstance().getEmbedManager().getList())) {
+                for (EmbedStorage storage : new ArrayList<>(DiscordCore.getInstance().getEmbedManager().getData().values())) {
                     response.append("> ").append(storage.getKey()).append("\n");
                 }
             } else if(data.getArgs().length == 2 && data.getArgs()[0].equalsIgnoreCase("info")) {
-                EmbedStorage storage = DiscordCore.getInstance().getEmbedManager().getObject(data.getArgs()[1]);
+                EmbedStorage storage = DiscordCore.getInstance().getEmbedManager().get(data.getArgs()[1]);
                 if(storage != null) {
                     response.append("Embeds (").append(storage.getEmbedMap().keySet().size()).append("): `");
 
@@ -110,7 +110,7 @@ public class EmbedCommand extends CoreObject {
                     response.append("That is not a valid category.");
                 }
             } else if(data.getArgs().length == 3 && data.getArgs()[0].equalsIgnoreCase("info")) {
-                EmbedStorage storage = DiscordCore.getInstance().getEmbedManager().getObject(data.getArgs()[1]);
+                EmbedStorage storage = DiscordCore.getInstance().getEmbedManager().get(data.getArgs()[1]);
                 if(storage != null) {
                     JSONEmbed jsonEmbed = storage.getEmbed(data.getArgs()[2]);
                     if(jsonEmbed != null) {
@@ -127,7 +127,7 @@ public class EmbedCommand extends CoreObject {
                 }
             } else if(data.getArgs().length >= 3 && data.getArgs()[0].equalsIgnoreCase("edit")) {
 
-                EmbedStorage storage = DiscordCore.getInstance().getEmbedManager().getObject(data.getArgs()[1]);
+                EmbedStorage storage = DiscordCore.getInstance().getEmbedManager().get(data.getArgs()[1]);
                 if(storage != null) {
                     JSONEmbed jsonEmbed = storage.getEmbed(data.getArgs()[2]);
                     if(jsonEmbed != null) {

@@ -1,6 +1,5 @@
 package net.xilla.discordcore;
 
-import com.tobiassteely.tobiasapi.TobiasAPI;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.*;
@@ -25,16 +24,6 @@ public class DiscordAPI {
      */
     private static DiscordCore getDiscordCore() {
         return DiscordCore.getInstance();
-    }
-
-    /**
-     * Gets the main Tobias Library instance and returns it
-     * (Ignore that it's called 'API' it's actually a library
-     *
-     * @return TobiasAPI
-     */
-    private static TobiasAPI getAPI() {
-        return TobiasAPI.getInstance();
     }
 
     /**

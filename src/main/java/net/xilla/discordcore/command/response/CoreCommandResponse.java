@@ -1,8 +1,8 @@
 package net.xilla.discordcore.command.response;
 
-import com.tobiassteely.tobiasapi.command.CommandData;
-import com.tobiassteely.tobiasapi.command.response.CommandResponse;
 import net.dv8tion.jda.api.entities.MessageEmbed;
+import net.xilla.discordcore.core.command.CommandData;
+import net.xilla.discordcore.core.command.response.CommandResponse;
 
 public class CoreCommandResponse extends CommandResponse {
 

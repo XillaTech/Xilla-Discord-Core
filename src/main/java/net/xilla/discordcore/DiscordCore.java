@@ -1,19 +1,22 @@
 package net.xilla.discordcore;
 
-import com.tobiassteely.tobiasapi.TobiasAPI;
-import com.tobiassteely.tobiasapi.TobiasBuilder;
-import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
-import com.tobiassteely.tobiasapi.api.worker.Worker;
-import com.tobiassteely.tobiasapi.command.CommandManager;
 import lombok.Getter;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
+import net.xilla.core.library.manager.Manager;
+import net.xilla.core.library.manager.ManagerObject;
+import net.xilla.core.library.manager.XillaManager;
+import net.xilla.core.library.worker.Worker;
+import net.xilla.core.library.worker.WorkerManager;
+import net.xilla.core.log.LogLevel;
+import net.xilla.core.log.Logger;
 import net.xilla.discordcore.command.CommandCheck;
 import net.xilla.discordcore.command.CommandEventHandler;
 import net.xilla.discordcore.command.CommandSettings;
 import net.xilla.discordcore.core.CoreSettings;
 import net.xilla.discordcore.core.Platform;
+import net.xilla.discordcore.core.command.CommandManager;
 import net.xilla.discordcore.core.staff.GroupManager;
 import net.xilla.discordcore.embed.EmbedManager;
 import net.xilla.discordcore.form.form.FormHandler;
@@ -118,12 +121,8 @@ public class DiscordCore extends CoreObject {
     @Getter
     private FormManager formManager;
 
-    /**
-     * This is used to store the main library (ignore that it's called
-     * an API, it is a library).
-     */
     @Getter
-    private TobiasAPI api;
+    private CommandManager commandManager;
 
     public DiscordCore(String platform, String baseFolder, boolean startCommandLine, String name) {
         instance = this;
@@ -132,9 +131,8 @@ public class DiscordCore extends CoreObject {
         this.postStartupManager = new PostStartupManager();
 
         // Loads base APIs
-        boolean commandLine = platform.equals(Platform.getPlatform.STANDALONE.name) || platform.equals(Platform.getPlatform.EMBEDDED.name);
-        TobiasBuilder builder = new TobiasBuilder().loadCommandManager(name, commandLine);
-        this.api = builder.loadConfigManager(baseFolder).build(false);
+        this.commandManager = new CommandManager(name, startCommandLine);
+        commandManager.reload();
 
         // Loads Core Settings
         this.settingsManager = new SettingsManager();
@@ -184,7 +182,7 @@ public class DiscordCore extends CoreObject {
 
         // Starting Command Line
         if(startCommandLine) {
-            api.getCommandManager().getCommandWorker().start();
+            getCommandManager().getCommandWorker().start();
         }
 
         // Loads up template commands
@@ -199,7 +197,7 @@ public class DiscordCore extends CoreObject {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            getLog().sendMessage(0, "Running post startup executors now... Some things may only startup now!");
+            Logger.log(LogLevel.INFO, "Running post startup executors now... Some things may only startup now!", DiscordCore.class);
             postStartupManager.run();
         }).start();
     }
@@ -228,27 +226,25 @@ public class DiscordCore extends CoreObject {
      * The function used to safely shutdown the bot...
      */
     public void shutdown() {
-        for(Worker worker : new ArrayList<>(getTobiasAPI().getWorkerManager().getList())) {
+        for(Worker worker : new ArrayList<>(WorkerManager.getInstance().getData().values())) {
             worker.stopWorker();
         }
 
-        for(Module module : new ArrayList<>(getModuleManager().getList())) {
+        for(Module module : new ArrayList<>(getModuleManager().getData().values())) {
             module.onDisable();
         }
 
-        for(Settings settings : new ArrayList<>(getSettingsManager().getList())) {
+        for(Settings settings : new ArrayList<>(getSettingsManager().getData().values())) {
             settings.getConfig().save();
-            getSettingsManager().removeObject(settings.getKey());
+            getSettingsManager().remove(settings.getKey());
         }
 
-        for(ManagerParent manager : new ArrayList<>(getTobiasAPI().getManager().getManagers())) {
+        for(Manager manager : new ArrayList<>(XillaManager.getInstance().getData().values())) {
             manager.save();
-            getTobiasAPI().getManager().getManagers().remove(manager);
         }
 
         this.bot.shutdown();
 
-        this.api = null;
         this.bot = null;
         this.formManager = null;
         this.postStartupManager = null;
@@ -266,17 +262,8 @@ public class DiscordCore extends CoreObject {
      */
     public void restart() {
         shutdown();
-        getLog().sendMessage(1, "Restarting does NOT restart the java file. If you are trying to update the core, you will need to stop and start the bot. However for modules or for small issues, a soft reboot should work.");
+        Logger.log(LogLevel.INFO, "Restarting does NOT restart the java file. If you are trying to update the core, you will need to stop and start the bot. However for modules or for small issues, a soft reboot should work.", getClass());
         new DiscordCore(Platform.getPlatform.STANDALONE.name, null, true, "Xilla Discord Core");
-    }
-
-    /**
-     * Returns the Command Manager for easy access
-     *
-     * @return Command Manager
-     */
-    public CommandManager getCommandManager() {
-        return api.getCommandManager();
     }
 
 }

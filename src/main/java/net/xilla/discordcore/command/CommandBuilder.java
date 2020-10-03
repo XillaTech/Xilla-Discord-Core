@@ -1,12 +1,15 @@
 package net.xilla.discordcore.command;
 
-import com.tobiassteely.tobiasapi.api.TobiasObject;
-import com.tobiassteely.tobiasapi.command.Command;
-import com.tobiassteely.tobiasapi.command.CommandExecutor;
+import net.xilla.core.log.LogLevel;
+import net.xilla.core.log.Logger;
+import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.DiscordCore;
+import net.xilla.discordcore.core.command.Command;
+import net.xilla.discordcore.core.command.CommandExecutor;
 
 import java.util.Collections;
 
-public class CommandBuilder extends TobiasObject {
+public class CommandBuilder extends CoreObject {
 
     private String module = null;
     private String name = null;
@@ -68,15 +71,15 @@ public class CommandBuilder extends TobiasObject {
 
     public void build() {
         if(module == null) {
-            getLog().sendMessage(2, "Could not build command... Missing module information.");
+            Logger.log(LogLevel.ERROR, "Could not build command... Missing module information.", CommandBuilder.class);
             return;
         }
         if(name == null) {
-            getLog().sendMessage(2, "Could not build command... Missing name information.");
+            Logger.log(LogLevel.ERROR, "Could not build command... Missing name information.", CommandBuilder.class);
             return;
         }
         if(commandExecutor == null) {
-            getLog().sendMessage(2, "Could not build command... Missing command executor.");
+            Logger.log(LogLevel.ERROR, "Could not build command... Missing command executor.", CommandBuilder.class);
             return;
         }
         if(activators == null) {
@@ -90,7 +93,7 @@ public class CommandBuilder extends TobiasObject {
         }
         Command command = new Command(module, name, activators, usage, description, permission, Collections.singletonList(commandExecutor), consoleSupported);
 
-        getCommandManager().addObject(command);
+        DiscordCore.getInstance().getCommandManager().put(command);
     }
 
 }
