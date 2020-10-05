@@ -41,7 +41,7 @@ Review Module - (User Reviews) <a href="https://api.xilla.net/download/ReviewBot
 - User Reviews<br>
 - Review Management Command<br><br>
 
-Utility Module - (Polls & Suggestions) <a href="https://api.xilla.net/download/UtilityBot-1.0-SNAPSHOT.jar">Download Here for FREE</a> - <a href="https://github.com/Alontrle/Xilla-Discord-Core/tree/master/Modules/UtilityBot">Click here for INFO and SOURCE CODE</a><br>
+Utility Module - (Polls & Suggestions) <a href="https://api.xilla.net/download/UtilityBot-1.0-SNAPSHOT.jar">Download Here for FREE</a> - <a href="https://github.com/XillaTech/Xilla-Discord-Core/tree/master/Official%20Modules/UtilityBot">Click here for INFO and SOURCE CODE</a><br>
 - Polls<br>
 - User Suggestions<br>
 - Server Information Command<br>
