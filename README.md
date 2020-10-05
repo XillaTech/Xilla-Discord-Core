@@ -37,7 +37,7 @@ Invoice Module - (PayPal Billing) <a href="https://www.mc-market.org/resources/1
 - PayPal Integration<br>
 - Works with Xilla Tickets as a module<br><br>
 
-Review Module - (User Reviews) <a href="https://api.xilla.net/download/ReviewBot-1.0-SNAPSHOT.jar">Download Here for FREE</a> - <a href="https://github.com/Alontrle/Xilla-Discord-Core/blob/master/Modules/ReviewBot">Click here for INFO and SOURCE CODE</a><br>
+Review Module - (User Reviews) <a href="https://api.xilla.net/download/ReviewBot-1.0-SNAPSHOT.jar">Download Here for FREE</a> - <a href="https://github.com/XillaTech/Xilla-Discord-Core/tree/master/Official%20Modules/ReviewBot">Click here for INFO and SOURCE CODE</a><br>
 - User Reviews<br>
 - Review Management Command<br><br>
 
