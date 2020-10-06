@@ -50,7 +50,7 @@
         <dependency>
             <groupId>com.github.XillaTech</groupId>
             <artifactId>Xilla-Core</artifactId>
-            <version>38900278c5</version>
+            <version>11952f059f</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.vdurmont/emoji-java -->

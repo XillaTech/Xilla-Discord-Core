@@ -134,6 +134,7 @@ public class Command extends ManagerObject {
         return permission;
     }
 
+
     @Override
     public XillaJson getSerializedData() {
         return null;

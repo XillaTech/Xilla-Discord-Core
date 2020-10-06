@@ -1,5 +1,6 @@
 package net.xilla.discordcore.command.template.type;
 
+import net.xilla.core.library.json.XillaJson;
 import net.xilla.discordcore.command.template.TemplateCommand;
 import net.xilla.discordcore.core.command.response.CommandResponse;
 import org.json.simple.JSONObject;
@@ -29,7 +30,7 @@ public class TextCommand extends TemplateCommand {
     }
 
     @Override
-    public JSONObject getJSON() {
+    public XillaJson getSerializedData() {
         HashMap<String, String> map = new HashMap<>();
         map.put("name", getKey());
         map.put("module", getModule());
@@ -50,6 +51,6 @@ public class TextCommand extends TemplateCommand {
 
         map.put("text", text);
 
-        return new JSONObject(map);
+        return new XillaJson(new JSONObject(map));
     }
 }

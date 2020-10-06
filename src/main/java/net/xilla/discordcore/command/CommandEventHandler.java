@@ -52,36 +52,28 @@ public class CommandEventHandler extends ListenerAdapter {
                 }
                 String raw = message.substring(prefix.length());
 
-                int level = 1;
                 ArrayList<String> parts = new ArrayList<>(Arrays.asList(raw.split(" ")));
                 ArrayList<String> tempparts = new ArrayList<>(parts);
 
                 Map<CommandFlag, String> flags = new HashMap<>();
-                for(int i = 1; i < parts.size(); i++) {
-                    boolean found = false;
+                for(int i = 1; i < tempparts.size() - 1; i++) {
                     for(CommandFlag flag : new ArrayList<>(DiscordCore.getInstance().getCommandManager().getFlagManager().getData().values())) {
 
                         for(String identifier : flag.getIdentifier()) {
                             if (tempparts.get(i).equalsIgnoreCase("-" + identifier)) {
                                 try {
-                                    String input = parts.remove(level + 1);
-                                    parts.remove(level);
+                                    parts.remove(tempparts.get(i + 1));
+                                    parts.remove(tempparts.get(i));
 
-                                    flags.put(flag, input);
-                                    found = true;
+                                    flags.put(flag, tempparts.get(i + 1));
                                     break;
                                 } catch (Exception ex) {
                                     ex.printStackTrace();
                                 }
                             }
                         }
-
-                        System.out.println(parts);
                     }
 
-                    if(!found) {
-                        level++;
-                    }
                 }
 
                 if(flags.size() == 0) {

@@ -64,7 +64,10 @@ public class GroupManager extends Manager<Group> {
 
     @Override
     public void load() {
-
+        for(Object key : getConfig().getJson().getJson().keySet()) {
+            JSONObject data = getConfig().getJson().get(key.toString());
+            put(new Group(data));
+        }
     }
 
     @Override

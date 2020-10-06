@@ -18,16 +18,9 @@ public class CoreServer extends ManagerObject {
         this.lastUpdated = System.currentTimeMillis();
     }
 
-    public CoreServer(String id, int members, long lastUpdated) {
-        super(id, "Servers");
-        this.guild = DiscordCore.getInstance().getBot().getGuildById(id);
-        if(guild != null) {
-            this.members = guild.getMemberCount();
-            this.lastUpdated = System.currentTimeMillis();
-        } else {
-            this.members = members;
-            this.lastUpdated = lastUpdated;
-        }
+    public CoreServer(JSONObject json) {
+        super(json.get("id").toString(), "Servers");
+        loadSerializedData(new XillaJson(json));
     }
 
     public void update(Guild guild) {
@@ -51,6 +44,7 @@ public class CoreServer extends ManagerObject {
     public XillaJson getSerializedData() {
         JSONObject jsonObject = new JSONObject();
 
+        jsonObject.put("id", this.getKey());
         jsonObject.put("members", this.getMembers());
         jsonObject.put("lastUpdated", this.getLastUpdated());
 

@@ -1,6 +1,7 @@
 package net.xilla.discordcore.command.template.type;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.xilla.core.library.json.XillaJson;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.response.CoreCommandResponse;
 import net.xilla.discordcore.command.template.TemplateCommand;
@@ -36,8 +37,9 @@ public class EmbedCommand extends TemplateCommand {
         this.text = map.get("text");
     }
 
+
     @Override
-    public JSONObject getJSON() {
+    public XillaJson getSerializedData() {
         HashMap<String, String> map = new HashMap<>();
         map.put("name", getKey());
         map.put("module", getModule());
@@ -58,6 +60,12 @@ public class EmbedCommand extends TemplateCommand {
 
         map.put("text", text);
 
-        return new JSONObject(map);
+        return new XillaJson(new JSONObject(map));
     }
+
+    @Override
+    public void loadSerializedData(XillaJson xillaJson) {
+
+    }
+
 }

@@ -3,6 +3,8 @@ package net.xilla.discordcore.core.server;
 import net.dv8tion.jda.api.entities.Guild;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.discordcore.DiscordCore;
+import net.xilla.discordcore.core.staff.Group;
+import org.json.simple.JSONObject;
 
 public class ServerManager extends Manager<CoreServer> {
 
@@ -26,7 +28,10 @@ public class ServerManager extends Manager<CoreServer> {
 
     @Override
     public void load() {
-
+        for(Object key : getConfig().getJson().getJson().keySet()) {
+            JSONObject data = getConfig().getJson().get(key.toString());
+            put(new CoreServer(data));
+        }
     }
 
     @Override

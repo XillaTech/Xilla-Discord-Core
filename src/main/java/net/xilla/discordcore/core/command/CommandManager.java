@@ -55,33 +55,22 @@ public class CommandManager extends Manager<Command> {
         this.commandRunCheck = commandRunCheck;
     }
 
-    @Override
-    public void put(Command command) {
-        super.put(command);
-
-        if(!commandCache.containsKey(command.getModule())) {
-            commandCache.put(command.getModule(), new Vector<>());
-        }
-        commandCache.get(command.getModule()).add(command);
-    }
-
-    public boolean runRawCommandInput(String input, String inputType, PermissionUser user) {
+    public void runRawCommandInput(String input, String inputType, PermissionUser user) {
         String commandInput = input.split(" ")[0].toLowerCase();
         String[] args = Arrays.copyOfRange(input.split(" "), 1, input.split(" ").length);
 
         if(runCommand(new CommandData(commandInput, args, null, inputType, user))) {
-            return true;
+            return;
         }
 
         if(user instanceof ConsoleUser) {
             Logger.log(LogLevel.WARN, "Unknown command, type \"?\" for a list of available commands.", getClass());
         }
-        return false;
     }
 
     public boolean runCommand(CommandData data) {
         if(getCache("activators").isCached(data.getCommand().toLowerCase())) {
-            Command basicCommand = (Command)getCache("activators").getObject(data.getCommand().toLowerCase());
+            Command basicCommand = getCache("activators").getObject(data.getCommand().toLowerCase());
 
             if(!basicCommand.isConsoleSupported() && data.getUser() instanceof ConsoleUser) {
                 return false;
@@ -144,6 +133,11 @@ public class CommandManager extends Manager<Command> {
 
     @Override
     public void objectAdded(Command command) {
+        if(!commandCache.containsKey(command.getModule())) {
+            commandCache.put(command.getModule(), new Vector<>());
+        }
+        commandCache.get(command.getModule()).add(command);
+
         for(String activator : command.getActivators())
             getCache("activators").putObject(activator.toLowerCase(), command);
     }

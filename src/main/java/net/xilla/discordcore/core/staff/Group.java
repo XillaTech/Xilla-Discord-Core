@@ -27,14 +27,7 @@ public class Group extends ManagerObject implements PermissionGroup {
 
     public Group(JSONObject object) {
         super(object.get("serverID").toString() + "-" + object.get("groupID").toString(), "Groups");
-        this.groupName = object.get("name").toString();
-        this.groupID = object.get("groupID").toString();
-        this.serverID = object.get("serverID").toString();
-
-        this.permissions = new Vector<>();
-        for(Object obj : (JSONArray)object.get("permissions")) {
-            permissions.add(obj.toString());
-        }
+        loadSerializedData(new XillaJson());
     }
 
     public String getName() {
@@ -95,22 +88,26 @@ public class Group extends ManagerObject implements PermissionGroup {
         return roleIDs.contains(getGroupID());
     }
 
-    public JSONObject toJson() {
+    @Override
+    public XillaJson getSerializedData() {
         HashMap<String, Object> map = new HashMap<>();
         map.put("name", groupName);
         map.put("groupID", groupID);
         map.put("serverID", serverID);
         map.put("permissions", permissions);
-        return new JSONObject(map);
-    }
-
-    @Override
-    public XillaJson getSerializedData() {
-        return null;
+        return new XillaJson(new JSONObject(map));
     }
 
     @Override
     public void loadSerializedData(XillaJson xillaJson) {
+        JSONObject object = xillaJson.getJson();
+        this.groupName = object.get("name").toString();
+        this.groupID = object.get("groupID").toString();
+        this.serverID = object.get("serverID").toString();
 
+        this.permissions = new Vector<>();
+        for(Object obj : (JSONArray)object.get("permissions")) {
+            permissions.add(obj.toString());
+        }
     }
 }

@@ -185,9 +185,6 @@ public class DiscordCore extends CoreObject {
             getCommandManager().getCommandWorker().start();
         }
 
-        // Loads up template commands
-        getPlatform().getTemplateManager().reload();
-
         // Starts up the API
         new DiscordAPI();
 

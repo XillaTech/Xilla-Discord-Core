@@ -48,8 +48,4 @@ public class TemplateCommand extends Command {
         return responses;
     }
 
-    public JSONObject getJSON() {
-        return null; // Override this in the child-class
-    }
-
 }
