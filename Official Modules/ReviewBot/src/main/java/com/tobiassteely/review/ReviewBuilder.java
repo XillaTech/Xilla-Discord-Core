@@ -39,9 +39,9 @@ public class ReviewBuilder extends CoreObject {
                 String reviewChannelID = ReviewBot.getInstance().getReviewSettings().getReviewChannel();
                 TextChannel textChannel = DiscordCore.getInstance().getBot().getTextChannelById(reviewChannelID);
                 if(textChannel != null) {
-                    Review oldReview = ReviewBot.getInstance().getReviewManager().getReview(user.getId());
+                    Review oldReview = ReviewBot.getInstance().getReviewManager().get(user.getId());
                     if(oldReview != null) {
-                        ReviewBot.getInstance().getReviewManager().removeReview(oldReview);
+                        ReviewBot.getInstance().getReviewManager().remove(oldReview);
                     }
 
                     String date = new Date(System.currentTimeMillis()).toString();
@@ -62,7 +62,7 @@ public class ReviewBuilder extends CoreObject {
 
                     if(message != null) {
                         Review review = new Review(user.getId(), rating, reason, date, textChannel.getId(), message.getId());
-                        ReviewBot.getInstance().getReviewManager().addReview(review);
+                        ReviewBot.getInstance().getReviewManager().put(review);
                         ReviewBot.getInstance().getReviewManager().save();
                         embedBuilder.setDescription("Your review has been successfully made.");
                     } else {
@@ -84,8 +84,8 @@ public class ReviewBuilder extends CoreObject {
         reactions.addQuestion(new ReactionQuestion(":three:", "3"));
         reactions.addQuestion(new ReactionQuestion(":four:", "4"));
         reactions.addQuestion(new ReactionQuestion(":five:", "5"));
-        multiForm.addReactionQuestion("Rating", "What score would you give them (1 lowest -> 5 highest)", reactions, channel, user.getId());
-        multiForm.addMessageQuestion("Description", "Why do they deserve this rating?", channel, user.getId());
+        multiForm.addReactionQuestion("Rating", "What score would you give them (1 lowest -> 5 highest)", reactions, user.getId());
+        multiForm.addMessageQuestion("Description", "Why do they deserve this rating?", user.getId());
         multiForm.start();
     }
 

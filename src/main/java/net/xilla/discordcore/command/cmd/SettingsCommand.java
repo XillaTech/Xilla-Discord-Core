@@ -73,6 +73,8 @@ public class SettingsCommand extends CoreObject {
                             }
                             settings.getConfig().set(data.getArgs()[2], value);
                             settings.getConfig().save();
+
+                            builder.setColor(Color.decode(getCoreSetting().getEmbedColor()));
                             builder.setDescription("You have successfully updated that message.");
                         } else {
                             builder.setDescription("That is not a valid setting!");

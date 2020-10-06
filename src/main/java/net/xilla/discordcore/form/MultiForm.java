@@ -46,10 +46,10 @@ public class MultiForm extends CoreObject {
         index = formBuilders.size();
     }
 
-    public void addMessageQuestion(String name, String question, TextChannel channel, String ownerID) {
+    public void addMessageQuestion(String name, String question, String ownerID) {
         MessageFormBuilder builder = new MessageFormBuilder();
         builder.setName(name);
-        builder.setTextChannel(channel);
+        builder.setTextChannel(channelID);
         builder.setOwnerID(ownerID);
         EmbedBuilder embedBuilder = new EmbedBuilder().setTitle(name).setDescription(question).setColor(Color.decode(getCoreSetting().getEmbedColor()));
         builder.setMessage(embedBuilder.build());
@@ -65,10 +65,10 @@ public class MultiForm extends CoreObject {
         formBuilders.add(builder);
     }
 
-    public void addReactionQuestion(String name, String question, ReactionQuestionList questions, TextChannel channel, String ownerID) {
+    public void addReactionQuestion(String name, String question, ReactionQuestionList questions, String ownerID) {
         ReactionFormBuilder builder = new ReactionFormBuilder();
         builder.setName(name);
-        builder.setTextChannel(channel);
+        builder.setTextChannel(channelID);
         builder.setOwnerID(ownerID);
         EmbedBuilder embedBuilder = new EmbedBuilder().setTitle(name).setDescription(question).setColor(Color.decode(getCoreSetting().getEmbedColor()));
         builder.setMessage(embedBuilder.build());

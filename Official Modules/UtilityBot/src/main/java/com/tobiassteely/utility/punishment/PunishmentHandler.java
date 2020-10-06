@@ -9,7 +9,7 @@ import java.util.List;
 public class PunishmentHandler extends ListenerAdapter {
 
     public void onGuildMessageReceived(@Nonnull GuildMessageReceivedEvent event) {
-        List<Punishment> punishments = PunishmentManagerHandler.mutes.get(event.getAuthor().getId());
+        List<Punishment> punishments = PunishmentManager.mutes.get(event.getAuthor().getId());
 
     }
 

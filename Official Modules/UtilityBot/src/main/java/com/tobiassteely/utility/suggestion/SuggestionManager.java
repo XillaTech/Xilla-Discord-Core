@@ -1,13 +1,29 @@
 package com.tobiassteely.utility.suggestion;
 
-import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
-import com.tobiassteely.tobiasapi.config.Config;
+import net.xilla.core.library.manager.Manager;
 import org.json.simple.JSONObject;
 
-public class SuggestionManager extends ManagerParent<Suggestion> {
+public class SuggestionManager extends Manager<Suggestion> {
 
     public SuggestionManager() {
-        super("UTB.Suggestion", true, "modules/Utility/suggestions.json", new SuggestionManagerHandler());
+        super("UTB.Suggestion", "modules/Utility/suggestions.json");
+    }
+
+    @Override
+    protected void load() {
+        for(Object obj : getData().values()) {
+            put(new Suggestion((JSONObject)obj));
+        }
+    }
+
+    @Override
+    protected void objectAdded(Suggestion suggestion) {
+
+    }
+
+    @Override
+    protected void objectRemoved(Suggestion suggestion) {
+
     }
 
 }

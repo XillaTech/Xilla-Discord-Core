@@ -36,7 +36,7 @@ public class SuggestionHandler extends ListenerAdapter {
                 message.addReaction(EmojiParser.parseToUnicode(":thumbsdown:")).complete();
 
                 Suggestion suggestion = new Suggestion(message.getId(), event.getAuthor().getId(), channel.getId(), event.getMessage().getContentRaw());
-                UtilityBot.getInstance().getSuggestionManager().addObject(suggestion);
+                UtilityBot.getInstance().getSuggestionManager().put(suggestion);
                 UtilityBot.getInstance().getSuggestionManager().save();
             }
         }

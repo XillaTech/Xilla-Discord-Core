@@ -8,7 +8,7 @@ public class PunishmentSettings extends Settings {
     public PunishmentSettings() {
         super("Punishment", "modules/Utility/punishment-settings.json");
 
-        getConfig().loadDefault("muted-users", new JSONArray());
+        getConfig().setDefault("muted-users", new JSONArray());
         getConfig().save();
     }
 

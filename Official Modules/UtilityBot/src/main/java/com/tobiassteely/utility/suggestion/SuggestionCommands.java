@@ -43,13 +43,11 @@ public class SuggestionCommands extends CoreObject {
                     message.addReaction(EmojiParser.parseToUnicode(":thumbsdown:")).complete();
 
                     Suggestion suggestion = new Suggestion(message.getId(), event.getAuthor().getId(), channel.getId(), results.get("Suggestion").getResponse());
-                    UtilityBot.getInstance().getSuggestionManager().addObject(suggestion);
+                    UtilityBot.getInstance().getSuggestionManager().put(suggestion);
                     UtilityBot.getInstance().getSuggestionManager().save();
                 });
-                multiForm.addMessageQuestion("Suggestion", "What is your suggested update/change?", event.getTextChannel(), event.getAuthor().getId());
+                multiForm.addMessageQuestion("Suggestion", "What is your suggested update/change?", event.getAuthor().getId());
                 multiForm.start();
-
-
 
                 return null;
             } else {

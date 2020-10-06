@@ -7,7 +7,7 @@ public class SuggestionSettings extends Settings {
     public SuggestionSettings() {
         super("Suggestions", "modules/Utility/suggestion-settings.json");
 
-        getConfig().loadDefault("channelID", "id");
+        getConfig().setDefault("channelID", "id");
 
         getInstaller().install("The channel where suggestions are posted.", "channelID", "id");
 

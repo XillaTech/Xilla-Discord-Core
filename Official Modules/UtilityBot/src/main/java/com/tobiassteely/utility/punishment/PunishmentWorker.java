@@ -1,13 +1,14 @@
 package com.tobiassteely.utility.punishment;
 
-import com.tobiassteely.tobiasapi.api.worker.Worker;
 import com.tobiassteely.utility.UtilityBot;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.User;
+import net.xilla.core.library.worker.Worker;
 import net.xilla.discordcore.DiscordCore;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class PunishmentWorker extends Worker {
@@ -17,11 +18,11 @@ public class PunishmentWorker extends Worker {
     }
 
     @Override
-    public Boolean runWorker(long start) {
+    public void runWorker(long start) {
 
         HashMap<String, Integer> map = new HashMap<>();
 
-        for(Punishment punishment : UtilityBot.getInstance().getPunishmentManager().getList()) {
+        for(Punishment punishment : new ArrayList<>(UtilityBot.getInstance().getPunishmentManager().getData().values())) {
             if(punishment.getType().equalsIgnoreCase("mute")) {
                 if(!map.containsKey(punishment.getUserID())) {
                     map.put(punishment.getUserID(), 1);
@@ -47,7 +48,7 @@ public class PunishmentWorker extends Worker {
                             guild.unban(punishment.getUserID()).queue();
                         }
                     }
-                    UtilityBot.getInstance().getPunishmentManager().removeObject(punishment.getKey());
+                    UtilityBot.getInstance().getPunishmentManager().remove(punishment.getKey());
                     UtilityBot.getInstance().getPunishmentManager().save();
                 }
             }
@@ -58,8 +59,6 @@ public class PunishmentWorker extends Worker {
                 }
             }
         }
-
-        return true;
     }
 
 }

@@ -1,36 +1,37 @@
 package com.tobiassteely.review;
 
-import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
-import com.tobiassteely.tobiasapi.config.Config;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.xilla.core.library.manager.Manager;
 import net.xilla.discordcore.DiscordCore;
 import org.json.simple.JSONObject;
 
-public class ReviewManager extends ManagerParent<Review> {
-
-    private Config config;
+public class ReviewManager extends Manager<Review> {
 
     protected ReviewManager() {
-        super("RVB.Review",true, "modules/review/data.json", new ReviewManagerHandler());
+        super("RVB.Review", "modules/review/data.json");
     }
 
-    public void addReview(Review review) {
-        addObject(review);
-    }
-
-    public Review getReview(String userID) {
-        return getObject(userID);
-    }
 
     public Review getReviewByMessage(String messageID) {
         return getCache("messageID").getObject(messageID);
     }
 
-    public void removeReview(Review review) {
-        removeObject(review.getKey());
+    @Override
+    protected void load() {
+        for(Object obj : getData().values()) {
+            put(new Review((JSONObject)obj));
+        }
+    }
 
+    @Override
+    protected void objectAdded(Review review) {
+        getCache("messageID").putObject(review.getMessageID(), review);
+    }
+
+    @Override
+    protected void objectRemoved(Review review) {
         TextChannel textChannel = DiscordCore.getInstance().getBot().getTextChannelById(review.getChannelID());
         if(textChannel != null) {
             Message message = textChannel.retrieveMessageById(review.getMessageID()).complete();
@@ -38,6 +39,6 @@ public class ReviewManager extends ManagerParent<Review> {
                 message.delete().queue();
             }
         }
+        getCache("messageID").removeObject(review.getMessageID());
     }
-
 }

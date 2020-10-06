@@ -1,6 +1,5 @@
 package com.tobiassteely.utility.punishment;
 
-import com.tobiassteely.tobiasapi.command.CommandData;
 import com.tobiassteely.utility.UtilityBot;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Message;
@@ -10,6 +9,7 @@ import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.command.CoreCommandExecutor;
 import net.xilla.discordcore.command.response.CoreCommandResponse;
+import net.xilla.discordcore.core.command.CommandData;
 
 import java.awt.*;
 import java.util.List;
@@ -472,13 +472,13 @@ public class PunishmentCommands extends CoreObject {
 
         String id = UUID.randomUUID().toString();
 
-        while(UtilityBot.getInstance().getPunishmentManager().getObject(id) != null) {
+        while(UtilityBot.getInstance().getPunishmentManager().get(id) != null) {
             id = UUID.randomUUID().toString();
         }
 
         Punishment punishment = new Punishment(id, staffID, userID, type, guildID, description,System.currentTimeMillis(), duration * 60);
 
-        UtilityBot.getInstance().getPunishmentManager().addObject(punishment);
+        UtilityBot.getInstance().getPunishmentManager().put(punishment);
         UtilityBot.getInstance().getPunishmentManager().save();
         return punishment;
     }

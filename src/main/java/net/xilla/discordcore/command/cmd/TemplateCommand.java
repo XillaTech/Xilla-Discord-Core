@@ -116,12 +116,12 @@ public class TemplateCommand extends CoreObject {
                             event.getChannel().sendMessage("Invalid input, please start over. ```" + ex.getMessage() + "```").queue();
                         }
                     });
-                    form.addMessageQuestion("Name", "What is the name of the command you'd like to add?", event.getTextChannel(), event.getAuthor().getId());
-                    form.addMessageQuestion("Description", "What is the description of the command you'd like to add?", event.getTextChannel(), event.getAuthor().getId());
-                    form.addMessageQuestion("Response", "What would you like the command to say?", event.getTextChannel(), event.getAuthor().getId());
-                    form.addMessageQuestion("Module", "What module would you like the command to be under?", event.getTextChannel(), event.getAuthor().getId());
-                    form.addMessageQuestion("Permission", "Would you like to require a permission? (Put \"None\" for no permissions)", event.getTextChannel(), event.getAuthor().getId());
-                    form.addMessageQuestion("Embed", "Would you like the response to be in an embed? (True/False)", event.getTextChannel(), event.getAuthor().getId());
+                    form.addMessageQuestion("Name", "What is the name of the command you'd like to add?", event.getAuthor().getId());
+                    form.addMessageQuestion("Description", "What is the description of the command you'd like to add?", event.getAuthor().getId());
+                    form.addMessageQuestion("Response", "What would you like the command to say?", event.getAuthor().getId());
+                    form.addMessageQuestion("Module", "What module would you like the command to be under?", event.getAuthor().getId());
+                    form.addMessageQuestion("Permission", "Would you like to require a permission? (Put \"None\" for no permissions)", event.getAuthor().getId());
+                    form.addMessageQuestion("Embed", "Would you like the response to be in an embed? (True/False)", event.getAuthor().getId());
                     form.start();
 
                     return new CoreCommandResponse(data);

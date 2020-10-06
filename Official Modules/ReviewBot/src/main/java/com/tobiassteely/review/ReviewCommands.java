@@ -56,12 +56,12 @@ public class ReviewCommands extends CoreObject {
                     String id = data.getArgs()[1].replace("<@!", "").replace(">","");
                     Review review = ReviewBot.getInstance().getReviewManager().getReviewByMessage(id);
                     if(review == null) {
-                        review = ReviewBot.getInstance().getReviewManager().getReview(id);
+                        review = ReviewBot.getInstance().getReviewManager().get(id);
                     }
 
                     if (review != null) {
 
-                        ReviewBot.getInstance().getReviewManager().removeReview(review);
+                        ReviewBot.getInstance().getReviewManager().remove(review);
                         ReviewBot.getInstance().getReviewManager().save();
                         embedBuilder.setDescription("That review has been removed!");
                     } else {

@@ -7,10 +7,10 @@ public class UtilitySettings extends Settings {
     public UtilitySettings() {
         super("Utility", "modules/Utility/utility-settings.json");
 
-        getConfig().loadDefault("polls-feature", true);
-        getConfig().loadDefault("suggestions-feature", true);
-        getConfig().loadDefault("punishments-feature", true);
-        getConfig().loadDefault("info-commands-feature", true);
+        getConfig().setDefault("polls-feature", true);
+        getConfig().setDefault("suggestions-feature", true);
+        getConfig().setDefault("punishments-feature", true);
+        getConfig().setDefault("info-commands-feature", true);
         getConfig().save();
     }
 
