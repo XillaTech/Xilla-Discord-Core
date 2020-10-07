@@ -6,6 +6,7 @@ import net.xilla.core.log.LogLevel;
 import net.xilla.core.log.Logger;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.core.command.response.CommandResponse;
+import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,26 +22,38 @@ public class Command extends ManagerObject {
     private String[] activators;
     private boolean consoleSupported;
 
-    public Command(String module, String name, String[] activators, String usage, String description, String permission, List<CommandExecutor> executors) {
+    public Command(String module, String name, String[] activators, String usage, String description, Object permission, List<CommandExecutor> executors) {
         super(name, "Commands");
         this.module = module;
         this.name = name;
         this.description = description;
         this.executors = executors;
         this.activators = activators;
-        this.permission = permission;
+
+        if(permission != null) {
+            this.permission = permission.toString();
+        } else {
+            this.permission = null;
+        }
+
         this.usage = usage;
         this.consoleSupported = true;
     }
 
-    public Command(String module, String name, String[] activators, String usage, String description, String permission, List<CommandExecutor> executors, boolean consoleSupported) {
+    public Command(String module, String name, String[] activators, String usage, String description, Object permission, List<CommandExecutor> executors, boolean consoleSupported) {
         super(name, "Commands");
         this.module = module;
         this.name = name;
         this.description = description;
         this.executors = executors;
         this.activators = activators;
-        this.permission = permission;
+
+        if(permission != null) {
+            this.permission = permission.toString();
+        } else {
+            this.permission = null;
+        }
+
         this.usage = usage;
         this.consoleSupported = consoleSupported;
     }
@@ -134,10 +147,25 @@ public class Command extends ManagerObject {
         return permission;
     }
 
-
     @Override
     public XillaJson getSerializedData() {
-        return null;
+        JSONObject map = new JSONObject();
+        map.put("name", getKey());
+        map.put("module", getModule());
+        map.put("description", getDescription());
+        map.put("usage", getUsage());
+        map.put("permission", getPermission());
+        StringBuilder activatorsParsed = new StringBuilder();
+        for(int i = 0; i < getActivators().length; i++) {
+            activatorsParsed.append(getActivators()[i]);
+            if(i != getActivators().length - 1) {
+                activatorsParsed.append(",");
+            }
+        }
+        map.put("activators", activatorsParsed.toString());
+
+
+        return new XillaJson(new JSONObject(map));
     }
 
     @Override

@@ -12,6 +12,7 @@ import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.command.response.CoreCommandResponse;
 import net.xilla.discordcore.core.server.CoreServer;
+import org.json.simple.JSONObject;
 
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
@@ -29,6 +30,7 @@ public class CoreCommands extends CoreObject {
     public void coreInfo() {
         CommandBuilder commandBuilder = new CommandBuilder("Core", "CoreInfo", true);
         commandBuilder.setPermission("core.coreinfo");
+        commandBuilder.setActivators("ci");
         commandBuilder.setDescription("Get the discord core's information");
         commandBuilder.setCommandExecutor((data) -> {
             EmbedBuilder embedBuilder = new EmbedBuilder().setTitle("Core Info");
@@ -101,7 +103,11 @@ public class CoreCommands extends CoreObject {
                 if(manager != null) {
                     ManagerObject object = manager.get(argument.toString());
                     if(object != null) {
-                        embedBuilder.setDescription("Object Data: ```" + object.getSerializedData().getJson().toJSONString() + "```");
+                        if(object.getSerializedData() != null) {
+                            embedBuilder.setDescription("Object Data: ```" + formatJSONStr(object.getSerializedData().getJson()) + "```");
+                        } else {
+                            embedBuilder.setDescription("Object Data: None");
+                        }
                     } else {
                         embedBuilder.setDescription("That is not a valid object!");
                     }
@@ -142,8 +148,10 @@ public class CoreCommands extends CoreObject {
                 StringBuilder stb = new StringBuilder();
                 int sloop = 0;
                 for (CoreServer server : new ArrayList<>(getDiscordCore().getPlatform().getServerManager().getData().values())) {
-                    if (server != null && server.getGuild() != null) {
+                    if (server.getGuild() != null) {
                         stb.append(server.getGuild().getName()).append(" (ID: ").append(server.getKey()).append(")");
+                    } else {
+                        stb.append("N/A").append(" (ID: ").append(server.getKey()).append(")");
                     }
                     sloop++;
                     if(sloop != getDiscordCore().getPlatform().getServerManager().getData().size()) {
@@ -161,20 +169,65 @@ public class CoreCommands extends CoreObject {
                     }
                 }
                 if(getDiscordCore().getPlatform().getServerManager().getData().size() > 0) {
-                    embedBuilder.setDescription("Servers (" + getDiscordCore().getPlatform().getServerManager().getData().size() + "): `" + stb.toString()
-                            + "`\n\nManagers (" + XillaManager.getInstance().getData().size()
-                            + "): \n" + mtb.toString() + "\n\n" + getPrefix() + "coreinfo server (server name)\n"
-                            + getPrefix() + "coreinfo manager (manager name)\n" + getPrefix() + "coreinfo object (manager name) (object name)");
+                    embedBuilder.setDescription("Servers (" + new ArrayList<>(getDiscordCore().getPlatform().getServerManager().getData().values()).size() + "): `" + stb.toString()
+                            + "`\n\nManagers (" + new ArrayList<>(XillaManager.getInstance().getData().values()).size()
+                            + "): \n" + mtb.toString() + "\n\n" + getPrefix() + "ci server (server name)\n"
+                            + getPrefix() + "ci manager (manager name)\n" + getPrefix() + "ci object (manager name) (object name)");
                 } else {
-                    embedBuilder.setDescription("Servers (0): None\n\nManagers (" + XillaManager.getInstance().getData().size()
-                            + "): \n" + mtb.toString() + "\n\n" + getPrefix() + "coreinfo server (server name)\n"
-                            + getPrefix() + "coreinfo manager (manager name)\n" + getPrefix() + "coreinfo object (manager name) (object name)");
+                    embedBuilder.setDescription("Servers (0): None\n\nManagers (" + new ArrayList<>(XillaManager.getInstance().getData().values()).size()
+                            + "): \n" + mtb.toString() + "\n\n" + getPrefix() + "ci server (server name)\n"
+                            + getPrefix() + "ci manager (manager name)\n" + getPrefix() + "ci object (manager name) (object name)");
                 }
             }
             embedBuilder.setColor(getColor());
             return new CoreCommandResponse(data).setEmbed(embedBuilder.build());
         });
         commandBuilder.build();
+    }
+
+    private String formatJSONStr(JSONObject json) {
+        final String json_str = json.toJSONString();
+        final int indent_width = 1;
+        final char[] chars = json_str.toCharArray();
+        final String newline = System.lineSeparator();
+
+        String ret = "";
+        boolean begin_quotes = false;
+
+        for (int i = 0, indent = 0; i < chars.length; i++) {
+            char c = chars[i];
+
+            if (c == '\"') {
+                ret += c;
+                begin_quotes = !begin_quotes;
+                continue;
+            }
+
+            if (!begin_quotes) {
+                switch (c) {
+                    case '{':
+                    case '[':
+                        ret += c + newline + String.format("%" + (indent += indent_width) + "s", "");
+                        continue;
+                    case '}':
+                    case ']':
+                        ret += newline + ((indent -= indent_width) > 0 ? String.format("%" + indent + "s", "") : "") + c;
+                        continue;
+                    case ':':
+                        ret += c + " ";
+                        continue;
+                    case ',':
+                        ret += c + newline + (indent > 0 ? String.format("%" + indent + "s", "") : "");
+                        continue;
+                    default:
+                        if (Character.isWhitespace(c)) continue;
+                }
+            }
+
+            ret += c + (c == '\\' ? "" + chars[++i] : "");
+        }
+
+        return ret;
     }
 
 }

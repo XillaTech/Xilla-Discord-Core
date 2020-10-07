@@ -17,21 +17,21 @@ public class TextCommand extends TemplateCommand {
         this.text = text;
     }
 
-    public TextCommand(Map<String, String> map) {
+    public TextCommand(JSONObject map) {
         super(
-                map.get("module"),
-                map.get("name"),
-                map.get("activators").split(","),
-                map.get("description"), map.get("usage"),
+                map.get("module").toString(),
+                map.get("name").toString(),
+                map.get("activators").toString().split(","),
+                map.get("description").toString(), map.get("usage").toString(),
                 map.get("permission"),
-                (data) -> new CommandResponse(data).setDescription(map.get("text"))
+                (data) -> new CommandResponse(data).setDescription(map.get("text").toString())
         );
-        this.text = map.get("text");
+        this.text = map.get("text").toString();
     }
 
     @Override
     public XillaJson getSerializedData() {
-        HashMap<String, String> map = new HashMap<>();
+        JSONObject map = new JSONObject();
         map.put("name", getKey());
         map.put("module", getModule());
         map.put("description", getDescription());

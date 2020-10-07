@@ -35,7 +35,11 @@ public class Settings extends ManagerObject {
 
     @Override
     public XillaJson getSerializedData() {
-        return null;
+        XillaJson json = new XillaJson();
+        json.put("name", getKey());
+        json.put("config", getConfig().getKey());
+        json.put("data", config.getJson().getJson());
+        return json;
     }
 
     @Override

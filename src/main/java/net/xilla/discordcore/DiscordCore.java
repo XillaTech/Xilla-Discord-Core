@@ -4,6 +4,7 @@ import lombok.Getter;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
+import net.xilla.core.library.config.ConfigManager;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.core.library.manager.ManagerObject;
 import net.xilla.core.library.manager.XillaManager;
@@ -127,6 +128,10 @@ public class DiscordCore extends CoreObject {
     public DiscordCore(String platform, String baseFolder, boolean startCommandLine, String name) {
         instance = this;
         this.type = platform;
+
+        if(baseFolder != null) {
+            ConfigManager.getInstance().setBaseFolder(baseFolder);
+        }
 
         this.postStartupManager = new PostStartupManager();
 

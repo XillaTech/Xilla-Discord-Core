@@ -2,6 +2,7 @@ package net.xilla.discordcore.core;
 
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.settings.Settings;
+import org.json.simple.JSONArray;
 
 public class CoreSettings extends Settings {
 
@@ -9,8 +10,6 @@ public class CoreSettings extends Settings {
         super("Core", "settings.json");
 
         // Discord sharding doesn't need an installer as you only need it for bots in >2,500 servers
-
-        System.out.println(getConfig());
 
         getConfig().setDefault("shards", 1);
         getConfig().setDefault("bot-name", "Bot Name");
@@ -27,6 +26,8 @@ public class CoreSettings extends Settings {
         getConfig().setDefault("minimize-help", false);
         getConfig().setDefault("token", "bottoken");
         getConfig().setDefault("log-level", "INFO");
+        getConfig().setDefault("lockdown-core-admin-commands", false);
+        getConfig().setDefault("core-admin-users", new JSONArray());
         getConfig().save();
 
         // Loads settings

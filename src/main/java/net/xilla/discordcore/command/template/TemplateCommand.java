@@ -1,5 +1,6 @@
 package net.xilla.discordcore.command.template;
 
+import net.xilla.core.library.json.XillaJson;
 import net.xilla.core.log.LogLevel;
 import net.xilla.core.log.Logger;
 import net.xilla.discordcore.DiscordCore;
@@ -15,7 +16,7 @@ import java.util.Collections;
 
 public class TemplateCommand extends Command {
 
-    public TemplateCommand(String module, String name, String[] activators, String description, String usage, String permission, CommandExecutor executor) {
+    public TemplateCommand(String module, String name, String[] activators, String description, String usage, Object permission, CommandExecutor executor) {
         super(module, name, activators, usage, description, permission, Collections.singletonList(executor));
     }
 

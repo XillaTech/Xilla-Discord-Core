@@ -11,9 +11,11 @@ public class CoreServer extends ManagerObject {
     private Guild guild;
     private int members;
     private long lastUpdated;
+    private ServerSettings settings;
 
     public CoreServer(Guild guild) {
         super(guild.getId(), "Servers");
+        this.guild = guild;
         this.members = guild.getMemberCount();
         this.lastUpdated = System.currentTimeMillis();
     }
@@ -21,6 +23,9 @@ public class CoreServer extends ManagerObject {
     public CoreServer(JSONObject json) {
         super(json.get("id").toString(), "Servers");
         loadSerializedData(new XillaJson(json));
+        DiscordCore.getInstance().addExecutor(() -> {
+            this.guild = DiscordCore.getInstance().getBot().getGuildById(getKey());
+        });
     }
 
     public void update(Guild guild) {

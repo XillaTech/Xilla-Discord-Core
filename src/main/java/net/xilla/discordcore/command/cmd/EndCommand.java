@@ -14,6 +14,7 @@ public class EndCommand extends CoreObject {
     public EndCommand() {
         CommandBuilder builder = new CommandBuilder("Core", "End");
         builder.setDescription("Shutdown the bot.");
+        builder.setPermission("core.end");
 
         builder.setCommandExecutor((data) -> {
             new Thread(() -> {

@@ -15,6 +15,7 @@ public class TemplateManager extends Manager<TemplateCommand> {
 
     public TemplateManager() {
         super("Templates", "commands.json");
+        load();
     }
 
     public void registerTemplate(TemplateCommand templateCommand) {
@@ -28,9 +29,9 @@ public class TemplateManager extends Manager<TemplateCommand> {
             String type = getConfig().getMap((String)key).get("type");
             TemplateCommand command;
             if(type.equalsIgnoreCase("embed")) {
-                command = new EmbedCommand(getConfig().getMap((String) key));
+                command = new EmbedCommand(getConfig().getJSON((String) key));
             } else {
-                command = new TextCommand(getConfig().getMap((String) key));
+                command = new TextCommand(getConfig().getJSON((String) key));
             }
             registerTemplate(command);
         }
