@@ -30,7 +30,7 @@ public class EmbedStorage extends ManagerObject {
 
     public EmbedStorage(String name, String configName) {
         super(name.toLowerCase(), "Embeds");
-        this.config = ConfigManager.getInstance().get(configName);
+        this.config = new Config(configName);
         this.embedMap = new ConcurrentHashMap<>();
 
         load();
