@@ -15,10 +15,11 @@ public class GroupManager extends Manager<Group> {
 
     public GroupManager() {
         super("Groups", "groups.json");
+        load();
 
         DiscordCore.getInstance().addExecutor(() -> {
             for(Guild guild : DiscordCore.getInstance().getBot().getGuilds()) {
-                Group defaultGroup = DiscordCore.getInstance().getGroupManager().getGroup(guild.getId() + "-default applies to all users");
+                Group defaultGroup = getGroup(guild.getId() + "-default applies to all users");
                 if(defaultGroup == null) {
                     Group group = new Group("default applies to all users", "Default", guild.getId(), new ArrayList<>());
                     put(group);
@@ -73,11 +74,10 @@ public class GroupManager extends Manager<Group> {
     @Override
     public void objectAdded(Group group) {
         getCache("groupID").putObject(group.getGroupID(), group);
-        DiscordCore.getInstance().getGroupManager().addGroup(group);
     }
 
     @Override
     public void objectRemoved(Group group) {
-
+        getCache("groupID").removeObject(group.getGroupID());
     }
 }

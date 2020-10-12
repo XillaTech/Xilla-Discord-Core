@@ -3,15 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="88152db3-ecf2-46e7-9607-ea5fd7b475cb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/ReviewBot/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/embed/EmbedStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/embed/EmbedStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/permission/DiscordUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/permission/DiscordUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/staff/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/staff/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/staff/GroupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/core/staff/GroupManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/startup/PostStartupManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/startup/PostStartupManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Xilla-Discord-Core-v2.0.0-BETA-3-shaded.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/Xilla-Discord-Core-v2.0.0-BETA-3-shaded.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Xilla-Discord-Core-v2.0.0-BETA-3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/Xilla-Discord-Core-v2.0.0-BETA-3.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/permission/DiscordUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/command/permission/DiscordUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/staff/Group.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/staff/Group.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/staff/GroupManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/core/staff/GroupManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/startup/PostStartupManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/xilla/discordcore/startup/PostStartupManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/original-Xilla-Discord-Core-v2.0.0-BETA-3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-Xilla-Discord-Core-v2.0.0-BETA-3.jar" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

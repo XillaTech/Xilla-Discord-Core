@@ -1,5 +1,6 @@
 package net.xilla.discordcore.startup;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class PostStartupManager {
@@ -15,7 +16,7 @@ public class PostStartupManager {
     }
 
     public void run() {
-        for(PostStartupExecutor executor : executors) {
+        for(PostStartupExecutor executor : new ArrayList<>(executors)) {
             executor.run();
         }
     }

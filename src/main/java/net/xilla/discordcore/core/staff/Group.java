@@ -27,7 +27,7 @@ public class Group extends ManagerObject implements PermissionGroup {
 
     public Group(JSONObject object) {
         super(object.get("serverID").toString() + "-" + object.get("groupID").toString(), "Groups");
-        loadSerializedData(new XillaJson());
+        loadSerializedData(new XillaJson(object));
     }
 
     public String getName() {
@@ -95,6 +95,7 @@ public class Group extends ManagerObject implements PermissionGroup {
         map.put("groupID", groupID);
         map.put("serverID", serverID);
         map.put("permissions", permissions);
+
         return new XillaJson(new JSONObject(map));
     }
 

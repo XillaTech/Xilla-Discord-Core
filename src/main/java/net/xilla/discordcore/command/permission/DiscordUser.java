@@ -1,5 +1,6 @@
 package net.xilla.discordcore.command.permission;
 
+import lombok.Getter;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
@@ -15,8 +16,12 @@ import java.util.ArrayList;
 
 public class DiscordUser extends CoreObject implements PermissionUser {
 
+    @Getter
     private ArrayList<PermissionGroup> groups;
+
     private String identifier;
+
+    @Getter
     private Member member;
 
     public DiscordUser(Member member) {
@@ -40,10 +45,6 @@ public class DiscordUser extends CoreObject implements PermissionUser {
         }
     }
 
-    @Override
-    public ArrayList<PermissionGroup> getGroups() {
-        return groups;
-    }
 
     @Override
     public PermissionGroup getPrimaryGroup() {
