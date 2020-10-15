@@ -12,9 +12,10 @@ import java.util.ArrayList;
 public class EndCommand extends CoreObject {
 
     public EndCommand() {
-        CommandBuilder builder = new CommandBuilder("Core", "End");
+        CommandBuilder builder = new CommandBuilder("Core", "End", true);
         builder.setDescription("Shutdown the bot.");
         builder.setPermission("core.end");
+        builder.setActivators("end", "stop", "shutdown");
 
         builder.setCommandExecutor((data) -> {
             new Thread(() -> {

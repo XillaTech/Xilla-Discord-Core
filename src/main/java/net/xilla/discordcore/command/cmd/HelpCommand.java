@@ -16,7 +16,7 @@ import java.util.HashMap;
 public class HelpCommand extends CoreObject {
 
     public HelpCommand() {
-        CommandBuilder commandBuilder = new CommandBuilder("Core", "Help");
+        CommandBuilder commandBuilder = new CommandBuilder("Core", "Help", true);
         commandBuilder.setDescription("View the commands you can access.");
         commandBuilder.setCommandExecutor((data) -> {
             try {

@@ -2,21 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88152db3-ecf2-46e7-9607-ea5fd7b475cb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Official Modules/RSSPoster/RSSPoster.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Official Modules/RSSPoster/src/main/java/net/xilla/rssposter/RSSPoster.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Official Modules/RSSPoster/src/main/java/net/xilla/rssposter/RSSSettings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Official Modules/RSSPoster/src/main/java/net/xilla/rssposter/RSSWorker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Official Modules/RSSPoster/src/main/java/net/xilla/rssposter/command/Refresh.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Official Modules/RSSPoster/src/main/java/net/xilla/rssposter/command/RemoveAdmin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Official Modules/RSSPoster/src/main/java/net/xilla/rssposter/command/RemoveChannel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Official Modules/RSSPoster/src/main/java/net/xilla/rssposter/command/SetAdmin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Official Modules/RSSPoster/src/main/java/net/xilla/rssposter/command/SetChannel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Official Modules/RSSPoster/src/main/java/net/xilla/rssposter/command/SetColor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Official Modules/RSSPoster/src/main/java/net/xilla/rssposter/post/Feed.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Official Modules/RSSPoster/src/main/java/net/xilla/rssposter/post/FeedMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Official Modules/RSSPoster/src/main/java/net/xilla/rssposter/post/RSSFeedParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Official Modules/RSSPoster/src/main/java/net/xilla/rssposter/server/ServerSettings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Official Modules/UtilityBot/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/DiscordCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/DiscordCore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/EndCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/EndCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/xilla/discordcore/command/cmd/HelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Xilla-Discord-Core-v2.0.0-BETA-3-shaded.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/Xilla-Discord-Core-v2.0.0-BETA-3-shaded.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Xilla-Discord-Core-v2.0.0-BETA-3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/Xilla-Discord-Core-v2.0.0-BETA-3.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/original-Xilla-Discord-Core-v2.0.0-BETA-3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-Xilla-Discord-Core-v2.0.0-BETA-3.jar" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

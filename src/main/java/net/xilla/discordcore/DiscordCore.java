@@ -228,12 +228,13 @@ public class DiscordCore extends CoreObject {
      * The function used to safely shutdown the bot...
      */
     public void shutdown() {
-        for(Worker worker : new ArrayList<>(WorkerManager.getInstance().getData().values())) {
-            worker.stopWorker();
-        }
 
         for(Module module : new ArrayList<>(getModuleManager().getData().values())) {
             module.onDisable();
+        }
+
+        for(Worker worker : new ArrayList<>(WorkerManager.getInstance().getData().values())) {
+            worker.stopWorker();
         }
 
         for(Settings settings : new ArrayList<>(getSettingsManager().getData().values())) {
@@ -242,7 +243,9 @@ public class DiscordCore extends CoreObject {
         }
 
         for(Manager manager : new ArrayList<>(XillaManager.getInstance().getData().values())) {
-            manager.save();
+            if(manager.getConfig() != null) {
+                manager.save();
+            }
         }
 
         this.bot.shutdown();
@@ -253,7 +256,6 @@ public class DiscordCore extends CoreObject {
         this.commandSettings = null;
         this.settings = null;
         this.platform = null;
-        this.type = null;
         this.type = null;
 
         instance = null;
