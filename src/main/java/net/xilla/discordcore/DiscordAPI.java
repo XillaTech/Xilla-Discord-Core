@@ -3,12 +3,12 @@ package net.xilla.discordcore;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.*;
-import net.xilla.discordcore.command.CommandSettings;
-import net.xilla.discordcore.command.permission.DiscordUser;
+import net.xilla.discordcore.command.ServerSettings;
+import net.xilla.discordcore.core.permission.PermissionAPI;
 import net.xilla.discordcore.core.CoreSettings;
 import net.xilla.discordcore.core.Platform;
-import net.xilla.discordcore.core.staff.Group;
-import net.xilla.discordcore.core.staff.GroupManager;
+import net.xilla.discordcore.core.permission.group.DiscordGroup;
+import net.xilla.discordcore.core.permission.group.GroupManager;
 import net.xilla.discordcore.form.form.FormManager;
 import net.xilla.discordcore.module.ModuleManager;
 
@@ -81,11 +81,11 @@ public class DiscordAPI {
     }
 
     /**
-     * Gets the CommandSettings from the Core and returns it
+     * Gets the ServerSettings from the Core and returns it
      *
-     * @return CommandSettings
+     * @return ServerSettings
      */
-    public static CommandSettings getCommandSettings() {
+    public static ServerSettings getCommandSettings() {
         return DiscordCore.getInstance().getCommandSettings();
     }
 
@@ -112,7 +112,7 @@ public class DiscordAPI {
      * @param permission Permission
      */
     public static void hasPermission(Member user, String permission) {
-        new DiscordUser(user).hasPermission(permission);
+        PermissionAPI.hasPermission(user, permission);
     }
 
     /**
@@ -123,7 +123,7 @@ public class DiscordAPI {
      * @param permission Permission
      */
     public static void hasPermission(Guild guild, String user, String permission) {
-        new DiscordUser(getMember(guild, user)).hasPermission(permission);
+        PermissionAPI.hasPermission(getMember(guild, user), permission);
     }
 
     /**
@@ -168,20 +168,20 @@ public class DiscordAPI {
      * Gets a group from the core with a name or id
      *
      * @param guild Discord Guild
-     * @param name Group Name
+     * @param name DiscordGroup Name
      *
-     * @return Group
+     * @return DiscordGroup
      */
-    public static Group getGroup(Guild guild, String name) {
-        Group group = getGroupManager().getGroup(name);
+    public static DiscordGroup getGroup(Guild guild, String name) {
+        DiscordGroup group = getGroupManager().getManager(guild).get(name);
 
         if(group != null) {
             return group;
         }
 
-        List<Group> groups = getGroupManager().getGroupsByName(name);
+        List<DiscordGroup> groups = getGroupManager().getGroupsByName(name);
         if(groups != null) {
-            for (Group loopGroup : groups) {
+            for (DiscordGroup loopGroup : groups) {
                 if (guild == null || loopGroup.getServerID().equalsIgnoreCase(guild.getId())) {
                     return loopGroup;
                 }

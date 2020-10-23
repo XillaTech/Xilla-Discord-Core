@@ -4,12 +4,12 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.*;
 import net.xilla.core.library.XillaLibrary;
-import net.xilla.discordcore.command.CommandSettings;
-import net.xilla.discordcore.command.permission.DiscordUser;
+import net.xilla.discordcore.command.ServerSettings;
+import net.xilla.discordcore.core.permission.PermissionAPI;
 import net.xilla.discordcore.core.CoreSettings;
 import net.xilla.discordcore.core.Platform;
-import net.xilla.discordcore.core.staff.Group;
-import net.xilla.discordcore.core.staff.GroupManager;
+import net.xilla.discordcore.core.permission.group.DiscordGroup;
+import net.xilla.discordcore.core.permission.group.GroupManager;
 import net.xilla.discordcore.module.ModuleManager;
 
 import java.awt.*;
@@ -41,7 +41,7 @@ public class CoreObject extends XillaLibrary {
         return DiscordCore.getInstance().getPlatform();
     }
 
-    public CommandSettings getCommandSettings() {
+    public ServerSettings getCommandSettings() {
         return DiscordCore.getInstance().getCommandSettings();
     }
 
@@ -54,11 +54,11 @@ public class CoreObject extends XillaLibrary {
     }
 
     public void hasPermission(Member user, String permission) {
-        new DiscordUser(user).hasPermission(permission);
+        PermissionAPI.hasPermission(user, permission);
     }
 
     public void hasPermission(Guild guild, String user, String permission) {
-        new DiscordUser(getMember(guild, user)).hasPermission(permission);
+        PermissionAPI.hasPermission(getMember(guild, user), permission);
     }
 
     public User getUser(String id) {
@@ -102,17 +102,17 @@ public class CoreObject extends XillaLibrary {
 
     }
 
-    public Group getGroup(Guild guild, String name) {
-        Group group = getGroupManager().getGroup(name.replace("<@&", "").replace("<@", "").replace(">", ""));
+    public DiscordGroup getGroup(Guild guild, String name) {
+        DiscordGroup group = getGroupManager().getManager(guild).get(name.replace("<@&", "").replace("<@", "").replace(">", ""));
 
         if(group != null) {
             return group;
         }
 
-        List<Group> groups = getGroupManager().getGroupsByName(name);
+        List<DiscordGroup> groups = getGroupManager().getGroupsByName(name);
         if(groups != null) {
-            for (Group loopGroup : groups) {
-                if (guild == null || loopGroup.getServerID().equalsIgnoreCase(guild.getId())) {
+            for (DiscordGroup loopGroup : groups) {
+                if (loopGroup.getServerID().equalsIgnoreCase(guild.getId())) {
                     return loopGroup;
                 }
             }
@@ -129,6 +129,32 @@ public class CoreObject extends XillaLibrary {
         }
 
         return null;
+    }
+
+    /**
+     * Deprecated to warn that this is not always 100% accurate and should only be used in admin situations
+     */
+    @Deprecated
+    public Guild getGuild(String name) {
+        Guild guild = null;
+
+        try {
+            guild = getBot().getGuildById(name);
+        } catch (Exception ex) {}
+
+        if(guild != null) {
+            return guild;
+        }
+
+        guild = getBot().getGuildsByName(name, false).get(0);
+
+        if(guild != null) {
+            return guild;
+        }
+
+        guild = getBot().getGuildsByName(name, true).get(0);
+
+        return guild;
     }
 
     public Color getColor() {

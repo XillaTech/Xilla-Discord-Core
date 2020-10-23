@@ -5,9 +5,8 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
-import net.xilla.discordcore.command.CoreCommandExecutor;
-import net.xilla.discordcore.command.response.CoreCommandResponse;
-import net.xilla.discordcore.embed.EmbedManager;
+import net.xilla.discordcore.core.CoreCommandExecutor;
+import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.embed.EmbedStorage;
 import net.xilla.discordcore.embed.JSONEmbed;
 
@@ -15,7 +14,6 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class EmbedCommand extends CoreObject {
 
@@ -25,10 +23,10 @@ public class EmbedCommand extends CoreObject {
     }
 
     public void embedCommand() {
-        CommandBuilder builder = new CommandBuilder("Core", "Embed");
+        CommandBuilder builder = new CommandBuilder("Admin", "Embed");
         builder.setActivators("embed", "em");
         builder.setDescription("Put your message in an embed.");
-        builder.setPermission("core.embed");
+        builder.setPermission("embed.use");
         builder.setCommandExecutor((data) -> {
 
             if(data.getInputType().equals(CoreCommandExecutor.discord_input)) {

@@ -9,10 +9,7 @@ public class CoreSettings extends Settings {
     public CoreSettings() {
         super("Core", "settings.json");
 
-        // Discord sharding doesn't need an installer as you only need it for bots in >2,500 servers
-
         getConfig().setDefault("shards", 1);
-        getConfig().setDefault("bot-name", "Bot Name");
         getConfig().setDefault("embed-color", "#018ed1");
         getConfig().setDefault("command-prefix", "-");
         getConfig().setDefault("activity", "none");
@@ -25,9 +22,6 @@ public class CoreSettings extends Settings {
         getConfig().setDefault("last-check-time", -1);
         getConfig().setDefault("minimize-help", false);
         getConfig().setDefault("token", "bottoken");
-        getConfig().setDefault("log-level", "INFO");
-        getConfig().setDefault("lockdown-core-admin-commands", false);
-        getConfig().setDefault("core-admin-users", new JSONArray());
         getConfig().save();
 
         // Loads settings
@@ -39,14 +33,6 @@ public class CoreSettings extends Settings {
 
     public String getBotToken() {
         return getConfig().getString("token");
-    }
-
-    public String getBotName() {
-        return getConfig().getString("bot-name");
-    }
-
-    public String getLogLevel() {
-        return getConfig().getString("log-level");
     }
 
     public String getEmbedColor() {
@@ -98,15 +84,15 @@ public class CoreSettings extends Settings {
         getConfig().save();
     }
 
-    public Boolean isMinimizeHelp() {
+    public boolean isMinimizeHelp() {
         return getConfig().getBoolean("minimize-help");
     }
 
-    public Boolean isRespectDiscordAdmin() {
+    public boolean isRespectDiscordAdmin() {
         return getConfig().getBoolean("respect-discord-admin");
     }
 
-    public Boolean isClearOldGuilds() {
+    public boolean isClearOldGuilds() {
         return getConfig().getBoolean("clear-old-guilds");
     }
 

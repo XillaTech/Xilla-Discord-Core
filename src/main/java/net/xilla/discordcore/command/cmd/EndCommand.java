@@ -1,13 +1,8 @@
 package net.xilla.discordcore.command.cmd;
 
 import net.xilla.discordcore.CoreObject;
-import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
-import net.xilla.discordcore.command.response.CoreCommandResponse;
-import net.xilla.discordcore.core.command.Command;
-import net.xilla.discordcore.core.command.CommandExecutor;
-
-import java.util.ArrayList;
+import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 
 public class EndCommand extends CoreObject {
 

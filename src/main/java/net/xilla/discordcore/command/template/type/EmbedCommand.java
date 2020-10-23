@@ -3,15 +3,12 @@ package net.xilla.discordcore.command.template.type;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.xilla.core.library.json.XillaJson;
 import net.xilla.discordcore.DiscordCore;
-import net.xilla.discordcore.command.response.CoreCommandResponse;
+import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.command.template.TemplateCommand;
-import net.xilla.discordcore.embed.EmbedStorage;
 import net.xilla.discordcore.embed.JSONEmbed;
 import org.json.simple.JSONObject;
 
 import java.awt.*;
-import java.util.HashMap;
-import java.util.Map;
 
 public class EmbedCommand extends TemplateCommand {
 

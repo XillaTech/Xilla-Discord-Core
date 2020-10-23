@@ -6,19 +6,18 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.xilla.core.library.config.ConfigManager;
 import net.xilla.core.library.manager.Manager;
-import net.xilla.core.library.manager.ManagerObject;
 import net.xilla.core.library.manager.XillaManager;
 import net.xilla.core.library.worker.Worker;
 import net.xilla.core.library.worker.WorkerManager;
 import net.xilla.core.log.LogLevel;
 import net.xilla.core.log.Logger;
-import net.xilla.discordcore.command.CommandCheck;
-import net.xilla.discordcore.command.CommandEventHandler;
-import net.xilla.discordcore.command.CommandSettings;
+import net.xilla.discordcore.core.CommandCheck;
+import net.xilla.discordcore.core.command.handler.CommandEventHandler;
+import net.xilla.discordcore.command.ServerSettings;
 import net.xilla.discordcore.core.CoreSettings;
 import net.xilla.discordcore.core.Platform;
 import net.xilla.discordcore.core.command.CommandManager;
-import net.xilla.discordcore.core.staff.GroupManager;
+import net.xilla.discordcore.core.permission.group.GroupManager;
 import net.xilla.discordcore.embed.EmbedManager;
 import net.xilla.discordcore.form.form.FormHandler;
 import net.xilla.discordcore.form.form.FormManager;
@@ -107,7 +106,7 @@ public class DiscordCore extends CoreObject {
      * This manager is used to disable commands and modules per discord server
      */
     @Getter
-    private CommandSettings commandSettings;
+    private ServerSettings commandSettings;
 
     /**
      * This manager is used to run events after the core has connected
@@ -142,7 +141,7 @@ public class DiscordCore extends CoreObject {
         // Loads Core Settings
         this.settingsManager = new SettingsManager();
         this.settings = new CoreSettings();
-        this.commandSettings = new CommandSettings();
+        this.commandSettings = new ServerSettings();
         this.getCommandManager().setCommandRunCheck(new CommandCheck());
 
         this.formManager = new FormManager();

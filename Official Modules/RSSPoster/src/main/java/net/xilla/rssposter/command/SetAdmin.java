@@ -7,11 +7,12 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.command.permission.DiscordUser;
-import net.xilla.discordcore.command.response.CoreCommandResponse;
+import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.core.command.CommandData;
 import net.xilla.discordcore.core.command.CommandExecutor;
 import net.xilla.discordcore.core.command.response.CommandResponse;
 import net.xilla.rssposter.server.ServerSettings;
+import org.json.simple.JSONArray;
 
 public class SetAdmin extends CoreObject {
 
@@ -42,7 +43,10 @@ public class SetAdmin extends CoreObject {
                 if(commandData.getArgs().length == 1) {
                     Member member = getMember(event.getGuild(), commandData.getArgs()[0]);
 
-                    serverSettings.getAdmins().add(member.getId());
+                    JSONArray array = serverSettings.getAdmins();
+                    array.add(member.getId());
+                    serverSettings.setAdmins(array);
+                    embedBuilder.setDescription("Successfully added " + member.getAsMention() + " as an admin.");
                     serverSettings.save();
                 } else {
                     embedBuilder.setDescription(getPrefix() + "removeadmin (@user)");

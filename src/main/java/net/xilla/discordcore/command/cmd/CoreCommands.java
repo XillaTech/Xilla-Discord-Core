@@ -10,7 +10,7 @@ import net.xilla.core.library.manager.ManagerObject;
 import net.xilla.core.library.manager.XillaManager;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.command.CommandBuilder;
-import net.xilla.discordcore.command.response.CoreCommandResponse;
+import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.core.server.CoreServer;
 import org.json.simple.JSONObject;
 
@@ -85,6 +85,7 @@ public class CoreCommands extends CoreObject {
                     }
 
                     embedBuilder.addField("Roles (" + g.getRoles().size() + ")", stringBuilder2.toString(), false);
+                    embedBuilder.addField("Bot Statistics", "", false);
                 } else {
                     embedBuilder.setDescription("That is not a valid server!");
                 }

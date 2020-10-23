@@ -5,9 +5,8 @@ import net.xilla.core.library.manager.ManagerObject;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
-import net.xilla.discordcore.command.response.CoreCommandResponse;
+import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.core.command.Command;
-import net.xilla.discordcore.core.command.CommandExecutor;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ import java.util.HashMap;
 public class HelpCommand extends CoreObject {
 
     public HelpCommand() {
-        CommandBuilder commandBuilder = new CommandBuilder("Core", "Help", true);
+        CommandBuilder commandBuilder = new CommandBuilder("Member", "Help", true);
         commandBuilder.setDescription("View the commands you can access.");
         commandBuilder.setCommandExecutor((data) -> {
             try {

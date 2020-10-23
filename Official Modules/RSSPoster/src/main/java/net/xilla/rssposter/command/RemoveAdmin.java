@@ -8,7 +8,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.command.permission.DiscordUser;
-import net.xilla.discordcore.command.response.CoreCommandResponse;
+import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.rssposter.server.ServerSettings;
 import org.json.simple.JSONArray;
 

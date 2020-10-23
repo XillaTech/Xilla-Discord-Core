@@ -7,7 +7,7 @@ import net.xilla.core.library.manager.XillaManager;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.core.Platform;
 import net.xilla.discordcore.core.command.CommandManager;
-import net.xilla.discordcore.core.staff.GroupManager;
+import net.xilla.discordcore.core.permission.group.GroupManager;
 
 public class Module extends ManagerObject {
 

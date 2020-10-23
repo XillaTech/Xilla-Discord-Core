@@ -60,4 +60,9 @@ public class ServerSettings extends Config {
         return get("admins");
     }
 
+
+    public void setAdmins(JSONArray array) {
+        set("admins", array);
+    }
+
 }

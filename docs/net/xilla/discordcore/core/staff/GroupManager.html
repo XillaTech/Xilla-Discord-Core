@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../net/xilla/discordcore/core/staff/GroupEventHandler.html" title="class in net.xilla.discordcore.core.staff"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../net/xilla/discordcore/core/staff/GroupEventHandler.html" title="class in net.xilla.discordcore.core.permission"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
@@ -91,7 +91,7 @@ var activeTableTab = "activeTableTab";
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">net.xilla.discordcore.core.staff</div>
+<div class="subTitle">net.xilla.discordcore.core.permission</div>
 <h2 title="Class GroupManager" class="title">Class GroupManager</h2>
 </div>
 <div class="contentContainer">
@@ -102,10 +102,10 @@ var activeTableTab = "activeTableTab";
 <li>com.tobiassteely.tobiasapi.api.TobiasObject</li>
 <li>
 <ul class="inheritance">
-<li>com.tobiassteely.tobiasapi.api.manager.ManagerParent&lt;<a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.staff">Group</a>&gt;</li>
+<li>com.tobiassteely.tobiasapi.api.manager.ManagerParent&lt;<a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.permission">Group</a>&gt;</li>
 <li>
 <ul class="inheritance">
-<li>net.xilla.discordcore.core.staff.GroupManager</li>
+<li>net.xilla.discordcore.core.permission.group.GroupManager</li>
 </ul>
 </li>
 </ul>
@@ -119,7 +119,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">GroupManager</span>
-extends com.tobiassteely.tobiasapi.api.manager.ManagerParent&lt;<a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.staff">Group</a>&gt;</pre>
+extends com.tobiassteely.tobiasapi.api.manager.ManagerParent&lt;<a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.permission">Group</a>&gt;</pre>
 </li>
 </ul>
 </div>
@@ -157,18 +157,18 @@ extends com.tobiassteely.tobiasapi.api.manager.ManagerParent&lt;<a href="../../.
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/xilla/discordcore/core/staff/GroupManager.html#addGroup-net.xilla.discordcore.core.staff.Group-">addGroup</a></span>(<a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.staff">Group</a>&nbsp;staff)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/xilla/discordcore/core/staff/GroupManager.html#addGroup-net.xilla.discordcore.core.permission.group.DiscordGroup-">addGroup</a></span>(<a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.permission">Group</a>&nbsp;staff)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.staff">Group</a></code></td>
+<td class="colFirst"><code><a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.permission">Group</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/xilla/discordcore/core/staff/GroupManager.html#getGroup-java.lang.String-">getGroup</a></span>(java.lang.String&nbsp;id)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.staff">Group</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.List&lt;<a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.permission">Group</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/xilla/discordcore/core/staff/GroupManager.html#getGroupsByName-java.lang.String-">getGroupsByName</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>java.util.ArrayList&lt;<a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.staff">Group</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.ArrayList&lt;<a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.permission">Group</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/xilla/discordcore/core/staff/GroupManager.html#getStaffByUserId-net.dv8tion.jda.api.entities.Guild-java.lang.String-">getStaffByUserId</a></span>(net.dv8tion.jda.api.entities.Guild&nbsp;guild,
                 java.lang.String&nbsp;id)</code>&nbsp;</td>
 </tr>
@@ -238,7 +238,7 @@ extends com.tobiassteely.tobiasapi.api.manager.ManagerParent&lt;<a href="../../.
 <pre>public&nbsp;void&nbsp;reload()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>reload</code>&nbsp;in class&nbsp;<code>com.tobiassteely.tobiasapi.api.manager.ManagerParent&lt;<a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.staff">Group</a>&gt;</code></dd>
+<dd><code>reload</code>&nbsp;in class&nbsp;<code>com.tobiassteely.tobiasapi.api.manager.ManagerParent&lt;<a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.permission">Group</a>&gt;</code></dd>
 </dl>
 </li>
 </ul>
@@ -248,7 +248,7 @@ extends com.tobiassteely.tobiasapi.api.manager.ManagerParent&lt;<a href="../../.
 <ul class="blockList">
 <li class="blockList">
 <h4>getStaffByUserId</h4>
-<pre>public&nbsp;java.util.ArrayList&lt;<a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.staff">Group</a>&gt;&nbsp;getStaffByUserId(net.dv8tion.jda.api.entities.Guild&nbsp;guild,
+<pre>public&nbsp;java.util.ArrayList&lt;<a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.permission">Group</a>&gt;&nbsp;getStaffByUserId(net.dv8tion.jda.api.entities.Guild&nbsp;guild,
                                                    java.lang.String&nbsp;id)</pre>
 </li>
 </ul>
@@ -258,7 +258,7 @@ extends com.tobiassteely.tobiasapi.api.manager.ManagerParent&lt;<a href="../../.
 <ul class="blockList">
 <li class="blockList">
 <h4>getGroupsByName</h4>
-<pre>public&nbsp;java.util.List&lt;<a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.staff">Group</a>&gt;&nbsp;getGroupsByName(java.lang.String&nbsp;name)</pre>
+<pre>public&nbsp;java.util.List&lt;<a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.permission">Group</a>&gt;&nbsp;getGroupsByName(java.lang.String&nbsp;name)</pre>
 </li>
 </ul>
 <a name="getGroup-java.lang.String-">
@@ -267,16 +267,16 @@ extends com.tobiassteely.tobiasapi.api.manager.ManagerParent&lt;<a href="../../.
 <ul class="blockList">
 <li class="blockList">
 <h4>getGroup</h4>
-<pre>public&nbsp;<a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.staff">Group</a>&nbsp;getGroup(java.lang.String&nbsp;id)</pre>
+<pre>public&nbsp;<a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.permission">Group</a>&nbsp;getGroup(java.lang.String&nbsp;id)</pre>
 </li>
 </ul>
-<a name="addGroup-net.xilla.discordcore.core.staff.Group-">
+<a name="addGroup-net.xilla.discordcore.core.permission.group.DiscordGroup-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>addGroup</h4>
-<pre>public&nbsp;void&nbsp;addGroup(<a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.staff">Group</a>&nbsp;staff)</pre>
+<pre>public&nbsp;void&nbsp;addGroup(<a href="../../../../../net/xilla/discordcore/core/staff/Group.html" title="class in net.xilla.discordcore.core.permission">Group</a>&nbsp;staff)</pre>
 </li>
 </ul>
 </li>
@@ -306,7 +306,7 @@ extends com.tobiassteely.tobiasapi.api.manager.ManagerParent&lt;<a href="../../.
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../net/xilla/discordcore/core/staff/GroupEventHandler.html" title="class in net.xilla.discordcore.core.staff"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../net/xilla/discordcore/core/staff/GroupEventHandler.html" title="class in net.xilla.discordcore.core.permission"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">

@@ -4,6 +4,7 @@ package net.xilla.discordcore.core.command;
 import net.xilla.core.log.LogLevel;
 import net.xilla.core.log.Logger;
 import net.xilla.discordcore.DiscordCore;
+import net.xilla.discordcore.core.command.handler.ConsoleUser;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;

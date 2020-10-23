@@ -75,7 +75,7 @@ public class JSONEmbed {
             }
 
             if (embed.getFooter() != null) {
-                json.put("footer", embed.getFooter());
+                json.put("footer", embed.getFooter().getText());
             }
 
             if (embed.getUrl() != null) {

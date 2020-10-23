@@ -2,7 +2,7 @@ package net.xilla.discordcore;
 
 import net.md_5.bungee.api.plugin.Plugin;
 import net.xilla.discordcore.core.Platform;
-import net.xilla.discordcore.core.cmd.BungeeCommand;
+import net.xilla.discordcore.core.command.handler.BungeeCommand;
 
 public class DiscordCoreBungee extends Plugin {
 

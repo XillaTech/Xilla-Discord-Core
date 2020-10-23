@@ -1,18 +1,15 @@
 package net.xilla.discordcore.core;
 
-import lombok.Getter;
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.xilla.core.library.manager.XillaManager;
-import net.xilla.core.library.worker.WorkerManager;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.DiscordCore;
-import net.xilla.discordcore.command.CommandWorker;
 import net.xilla.discordcore.command.cmd.*;
-import net.xilla.discordcore.command.response.CoreCommandResponder;
-import net.xilla.discordcore.command.response.CoreCommandResponse;
+import net.xilla.discordcore.core.command.response.CoreCommandResponder;
+import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.command.template.TemplateManager;
+import net.xilla.discordcore.core.permission.user.UserManager;
 import net.xilla.discordcore.core.server.ServerManager;
-import net.xilla.discordcore.core.staff.GroupManager;
+import net.xilla.discordcore.core.permission.group.GroupManager;
 
 import java.awt.*;
 
@@ -20,14 +17,15 @@ public class Platform extends CoreObject {
 
     private String type;
     private GroupManager groupManager;
+    private UserManager userManager;
     private TemplateManager templateManager;
     private ServerManager serverManager;
     private CoreWorker coreWorker;
-    private CommandWorker commandWorker;
 
     public Platform(String type) {
         this.type = type;
         this.groupManager = new GroupManager();
+        this.userManager = new UserManager();
         this.coreWorker = new CoreWorker();
         this.serverManager = new ServerManager();
 
@@ -40,14 +38,9 @@ public class Platform extends CoreObject {
         new EndCommand();
         new RestartCommand();
         new TemplateCommand();
-        new SettingsCommand();
+        new CoreSettingsCommand();
         new EmbedCommand();
         new CoreCommands();
-
-        if(getCommandSettings().isRateLimit()) {
-            this.commandWorker = new CommandWorker();
-            commandWorker.start();
-        }
 
         DiscordCore.getInstance().getCommandManager().setPermissionError((args, data) -> {
             EmbedBuilder builder = new EmbedBuilder().setTitle("Error!");
@@ -90,5 +83,9 @@ public class Platform extends CoreObject {
 
     public TemplateManager getTemplateManager() {
         return templateManager;
+    }
+
+    public UserManager getUserManager() {
+        return userManager;
     }
 }
