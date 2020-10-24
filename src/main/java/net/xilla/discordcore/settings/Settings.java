@@ -18,7 +18,7 @@ public class Settings extends ManagerObject {
         this.config = new Config(configName);
         ConfigManager.getInstance().put(config);
         this.installer = new Installer(config);
-        DiscordCore.getInstance().getSettingsManager().addSettings(this);
+        DiscordCore.getInstance().getSettingsManager().put(this);
     }
 
     public Config getConfig() {

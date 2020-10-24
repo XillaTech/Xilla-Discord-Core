@@ -30,7 +30,7 @@ public class CoreCommands extends CoreObject {
     public void coreInfo() {
         CommandBuilder commandBuilder = new CommandBuilder("Core", "CoreInfo", true);
         commandBuilder.setPermission("core.coreinfo");
-        commandBuilder.setActivators("ci");
+        commandBuilder.setActivators("coreinfo", "ci");
         commandBuilder.setDescription("Get the discord core's information");
         commandBuilder.setCommandExecutor((data) -> {
             EmbedBuilder embedBuilder = new EmbedBuilder().setTitle("Core Info");
@@ -163,10 +163,12 @@ public class CoreCommands extends CoreObject {
                 StringBuilder mtb = new StringBuilder();
                 int mloop = 0;
                 for (Manager manager : new ArrayList<>(XillaManager.getInstance().getData().values())) {
-                    mtb.append("> ").append(manager.getName()).append(" (" ).append(manager.getData().size()).append(")");
-                    mloop++;
-                    if(mloop != XillaManager.getInstance().getData().size()) {
-                        mtb.append("\n");
+                    if(!manager.getName().contains("-")) {
+                        mtb.append("> ").append(manager.getName()).append(" (").append(manager.getData().size()).append(")");
+                        mloop++;
+                        if (mloop != XillaManager.getInstance().getData().size()) {
+                            mtb.append("\n");
+                        }
                     }
                 }
                 if(getDiscordCore().getPlatform().getServerManager().getData().size() > 0) {

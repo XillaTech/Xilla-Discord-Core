@@ -11,18 +11,19 @@ import net.xilla.core.library.worker.Worker;
 import net.xilla.core.library.worker.WorkerManager;
 import net.xilla.core.log.LogLevel;
 import net.xilla.core.log.Logger;
-import net.xilla.discordcore.core.CommandCheck;
-import net.xilla.discordcore.core.command.handler.CommandEventHandler;
 import net.xilla.discordcore.command.ServerSettings;
+import net.xilla.discordcore.core.CommandCheck;
 import net.xilla.discordcore.core.CoreSettings;
 import net.xilla.discordcore.core.Platform;
 import net.xilla.discordcore.core.command.CommandManager;
+import net.xilla.discordcore.core.command.handler.CommandEventHandler;
 import net.xilla.discordcore.core.permission.group.GroupManager;
 import net.xilla.discordcore.embed.EmbedManager;
 import net.xilla.discordcore.form.form.FormHandler;
 import net.xilla.discordcore.form.form.FormManager;
 import net.xilla.discordcore.module.Module;
 import net.xilla.discordcore.module.ModuleManager;
+import net.xilla.discordcore.settings.GuildSettingsManager;
 import net.xilla.discordcore.settings.Settings;
 import net.xilla.discordcore.settings.SettingsManager;
 import net.xilla.discordcore.startup.PostStartupExecutor;
@@ -103,6 +104,12 @@ public class DiscordCore extends CoreObject {
     private SettingsManager settingsManager;
 
     /**
+     * This manager is used to manager the guild settings files loaded by the core
+     */
+    @Getter
+    private GuildSettingsManager guildSettingsManager;
+
+    /**
      * This manager is used to disable commands and modules per discord server
      */
     @Getter
@@ -140,6 +147,7 @@ public class DiscordCore extends CoreObject {
 
         // Loads Core Settings
         this.settingsManager = new SettingsManager();
+        this.guildSettingsManager = new GuildSettingsManager();
         this.settings = new CoreSettings();
         this.commandSettings = new ServerSettings();
         this.getCommandManager().setCommandRunCheck(new CommandCheck());

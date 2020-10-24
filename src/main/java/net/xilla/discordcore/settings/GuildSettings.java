@@ -1,11 +1,14 @@
 package net.xilla.discordcore.settings;
 
 import net.dv8tion.jda.api.entities.Guild;
+import net.xilla.core.library.json.XillaJson;
+import net.xilla.core.library.manager.ManagerObject;
+import net.xilla.discordcore.DiscordCore;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class GuildSettings {
+public class GuildSettings extends ManagerObject {
 
     private String name;
     private String folder;
@@ -13,10 +16,12 @@ public class GuildSettings {
     private Map<String, Object> defaults;
 
     public GuildSettings(String name, String folder) {
+        super(name, "GuildSettings");
         this.name = name;
         this.folder = folder;
         this.settingsMap = new HashMap<>();
         this.defaults = new HashMap<>();
+        DiscordCore.getInstance().getGuildSettingsManager().put(this);
     }
 
     public void setDefault(String key, Object obj) {
@@ -49,6 +54,16 @@ public class GuildSettings {
             settingsMap.put(guildID, settings);
         }
         return settingsMap.get(guildID);
+    }
+
+    @Override
+    public XillaJson getSerializedData() {
+        return null;
+    }
+
+    @Override
+    public void loadSerializedData(XillaJson xillaJson) {
+
     }
 
 }

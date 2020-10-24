@@ -89,7 +89,7 @@ public class CommandBuilder extends CoreObject {
             this.usage = name.toLowerCase();
         }
         if(description == null) {
-            this.usage = "Command belongs to module: " + module;
+            this.description = "Command belongs to module: " + module;
         }
         Command command = new Command(module, name, activators, usage, description, permission, Collections.singletonList(commandExecutor), consoleSupported);
 

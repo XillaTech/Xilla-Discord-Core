@@ -10,10 +10,6 @@ public class SettingsManager extends Manager<Settings> {
         super("Settings");
     }
 
-    public void addSettings(Settings settings) {
-        put(settings);
-    }
-
     public Settings getSettings(String name) {
         return get(name);
     }

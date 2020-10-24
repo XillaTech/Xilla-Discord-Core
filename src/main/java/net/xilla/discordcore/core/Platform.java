@@ -33,12 +33,14 @@ public class Platform extends CoreObject {
         this.templateManager = new TemplateManager();
 
         new ModulesCommand();
-        new StaffCommand();
+        new GroupManagerCommand();
+        new UserManagerCommand();
         new HelpCommand();
         new EndCommand();
         new RestartCommand();
         new TemplateCommand();
         new CoreSettingsCommand();
+        new SettingsCommand();
         new EmbedCommand();
         new CoreCommands();
 

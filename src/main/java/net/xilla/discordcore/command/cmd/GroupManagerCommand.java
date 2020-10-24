@@ -14,9 +14,9 @@ import net.xilla.discordcore.core.permission.group.DiscordGroup;
 
 import java.util.ArrayList;
 
-public class StaffCommand extends CoreObject {
+public class GroupManagerCommand extends CoreObject {
 
-    public StaffCommand() {
+    public GroupManagerCommand() {
         CommandBuilder commandBuilder = new CommandBuilder("Admin", "GroupManager", true);
         commandBuilder.setActivators("groupmanager", "gm");
         commandBuilder.setDescription("View and manage your groups");
@@ -121,10 +121,10 @@ public class StaffCommand extends CoreObject {
                 if(group == null) {
                     description.append("That is not a valid group!");
                 } else {
-                    description.append("Name: ").append(group.getName()).append("\n");
-                    description.append("Role ID: ").append(group.getGroupID()).append("\n");
-                    description.append("Server ID: ").append(group.getServerID()).append("\n");
-                    description.append("Permissions: \n");
+                    description.append("**Name:** ").append(group.getName()).append("\n");
+                    description.append("**Role ID:** ").append(group.getGroupID()).append("\n");
+                    description.append("**Server ID:** ").append(group.getServerID()).append("\n");
+                    description.append("**Permissions:** \n");
 
                     for(String perm : group.getPermissions()) {
                         description.append("> ").append(perm).append("\n");
@@ -175,7 +175,7 @@ public class StaffCommand extends CoreObject {
                 if(group == null) {
                     description.append("That is not a valid group!");
                 } else {
-                    String permission = data.getArgs()[1];
+                    String permission = data.getArgs()[1 + getData];
                     if(permission.toLowerCase().startsWith("core.")) {
                         if(!PermissionAPI.hasPermission(event.getMember(), "core.admin")) {
                             description.append("You do not have permission (core.admin) to remove that permission!");
