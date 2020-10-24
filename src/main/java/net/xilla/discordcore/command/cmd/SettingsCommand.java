@@ -3,6 +3,7 @@ package net.xilla.discordcore.command.cmd;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.settings.GuildSettings;
@@ -131,6 +132,62 @@ public class SettingsCommand extends CoreObject {
                         }
                     }
                 }
+            } else if(data.getArgs().length >= 3 && data.getArgs()[0].equalsIgnoreCase("block")) {
+
+                StringBuilder value = new StringBuilder();
+                for(int i = 2; i < data.getArgs().length; i++) {
+                    value.append(data.getArgs()[i]);
+                    if(i != data.getArgs().length - 1) {
+                        value.append(" ");
+                    }
+                }
+
+                if(value.toString().equalsIgnoreCase("settings")
+                                || value.toString().equalsIgnoreCase("s")
+                                || value.toString().equalsIgnoreCase("admin")
+                                || value.toString().equalsIgnoreCase("core")) {
+                    description = new StringBuilder();
+                    description.append("You cannot block that command/module.");
+                }
+
+                if(description == null && data.getArgs()[1].equalsIgnoreCase("module")) {
+                    description = new StringBuilder();
+
+                    DiscordCore.getInstance().getServerSettings().addModule(event.getGuild(), value.toString().toLowerCase());
+
+                    description.append("You have blocked that module.");
+                }
+                if(description == null && data.getArgs()[1].equalsIgnoreCase("command")) {
+                    description = new StringBuilder();
+
+                    DiscordCore.getInstance().getServerSettings().addCommand(event.getGuild(), value.toString().toLowerCase());
+
+                    description.append("You have blocked that command.");
+                }
+            } else if(data.getArgs().length >= 3 && data.getArgs()[0].equalsIgnoreCase("unblock")) {
+
+                StringBuilder value = new StringBuilder();
+                for(int i = 2; i < data.getArgs().length; i++) {
+                    value.append(data.getArgs()[i]);
+                    if(i != data.getArgs().length - 1) {
+                        value.append(" ");
+                    }
+                }
+
+                if(data.getArgs()[1].equalsIgnoreCase("module")) {
+                    description = new StringBuilder();
+
+                    DiscordCore.getInstance().getServerSettings().removeModule(event.getGuild(), value.toString().toLowerCase());
+
+                    description.append("You have unblocked that module.");
+                }
+                if(data.getArgs()[1].equalsIgnoreCase("command")) {
+                    description = new StringBuilder();
+
+                    DiscordCore.getInstance().getServerSettings().removeCommand(event.getGuild(), value.toString().toLowerCase());
+
+                    description.append("You have unblocked that command.");
+                }
             }
 
             if(description == null) {
@@ -138,12 +195,18 @@ public class SettingsCommand extends CoreObject {
 
                 description.append(getPrefix()).append("s set (config) (key) (value) - Set value\n");
                 description.append(getPrefix()).append("s info (config) - List config information\n");
+                description.append(getPrefix()).append("s block module (module) - Block a module\n");
+                description.append(getPrefix()).append("s block command (command) - Block a command\n");
+                description.append(getPrefix()).append("s unblock module (module) - Unblock a module\n");
+                description.append(getPrefix()).append("s unblock command (command) - Unblock a command\n");
                 description.append(getPrefix()).append("s list - List available configs\n");
             }
 
             EmbedBuilder embedBuilder = new EmbedBuilder();
             embedBuilder.setTitle("Server Settings");
-            embedBuilder.setColor(getColor());
+            if(event != null) {
+                embedBuilder.setColor(getColor(event.getGuild()));
+            }
             embedBuilder.setDescription(description.toString());
             return new CoreCommandResponse(data).setEmbed(embedBuilder.build());
         });

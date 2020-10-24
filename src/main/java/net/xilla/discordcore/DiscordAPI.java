@@ -86,7 +86,7 @@ public class DiscordAPI {
      * @return ServerSettings
      */
     public static ServerSettings getCommandSettings() {
-        return DiscordCore.getInstance().getCommandSettings();
+        return DiscordCore.getInstance().getServerSettings();
     }
 
     /**
@@ -216,6 +216,26 @@ public class DiscordAPI {
      */
     public static Color getColor() {
         return Color.decode(getCoreSetting().getEmbedColor());
+    }
+
+    /**
+     * Returns the built color from the Discord Core for embeds from a guild
+     *
+     * @param guild Guild
+     * @return Color
+     */
+    public static Color getColor(Guild guild) {
+        return DiscordCore.getInstance().getServerSettings().getColor(guild);
+    }
+
+    /**
+     * Returns the built color from the Discord Core for embeds from a guild
+     *
+     * @param guildID Guild ID
+     * @return Color
+     */
+    public static Color getColor(String guildID) {
+        return DiscordCore.getInstance().getServerSettings().getColor(guildID);
     }
 
     /**

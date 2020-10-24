@@ -3,6 +3,7 @@ package net.xilla.discordcore.core.command;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.core.log.LogLevel;
 import net.xilla.core.log.Logger;
+import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.core.command.flag.FlagManager;
 import net.xilla.discordcore.core.command.handler.ConsoleUser;
 import net.xilla.discordcore.core.command.permission.user.PermissionUser;
@@ -58,21 +59,25 @@ public class CommandManager extends Manager<Command> {
         String commandInput = input.split(" ")[0].toLowerCase();
         String[] args = Arrays.copyOfRange(input.split(" "), 1, input.split(" ").length);
 
-        if(runCommand(new CommandData(commandInput, args, null, inputType, user))) {
-            return;
-        }
+        Command command = getCache("activators").getObject(commandInput);
 
-        if(user instanceof ConsoleUser) {
+        runCommand(new CommandData(commandInput, args, null, inputType, user));
+
+        if(user instanceof ConsoleUser && command == null) {
             Logger.log(LogLevel.WARN, "Unknown command, type \"?\" for a list of available commands.", getClass());
         }
     }
 
-    public boolean runCommand(CommandData data) {
+    public void runCommand(CommandData data) {
         if(getCache("activators").isCached(data.getCommand().toLowerCase())) {
             Command basicCommand = getCache("activators").getObject(data.getCommand().toLowerCase());
 
             if(!basicCommand.isConsoleSupported() && data.getUser() instanceof ConsoleUser) {
-                return false;
+                return;
+            }
+
+            if(!DiscordCore.getInstance().getServerSettings().canRunCommand(data)) {
+                return;
             }
 
             if(commandRunCheck.check(data)) {
@@ -86,12 +91,7 @@ public class CommandManager extends Manager<Command> {
                 };
                 executor.submit(callableTask);
             }
-
-            return true;
-        } else {
-            return false;
         }
-
     }
 
     public List<Command> getCommandsByModule(String module) {

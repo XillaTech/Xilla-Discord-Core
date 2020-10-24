@@ -1,12 +1,11 @@
 package net.xilla.discordcore.command.cmd;
 
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.xilla.core.library.manager.ManagerObject;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
-import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.core.command.Command;
+import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -21,19 +20,18 @@ public class HelpCommand extends CoreObject {
             try {
             HashMap<String, ArrayList<String>> commands = new HashMap<>();
 
-            for(ManagerObject object : new ArrayList<>(DiscordCore.getInstance().getCommandManager().getData().values())) {
-                Command legacyCommand = (Command) object;
-                if (getCommandSettings().isCommand(data, legacyCommand.getName())) {
-                    String finalName = legacyCommand.getModule().substring(0, 1).toUpperCase() + legacyCommand.getModule().substring(1).toLowerCase();
+            for(Command command : new ArrayList<>(DiscordCore.getInstance().getCommandManager().getData().values())) {
+                if (getServerSettings().canRunCommand(data, command.getName())) {
+                    String finalName = command.getModule().substring(0, 1).toUpperCase() + command.getModule().substring(1).toLowerCase();
 
                     if (data.getInputType().equalsIgnoreCase("commandline")) {
-                        if (legacyCommand.isConsoleSupported()) {
+                        if (command.isConsoleSupported()) {
                             if (!commands.containsKey(finalName)) {
                                 commands.put(finalName, new ArrayList<>());
                             }
 
-                            if (legacyCommand.getPermission() == null || data.getUser().hasPermission(legacyCommand.getPermission())) {
-                                commands.get(finalName).add(getCoreSetting().getCommandPrefix() + legacyCommand.getUsage() + " - " + legacyCommand.getDescription());
+                            if (command.getPermission() == null || data.getUser().hasPermission(command.getPermission())) {
+                                commands.get(finalName).add(getCoreSetting().getCommandPrefix() + command.getUsage() + " - " + command.getDescription());
                             }
                         }
                     } else {
@@ -41,8 +39,8 @@ public class HelpCommand extends CoreObject {
                             commands.put(finalName, new ArrayList<>());
                         }
 
-                        if (legacyCommand.getPermission() == null || data.getUser().hasPermission(legacyCommand.getPermission())) {
-                            commands.get(finalName).add(getCoreSetting().getCommandPrefix() + legacyCommand.getUsage() + " - " + legacyCommand.getDescription());
+                        if (command.getPermission() == null || data.getUser().hasPermission(command.getPermission())) {
+                            commands.get(finalName).add(getCoreSetting().getCommandPrefix() + command.getUsage() + " - " + command.getDescription());
                         }
                     }
                 }

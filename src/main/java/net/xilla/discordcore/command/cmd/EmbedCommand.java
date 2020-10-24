@@ -230,7 +230,9 @@ public class EmbedCommand extends CoreObject {
 
             EmbedBuilder embedBuilder = new EmbedBuilder();
             embedBuilder.setTitle("Embed Manager");
-            embedBuilder.setColor(getColor());
+            if(data.get() instanceof MessageReceivedEvent) {
+                embedBuilder.setColor(getColor(((MessageReceivedEvent)data.get()).getGuild()));
+            }
             embedBuilder.setDescription(response);
             return new CoreCommandResponse(data).setEmbed(embedBuilder.build());
         });

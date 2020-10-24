@@ -8,7 +8,7 @@ public class CommandCheck extends CoreObject implements CommandRunCheck {
 
     @Override
     public boolean check(CommandData commandData) {
-        return getCommandSettings().isCommand(commandData);
+        return getServerSettings().canRunCommand(commandData);
     }
 
 }

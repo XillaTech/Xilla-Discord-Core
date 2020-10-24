@@ -226,7 +226,9 @@ public class GroupManagerCommand extends CoreObject {
 
             EmbedBuilder builder = new EmbedBuilder().setTitle("Staff");
             builder.setDescription(description.toString());
-            builder.setColor(getColor());
+            if(data.get() instanceof MessageReceivedEvent) {
+                builder.setColor(getColor(((MessageReceivedEvent)data.get()).getGuild()));
+            }
 
             return new CoreCommandResponse(data).setEmbed(builder.build());
         };

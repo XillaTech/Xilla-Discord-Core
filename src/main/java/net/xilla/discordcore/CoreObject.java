@@ -41,8 +41,8 @@ public class CoreObject extends XillaLibrary {
         return DiscordCore.getInstance().getPlatform();
     }
 
-    public ServerSettings getCommandSettings() {
-        return DiscordCore.getInstance().getCommandSettings();
+    public ServerSettings getServerSettings() {
+        return DiscordCore.getInstance().getServerSettings();
     }
 
     public Message getMessage(String channelID, String messageID) {
@@ -159,6 +159,14 @@ public class CoreObject extends XillaLibrary {
 
     public Color getColor() {
         return Color.decode(getCoreSetting().getEmbedColor());
+    }
+
+    public Color getColor(String guildID) {
+        return DiscordCore.getInstance().getServerSettings().getColor(guildID);
+    }
+
+    public Color getColor(Guild guild) {
+        return DiscordCore.getInstance().getServerSettings().getColor(guild);
     }
 
     public boolean sendPM(User user, EmbedBuilder embedBuilder) {

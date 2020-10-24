@@ -7,7 +7,6 @@ net\xilla\discordcore\command\template\type\EmbedCommand.class
 net\xilla\discordcore\embed\EmbedStorage.class
 net\xilla\discordcore\core\manager\GuildManager$1.class
 net\xilla\discordcore\startup\PostStartupExecutor.class
-net\xilla\discordcore\core\server\ServerSettings.class
 net\xilla\discordcore\command\template\type\TextCommand.class
 net\xilla\discordcore\core\command\CommandWorker.class
 net\xilla\discordcore\core\command\CommandPermissionError.class
@@ -57,7 +56,6 @@ net\xilla\discordcore\core\server\ServerManager.class
 net\xilla\discordcore\core\permission\group\DiscordGroup.class
 net\xilla\discordcore\core\permission\group\GroupManager.class
 net\xilla\discordcore\core\command\event\SpigotCommandEvent.class
-net\xilla\discordcore\command\cmd\StaffCommand.class
 net\xilla\discordcore\core\permission\user\UserManager.class
 net\xilla\discordcore\core\Platform.class
 net\xilla\discordcore\module\JavaModule.class

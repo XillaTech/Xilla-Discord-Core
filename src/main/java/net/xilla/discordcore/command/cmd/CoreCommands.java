@@ -5,6 +5,7 @@ import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.core.library.manager.ManagerObject;
 import net.xilla.core.library.manager.XillaManager;
@@ -182,7 +183,9 @@ public class CoreCommands extends CoreObject {
                             + getPrefix() + "ci manager (manager name)\n" + getPrefix() + "ci object (manager name) (object name)");
                 }
             }
-            embedBuilder.setColor(getColor());
+            if(data.get() instanceof MessageReceivedEvent) {
+                embedBuilder.setColor(getColor(((MessageReceivedEvent)data.get()).getGuild()));
+            }
             return new CoreCommandResponse(data).setEmbed(embedBuilder.build());
         });
         commandBuilder.build();

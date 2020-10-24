@@ -2,13 +2,13 @@ package net.xilla.discordcore.command;
 
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.xilla.discordcore.DiscordAPI;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.core.command.Command;
 import net.xilla.discordcore.core.command.CommandData;
 import net.xilla.discordcore.settings.GuildSettings;
-import net.xilla.discordcore.settings.Settings;
-import org.json.simple.JSONArray;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,38 +16,24 @@ public class ServerSettings extends GuildSettings {
 
     public ServerSettings() {
         super("Server-Settings", "servers/settings/");
-        setDefault("rate-limit-toggle", true);
-        setDefault("rate-limit", 3);
-        setDefault("rate-limit-seconds", 5);
+        setDefault("embed-color", DiscordAPI.getCoreSetting().getEmbedColor());
         setDefault("disabled-modules", new ArrayList<String>());
         setDefault("disabled-commands", new ArrayList<String>());
     }
 
-    public boolean isRateLimit(Guild guild) {
-        return get(guild, "rate-limit-toggle");
+    public boolean canRunCommand(CommandData data) {
+        return canRunCommand(data, data.getCommand());
     }
 
-    public int getRateLimit(Guild guild) {
-        return Integer.parseInt(get(guild, "rate-limit").toString());
-    }
-
-    public int getRateLimitSeconds(Guild guild) {
-        return Integer.parseInt(get(guild, "rate-limit-seconds").toString());
-    }
-
-    public boolean isCommand(CommandData data) {
-        return isCommand(data, data.getCommand());
-    }
-
-    public boolean isCommand(CommandData data, String command) {
+    public boolean canRunCommand(CommandData data, String command) {
         if(data.get() instanceof MessageReceivedEvent) {
             MessageReceivedEvent event = (MessageReceivedEvent)data.get();
 
             List<String> commands = get(event.getGuild(), "disabled-commands");
             List<String> modules = get(event.getGuild(), "disabled-modules");
-            Command cmd = DiscordCore.getInstance().getCommandManager().getCommand(data.getCommand());
+            Command cmd = DiscordCore.getInstance().getCommandManager().getCommand(command);
 
-            if (commands.contains(command.toLowerCase()) && modules.contains(cmd.getModule().toLowerCase()) ) {
+            if (commands.contains(command.toLowerCase()) || modules.contains(cmd.getModule().toLowerCase())) {
                 return false;
             } else {
                 return true;
@@ -88,6 +74,14 @@ public class ServerSettings extends GuildSettings {
     public void removeServer(String serverID) {
         getSettings(serverID).getConfig().clear();
         getSettings(serverID).getConfig().save();
+    }
+
+    public Color getColor(Guild guild) {
+        return Color.decode(get(guild, "embed-color").toString());
+    }
+
+    public Color getColor(String guildID) {
+        return Color.decode(get(guildID, "embed-color").toString());
     }
 
 }

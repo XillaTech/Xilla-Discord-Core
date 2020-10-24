@@ -113,7 +113,7 @@ public class DiscordCore extends CoreObject {
      * This manager is used to disable commands and modules per discord server
      */
     @Getter
-    private ServerSettings commandSettings;
+    private ServerSettings serverSettings;
 
     /**
      * This manager is used to run events after the core has connected
@@ -149,7 +149,7 @@ public class DiscordCore extends CoreObject {
         this.settingsManager = new SettingsManager();
         this.guildSettingsManager = new GuildSettingsManager();
         this.settings = new CoreSettings();
-        this.commandSettings = new ServerSettings();
+        this.serverSettings = new ServerSettings();
         this.getCommandManager().setCommandRunCheck(new CommandCheck());
 
         this.formManager = new FormManager();
@@ -260,7 +260,7 @@ public class DiscordCore extends CoreObject {
         this.bot = null;
         this.formManager = null;
         this.postStartupManager = null;
-        this.commandSettings = null;
+        this.serverSettings = null;
         this.settings = null;
         this.platform = null;
         this.type = null;

@@ -11,7 +11,6 @@ public class CoreServer extends ManagerObject {
     private Guild guild;
     private int members;
     private long lastUpdated;
-    private ServerSettings settings;
 
     public CoreServer(Guild guild) {
         super(guild.getId(), "Servers");

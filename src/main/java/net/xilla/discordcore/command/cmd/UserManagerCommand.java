@@ -194,7 +194,9 @@ public class UserManagerCommand extends CoreObject {
 
            EmbedBuilder embedBuilder = new EmbedBuilder();
            embedBuilder.setTitle("User Manager");
-           embedBuilder.setColor(getColor());
+           if(event != null) {
+               embedBuilder.setColor(getColor(event.getGuild()));
+           }
            embedBuilder.setDescription(response.toString());
            return new CoreCommandResponse(data).setEmbed(embedBuilder.build());
         });
