@@ -1,4 +1,6 @@
 package net.xilla.community.invite;
 
-public class InviteCommands {
+import net.xilla.discordcore.CoreObject;
+
+public class InviteCommands extends CoreObject {
 }

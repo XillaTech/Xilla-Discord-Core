@@ -21,6 +21,7 @@ public class UserManagerCommand extends CoreObject {
     public UserManagerCommand() {
         CommandBuilder builder = new CommandBuilder("Admin", "UserManager", true);
         builder.setActivators("usermanager", "um");
+        builder.setPermission("staff.admin");
         builder.setDescription("Manage your users permissions.");
         builder.setCommandExecutor(data -> {
            StringBuilder response = null;

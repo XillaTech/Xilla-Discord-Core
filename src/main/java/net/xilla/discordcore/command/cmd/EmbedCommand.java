@@ -1,6 +1,7 @@
 package net.xilla.discordcore.command.cmd;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.DiscordCore;
@@ -9,9 +10,11 @@ import net.xilla.discordcore.core.CoreCommandExecutor;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.embed.EmbedStorage;
 import net.xilla.discordcore.embed.JSONEmbed;
+import org.json.simple.JSONObject;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,7 +35,11 @@ public class EmbedCommand extends CoreObject {
             if(data.getInputType().equals(CoreCommandExecutor.discord_input)) {
 
                 EmbedBuilder embedBuilder = new EmbedBuilder();
-                embedBuilder.setColor(Color.decode(getDiscordCore().getCoreSetting().getEmbedColor()));
+
+                if(data.get() instanceof MessageReceivedEvent) {
+                    embedBuilder = getEmbed((MessageReceivedEvent)data.get());
+                }
+
                 if(data.getArgs().length > 0) {
 
                     MessageReceivedEvent event = (MessageReceivedEvent) data.get();
@@ -229,6 +236,11 @@ public class EmbedCommand extends CoreObject {
             }
 
             EmbedBuilder embedBuilder = new EmbedBuilder();
+
+            if(data.get() instanceof MessageReceivedEvent) {
+                embedBuilder = getEmbed((MessageReceivedEvent)data.get());
+            }
+
             embedBuilder.setTitle("Embed Manager");
             if(data.get() instanceof MessageReceivedEvent) {
                 embedBuilder.setColor(getColor(((MessageReceivedEvent)data.get()).getGuild()));

@@ -1,4 +1,6 @@
 package net.xilla.community.punishment;
 
-public class PunishmentCommands {
+import net.xilla.discordcore.CoreObject;
+
+public class PunishmentCommands extends CoreObject {
 }

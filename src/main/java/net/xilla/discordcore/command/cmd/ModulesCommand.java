@@ -1,12 +1,11 @@
 package net.xilla.discordcore.command.cmd;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.command.CommandBuilder;
-import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.core.command.CommandExecutor;
-
-import java.awt.*;
+import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 
 public class ModulesCommand extends CoreObject {
 
@@ -21,9 +20,14 @@ public class ModulesCommand extends CoreObject {
 
     public CommandExecutor getExecutor() {
         return (data) -> {
-            EmbedBuilder builder = new EmbedBuilder().setTitle("Module Market");
+            EmbedBuilder builder = new EmbedBuilder();
+
+            if(data.get() instanceof MessageReceivedEvent) {
+                builder = getEmbed((MessageReceivedEvent)data.get());
+            }
+
+            builder.setTitle("Module Market");
             builder.setDescription("Find more available modules in https://discord.gg/aSKqa5W.");
-            builder.setColor(Color.decode(getCoreSetting().getEmbedColor()));
 
             return new CoreCommandResponse(data).setEmbed(builder.build());
         };

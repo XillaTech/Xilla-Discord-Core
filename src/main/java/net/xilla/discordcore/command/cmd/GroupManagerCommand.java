@@ -8,6 +8,7 @@ import net.xilla.core.library.manager.Manager;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.core.CoreCommandExecutor;
+import net.xilla.discordcore.core.command.CommandData;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.core.permission.PermissionAPI;
 import net.xilla.discordcore.core.permission.group.DiscordGroup;
@@ -146,9 +147,9 @@ public class GroupManagerCommand extends CoreObject {
                 if(group == null) {
                     description.append("That is not a valid group!");
                 } else {
-                    String permission = data.getArgs()[1];
+                    String permission = data.getArgs()[1 + getData];
                     if(permission.toLowerCase().startsWith("core.")) {
-                        if(!PermissionAPI.hasPermission(event.getMember(), "core.admin")) {
+                        if(!data.getInputType().equalsIgnoreCase(CommandData.command_line_input) && !PermissionAPI.hasPermission(event.getMember(), "core.admin")) {
                             description.append("You do not have permission (core.admin) to add that permission!");
                         }
                     }
@@ -224,11 +225,14 @@ public class GroupManagerCommand extends CoreObject {
                 }
             }
 
-            EmbedBuilder builder = new EmbedBuilder().setTitle("Staff");
-            builder.setDescription(description.toString());
+            EmbedBuilder builder = new EmbedBuilder();
+
             if(data.get() instanceof MessageReceivedEvent) {
-                builder.setColor(getColor(((MessageReceivedEvent)data.get()).getGuild()));
+                builder = getEmbed((MessageReceivedEvent)data.get());
             }
+
+            builder.setTitle("Staff");
+            builder.setDescription(description.toString());
 
             return new CoreCommandResponse(data).setEmbed(builder.build());
         };

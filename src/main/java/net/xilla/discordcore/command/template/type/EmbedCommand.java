@@ -1,27 +1,31 @@
 package net.xilla.discordcore.command.template.type;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.core.library.json.XillaJson;
 import net.xilla.discordcore.DiscordCore;
-import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.command.template.TemplateCommand;
+import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.embed.JSONEmbed;
 import org.json.simple.JSONObject;
-
-import java.awt.*;
 
 public class EmbedCommand extends TemplateCommand {
 
     private JSONEmbed jsonEmbed;
 
     public EmbedCommand(String module, String name, String[] activators, String description, String usage, String title, String text, String permission) {
-        super(module, name, activators, description, usage, permission, (data) ->
-                new CoreCommandResponse(data).setEmbed(new EmbedBuilder().setTitle(title)
-                .setDescription(text).setColor(Color.decode(DiscordCore.getInstance().getSettings()
-                .getEmbedColor())).build()));
+        super(module, name, activators, description, usage, permission, (data) -> {
+            EmbedBuilder builder = new EmbedBuilder();
+
+            if(data.get() instanceof MessageReceivedEvent) {
+                builder = DiscordCore.getInstance().getServerSettings().getEmbed((MessageReceivedEvent)data.get());
+            }
+
+            builder.setTitle(title).setDescription(text);
+            return new CoreCommandResponse(data).setEmbed(builder.build());
+        });
         this.jsonEmbed = new JSONEmbed("embed", new EmbedBuilder().setTitle(title)
-                .setDescription(text).setColor(Color.decode(DiscordCore.getInstance().getSettings()
-                        .getEmbedColor())));
+                .setDescription(text));
     }
 
     public EmbedCommand(JSONObject map) {
@@ -31,9 +35,16 @@ public class EmbedCommand extends TemplateCommand {
                 map.get("activators").toString().split(","),
                 map.get("description").toString(), map.get("usage").toString(),
                 map.get("permission"),
-                (data) -> new CoreCommandResponse(data).setEmbed(new EmbedBuilder().setTitle(map.get("title").toString())
-                        .setDescription(map.get("text").toString()).setColor(Color.decode(DiscordCore.getInstance().getSettings()
-                        .getEmbedColor())).build())
+                (data) -> {
+                    EmbedBuilder builder = new EmbedBuilder();
+
+                    if(data.get() instanceof MessageReceivedEvent) {
+                        builder = DiscordCore.getInstance().getServerSettings().getEmbed((MessageReceivedEvent)data.get());
+                    }
+
+                    builder.setTitle(map.get("title").toString()).setDescription(map.get("text").toString());
+                    return new CoreCommandResponse(data).setEmbed(builder.build());
+                }
         );
         this.jsonEmbed = new JSONEmbed("embed", (JSONObject)map.get("embed"));
     }

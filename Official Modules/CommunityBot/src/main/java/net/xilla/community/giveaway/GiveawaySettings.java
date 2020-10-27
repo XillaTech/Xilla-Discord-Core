@@ -25,7 +25,7 @@ public class GiveawaySettings extends GuildSettings {
         embedBuilder.setDescription("There is %time% left! React with %emoji%.");
         embedBuilder.setFooter("Ends at %end-date%.");
         JSONEmbed defaultEmbed = new JSONEmbed("defaultEmbed", embedBuilder);
-        addDefault("embed", defaultEmbed.toJSON());
+        setDefault("embed", defaultEmbed.toJSON());
 
         EmbedBuilder embedBuilder2 = new EmbedBuilder();
         embedBuilder2.setColor(DiscordAPI.getColor());
@@ -33,7 +33,7 @@ public class GiveawaySettings extends GuildSettings {
         embedBuilder2.setDescription("This giveaway is complete. %winner% has won!");
         embedBuilder2.setFooter("Ended at %end-date%.");
         JSONEmbed defaultEmbed2 = new JSONEmbed("defaultEmbed", embedBuilder2);
-        addDefault("finished-embed", defaultEmbed2.toJSON());
+        setDefault("finished-embed", defaultEmbed2.toJSON());
     }
 
     public JSONEmbed getEmbed(Guild guild) {

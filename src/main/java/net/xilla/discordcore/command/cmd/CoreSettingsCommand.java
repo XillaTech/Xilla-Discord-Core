@@ -1,14 +1,13 @@
 package net.xilla.discordcore.command.cmd;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
-import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.core.command.CommandExecutor;
+import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.settings.Settings;
-
-import java.awt.*;
 
 public class CoreSettingsCommand extends CoreObject {
 
@@ -29,8 +28,13 @@ public class CoreSettingsCommand extends CoreObject {
                     .append("cs set <config> <setting> <value> - Set a setting's value\n").append(getCoreSetting().getCommandPrefix())
                     .append("cs info <config> - View a config's settings\n").append(getCoreSetting().getCommandPrefix())
                     .append("cs list - List available settings\n");
-            EmbedBuilder builder = new EmbedBuilder().setTitle("Settings");
-            builder.setColor(Color.decode(getCoreSetting().getEmbedColor()));
+            EmbedBuilder builder = new EmbedBuilder();
+
+            if(data.get() instanceof MessageReceivedEvent) {
+                builder = getEmbed((MessageReceivedEvent)data.get());
+            }
+
+            builder.setTitle("Settings");
             builder.setDescription(description);
 
             if (data.getArgs().length == 1 && data.getArgs()[0].equalsIgnoreCase("list")) {
@@ -74,7 +78,6 @@ public class CoreSettingsCommand extends CoreObject {
                             settings.getConfig().set(data.getArgs()[2], value);
                             settings.getConfig().save();
 
-                            builder.setColor(Color.decode(getCoreSetting().getEmbedColor()));
                             builder.setDescription("You have successfully updated that message.");
                         } else {
                             builder.setDescription("That is not a valid setting!");
@@ -86,8 +89,6 @@ public class CoreSettingsCommand extends CoreObject {
                     builder.setDescription("That is not a valid config!");
                 }
             }
-
-
 
             return new CoreCommandResponse(data).setEmbed(builder.build());
         };

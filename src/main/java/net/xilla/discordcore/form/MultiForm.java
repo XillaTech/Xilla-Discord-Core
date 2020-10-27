@@ -1,7 +1,6 @@
 package net.xilla.discordcore.form;
 
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.TextChannel;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.form.form.Form;
 import net.xilla.discordcore.form.form.FormBuilder;
@@ -10,7 +9,6 @@ import net.xilla.discordcore.form.form.FormResponse;
 import net.xilla.discordcore.form.form.reaction.ReactionQuestion;
 import net.xilla.discordcore.form.form.reaction.ReactionQuestionList;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -46,12 +44,16 @@ public class MultiForm extends CoreObject {
         index = formBuilders.size();
     }
 
-    public void addMessageQuestion(String name, String question, String ownerID) {
+    public void addMessageQuestion(String name, String question, String ownerID, String guildID) {
         MessageFormBuilder builder = new MessageFormBuilder();
         builder.setName(name);
         builder.setTextChannel(channelID);
         builder.setOwnerID(ownerID);
-        EmbedBuilder embedBuilder = new EmbedBuilder().setTitle(name).setDescription(question).setColor(Color.decode(getCoreSetting().getEmbedColor()));
+        EmbedBuilder embedBuilder;
+
+        embedBuilder = getEmbed(ownerID, guildID);
+
+        embedBuilder.setTitle(name).setDescription(question);
         builder.setMessage(embedBuilder.build());
         builder.setFormMessageEvent((form, event) -> {
             formResults.put(name, new FormResponse(name, question, event.getMessage().getContentRaw()));
@@ -65,12 +67,16 @@ public class MultiForm extends CoreObject {
         formBuilders.add(builder);
     }
 
-    public void addReactionQuestion(String name, String question, ReactionQuestionList questions, String ownerID) {
+    public void addReactionQuestion(String name, String question, ReactionQuestionList questions, String ownerID, String guildID) {
         ReactionFormBuilder builder = new ReactionFormBuilder();
         builder.setName(name);
         builder.setTextChannel(channelID);
         builder.setOwnerID(ownerID);
-        EmbedBuilder embedBuilder = new EmbedBuilder().setTitle(name).setDescription(question).setColor(Color.decode(getCoreSetting().getEmbedColor()));
+        EmbedBuilder embedBuilder;
+
+        embedBuilder = getEmbed(ownerID, guildID);
+
+        embedBuilder.setTitle(name).setDescription(question);
         builder.setMessage(embedBuilder.build());
 
         List<FormOption> formOptions = new ArrayList<>();

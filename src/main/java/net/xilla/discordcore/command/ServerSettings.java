@@ -1,15 +1,20 @@
 package net.xilla.discordcore.command;
 
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.DiscordAPI;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.core.command.Command;
 import net.xilla.discordcore.core.command.CommandData;
+import net.xilla.discordcore.embed.JSONEmbed;
 import net.xilla.discordcore.settings.GuildSettings;
+import org.json.simple.JSONObject;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ServerSettings extends GuildSettings {
@@ -19,6 +24,7 @@ public class ServerSettings extends GuildSettings {
         setDefault("embed-color", DiscordAPI.getCoreSetting().getEmbedColor());
         setDefault("disabled-modules", new ArrayList<String>());
         setDefault("disabled-commands", new ArrayList<String>());
+        setDefault("core-embed", new JSONEmbed("default", new EmbedBuilder().setColor(DiscordAPI.getColor()).setFooter("%user% - %date%").setColor(DiscordAPI.getColor())).toJSON());
     }
 
     public boolean canRunCommand(CommandData data) {
@@ -77,11 +83,47 @@ public class ServerSettings extends GuildSettings {
     }
 
     public Color getColor(Guild guild) {
-        return Color.decode(get(guild, "embed-color").toString());
+        return new JSONEmbed("embed", (JSONObject)get(guild, "core-embed")).getEmbedBuilder().build().getColor();
     }
 
     public Color getColor(String guildID) {
-        return Color.decode(get(guildID, "embed-color").toString());
+        return new JSONEmbed("embed", (JSONObject)get(guildID, "core-embed")).getEmbedBuilder().build().getColor();
+    }
+
+    public EmbedBuilder getEmbed(MessageReceivedEvent event) {
+        JSONEmbed jsonEmbed = new JSONEmbed("default", (JSONObject)get(event.getGuild(), "core-embed"));
+        EmbedBuilder embedBuilder = jsonEmbed.getEmbedBuilder();
+
+        MessageEmbed embed = embedBuilder.build();
+        if(embed.getFooter() != null && embed.getFooter().getText() != null) {
+            embedBuilder.setFooter(embed.getFooter().getText().replace("%user%", event.getAuthor().getAsTag()).replace("%date%", new Date().toString()));
+        }
+        embedBuilder.setColor(getColor(event.getGuild()));
+        return embedBuilder;
+    }
+
+    public EmbedBuilder getEmbed(String user, Guild guild) {
+        JSONEmbed jsonEmbed = new JSONEmbed("default", (JSONObject)get(guild, "core-embed"));
+        EmbedBuilder embedBuilder = jsonEmbed.getEmbedBuilder();
+
+        MessageEmbed embed = embedBuilder.build();
+        if(embed.getFooter() != null && embed.getFooter().getText() != null) {
+            embedBuilder.setFooter(embed.getFooter().getText().replace("%user%", user).replace("%date%", new Date().toString()));
+        }
+        embedBuilder.setColor(getColor(guild));
+        return embedBuilder;
+    }
+
+    public EmbedBuilder getEmbed(String user, String guild) {
+        JSONEmbed jsonEmbed = new JSONEmbed("default", (JSONObject)get(guild, "core-embed"));
+        EmbedBuilder embedBuilder = jsonEmbed.getEmbedBuilder();
+
+        MessageEmbed embed = embedBuilder.build();
+        if(embed.getFooter() != null && embed.getFooter().getText() != null) {
+            embedBuilder.setFooter(embed.getFooter().getText().replace("%user%", user).replace("%date%", new Date().toString()));
+        }
+        embedBuilder.setColor(getColor(guild));
+        return embedBuilder;
     }
 
 }

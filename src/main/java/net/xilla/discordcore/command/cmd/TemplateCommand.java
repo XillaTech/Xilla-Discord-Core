@@ -1,17 +1,18 @@
 package net.xilla.discordcore.command.cmd;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
-import net.xilla.discordcore.core.CoreCommandExecutor;
-import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.command.template.type.EmbedCommand;
 import net.xilla.discordcore.command.template.type.TextCommand;
+import net.xilla.discordcore.core.CoreCommandExecutor;
+import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.form.MultiForm;
 
-import java.awt.*;
+import java.util.Date;
 
 public class TemplateCommand extends CoreObject {
 
@@ -38,7 +39,13 @@ public class TemplateCommand extends CoreObject {
             if(data.get() instanceof MessageReceivedEvent) {
                 MessageReceivedEvent event = (MessageReceivedEvent)data.get();
                 if (data.getArgs().length > 0 && data.getArgs()[0].equalsIgnoreCase("list")) {
-                    EmbedBuilder embedBuilder = new EmbedBuilder().setTitle("Template");
+                    EmbedBuilder embedBuilder = new EmbedBuilder();
+
+                    if(data.get() instanceof MessageReceivedEvent) {
+                        embedBuilder = getEmbed((MessageReceivedEvent)data.get());
+                    }
+
+                    embedBuilder.setTitle("Template");
 
                     if(getPlatform().getTemplateManager().getCommands().getCache().keySet().size() == 0) {
                         embedBuilder.setDescription("There are no valid commands.");
@@ -54,31 +61,44 @@ public class TemplateCommand extends CoreObject {
                         }
                         embedBuilder.setDescription("*Commands*\n```" + commands + "```");
                     }
-                    embedBuilder.setColor(Color.decode(getCoreSetting().getEmbedColor()));
 
                     return new CoreCommandResponse(data).setEmbed(embedBuilder.build());
                 } else if (data.getArgs().length > 1 && data.getArgs()[0].equalsIgnoreCase("delete")) {
                     net.xilla.discordcore.command.template.TemplateCommand command = getPlatform().getTemplateManager().getTemplateCommand(data.getArgs()[1]);
 
-                    EmbedBuilder embedBuilder = new EmbedBuilder().setTitle("Template");
+                    EmbedBuilder embedBuilder = new EmbedBuilder();
+
+                    if(data.get() instanceof MessageReceivedEvent) {
+                        embedBuilder = getEmbed((MessageReceivedEvent)data.get());
+                    }
+
+                    MessageEmbed embed = embedBuilder.build();
+                    if(embed.getFooter() != null && embed.getFooter().getText() != null) {
+                        embedBuilder.setFooter(embed.getFooter().getText().replace("%date%", new Date().toString()));
+                        embedBuilder.setFooter(embed.getFooter().getText().replace("%user%", event.getAuthor().getAsMention()));
+                    }
+                    embedBuilder.setColor(getColor(((MessageReceivedEvent)data.get()).getGuild()));
+
+                    embedBuilder.setTitle("Template");
                     if(command != null) {
                         getPlatform().getTemplateManager().remove(data.getArgs()[1]);
                         getPlatform().getTemplateManager().save();
                         DiscordCore.getInstance().getCommandManager().remove(data.getArgs()[1]);
                         embedBuilder.setDescription("You have deleted that command!");
-                        embedBuilder.setColor(Color.decode(getCoreSetting().getEmbedColor()));
                     } else {
                         embedBuilder.setDescription("That is not a valid command");
                     }
 
-                    embedBuilder.setColor(Color.decode(getCoreSetting().getEmbedColor()));
                     return new CoreCommandResponse(data).setEmbed(embedBuilder.build());
                 } else if (data.getArgs().length > 1 && data.getArgs()[0].equalsIgnoreCase("info")) {
-                    EmbedBuilder embedBuilder = new EmbedBuilder().setTitle("Template");
+                    EmbedBuilder embedBuilder = new EmbedBuilder();
+                    if(data.get() instanceof MessageReceivedEvent) {
+                        embedBuilder = getEmbed((MessageReceivedEvent)data.get());
+                    }
+                    embedBuilder.setTitle("Template");
 
                     net.xilla.discordcore.command.template.TemplateCommand command = getPlatform().getTemplateManager().getTemplateCommand(data.getArgs()[1]);
                     if(command != null) {
-
                         embedBuilder.setDescription("*Command Name*\n```" + command.getName() + "```\n"
                                 + "*Description*\n```" + command.getDescription() + "```\n"
                                 + "*Module*\n```" + command.getModule() + "```\n"
@@ -87,7 +107,6 @@ public class TemplateCommand extends CoreObject {
                         embedBuilder.setDescription("That is not a valid command");
                     }
 
-                    embedBuilder.setColor(Color.decode(getCoreSetting().getEmbedColor()));
                     return new CoreCommandResponse(data).setEmbed(embedBuilder.build());
                 } else if (data.getArgs().length > 0 && data.getArgs()[0].equalsIgnoreCase("create")) {
                     MultiForm form = new MultiForm("Template", event.getTextChannel().getId(), (results) -> {
@@ -116,21 +135,26 @@ public class TemplateCommand extends CoreObject {
                             event.getChannel().sendMessage("Invalid input, please start over. ```" + ex.getMessage() + "```").queue();
                         }
                     });
-                    form.addMessageQuestion("Name", "What is the name of the command you'd like to add?", event.getAuthor().getId());
-                    form.addMessageQuestion("Description", "What is the description of the command you'd like to add?", event.getAuthor().getId());
-                    form.addMessageQuestion("Response", "What would you like the command to say?", event.getAuthor().getId());
-                    form.addMessageQuestion("Module", "What module would you like the command to be under?", event.getAuthor().getId());
-                    form.addMessageQuestion("Permission", "Would you like to require a permission? (Put \"None\" for no permissions)", event.getAuthor().getId());
-                    form.addMessageQuestion("Embed", "Would you like the response to be in an embed? (True/False)", event.getAuthor().getId());
+                    form.addMessageQuestion("Name", "What is the name of the command you'd like to add?", event.getAuthor().getId(), event.getGuild().getId());
+                    form.addMessageQuestion("Description", "What is the description of the command you'd like to add?", event.getAuthor().getId(), event.getGuild().getId());
+                    form.addMessageQuestion("Response", "What would you like the command to say?", event.getAuthor().getId(), event.getGuild().getId());
+                    form.addMessageQuestion("Module", "What module would you like the command to be under?", event.getAuthor().getId(), event.getGuild().getId());
+                    form.addMessageQuestion("Permission", "Would you like to require a permission? (Put \"None\" for no permissions)", event.getAuthor().getId(), event.getGuild().getId());
+                    form.addMessageQuestion("Embed", "Would you like the response to be in an embed? (True/False)", event.getAuthor().getId(), event.getGuild().getId());
                     form.start();
 
                     return new CoreCommandResponse(data);
                 }
             }
 
-            EmbedBuilder builder = new EmbedBuilder().setTitle("Template Manager");
+            EmbedBuilder builder = new EmbedBuilder();
+
+            if(data.get() instanceof MessageReceivedEvent) {
+                builder = getEmbed((MessageReceivedEvent)data.get());
+            }
+
+            builder.setTitle("Template Manager");
             builder.setDescription(description.toString());
-            builder.setColor(Color.decode(getCoreSetting().getEmbedColor()));
 
             return new CoreCommandResponse(data).setEmbed(builder.build());
         };

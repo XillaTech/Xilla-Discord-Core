@@ -62,6 +62,19 @@ public class CommunityBot extends JavaModule {
         instance = this;
         this.giveawayManager = new GiveawayManager();
         new GiveawayCommands();
+
+        this.economyManager = new EconomyManager();
+
+        this.inviteManager = new InviteManager();
+
+        this.punishmentManager = new PunishmentManager();
+
+        this.reactionManager = new ReactionManager();
+
+        this.reviewManager = new ReviewManager();
+
+        this.suggestionManager = new SuggestionManager();
+
     }
 
     @Override

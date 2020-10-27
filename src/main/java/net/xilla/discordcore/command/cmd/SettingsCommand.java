@@ -1,15 +1,20 @@
 package net.xilla.discordcore.command.cmd;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
+import net.xilla.discordcore.embed.JSONEmbed;
 import net.xilla.discordcore.settings.GuildSettings;
 import net.xilla.discordcore.settings.Settings;
+import org.json.simple.JSONObject;
 
+import java.awt.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class SettingsCommand extends CoreObject {
 
@@ -188,6 +193,80 @@ public class SettingsCommand extends CoreObject {
 
                     description.append("You have unblocked that command.");
                 }
+            } else if(data.getArgs().length > 0 && data.getArgs()[0].equalsIgnoreCase("embed")) {
+                description = new StringBuilder();
+
+                JSONEmbed jsonEmbed = new JSONEmbed("default", (JSONObject)getServerSettings().get(event.getGuild(), "core-embed"));
+                if(data.getArgs().length >= 2 && data.getArgs()[1].equalsIgnoreCase("footer")) {
+                    if(data.getArgs().length > 2) {
+                        jsonEmbed.getEmbedBuilder().setFooter(smooshData(2, data.getArgs()));
+                        description.append("You have set the footer to `").append(smooshData(2, data.getArgs())).append("`.");
+                    } else {
+                        jsonEmbed.getEmbedBuilder().setTitle(null);
+                        description.append("You have cleared the footer.");
+                    }
+                    getServerSettings().set(event.getGuild(), "core-embed", jsonEmbed.toJSON());
+                    getServerSettings().getSettings(event.getGuild().getId()).getConfig().save();
+                } else if(data.getArgs().length >= 2 && data.getArgs()[1].equalsIgnoreCase("author")) {
+                    if(data.getArgs().length > 2) {
+                        if(jsonEmbed.getEmbedBuilder().build().getAuthor() != null && jsonEmbed.getEmbedBuilder().build().getAuthor().getUrl() != null) {
+                            jsonEmbed.getEmbedBuilder().setAuthor(smooshData(2, data.getArgs()), jsonEmbed.getEmbedBuilder().build().getAuthor().getUrl());
+                        } else {
+                            jsonEmbed.getEmbedBuilder().setAuthor(smooshData(2, data.getArgs()));
+                        }
+                        description.append("You have set the author to `").append(smooshData(2, data.getArgs())).append("`.");
+                    } else {
+                        jsonEmbed.getEmbedBuilder().setTitle(null);
+                        description.append("You have cleared the author.");
+                    }
+                    getServerSettings().set(event.getGuild(), "core-embed", jsonEmbed.toJSON());
+                    getServerSettings().getSettings(event.getGuild().getId()).getConfig().save();
+                } else if(data.getArgs().length >= 2 && data.getArgs()[1].equalsIgnoreCase("url")) {
+                    if(data.getArgs().length > 2) {
+                        if(jsonEmbed.getEmbedBuilder().build().getAuthor() != null) {
+                            jsonEmbed.getEmbedBuilder().setAuthor(jsonEmbed.getEmbedBuilder().build().getAuthor().getName(), smooshData(4, data.getArgs()));
+                            description.append("You have set the url to `").append(smooshData(2, data.getArgs())).append("`.");
+                        } else {
+                            description.append("You must set the author first before you can set the url.");
+                        }
+                    } else {
+                        jsonEmbed.getEmbedBuilder().setTitle(null);
+                        description.append("You have cleared the url.");
+                    }
+                    getServerSettings().set(event.getGuild(), "core-embed", jsonEmbed.toJSON());
+                    getServerSettings().getSettings(event.getGuild().getId()).getConfig().save();
+                } else if(data.getArgs().length >= 2 && data.getArgs()[1].equalsIgnoreCase("image")) {
+                    if(data.getArgs().length > 2) {
+                        jsonEmbed.getEmbedBuilder().setFooter(smooshData(2, data.getArgs()));
+                        description.append("You have set the image to `").append(smooshData(2, data.getArgs())).append("`.");
+                    } else {
+                        jsonEmbed.getEmbedBuilder().setTitle(null);
+                        description.append("You have cleared the image.");
+                    }
+                    getServerSettings().set(event.getGuild(), "core-embed", jsonEmbed.toJSON());
+                    getServerSettings().getSettings(event.getGuild().getId()).getConfig().save();
+                } else if(data.getArgs().length >= 2 && data.getArgs()[1].equalsIgnoreCase("color")) {
+                    if(data.getArgs().length > 2) {
+                        try {
+                            jsonEmbed.getEmbedBuilder().setColor(Color.decode(smooshData(2, data.getArgs())));
+                            description.append("You have set the color to `").append(smooshData(2, data.getArgs())).append("`.");
+                        } catch (NumberFormatException ex) {
+                            description.append("That is not a valid color!");
+                        }
+                    } else {
+                        jsonEmbed.getEmbedBuilder().setColor(null);
+                        description.append("You have cleared the color.");
+                    }
+                    getServerSettings().set(event.getGuild(), "core-embed", jsonEmbed.toJSON());
+                    getServerSettings().getSettings(event.getGuild().getId()).getConfig().save();
+                } else {
+                    description.append(getPrefix()).append("s embed footer (text)\n");
+                    description.append(getPrefix()).append("s embed author (text)\n");
+                    description.append(getPrefix()).append("s embed url (url)\n");
+                    description.append(getPrefix()).append("s embed image (image url)\n");
+                    description.append(getPrefix()).append("s embed color (hex color)\n");
+                    description.append("Run the command without an input to remove that parameter.");
+                }
             }
 
             if(description == null) {
@@ -199,10 +278,24 @@ public class SettingsCommand extends CoreObject {
                 description.append(getPrefix()).append("s block command (command) - Block a command\n");
                 description.append(getPrefix()).append("s unblock module (module) - Unblock a module\n");
                 description.append(getPrefix()).append("s unblock command (command) - Unblock a command\n");
+                description.append(getPrefix()).append("s embed - Edit the bots embed\n");
                 description.append(getPrefix()).append("s list - List available configs\n");
             }
 
             EmbedBuilder embedBuilder = new EmbedBuilder();
+            if(data.get() instanceof MessageReceivedEvent) {
+
+                if(data.get() instanceof MessageReceivedEvent) {
+                    embedBuilder = getEmbed((MessageReceivedEvent)data.get());
+                }
+
+                MessageEmbed embed = embedBuilder.build();
+                if(embed.getFooter() != null && embed.getFooter().getText() != null) {
+                    embedBuilder.setFooter(embed.getFooter().getText().replace("%date%", new Date().toString()));
+                    embedBuilder.setFooter(embed.getFooter().getText().replace("%user%", event.getAuthor().getAsMention()));
+                }
+                embedBuilder.setColor(getColor(((MessageReceivedEvent)data.get()).getGuild()));
+            }
             embedBuilder.setTitle("Server Settings");
             if(event != null) {
                 embedBuilder.setColor(getColor(event.getGuild()));
@@ -211,6 +304,17 @@ public class SettingsCommand extends CoreObject {
             return new CoreCommandResponse(data).setEmbed(embedBuilder.build());
         });
         builder.build();
+    }
+
+    public String smooshData(int x, String[] args) {
+        StringBuilder builder = new StringBuilder();
+        for(int i = x; i < args.length; i++) {
+            builder.append(args[i]);
+            if(i != args.length - 1) {
+                builder.append(" ");
+            }
+        }
+        return builder.toString();
     }
 
 }

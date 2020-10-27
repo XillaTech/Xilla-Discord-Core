@@ -34,7 +34,14 @@ public class CoreCommands extends CoreObject {
         commandBuilder.setActivators("coreinfo", "ci");
         commandBuilder.setDescription("Get the discord core's information");
         commandBuilder.setCommandExecutor((data) -> {
-            EmbedBuilder embedBuilder = new EmbedBuilder().setTitle("Core Info");
+            EmbedBuilder embedBuilder = new EmbedBuilder();
+
+
+            if(data.get() instanceof MessageReceivedEvent) {
+                embedBuilder = getEmbed((MessageReceivedEvent)data.get());
+            }
+
+            embedBuilder.setTitle("Core Info");
 
             if(data.getArgs().length > 1 && data.getArgs()[0].equalsIgnoreCase("server")) {
                 StringBuilder argument = new StringBuilder();
@@ -183,9 +190,7 @@ public class CoreCommands extends CoreObject {
                             + getPrefix() + "ci manager (manager name)\n" + getPrefix() + "ci object (manager name) (object name)");
                 }
             }
-            if(data.get() instanceof MessageReceivedEvent) {
-                embedBuilder.setColor(getColor(((MessageReceivedEvent)data.get()).getGuild()));
-            }
+
             return new CoreCommandResponse(data).setEmbed(embedBuilder.build());
         });
         commandBuilder.build();

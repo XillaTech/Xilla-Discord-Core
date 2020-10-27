@@ -14,18 +14,18 @@ public class CommunitySettings extends GuildSettings {
     public CommunitySettings() {
         super("Community", "modules/Community/settings/");
 
-        addDefault("economy-enabled", true);
-        addDefault("giveaway-enabled", true);
-        addDefault("invite-tracking-enabled", true);
-        addDefault("welcome-enabled", true);
-        addDefault("suggestions-enabled", true);
-        addDefault("punishments-enabled", true);
-        addDefault("reaction-roles-enabled", true);
-        addDefault("reviews-enabled", false);
-        addDefault("mod-mail-enabled", false);
-        addDefault("suggestions-enabled", false);
-        addDefault("welcome-enabled", true);
-        addDefault("farewell-enabled", true);
+        setDefault("economy-enabled", true);
+        setDefault("giveaway-enabled", true);
+        setDefault("invite-tracking-enabled", true);
+        setDefault("welcome-enabled", true);
+        setDefault("suggestions-enabled", true);
+        setDefault("punishments-enabled", true);
+        setDefault("reaction-roles-enabled", true);
+        setDefault("reviews-enabled", false);
+        setDefault("mod-mail-enabled", false);
+        setDefault("suggestions-enabled", false);
+        setDefault("welcome-enabled", true);
+        setDefault("farewell-enabled", true);
     }
 
     public boolean isEconomyEnabled(String guildID) {

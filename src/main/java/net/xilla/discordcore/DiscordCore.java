@@ -159,7 +159,7 @@ public class DiscordCore extends CoreObject {
 
         // Connects to the discord api
         try {
-            JDABuilder shardBuilder = new JDABuilder(settings.getBotToken());
+            JDABuilder shardBuilder = JDABuilder.createDefault(settings.getBotToken());
 
             for (int i = 0; i < settings.getShards(); i++) {
                 shardBuilder.useSharding(i, settings.getShards()).build();

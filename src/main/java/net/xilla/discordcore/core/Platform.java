@@ -1,17 +1,16 @@
 package net.xilla.discordcore.core;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.cmd.*;
+import net.xilla.discordcore.command.template.TemplateManager;
 import net.xilla.discordcore.core.command.response.CoreCommandResponder;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
-import net.xilla.discordcore.command.template.TemplateManager;
+import net.xilla.discordcore.core.permission.group.GroupManager;
 import net.xilla.discordcore.core.permission.user.UserManager;
 import net.xilla.discordcore.core.server.ServerManager;
-import net.xilla.discordcore.core.permission.group.GroupManager;
-
-import java.awt.*;
 
 public class Platform extends CoreObject {
 
@@ -45,9 +44,14 @@ public class Platform extends CoreObject {
         new CoreCommands();
 
         DiscordCore.getInstance().getCommandManager().setPermissionError((args, data) -> {
-            EmbedBuilder builder = new EmbedBuilder().setTitle("Error!");
+            EmbedBuilder builder = new EmbedBuilder();
+
+            if(data.get() instanceof MessageReceivedEvent) {
+                builder = getEmbed((MessageReceivedEvent)data.get());
+            }
+
+            builder.setTitle("Error!");
             builder.setDescription("You do not have permission for that command!");
-            builder.setColor(Color.decode(getCoreSetting().getEmbedColor()));
 
             return new CoreCommandResponse(data).setEmbed(builder.build());
         });

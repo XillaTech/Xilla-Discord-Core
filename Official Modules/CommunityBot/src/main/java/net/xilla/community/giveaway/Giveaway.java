@@ -9,6 +9,7 @@ import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.xilla.core.library.json.XillaJson;
 import net.xilla.core.library.manager.Manager;
+import net.xilla.discordcore.DiscordAPI;
 import net.xilla.discordcore.core.manager.GuildManagerObject;
 import net.xilla.discordcore.embed.JSONEmbed;
 
@@ -108,6 +109,8 @@ public class Giveaway extends GuildManagerObject {
         json.put("users", users);
         json.put("emoji", emoji);
         json.put("messageID", getKey());
+        json.put("active", active);
+        json.put("serverID", getGuildID());
 
         return json;
     }
@@ -121,7 +124,20 @@ public class Giveaway extends GuildManagerObject {
         this.channelID = xillaJson.get("channelID");
         this.duration = Long.parseLong(xillaJson.get("duration").toString());
         this.users.addAll(xillaJson.get("users"));
+        this.active = xillaJson.get("active");
         setKey(xillaJson.get("messageID"));
+
+        if(xillaJson.containsKey("serverID")) {
+            setGuildID(xillaJson.get("serverID"));
+        } else {
+            TextChannel channel = DiscordAPI.getBot().getTextChannelById(channelID);
+
+            if(channel == null) {
+                setGuildID("None");
+            } else {
+                setGuildID(channel.getGuild().getId());
+            }
+        }
     }
 
 }

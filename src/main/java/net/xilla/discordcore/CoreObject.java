@@ -3,6 +3,7 @@ package net.xilla.discordcore;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.*;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.core.library.XillaLibrary;
 import net.xilla.discordcore.command.ServerSettings;
 import net.xilla.discordcore.core.permission.PermissionAPI;
@@ -10,9 +11,12 @@ import net.xilla.discordcore.core.CoreSettings;
 import net.xilla.discordcore.core.Platform;
 import net.xilla.discordcore.core.permission.group.DiscordGroup;
 import net.xilla.discordcore.core.permission.group.GroupManager;
+import net.xilla.discordcore.embed.JSONEmbed;
 import net.xilla.discordcore.module.ModuleManager;
+import org.json.simple.JSONObject;
 
 import java.awt.*;
+import java.util.Date;
 import java.util.List;
 
 public class CoreObject extends XillaLibrary {
@@ -186,5 +190,42 @@ public class CoreObject extends XillaLibrary {
             return false;
         }
     }
+
+    public EmbedBuilder getEmbed(MessageReceivedEvent event) {
+        JSONEmbed jsonEmbed = new JSONEmbed("default", (JSONObject)getServerSettings().get(event.getGuild(), "core-embed"));
+        EmbedBuilder embedBuilder = jsonEmbed.getEmbedBuilder();
+
+        MessageEmbed embed = embedBuilder.build();
+        if(embed.getFooter() != null && embed.getFooter().getText() != null) {
+            embedBuilder.setFooter(embed.getFooter().getText().replace("%user%", event.getAuthor().getAsTag()).replace("%date%", new Date().toString()));
+        }
+        embedBuilder.setColor(getColor(event.getGuild()));
+        return embedBuilder;
+    }
+
+    public EmbedBuilder getEmbed(String user, Guild guild) {
+        JSONEmbed jsonEmbed = new JSONEmbed("default", (JSONObject)getServerSettings().get(guild, "core-embed"));
+        EmbedBuilder embedBuilder = jsonEmbed.getEmbedBuilder();
+
+        MessageEmbed embed = embedBuilder.build();
+        if(embed.getFooter() != null && embed.getFooter().getText() != null) {
+            embedBuilder.setFooter(embed.getFooter().getText().replace("%user%", user).replace("%date%", new Date().toString()));
+        }
+        embedBuilder.setColor(getColor(guild));
+        return embedBuilder;
+    }
+
+    public EmbedBuilder getEmbed(String user, String guild) {
+        JSONEmbed jsonEmbed = new JSONEmbed("default", (JSONObject)getServerSettings().get(guild, "core-embed"));
+        EmbedBuilder embedBuilder = jsonEmbed.getEmbedBuilder();
+
+        MessageEmbed embed = embedBuilder.build();
+        if(embed.getFooter() != null && embed.getFooter().getText() != null) {
+            embedBuilder.setFooter(embed.getFooter().getText().replace("%user%", user).replace("%date%", new Date().toString()));
+        }
+        embedBuilder.setColor(getColor(guild));
+        return embedBuilder;
+    }
+
 
 }

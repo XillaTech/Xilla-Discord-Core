@@ -20,13 +20,13 @@ public class GiveawayManager extends GuildManager<Giveaway> {
         DiscordCore.getInstance().getBot().addEventListener(new GiveawayHandler());
 
         DiscordCore.getInstance().addExecutor(() -> {
-            load("");
+            load();
             worker.start();
         });
     }
 
     @Override
-    protected void load(String s) {
+    protected void load() {
         for(Guild guild : DiscordAPI.getBot().getGuilds()) {
             Manager<Giveaway> manager = getManager(guild);
 

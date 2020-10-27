@@ -1,4 +1,6 @@
 package net.xilla.community.reaction;
 
-public class ReactionCommands {
+import net.xilla.discordcore.CoreObject;
+
+public class ReactionCommands extends CoreObject {
 }

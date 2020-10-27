@@ -7,7 +7,6 @@ import net.xilla.community.CommunitySettings;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.command.CommandBuilder;
-import net.xilla.discordcore.core.cmd.SpigotCommand;
 import net.xilla.discordcore.form.MultiForm;
 
 public class GiveawayCommands extends CoreObject {
@@ -36,10 +35,10 @@ public class GiveawayCommands extends CoreObject {
                     ex.printStackTrace();
                 }
             });
-            form.addMessageQuestion("Item", "What are you giving away?", event.getAuthor().getId());
-            form.addMessageQuestion("Amount", "How many are you giving away?", event.getAuthor().getId());
-            form.addMessageQuestion("Emoji", "What emoji should they react with?", event.getAuthor().getId());
-            form.addMessageQuestion("Duration", "How long should this giveaway last? (Ex: 3d,3h,30m for 3 days, 3 hours, and 30 minutes)", event.getAuthor().getId());
+            form.addMessageQuestion("Item", "What are you giving away?", event.getAuthor().getId(), event.getGuild().getId());
+            form.addMessageQuestion("Amount", "How many are you giving away?", event.getAuthor().getId(), event.getGuild().getId());
+            form.addMessageQuestion("Emoji", "What emoji should they react with?", event.getAuthor().getId(), event.getGuild().getId());
+            form.addMessageQuestion("Duration", "How long should this giveaway last? (Ex: 3d,3h,30m for 3 days, 3 hours, and 30 minutes)", event.getAuthor().getId(), event.getGuild().getId());
 
             form.start();
             return null;

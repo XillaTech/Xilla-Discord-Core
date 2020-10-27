@@ -1,6 +1,7 @@
 package net.xilla.discordcore.core.manager;
 
 import lombok.Getter;
+import lombok.Setter;
 import net.dv8tion.jda.api.entities.Guild;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.core.library.manager.ManagerObject;
@@ -8,6 +9,7 @@ import net.xilla.core.library.manager.ManagerObject;
 public abstract class GuildManagerObject extends ManagerObject {
 
     @Getter
+    @Setter
     private String guildID;
 
     public GuildManagerObject(String key, Manager manager, Guild guild) {

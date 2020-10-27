@@ -1,4 +1,6 @@
 package net.xilla.community.review;
 
-public class ReviewCommands {
+import net.xilla.discordcore.CoreObject;
+
+public class ReviewCommands extends CoreObject {
 }
