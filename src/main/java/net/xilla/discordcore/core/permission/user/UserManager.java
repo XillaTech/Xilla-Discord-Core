@@ -4,7 +4,6 @@ import net.dv8tion.jda.api.entities.Guild;
 import net.xilla.core.library.json.XillaJson;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.discordcore.DiscordAPI;
-import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.core.manager.GuildManager;
 import org.json.simple.JSONObject;
 
@@ -12,8 +11,6 @@ public class UserManager extends GuildManager<DiscordUser> {
 
     public UserManager() {
         super("Users", "servers/permissions/");
-
-        DiscordCore.getInstance().addExecutor(this::load);
     }
 
     @Override

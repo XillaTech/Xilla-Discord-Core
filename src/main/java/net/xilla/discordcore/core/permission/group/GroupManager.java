@@ -20,7 +20,10 @@ public class GroupManager extends GuildManager<DiscordGroup> {
     public GroupManager() {
         super("Groups", "servers/permissions/");
 
-        DiscordCore.getInstance().addExecutor(this::load);
+        DiscordCore.getInstance().addExecutor(() -> {
+            load();
+            DiscordCore.getInstance().getGroupManager().load();
+        });
     }
 
     public List<DiscordGroup> getGroupsByServer(String id) {

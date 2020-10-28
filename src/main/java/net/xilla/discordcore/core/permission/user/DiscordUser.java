@@ -108,7 +108,14 @@ public class DiscordUser extends GuildManagerObject implements PermissionUser {
 
         this.groups = new ArrayList<>();
 
-        DiscordGroup defaultGroup = DiscordCore.getInstance().getGroupManager().getManager(member.getGuild()).get("default");
+        System.out.println(guild);
+        System.out.println(member);
+        System.out.println(DiscordCore.getInstance());
+        System.out.println(DiscordCore.getInstance().getGroupManager());
+        System.out.println(DiscordCore.getInstance().getGroupManager().getManager(guild));
+        System.out.println(DiscordCore.getInstance().getGroupManager().getManager(guild).get("default"));
+
+        DiscordGroup defaultGroup = DiscordCore.getInstance().getGroupManager().getManager(guild).get("default");
         if(defaultGroup != null) {
             this.groups.add(defaultGroup);
         } else {

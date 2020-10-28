@@ -5,7 +5,6 @@ import net.dv8tion.jda.api.entities.Role;
 import net.xilla.core.library.json.XillaJson;
 import net.xilla.discordcore.core.command.permission.group.PermissionGroup;
 import net.xilla.discordcore.core.manager.GuildManagerObject;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
@@ -105,7 +104,7 @@ public class DiscordGroup extends GuildManagerObject implements PermissionGroup 
         setKey(object.get("groupID").toString());
 
         this.permissions = new Vector<>();
-        for(Object obj : (JSONArray)object.get("permissions")) {
+        for(Object obj : (List)object.get("permissions")) {
             permissions.add(obj.toString());
         }
     }
