@@ -3,7 +3,7 @@
 Xilla Discord Core is a Discord JDA library/framework designed to make coding bots much easier. This core handles commands and offers many tool sets and features designed to make better bots, and do it in signifigantly less time. This project is managed and maintained by Tobias S. Check out our website @ <a href="https://xilla.net">https://xilla.net</a><br><br>
 
 # Version / Download<br>
-Lastest Version : 2.0.0-BETA-3.8 - <a href="https://github.com/XillaTech/Xilla-Discord-Core/raw/master/target/Xilla-Discord-Core-v2.0.0-BETA-3.jar">Download Here</a><br><br>
+Lastest Version : 2.0.0 - <a href="http://api.xilla.net/download/Xilla-Discord-Core-v2.0.0.jar">Download Here</a><br><br>
 
 # Quick Links<br>
  - Installation: <a href="https://github.com/XillaTech/Xilla-Discord-Core/wiki/Installation">Click Here</a><br>
@@ -36,18 +36,6 @@ Invoice Module - (PayPal Billing) <a href="https://www.mc-market.org/resources/1
 - Discord Invoices<br>
 - PayPal Integration<br>
 - Works with Xilla Tickets as a module<br><br>
-
-Review Module - (User Reviews) <a href="https://api.xilla.net/download/ReviewBot-1.0-SNAPSHOT.jar">Download Here for FREE</a> - <a href="https://github.com/XillaTech/Xilla-Discord-Core/tree/master/Official%20Modules/ReviewBot">Click here for INFO and SOURCE CODE</a><br>
-- User Reviews<br>
-- Review Management Command<br><br>
-
-Utility Module - (Polls & Suggestions) <a href="https://api.xilla.net/download/UtilityBot-1.0-SNAPSHOT.jar">Download Here for FREE</a> - <a href="https://github.com/XillaTech/Xilla-Discord-Core/tree/master/Official%20Modules/UtilityBot">Click here for INFO and SOURCE CODE</a><br>
-- Polls<br>
-- User Suggestions<br>
-- Server Information Command<br>
-- User Information Command<br>
-- Role Information Command<br>
-- Punishments<br><br>
 
 Join our discord for community modules! https://discord.gg/aSKqa5W<br>
 We are working on a custom resource platform for users to release, sell, and license their softwares.<br><br>
