@@ -14,11 +14,18 @@ public class UserManager extends GuildManager<DiscordUser> {
     }
 
     @Override
-    protected void load() {
+    public void load() {
         for(Guild guild : DiscordAPI.getBot().getGuilds()) {
-            Manager<DiscordUser> manager = getManager(guild);
+            Manager<String, DiscordUser> manager = getManager(guild);
 
-            for(Object obj : manager.getConfig().getJson().getJson().values()) {
+            for(Object key : manager.getConfig().getJson().getJson().keySet()) {
+
+                if(key.toString().equalsIgnoreCase("file-extension")) {
+                    continue;
+                }
+
+                Object obj = manager.getConfig().getJson().getJson().get(key);
+
                 JSONObject json = (JSONObject) obj;
 
                 DiscordUser user = new DiscordUser(guild);

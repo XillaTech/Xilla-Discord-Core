@@ -4,13 +4,13 @@ import net.xilla.core.library.manager.Manager;
 
 import java.util.Set;
 
-public class SettingsManager extends Manager<Settings> {
+public class SettingsManager extends Manager<String, DiscordSettings> {
 
     public SettingsManager() {
         super("Settings");
     }
 
-    public Settings getSettings(String name) {
+    public DiscordSettings getSettings(String name) {
         return get(name);
     }
 
@@ -24,12 +24,12 @@ public class SettingsManager extends Manager<Settings> {
     }
 
     @Override
-    protected void objectAdded(Settings settings) {
+    protected void objectAdded(DiscordSettings settings) {
 
     }
 
     @Override
-    protected void objectRemoved(Settings settings) {
+    protected void objectRemoved(DiscordSettings settings) {
 
     }
 

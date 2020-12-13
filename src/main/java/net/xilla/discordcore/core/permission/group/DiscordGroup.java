@@ -47,14 +47,15 @@ public class DiscordGroup extends GuildManagerObject implements PermissionGroup 
 
     @Override
     public boolean hasPermission(String permission) {
-        for(String groupPerm : permissions) {
 
-            String[] temp = permission.split("\\.");
-            StringBuilder wildcard = new StringBuilder();
-            for(int i = 0; i <= temp.length - 2; i++) {
-                wildcard.append(temp[0]);
-            }
-            wildcard.append(".*");
+        String[] temp = permission.split("\\.");
+        StringBuilder wildcard = new StringBuilder();
+        for(int i = 0; i <= temp.length - 2; i++) {
+            wildcard.append(temp[0]);
+        }
+        wildcard.append(".*");
+
+        for(String groupPerm : permissions) {
 
             if(groupPerm.equalsIgnoreCase(permission)) {
                 return true;
@@ -72,11 +73,11 @@ public class DiscordGroup extends GuildManagerObject implements PermissionGroup 
 
     @Override
     public String getIdentifier() {
-        return getKey();
+        return getKey().toString();
     }
 
     public String getGroupID() {
-        return getKey();
+        return getKey().toString();
     }
 
     public boolean isMember(Guild guild, String id) {
@@ -91,7 +92,7 @@ public class DiscordGroup extends GuildManagerObject implements PermissionGroup 
         HashMap<String, Object> map = new HashMap<>();
         map.put("name", groupName);
         map.put("groupID", getKey());
-        map.put("serverID", getGroupID());
+        map.put("serverID", getGuildID());
         map.put("permissions", permissions);
 
         return new XillaJson(new JSONObject(map));
@@ -102,6 +103,7 @@ public class DiscordGroup extends GuildManagerObject implements PermissionGroup 
         JSONObject object = xillaJson.getJson();
         this.groupName = object.get("name").toString();
         setKey(object.get("groupID").toString());
+        this.setGuildID(object.get("serverID").toString());
 
         this.permissions = new Vector<>();
         for(Object obj : (List)object.get("permissions")) {

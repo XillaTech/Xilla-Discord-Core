@@ -5,6 +5,7 @@ import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
+import net.dv8tion.jda.api.entities.User;
 import net.xilla.core.library.json.XillaJson;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.core.log.LogLevel;
@@ -43,8 +44,6 @@ public class DiscordUser extends GuildManagerObject implements PermissionUser {
             Logger.log(LogLevel.WARN, "Could not find the default role!", getClass());
         }
 
-        this.member = member;
-
         for(Role role : member.getRoles()) {
             DiscordGroup group = DiscordCore.getInstance().getGroupManager().getManager(member.getGuild()).get(role.getId());
             if(group != null) {
@@ -64,11 +63,41 @@ public class DiscordUser extends GuildManagerObject implements PermissionUser {
 
     @Override
     public String getUserIdentifier() {
-        return getKey();
+        return getKey().toString();
     }
 
     @Override
     public boolean hasPermission(String permission) {
+
+        Guild guild = new CoreObject().getGuild(getGuildID());
+        if(guild != null) {
+            User user = DiscordAPI.getUser(getKey().toString());
+            if (user != null) {
+                this.member = guild.retrieveMember(user).complete();
+            }
+        }
+
+        if(this.member == null) {
+            Logger.log(LogLevel.ERROR, "The bot was unable to find the member for discord user " + member.getId() + " in guild " + member.getGuild().getId(), getClass());
+            return false;
+        }
+
+        this.groups = new ArrayList<>();
+        DiscordGroup defaultGroup = DiscordCore.getInstance().getGroupManager().getManager(member.getGuild()).get("default");
+        if(defaultGroup != null) {
+            this.groups.add(defaultGroup);
+        } else {
+            Logger.log(LogLevel.WARN, "Could not find the default role!", getClass());
+        }
+
+        for(Role role : member.getRoles()) {
+            Manager<String, DiscordGroup> manager = DiscordAPI.getGroupManager().getManager(member.getGuild());
+            DiscordGroup group = manager.get(role.getId());
+            if(group != null) {
+                this.groups.add(group);
+            }
+        }
+
         if(DiscordCore.getInstance().getCoreSetting().isRespectDiscordAdmin()) {
             if(!permission.toLowerCase().startsWith("core.")) {
                 if (member.hasPermission(Permission.ADMINISTRATOR)) {
@@ -85,14 +114,32 @@ public class DiscordUser extends GuildManagerObject implements PermissionUser {
             }
         }
 
-        return permissions.contains(permission.toLowerCase());
+        for(String perm : permissions) {
+            if(perm.equalsIgnoreCase(permission.toLowerCase())) {
+                return true;
+            }
+        }
+
+        String[] temp = permission.split("\\.");
+        StringBuilder wildcard = new StringBuilder();
+        for(int i = 0; i <= temp.length - 2; i++) {
+            wildcard.append(temp[0]);
+        }
+        wildcard.append(".*");
+
+        for(String perm : permissions) {
+            if (perm.equalsIgnoreCase(wildcard.toString())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
     public XillaJson getSerializedData() {
         XillaJson json = new XillaJson();
 
-        json.put("memberID", member.getId());
+        json.put("memberID", getKey());
         json.put("serverID", getGuildID());
         json.put("permissions", permissions);
 
@@ -101,20 +148,16 @@ public class DiscordUser extends GuildManagerObject implements PermissionUser {
 
     @Override
     public void loadSerializedData(XillaJson xillaJson) {
-        Guild guild = new CoreObject().getGuild(xillaJson.get("serverID"));
         setKey(xillaJson.get("memberID"));
-        this.member = guild.getMemberById(xillaJson.get("memberID"));
-        this.permissions = xillaJson.get("permissions");
+        this.permissions.addAll(xillaJson.get("permissions"));
+
+        Guild guild = DiscordAPI.getBot().getGuildById(xillaJson.get("serverID").toString());
+        if(guild == null) {
+            Logger.log(LogLevel.ERROR, "Unable to find the guild with ID " + xillaJson.get("serverID").toString(), getClass());
+            return;
+        }
 
         this.groups = new ArrayList<>();
-
-        System.out.println(guild);
-        System.out.println(member);
-        System.out.println(DiscordCore.getInstance());
-        System.out.println(DiscordCore.getInstance().getGroupManager());
-        System.out.println(DiscordCore.getInstance().getGroupManager().getManager(guild));
-        System.out.println(DiscordCore.getInstance().getGroupManager().getManager(guild).get("default"));
-
         DiscordGroup defaultGroup = DiscordCore.getInstance().getGroupManager().getManager(guild).get("default");
         if(defaultGroup != null) {
             this.groups.add(defaultGroup);
@@ -122,8 +165,15 @@ public class DiscordUser extends GuildManagerObject implements PermissionUser {
             Logger.log(LogLevel.WARN, "Could not find the default role!", getClass());
         }
 
+        this.member = DiscordAPI.getMember(guild, getKey().toString());
+
+        if(member == null) {
+            Logger.log(LogLevel.ERROR, "Unable to find the member with ID " + getKey(), getClass());
+            return;
+        }
+
         for(Role role : member.getRoles()) {
-            Manager<DiscordGroup> manager = DiscordAPI.getGroupManager().getManager(member.getGuild());
+            Manager<String, DiscordGroup> manager = DiscordAPI.getGroupManager().getManager(member.getGuild());
             DiscordGroup group = manager.get(role.getId());
             if(group != null) {
                 this.groups.add(group);

@@ -8,23 +8,36 @@ import net.xilla.discordcore.core.permission.user.DiscordUser;
 public class PermissionAPI {
 
     public static boolean hasPermission(Member member, String permission) {
+
+        if(member == null) {
+            return false;
+        }
+
         DiscordUser user = getUser(member);
+
+        if(user == null) {
+            return false;
+        }
+
         return user.hasPermission(permission);
     }
 
     public static DiscordUser getUser(Member member) {
-        Manager<DiscordUser> manager = DiscordCore.getInstance().getPlatform().getUserManager().getManager(member.getGuild());
+        if(member != null) {
+            Manager<String, DiscordUser> manager = DiscordCore.getInstance().getPlatform().getUserManager().getManager(member.getGuild());
 
-        DiscordUser user = manager.get(member.getId());
-        if(user != null) {
+            DiscordUser user = manager.get(member.getId());
+            if (user != null) {
+                return user;
+            }
+
+            user = new DiscordUser(member);
+            manager.put(user);
+            manager.save();
+
             return user;
         }
-
-        user = new DiscordUser(member);
-        manager.put(user);
-        manager.save();
-
-        return user;
+        return null;
     }
 
 }

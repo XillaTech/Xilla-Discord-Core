@@ -22,7 +22,7 @@ public class GroupManager extends GuildManager<DiscordGroup> {
 
         DiscordCore.getInstance().addExecutor(() -> {
             load();
-            DiscordCore.getInstance().getGroupManager().load();
+            DiscordCore.getInstance().getPlatform().getUserManager().load();
         });
     }
 
@@ -37,7 +37,7 @@ public class GroupManager extends GuildManager<DiscordGroup> {
     @Override
     public void load() {
         for(Guild guild : DiscordCore.getInstance().getBot().getGuilds()) {
-            Manager<DiscordGroup> manager = getManager(guild);
+            Manager<String, DiscordGroup> manager = getManager(guild);
 
             DiscordGroup defaultGroup = manager.get("default");
             if(defaultGroup == null) {
@@ -45,7 +45,14 @@ public class GroupManager extends GuildManager<DiscordGroup> {
                 manager.put(group);
             }
 
-            for(Object obj : manager.getConfig().getJson().getJson().values()) {
+            for(Object key : manager.getConfig().getJson().getJson().keySet()) {
+
+                if(key.toString().equalsIgnoreCase("file-extension")) {
+                    continue;
+                }
+
+                Object obj = manager.getConfig().getJson().getJson().get(key);
+
                 JSONObject json = (JSONObject) obj;
                 DiscordGroup group = new DiscordGroup(json);
                 manager.put(group);

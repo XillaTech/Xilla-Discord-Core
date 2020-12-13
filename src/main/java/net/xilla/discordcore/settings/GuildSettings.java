@@ -12,7 +12,7 @@ public class GuildSettings extends ManagerObject {
 
     private String name;
     private String folder;
-    private Map<String, Settings> settingsMap;
+    private Map<String, DiscordSettings> settingsMap;
     private Map<String, Object> defaults;
 
     public GuildSettings(String name, String folder) {
@@ -33,7 +33,9 @@ public class GuildSettings extends ManagerObject {
     }
 
     public <T> T get(Guild guild, String key) {
-        return getSettings(guild.getId()).getConfig().get(key);
+        return getSettings(guild.getId())
+                .getConfig()
+                .get(key);
     }
 
     public void set(String guildID, String key, Object value) {
@@ -44,9 +46,9 @@ public class GuildSettings extends ManagerObject {
         getSettings(guild.getId()).getConfig().set(key, value);
     }
 
-    public Settings getSettings(String guildID) {
+    public DiscordSettings getSettings(String guildID) {
         if(!settingsMap.containsKey(guildID)) {
-            Settings settings = new Settings(guildID + "-" + name, folder + guildID + ".json");
+            DiscordSettings settings = new DiscordSettings(guildID + "-" + name, folder + guildID + ".json");
             for(String key : defaults.keySet()) {
                 settings.getConfig().setDefault(key, defaults.get(key));
             }

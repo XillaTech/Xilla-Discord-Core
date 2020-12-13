@@ -32,8 +32,8 @@ public class CoreWorker extends Worker {
             if(System.currentTimeMillis() - lastCheckTime  <= checkTimeSpeed * 1000) {
                 for (CoreServer coreServer : new ArrayList<>(DiscordCore.getInstance().getPlatform().getServerManager().getData().values())) {
                     if(System.currentTimeMillis() - coreServer.getLastUpdated() > checkTimeToDelete * 1000) {
-                        DiscordCore.getInstance().getPlatform().getServerManager().remove(coreServer.getKey());
-                        DiscordCore.getInstance().getServerSettings().removeServer(coreServer.getKey());
+                        DiscordCore.getInstance().getPlatform().getServerManager().remove(coreServer);
+                        DiscordCore.getInstance().getServerSettings().removeServer(coreServer.toString());
                     }
                 }
             }

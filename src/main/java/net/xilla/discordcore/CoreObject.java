@@ -19,7 +19,7 @@ import java.awt.*;
 import java.util.Date;
 import java.util.List;
 
-public class CoreObject extends XillaLibrary {
+public class CoreObject implements XillaLibrary {
 
     public DiscordCore getDiscordCore() {
         return DiscordCore.getInstance();
@@ -66,24 +66,7 @@ public class CoreObject extends XillaLibrary {
     }
 
     public User getUser(String id) {
-        User user = null;
-        String userID = id.replace("<@!", "").replace("<@", "").replace(">", "");
-        try {
-            user = getBot().getUserById(userID);
-        } catch (Exception ignored) {}
-        if(user == null) {
-            try {
-                user = getBot().getUserByTag(id);
-            } catch (Exception ignored) {
-            }
-        }
-        if(user == null) {
-            try {
-                user = getBot().getUsersByName(id, true).get(0);
-            } catch (Exception ignored) {
-            }
-        }
-        return user;
+        return DiscordAPI.getUser(id);
     }
 
     public Role getRole(String id) {
@@ -92,6 +75,7 @@ public class CoreObject extends XillaLibrary {
         try {
             role = getBot().getRoleById(roleID);
         } catch (Exception ignored) {}
+
         if(role == null) {
             try {
                 role = getBot().getRolesByName(id, true).get(0);
@@ -126,13 +110,7 @@ public class CoreObject extends XillaLibrary {
     }
 
     public Member getMember(Guild guild, String id) {
-        User user = getUser(id);
-
-        if(user != null) {
-            return guild.getMember(user);
-        }
-
-        return null;
+        return DiscordAPI.getMember(guild, id);
     }
 
     /**

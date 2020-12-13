@@ -5,8 +5,6 @@ import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.DiscordAPI;
-import net.xilla.discordcore.DiscordCore;
-import net.xilla.discordcore.core.command.Command;
 import net.xilla.discordcore.core.command.CommandData;
 import net.xilla.discordcore.embed.JSONEmbed;
 import net.xilla.discordcore.settings.GuildSettings;
@@ -32,21 +30,29 @@ public class ServerSettings extends GuildSettings {
     }
 
     public boolean canRunCommand(CommandData data, String command) {
-        if(data.get() instanceof MessageReceivedEvent) {
-            MessageReceivedEvent event = (MessageReceivedEvent)data.get();
-
-            List<String> commands = get(event.getGuild(), "disabled-commands");
-            List<String> modules = get(event.getGuild(), "disabled-modules");
-            Command cmd = DiscordCore.getInstance().getCommandManager().getCommand(command);
-
-            if (commands.contains(command.toLowerCase()) || modules.contains(cmd.getModule().toLowerCase())) {
-                return false;
-            } else {
-                return true;
-            }
-        } else {
-            return true;
-        }
+        return true; // disabled this function temporarily..
+//        if(data.get() instanceof MessageReceivedEvent) {
+//            MessageReceivedEvent event = (MessageReceivedEvent)data.get();
+//
+//            Guild guild;
+//            try {
+//                guild = event.getGuild();
+//            } catch (Exception ex) {
+//                return false;
+//            }
+//
+//            List<String> commands = get(guild, "disabled-commands");
+//            List<String> modules = get(guild, "disabled-modules");
+//            Command cmd = DiscordCore.getInstance().getCommandManager().getCommand(command);
+//
+//            if (commands.contains(command.toLowerCase()) || modules.contains(cmd.getModule().toLowerCase())) {
+//                return false;
+//            } else {
+//                return true;
+//            }
+//        } else {
+//            return true;
+//        }
     }
 
     public void addModule(Guild guild, String module) {

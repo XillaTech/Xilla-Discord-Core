@@ -47,15 +47,15 @@ public class TemplateCommand extends CoreObject {
 
                     embedBuilder.setTitle("Template");
 
-                    if(getPlatform().getTemplateManager().getCommands().getCache().keySet().size() == 0) {
+                    if(getPlatform().getTemplateManager().getCommands().size() == 0) {
                         embedBuilder.setDescription("There are no valid commands.");
                     } else {
                         String commands = "";
                         int loop = 0;
-                        for(Object obj : getPlatform().getTemplateManager().getCommands().getCache().keySet()) {
+                        for(Object obj : getPlatform().getTemplateManager().iterate()) {
                             loop++;
                             commands = commands + obj;
-                            if(loop != getPlatform().getTemplateManager().getCommands().getCache().keySet().size()) {
+                            if(loop != getPlatform().getTemplateManager().getCommands().size()) {
                                 commands = commands + "\n";
                             }
                         }

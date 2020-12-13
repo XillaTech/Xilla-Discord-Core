@@ -3,6 +3,7 @@ package net.xilla.discordcore;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.*;
+import net.dv8tion.jda.api.exceptions.ErrorResponseException;
 import net.xilla.discordcore.command.ServerSettings;
 import net.xilla.discordcore.core.permission.PermissionAPI;
 import net.xilla.discordcore.core.CoreSettings;
@@ -151,6 +152,12 @@ public class DiscordAPI {
             } catch (Exception ignored) {
             }
         }
+        if(user == null) {
+            try {
+                user = getBot().retrieveUserById(userID).complete();
+            } catch (Exception ignored) {
+            }
+        }
         return user;
     }
 
@@ -201,9 +208,19 @@ public class DiscordAPI {
      */
     public static Member getMember(Guild guild, String id) {
         User user = getUser(id);
-
         if(user != null) {
-            return guild.getMember(user);
+            Member member = guild.getMember(user);
+
+            if(member != null) {
+                return member;
+            }
+
+            try {
+                member = guild.retrieveMember(user).complete();
+            } catch (ErrorResponseException ex) {
+                return null;
+            }
+            return member;
         }
 
         return null;

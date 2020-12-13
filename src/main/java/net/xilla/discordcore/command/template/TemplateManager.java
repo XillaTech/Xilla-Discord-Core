@@ -1,17 +1,13 @@
 package net.xilla.discordcore.command.template;
 
-import net.xilla.core.library.config.Config;
-import net.xilla.core.library.config.ConfigManager;
 import net.xilla.core.library.manager.Manager;
-import net.xilla.core.library.manager.ManagerCache;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.template.type.EmbedCommand;
 import net.xilla.discordcore.command.template.type.TextCommand;
-import org.json.simple.JSONObject;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class TemplateManager extends Manager<TemplateCommand> {
+public class TemplateManager extends Manager<String, TemplateCommand> {
 
     public TemplateManager() {
         super("Templates", "commands.json");
@@ -25,8 +21,13 @@ public class TemplateManager extends Manager<TemplateCommand> {
 
     @Override
     protected void load() {
+
         for(Object key : getConfig().getJson().getJson().keySet()) {
-            String type = getConfig().getMap((String)key).get("type");
+            if(key.toString().equalsIgnoreCase("file-extension")) {
+                continue;
+            }
+            System.out.println("" + getConfig().get(key.toString()));
+            String type = getConfig().getMap(key.toString()).get("type");
             TemplateCommand command;
             if(type.equalsIgnoreCase("embed")) {
                 command = new EmbedCommand(getConfig().getJSON((String) key));
@@ -47,12 +48,12 @@ public class TemplateManager extends Manager<TemplateCommand> {
 
     }
 
-    public ManagerCache getCommands() {
-        return getCache("key");
+    public List<TemplateCommand> getCommands() {
+        return iterate();
     }
 
     public TemplateCommand getTemplateCommand(String name) {
-        return (TemplateCommand)getCommands().getObject(name);
+        return get(name);
     }
 
     public void removeTemplateCommand(String name) {

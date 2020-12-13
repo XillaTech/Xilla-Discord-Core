@@ -7,7 +7,7 @@ import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.core.command.CommandExecutor;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
-import net.xilla.discordcore.settings.Settings;
+import net.xilla.discordcore.settings.DiscordSettings;
 
 public class CoreSettingsCommand extends CoreObject {
 
@@ -47,7 +47,7 @@ public class CoreSettingsCommand extends CoreObject {
                 configs.append("\n").append(DiscordCore.getInstance().getSettings().getCommandPrefix()).append("settings set <config> <setting> <value>");
                 builder.setDescription(configs.toString());
             } else if (data.getArgs().length == 2 && data.getArgs()[0].equalsIgnoreCase("info")) {
-                Settings settings = DiscordCore.getInstance().getSettingsManager().getSettings(data.getArgs()[1].toLowerCase());
+                DiscordSettings settings = DiscordCore.getInstance().getSettingsManager().getSettings(data.getArgs()[1].toLowerCase());
                 if(settings != null) {
                     StringBuilder configs = new StringBuilder();
                     configs.append("**Available Settings** (").append(settings.getKey()).append(")\n\n");
@@ -64,7 +64,7 @@ public class CoreSettingsCommand extends CoreObject {
                     builder.setDescription("That is not a valid config!");
                 }
             } else if (data.getArgs().length >= 4 && data.getArgs()[0].equalsIgnoreCase("set")) {
-                Settings settings = DiscordCore.getInstance().getSettingsManager().getSettings(data.getArgs()[1].toLowerCase());
+                DiscordSettings settings = DiscordCore.getInstance().getSettingsManager().getSettings(data.getArgs()[1].toLowerCase());
                 if (settings != null) {
                     if(settings.getConfig().getJson().getJson().containsKey(data.getArgs()[2])) {
                         if(settings.getConfig().getJson().getJson().get(data.getArgs()[2]) instanceof String) {

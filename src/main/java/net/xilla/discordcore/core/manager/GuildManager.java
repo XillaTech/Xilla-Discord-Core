@@ -11,7 +11,7 @@ import java.util.Map;
 public abstract class GuildManager<T extends  GuildManagerObject> {
 
     @Getter
-    private Map<String, Manager<T>> managers = new HashMap<>();
+    private Map<String, Manager<String, T>> managers = new HashMap<>();
 
     @Getter
     private Map<String, Object> defaults = new HashMap<>();
@@ -22,11 +22,23 @@ public abstract class GuildManager<T extends  GuildManagerObject> {
     @Getter
     private String folder;
 
+    private Class<T> clazz = null;
+
     public GuildManager(String name) {
         this(name, "");
     }
 
     public GuildManager(String name, String folder) {
+        this.name = name;
+        this.folder = folder;
+    }
+
+    public GuildManager(String name, Class<T> clazz) {
+        this(name, "", clazz);
+    }
+
+    public GuildManager(String name, String folder, Class<T> clazz) {
+        this.clazz = clazz;
         this.name = name;
         this.folder = folder;
     }
@@ -39,9 +51,9 @@ public abstract class GuildManager<T extends  GuildManagerObject> {
         defaults.get(key);
     }
 
-    public Manager<T> getManager(String guildID) {
+    public Manager<String, T> getManager(String guildID) {
         if(!managers.containsKey(guildID)) {
-            managers.put(guildID, new Manager<T>(guildID + "-" + name, folder + guildID + "/" + name + ".json") {
+            managers.put(guildID, new Manager<String, T>(guildID + "-" + name, folder + guildID + "/" + name + ".json", clazz) {
                 @Override
                 protected void load() {
                     GuildManager.this.load();
@@ -58,7 +70,7 @@ public abstract class GuildManager<T extends  GuildManagerObject> {
                 }
             });
 
-            Manager<T> manager = managers.get(guildID);
+            Manager<String, T> manager = managers.get(guildID);
             for(String key : new ArrayList<>(defaults.keySet())) {
                 manager.getConfig().setDefault(key, defaults.get(key));
             }
@@ -66,7 +78,7 @@ public abstract class GuildManager<T extends  GuildManagerObject> {
         return managers.get(guildID);
     }
 
-    public Manager<T> getManager(Guild guild) {
+    public Manager<String, T> getManager(Guild guild) {
         return getManager(guild.getId());
     }
 

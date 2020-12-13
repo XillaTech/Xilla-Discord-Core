@@ -23,7 +23,7 @@ public class CoreServer extends ManagerObject {
         super(json.get("id").toString(), "Servers");
         loadSerializedData(new XillaJson(json));
         DiscordCore.getInstance().addExecutor(() -> {
-            this.guild = DiscordCore.getInstance().getBot().getGuildById(getKey());
+            this.guild = DiscordCore.getInstance().getBot().getGuildById(getKey().toString());
         });
     }
 

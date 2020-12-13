@@ -17,7 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class CommandManager extends Manager<Command> {
+public class CommandManager extends Manager<String, Command> {
 
     private ExecutorService executor;
     private CommandWorker commandWorker;
@@ -27,11 +27,15 @@ public class CommandManager extends Manager<Command> {
     private boolean commandLine;
     private CommandPermissionError permissionError;
     private CommandRunCheck commandRunCheck;
+
     private Map<String, List<Command>> commandCache;
+
+    private Map<String, Command> activatorCache;
 
     public CommandManager(String welcome, boolean commandLine) {
         super("Commands");
         this.commandCache = new ConcurrentHashMap<>();
+        this.activatorCache = new ConcurrentHashMap<>();
         this.welcome = welcome;
         this.commandLine = commandLine;
         this.flagManager = new FlagManager();
@@ -59,7 +63,7 @@ public class CommandManager extends Manager<Command> {
         String commandInput = input.split(" ")[0].toLowerCase();
         String[] args = Arrays.copyOfRange(input.split(" "), 1, input.split(" ").length);
 
-        Command command = getCache("activators").getObject(commandInput);
+        Command command = activatorCache.get(commandInput);
 
         runCommand(new CommandData(commandInput, args, null, inputType, user));
 
@@ -69,8 +73,8 @@ public class CommandManager extends Manager<Command> {
     }
 
     public void runCommand(CommandData data) {
-        if(getCache("activators").isCached(data.getCommand().toLowerCase())) {
-            Command basicCommand = getCache("activators").getObject(data.getCommand().toLowerCase());
+        if(activatorCache.containsKey(data.getCommand().toLowerCase())) {
+            Command basicCommand = activatorCache.get(data.getCommand().toLowerCase());
 
             if(!basicCommand.isConsoleSupported() && data.getUser() instanceof ConsoleUser) {
                 return;
@@ -138,12 +142,12 @@ public class CommandManager extends Manager<Command> {
         commandCache.get(command.getModule()).add(command);
 
         for(String activator : command.getActivators())
-            getCache("activators").putObject(activator.toLowerCase(), command);
+            activatorCache.put(activator.toLowerCase(), command);
     }
 
     @Override
     public void objectRemoved(Command command) {
         for(String activator : command.getActivators())
-            getCache("activators").removeObject(activator.toLowerCase());
+            activatorCache.remove(activator.toLowerCase());
     }
 }

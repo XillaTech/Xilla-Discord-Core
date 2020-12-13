@@ -2,7 +2,7 @@ package net.xilla.discordcore.settings;
 
 import net.xilla.core.library.manager.Manager;
 
-public class GuildSettingsManager extends Manager<GuildSettings> {
+public class GuildSettingsManager extends Manager<String, GuildSettings> {
 
     public GuildSettingsManager() {
         super("GuildSettings");

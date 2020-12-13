@@ -31,7 +31,7 @@ public class UserManagerCommand extends CoreObject {
                 event = (MessageReceivedEvent)data.get();
             }
 
-            Manager<DiscordGroup> manager;
+            Manager<String, DiscordGroup> manager;
 
             int getData = 0;
             if(event == null) {
@@ -136,7 +136,11 @@ public class UserManagerCommand extends CoreObject {
 
                    if(permission.toLowerCase().startsWith("core.")) {
                        if(!user.hasPermission("core.admin")) {
-                           response.append("You do not have the permission (core.admin) to add that permission.");
+                           if(event != null) {
+                               if(!PermissionAPI.hasPermission(event.getMember(), "core.admin")) {
+                                   response.append("You do not have the permission (core.admin) to add that permission.");
+                               }
+                           }
                        }
                    }
 
@@ -167,7 +171,11 @@ public class UserManagerCommand extends CoreObject {
 
                    if(permission.toLowerCase().startsWith("core.")) {
                        if(!user.hasPermission("core.admin")) {
-                           response.append("You do not have the permission (core.admin) to remove that permission.");
+                           if(event != null) {
+                               if(!PermissionAPI.hasPermission(event.getMember(), "core.admin")) {
+                                   response.append("You do not have the permission (core.admin) to remove that permission.");
+                               }
+                           }
                        }
                    }
 

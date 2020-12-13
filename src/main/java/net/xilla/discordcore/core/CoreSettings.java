@@ -1,13 +1,12 @@
 package net.xilla.discordcore.core;
 
 import net.xilla.discordcore.DiscordCore;
-import net.xilla.discordcore.settings.Settings;
-import org.json.simple.JSONArray;
+import net.xilla.discordcore.settings.DiscordSettings;
 
-public class CoreSettings extends Settings {
+public class CoreSettings extends DiscordSettings {
 
     public CoreSettings() {
-        super("Core", "settings.json");
+        super("Core", "discord-settings.json");
 
         getConfig().setDefault("shards", 1);
         getConfig().setDefault("embed-color", "#018ed1");

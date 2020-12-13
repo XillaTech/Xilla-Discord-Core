@@ -9,7 +9,7 @@ import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.embed.JSONEmbed;
 import net.xilla.discordcore.settings.GuildSettings;
-import net.xilla.discordcore.settings.Settings;
+import net.xilla.discordcore.settings.DiscordSettings;
 import org.json.simple.JSONObject;
 
 import java.awt.*;
@@ -48,7 +48,7 @@ public class SettingsCommand extends CoreObject {
                 if(settings == null) {
                     description.append("That is not a valid config!");
                 } else {
-                    Settings guildSettings = settings.getSettings(event.getGuild().getId());
+                    DiscordSettings guildSettings = settings.getSettings(event.getGuild().getId());
                     description.append("**Settings:** ```");
 
                     for(Object key : guildSettings.getConfig().getJson().getJson().keySet()) {
@@ -72,7 +72,7 @@ public class SettingsCommand extends CoreObject {
                 if(settings == null) {
                     description.append("That is not a valid config!");
                 } else {
-                    Settings guildSettings = settings.getSettings(event.getGuild().getId());
+                    DiscordSettings guildSettings = settings.getSettings(event.getGuild().getId());
 
                     String key = data.getArgs()[2];
 

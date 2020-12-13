@@ -3,7 +3,6 @@ package net.xilla.discordcore.module;
 import net.xilla.core.library.config.ConfigManager;
 import net.xilla.core.library.json.XillaJson;
 import net.xilla.core.library.manager.ManagerObject;
-import net.xilla.core.library.manager.XillaManager;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.core.Platform;
 import net.xilla.discordcore.core.command.CommandManager;
@@ -16,7 +15,7 @@ public class Module extends ManagerObject {
     private String version;
 
     public Module(String type, String name, String version) {
-        super(name, XillaManager.getInstance().get("Modules"));
+        super(name, "Modules");
         this.type = type;
         this.name = name;
         this.version = version;

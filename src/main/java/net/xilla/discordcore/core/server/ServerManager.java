@@ -5,7 +5,7 @@ import net.xilla.core.library.manager.Manager;
 import net.xilla.discordcore.DiscordCore;
 import org.json.simple.JSONObject;
 
-public class ServerManager extends Manager<CoreServer> {
+public class ServerManager extends Manager<String, CoreServer> {
 
     public ServerManager() {
         super("Servers","servers.json");

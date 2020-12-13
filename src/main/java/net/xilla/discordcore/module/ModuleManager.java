@@ -1,34 +1,35 @@
 package net.xilla.discordcore.module;
 
+import net.xilla.core.library.config.ConfigManager;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.core.log.LogLevel;
 import net.xilla.core.log.Logger;
 import net.xilla.discordcore.module.type.JavaModule;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class ModuleManager extends Manager<Module> {
+public class ModuleManager extends Manager<String, Module> {
 
-    public ModuleManager(String baseFolder) {
+    public ModuleManager() {
         super("Modules");
 
         try {
-            Path file;
-            if(baseFolder == null) {
-                file = Paths.get("modules/");
+            File file;
+            if(ConfigManager.getInstance().getBaseFolder() == null) {
+                file = new File("modules/");
             } else {
-                file = Paths.get(baseFolder + "/modules/");
+                file = new File(ConfigManager.getInstance().getBaseFolder() + "modules/");
             }
 
-            file.toFile().mkdir();
-            Stream<Path> walk = Files.walk(file);
+            file.mkdir();
+            Stream<Path> walk = Files.walk(file.toPath());
             List<Path> result = walk.filter(Files::isRegularFile).collect(Collectors.toList());
             HashMap<String, Path> paths = new HashMap<>();
 

@@ -36,7 +36,7 @@ public class GroupManagerCommand extends CoreObject {
                 event = (MessageReceivedEvent)data.get();
             }
 
-            Manager<DiscordGroup> manager;
+            Manager<String, DiscordGroup> manager;
 
             int getData = 0;
             if(event == null) {

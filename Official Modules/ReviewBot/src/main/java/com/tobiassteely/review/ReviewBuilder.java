@@ -84,8 +84,8 @@ public class ReviewBuilder extends CoreObject {
         reactions.addQuestion(new ReactionQuestion(":three:", "3"));
         reactions.addQuestion(new ReactionQuestion(":four:", "4"));
         reactions.addQuestion(new ReactionQuestion(":five:", "5"));
-        multiForm.addReactionQuestion("Rating", "What score would you give them (1 lowest -> 5 highest)", reactions, user.getId());
-        multiForm.addMessageQuestion("Description", "Why do they deserve this rating?", user.getId());
+        multiForm.addReactionQuestion("Rating", "What score would you give them (1 lowest -> 5 highest)", reactions, user.getId(), channel.getGuild().getId());
+        multiForm.addMessageQuestion("Description", "Why do they deserve this rating?", user.getId(), channel.getGuild().getId());
         multiForm.start();
     }
 
