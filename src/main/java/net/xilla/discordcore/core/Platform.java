@@ -1,5 +1,7 @@
 package net.xilla.discordcore.core;
 
+import lombok.Getter;
+import lombok.Setter;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.CoreObject;
@@ -14,11 +16,23 @@ import net.xilla.discordcore.core.server.ServerManager;
 
 public class Platform extends CoreObject {
 
+    @Setter
+    @Getter
     private String type;
+
+    @Getter
     private GroupManager groupManager;
+
+    @Getter
     private UserManager userManager;
+
+    @Getter
     private TemplateManager templateManager;
+
+    @Getter
     private ServerManager serverManager;
+
+    @Getter
     private CoreWorker coreWorker;
 
     public Platform(String type) {
@@ -57,22 +71,6 @@ public class Platform extends CoreObject {
         });
     }
 
-    public CoreWorker getCoreWorker() {
-        return coreWorker;
-    }
-
-    public ServerManager getServerManager() {
-        return serverManager;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public GroupManager getGroupManager() {
-        return groupManager;
-    }
-
     public enum getPlatform {
         // Available platforms
         BUNGEE("BUNGEE"),
@@ -87,11 +85,4 @@ public class Platform extends CoreObject {
         }
     }
 
-    public TemplateManager getTemplateManager() {
-        return templateManager;
-    }
-
-    public UserManager getUserManager() {
-        return userManager;
-    }
 }

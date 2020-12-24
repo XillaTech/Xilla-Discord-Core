@@ -48,7 +48,7 @@ public class GuildSettings extends ManagerObject {
 
     public DiscordSettings getSettings(String guildID) {
         if(!settingsMap.containsKey(guildID)) {
-            DiscordSettings settings = new DiscordSettings(guildID + "-" + name, folder + guildID + ".json");
+            DiscordSettings settings = new DiscordSettings(folder + guildID + ".json");
             for(String key : defaults.keySet()) {
                 settings.getConfig().setDefault(key, defaults.get(key));
             }

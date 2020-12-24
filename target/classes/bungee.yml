@@ -1,5 +1,0 @@
-name: DiscordCore
-version: 2.0.0
-main: net.xilla.discordcore.DiscordCoreBungee
-description: A powerful discord API.
-author: Alontrle

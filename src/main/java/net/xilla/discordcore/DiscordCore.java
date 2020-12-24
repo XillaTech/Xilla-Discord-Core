@@ -4,6 +4,7 @@ import lombok.Getter;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
+import net.xilla.core.library.config.ConfigManager;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.core.library.manager.XillaManager;
 import net.xilla.core.library.worker.Worker;
@@ -131,8 +132,28 @@ public class DiscordCore extends CoreObject {
     private CommandManager commandManager;
 
     public DiscordCore(String platform, String baseFolder, boolean startCommandLine, String name) {
+        this(baseFolder, new CoreSettings(), platform, startCommandLine, name);
+
+    }
+
+    public DiscordCore(String baseFolder, CoreSettings settings, String platform, boolean startCommandLine, String name) {
         instance = this;
+
+        // Setting base folder
+        if(baseFolder != null && !baseFolder.isEmpty()) {
+            ConfigManager.getInstance().setBaseFolder(baseFolder);
+        }
+
+        this.settings = settings;
+
         this.type = platform;
+
+        // Loads settings
+        if(DiscordCore.getInstance().getType().equals(Platform.getPlatform.STANDALONE.name) || DiscordCore.getInstance().getType().equals(Platform.getPlatform.EMBEDDED.name)) {
+            // Fancy installer for standalone
+            settings.getInstaller().install("The discord bot's token from https://discord.com/developers/", "token", "bottoken");
+        }
+
         this.postStartupManager = new PostStartupManager();
 
         // Loads base APIs
@@ -142,14 +163,13 @@ public class DiscordCore extends CoreObject {
         // Loads Core Settings
         this.settingsManager = new SettingsManager();
         this.guildSettingsManager = new GuildSettingsManager();
-        this.settings = new CoreSettings();
         this.serverSettings = new ServerSettings();
         this.getCommandManager().setCommandRunCheck(new CommandCheck());
 
         this.formManager = new FormManager();
 
         // Loads the rest of the core
-        this.platform = new Platform(platform);
+        this.platform = new Platform(type);
 
         // Connects to the discord api
         try {
@@ -185,85 +205,14 @@ public class DiscordCore extends CoreObject {
         this.moduleManager = new ModuleManager();
 
         this.embedManager = new EmbedManager();
+
+        // Starts up the API
+        new DiscordAPI();
 
         // Starting Command Line
         if(startCommandLine) {
             getCommandManager().getCommandWorker().start();
         }
-
-        // Starts up the API
-        new DiscordAPI();
-
-        new Thread(() -> {
-            try {
-                bot.awaitReady();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            Logger.log(LogLevel.INFO, "Running post startup executors now... Some things may only startup now!", DiscordCore.class);
-            postStartupManager.run();
-        }).start();
-    }
-
-    public DiscordCore(String platform, String token, String name) {
-        instance = this;
-        this.type = platform;
-
-        this.postStartupManager = new PostStartupManager();
-
-        // Loads base APIs
-        this.commandManager = new CommandManager(name, false);
-        commandManager.reload();
-
-        // Loads Core Settings
-        this.settingsManager = new SettingsManager();
-        this.guildSettingsManager = new GuildSettingsManager();
-        this.settings = new CoreSettings();
-        this.serverSettings = new ServerSettings();
-        this.getCommandManager().setCommandRunCheck(new CommandCheck());
-
-        this.formManager = new FormManager();
-
-        // Loads the rest of the core
-        this.platform = new Platform(platform);
-
-        // Connects to the discord api
-        try {
-            JDABuilder shardBuilder = JDABuilder.createDefault(settings.getBotToken());
-
-            for (int i = 0; i < settings.getShards(); i++) {
-                shardBuilder.useSharding(i, settings.getShards()).build();
-            }
-
-            shardBuilder.addEventListeners(new CommandEventHandler());
-            shardBuilder.addEventListeners(new FormHandler());
-
-            if (settings.getActivity() != null && !settings.getActivity().equalsIgnoreCase("none")) {
-                if (settings.getActivityType().equalsIgnoreCase("Playing")) {
-                    shardBuilder.setActivity(Activity.playing(settings.getActivity()));
-                } else if (settings.getActivityType().equalsIgnoreCase("Listening")) {
-                    shardBuilder.setActivity(Activity.listening(settings.getActivity()));
-                } else if (settings.getActivityType().equalsIgnoreCase("Streaming")) {
-                    shardBuilder.setActivity(Activity.streaming(settings.getActivity(), settings.getActivityURL()));
-                } else if (settings.getActivityType().equalsIgnoreCase("Watching")) {
-                    shardBuilder.setActivity(Activity.watching(settings.getActivity()));
-                }
-            }
-
-            this.bot = shardBuilder.build();
-
-        } catch (LoginException ex) {
-            ex.printStackTrace();
-        }
-
-
-        // Loads up the modules
-        this.moduleManager = new ModuleManager();
-
-        this.embedManager = new EmbedManager();
-
-        // Starts up the API
-        new DiscordAPI();
 
         new Thread(() -> {
             try {

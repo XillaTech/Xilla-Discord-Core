@@ -1,12 +1,11 @@
 package net.xilla.discordcore.core;
 
-import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.settings.DiscordSettings;
 
 public class CoreSettings extends DiscordSettings {
 
     public CoreSettings() {
-        super("Core", "discord-settings.json");
+        super("discord-settings.json");
 
         getConfig().setDefault("shards", 1);
         getConfig().setDefault("embed-color", "#018ed1");
@@ -22,12 +21,6 @@ public class CoreSettings extends DiscordSettings {
         getConfig().setDefault("minimize-help", false);
         getConfig().setDefault("token", "bottoken");
         getConfig().save();
-
-        // Loads settings
-        if(DiscordCore.getInstance().getType().equals(Platform.getPlatform.STANDALONE.name) || DiscordCore.getInstance().getType().equals(Platform.getPlatform.EMBEDDED.name)) {
-            // Fancy installer for standalone
-            getInstaller().install("The discord bot's token from https://discord.com/developers/", "token", "bottoken");
-        }
     }
 
     public String getBotToken() {

@@ -37,20 +37,26 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
+            <version>1.18.16</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>4.2.0_222</version>
+            <version>4.2.0_223</version>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>com.github.XillaTech</groupId>-->
+<!--            <artifactId>Xilla-Core</artifactId>-->
+<!--            <version>6148178275</version>-->
+<!--        </dependency>-->
+
         <dependency>
-            <groupId>com.github.XillaTech</groupId>
-            <artifactId>Xilla-Core</artifactId>
-            <version>6148178275</version>
+            <groupId>net.xilla</groupId>
+            <artifactId>Core</artifactId>
+            <version>1.0.0</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.vdurmont/emoji-java -->

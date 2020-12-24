@@ -8,6 +8,7 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.core.library.manager.ManagerObject;
+import net.xilla.core.library.manager.ObjectInterface;
 import net.xilla.core.library.manager.XillaManager;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.command.CommandBuilder;
@@ -110,7 +111,7 @@ public class CoreCommands extends CoreObject {
 
                 Manager manager = XillaManager.getInstance().get(data.getArgs()[1]);
                 if(manager != null) {
-                    ManagerObject object = manager.get(argument.toString());
+                    ObjectInterface object = manager.get(argument.toString());
                     if(object != null) {
                         if(object.getSerializedData() != null) {
                             embedBuilder.setDescription("Object Data: ```" + formatJSONStr(object.getSerializedData().getJson()) + "```");
