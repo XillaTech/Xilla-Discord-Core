@@ -132,19 +132,13 @@ public class DiscordCore extends CoreObject {
     private CommandManager commandManager;
 
     public DiscordCore(String platform, String baseFolder, boolean startCommandLine, String name) {
-        this(baseFolder, new CoreSettings(), platform, startCommandLine, name);
-
-    }
-
-    public DiscordCore(String baseFolder, CoreSettings settings, String platform, boolean startCommandLine, String name) {
         instance = this;
 
-        // Setting base folder
         if(baseFolder != null && !baseFolder.isEmpty()) {
             ConfigManager.getInstance().setBaseFolder(baseFolder);
         }
 
-        this.settings = settings;
+        this.settings = new CoreSettings();
 
         this.type = platform;
 

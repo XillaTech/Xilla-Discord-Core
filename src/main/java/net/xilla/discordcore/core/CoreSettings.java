@@ -23,6 +23,10 @@ public class CoreSettings extends DiscordSettings {
         getConfig().save();
     }
 
+    public CoreSettings(String base) {
+        this();
+    }
+
     public String getBotToken() {
         return getConfig().getString("token");
     }

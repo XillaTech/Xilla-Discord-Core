@@ -6,7 +6,7 @@
 
     <groupId>net.xilla.discord</groupId>
     <artifactId>Xilla-Discord-Core</artifactId>
-    <version>v2.0.0</version>
+    <version>v2.0.1</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -47,17 +47,17 @@
             <version>4.2.0_223</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>com.github.XillaTech</groupId>-->
-<!--            <artifactId>Xilla-Core</artifactId>-->
-<!--            <version>6148178275</version>-->
-<!--        </dependency>-->
-
         <dependency>
-            <groupId>net.xilla</groupId>
-            <artifactId>Core</artifactId>
-            <version>1.0.0</version>
+            <groupId>com.github.XillaTech</groupId>
+            <artifactId>Xilla-Core</artifactId>
+            <version>429119c53a</version>
         </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>net.xilla</groupId>-->
+<!--            <artifactId>Core</artifactId>-->
+<!--            <version>1.0.0</version>-->
+<!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/com.vdurmont/emoji-java -->
         <dependency>
