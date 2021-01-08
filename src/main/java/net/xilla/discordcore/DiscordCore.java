@@ -126,6 +126,7 @@ public class DiscordCore extends CoreObject {
      * This manager is used to run events before the core has connected
      * to the discord API.
      */
+    @Getter
     private StartupManager startupManager;
 
     /**
