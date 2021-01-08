@@ -218,12 +218,15 @@ public class GroupManagerCommand extends CoreObject {
                     description = new StringBuilder("*Available Commands*\n"
                             + getCoreSetting().getCommandPrefix() + "gm <guild> create <@role> <group name> - Create staff group\n"
                             + getCoreSetting().getCommandPrefix() + "gm <guild> delete <group name/@role> - Delete a staff group\n"
-                            + getCoreSetting().getCommandPrefix() + "gm <guild> addpermission <group name/@role> <permission> - Add a permission\n"
-                            + getCoreSetting().getCommandPrefix() + "gm <guild> removepermission <group name/@role> <permission> - Remove a permission\n"
+                            + getCoreSetting().getCommandPrefix() + "gm <guild> addpermission <permission> <group name/@role> - Add a permission\n"
+                            + getCoreSetting().getCommandPrefix() + "gm <guild> removepermission <permission> <group name/@role> - Remove a permission\n"
                             + getCoreSetting().getCommandPrefix() + "gm <guild> info <group name/@role> - View a staff group\n"
                             + getCoreSetting().getCommandPrefix() + "gm <guild> list - List staff groups\n");
                 }
             }
+
+
+
 
             EmbedBuilder builder = new EmbedBuilder();
 

@@ -128,13 +128,15 @@ public class CoreObject implements XillaLibrary {
             return guild;
         }
 
-        guild = getBot().getGuildsByName(name, false).get(0);
-
-        if(guild != null) {
-            return guild;
+        List<Guild> guilds = getBot().getGuildsByName(name, false);
+        if(guilds.size() > 0) {
+            return guilds.get(0);
         }
 
-        guild = getBot().getGuildsByName(name, true).get(0);
+        guilds = getBot().getGuildsByName(name, true);
+        if(guilds.size() > 0) {
+            return guilds.get(0);
+        }
 
         return guild;
     }

@@ -4,6 +4,7 @@ import net.dv8tion.jda.api.entities.Guild;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.core.manager.GuildManager;
+import net.xilla.discordcore.settings.GuildSettings;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;

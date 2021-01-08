@@ -28,6 +28,7 @@ import net.xilla.discordcore.settings.GuildSettingsManager;
 import net.xilla.discordcore.settings.SettingsManager;
 import net.xilla.discordcore.startup.PostStartupExecutor;
 import net.xilla.discordcore.startup.PostStartupManager;
+import net.xilla.discordcore.startup.StartupManager;
 
 import javax.security.auth.login.LoginException;
 import java.util.ArrayList;
@@ -122,6 +123,12 @@ public class DiscordCore extends CoreObject {
     private PostStartupManager postStartupManager;
 
     /**
+     * This manager is used to run events before the core has connected
+     * to the discord API.
+     */
+    private StartupManager startupManager;
+
+    /**
      * This manager is used to process the built in forms to collect
      * command data and such from discord users.
      */
@@ -132,6 +139,11 @@ public class DiscordCore extends CoreObject {
     private CommandManager commandManager;
 
     public DiscordCore(String platform, String baseFolder, boolean startCommandLine, String name) {
+        this(platform, baseFolder, startCommandLine, name, null);
+    }
+
+
+    public DiscordCore(String platform, String baseFolder, boolean startCommandLine, String name, String token) {
         instance = this;
 
         if(baseFolder != null && !baseFolder.isEmpty()) {
@@ -142,13 +154,16 @@ public class DiscordCore extends CoreObject {
 
         this.type = platform;
 
-        // Loads settings
-        if(DiscordCore.getInstance().getType().equals(Platform.getPlatform.STANDALONE.name) || DiscordCore.getInstance().getType().equals(Platform.getPlatform.EMBEDDED.name)) {
-            // Fancy installer for standalone
-            settings.getInstaller().install("The discord bot's token from https://discord.com/developers/", "token", "bottoken");
+        if(token == null || token.isEmpty()) {
+            // Loads settings
+            if (DiscordCore.getInstance().getType().equals(Platform.getPlatform.STANDALONE.name) || DiscordCore.getInstance().getType().equals(Platform.getPlatform.EMBEDDED.name)) {
+                // Fancy installer for standalone
+                settings.getInstaller().install("The discord bot's token from https://discord.com/developers/", "token", "bottoken");
+            }
         }
 
         this.postStartupManager = new PostStartupManager();
+        this.startupManager = new StartupManager();
 
         // Loads base APIs
         this.commandManager = new CommandManager(name, startCommandLine);
@@ -165,9 +180,19 @@ public class DiscordCore extends CoreObject {
         // Loads the rest of the core
         this.platform = new Platform(type);
 
+        // Loads up the modules
+        this.moduleManager = new ModuleManager();
+
         // Connects to the discord api
         try {
-            JDABuilder shardBuilder = JDABuilder.createDefault(settings.getBotToken());
+            JDABuilder shardBuilder;
+            if(token == null || token.isEmpty()) {
+                shardBuilder = JDABuilder.createDefault(settings.getBotToken());
+            } else {
+                shardBuilder = JDABuilder.createDefault(token);
+            }
+
+            startupManager.run(shardBuilder);
 
             for (int i = 0; i < settings.getShards(); i++) {
                 shardBuilder.useSharding(i, settings.getShards()).build();
@@ -194,14 +219,7 @@ public class DiscordCore extends CoreObject {
             ex.printStackTrace();
         }
 
-
-        // Loads up the modules
-        this.moduleManager = new ModuleManager();
-
         this.embedManager = new EmbedManager();
-
-        // Starts up the API
-        new DiscordAPI();
 
         // Starting Command Line
         if(startCommandLine) {
@@ -244,10 +262,6 @@ public class DiscordCore extends CoreObject {
      */
     public void shutdown() {
 
-        for(Module module : new ArrayList<>(getModuleManager().getData().values())) {
-            module.onDisable();
-        }
-
         for(Worker worker : new ArrayList<>(WorkerManager.getInstance().getData().values())) {
             worker.stopWorker();
         }
@@ -263,15 +277,11 @@ public class DiscordCore extends CoreObject {
             }
         }
 
-        this.bot.shutdown();
+        for(Module module : new ArrayList<>(getModuleManager().getData().values())) {
+            module.onDisable();
+        }
 
-        this.bot = null;
-        this.formManager = null;
-        this.postStartupManager = null;
-        this.serverSettings = null;
-        this.settings = null;
-        this.platform = null;
-        this.type = null;
+        this.bot.shutdown();
 
         instance = null;
     }
@@ -282,7 +292,7 @@ public class DiscordCore extends CoreObject {
     public void restart() {
         shutdown();
         Logger.log(LogLevel.INFO, "Restarting does NOT restart the java file. If you are trying to update the core, you will need to stop and start the bot. However for modules or for small issues, a soft reboot should work.", getClass());
-        new DiscordCore(Platform.getPlatform.STANDALONE.name, null, true, "Xilla Discord Core");
+        new DiscordCore(platform.getType(), ConfigManager.getInstance().getBaseFolder(), getCommandManager().isCommandLine(), getCommandManager().getName());
     }
 
 }

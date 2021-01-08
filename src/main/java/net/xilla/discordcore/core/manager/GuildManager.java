@@ -4,7 +4,6 @@ import lombok.Getter;
 import net.dv8tion.jda.api.entities.Guild;
 import net.xilla.core.library.manager.Manager;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,9 +11,6 @@ public abstract class GuildManager<T extends  GuildManagerObject> {
 
     @Getter
     private Map<String, Manager<String, T>> managers = new HashMap<>();
-
-    @Getter
-    private Map<String, Object> defaults = new HashMap<>();
 
     @Getter
     private String name;
@@ -43,14 +39,6 @@ public abstract class GuildManager<T extends  GuildManagerObject> {
         this.folder = folder;
     }
 
-    public void addDefault(String key, Object obj) {
-        defaults.put(key, obj);
-    }
-
-    public void getDefault(String key) {
-        defaults.get(key);
-    }
-
     public Manager<String, T> getManager(String guildID) {
         if(!managers.containsKey(guildID)) {
             managers.put(guildID, new Manager<String, T>(guildID + "-" + name, folder + guildID + "/" + name + ".json", clazz) {
@@ -69,11 +57,6 @@ public abstract class GuildManager<T extends  GuildManagerObject> {
                     GuildManager.this.objectRemoved(guildID, object);
                 }
             });
-
-            Manager<String, T> manager = managers.get(guildID);
-            for(String key : new ArrayList<>(defaults.keySet())) {
-                manager.getConfig().setDefault(key, defaults.get(key));
-            }
         }
         return managers.get(guildID);
     }
