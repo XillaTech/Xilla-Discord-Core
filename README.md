@@ -24,7 +24,7 @@ Lastest Version : 2.0.1 - <a href="http://api.xilla.net/download/Xilla-Discord-C
  CoreInfo - (core.coreinfo) View the bot's core information<br>
 
 # Modules<br> 
-Ticket Module - (Tickets & Support) <a href="https://www.mc-market.org/resources/16500/">Purchase Here for $4.99</a><br>
+Ticket Module - (Tickets & Support) <a href="https://www.mc-market.org/resources/16500/">Purchase Here for $7.99</a><br>
 - Java Ticket System<br>
 - Ticket Reaction Panel<br>
 - Ask user for information on ticket openv
@@ -32,7 +32,7 @@ Ticket Module - (Tickets & Support) <a href="https://www.mc-market.org/resources
 - Overdue Ticket Warning<br>
 - Web Transcripts<br><br>
 
-Invoice Module - (PayPal Billing) <a href="https://www.mc-market.org/resources/16811/">Purchase Here for $2.99</a><br>
+Invoice Module - (PayPal Billing) <a href="https://www.mc-market.org/resources/16811/">Purchase Here for $4.99</a><br>
 - Discord Invoices<br>
 - PayPal Integration<br>
 - Works with Xilla Tickets as a module<br><br>
