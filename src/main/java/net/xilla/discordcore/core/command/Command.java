@@ -1,11 +1,13 @@
 package net.xilla.discordcore.core.command;
 
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.core.library.json.XillaJson;
 import net.xilla.core.library.manager.ManagerObject;
 import net.xilla.core.log.LogLevel;
 import net.xilla.core.log.Logger;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.core.command.response.CommandResponse;
+import net.xilla.discordcore.core.permission.PermissionAPI;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
@@ -64,7 +66,14 @@ public class Command extends ManagerObject {
 
     public ArrayList<CommandResponse> run(CommandData data) {
         ArrayList<CommandResponse> responses = new ArrayList<>();
-        if(permission == null || data.getUser().hasPermission(permission)) {
+
+        boolean hasPermission = true;
+        if(permission != null && data.get() instanceof MessageReceivedEvent) {
+            MessageReceivedEvent event = (MessageReceivedEvent) data.get();
+            hasPermission = PermissionAPI.hasPermission(event.getMember(), permission);
+        }
+
+        if(hasPermission) {
             for (CommandExecutor executor : executors) {
                 try {
                     CommandResponse response = executor.run(data);

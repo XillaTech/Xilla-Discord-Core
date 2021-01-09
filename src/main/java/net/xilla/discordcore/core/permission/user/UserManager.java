@@ -5,6 +5,7 @@ import net.xilla.core.library.json.XillaJson;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.discordcore.DiscordAPI;
 import net.xilla.discordcore.core.manager.GuildManager;
+import net.xilla.discordcore.core.permission.PermissionAPI;
 import org.json.simple.JSONObject;
 
 public class UserManager extends GuildManager<DiscordUser> {
@@ -42,6 +43,7 @@ public class UserManager extends GuildManager<DiscordUser> {
 
     @Override
     protected void objectRemoved(String guildID, DiscordUser object) {
-
+        PermissionAPI.getUserCache().remove(object.getUserIdentifier());
     }
+
 }

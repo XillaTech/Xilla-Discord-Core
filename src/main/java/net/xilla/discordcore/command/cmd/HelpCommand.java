@@ -1,12 +1,14 @@
 package net.xilla.discordcore.command.cmd;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.core.command.Command;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
+import net.xilla.discordcore.core.permission.PermissionAPI;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,17 +22,25 @@ public class HelpCommand extends CoreObject {
             try {
                 HashMap<String, ArrayList<String>> commands = new HashMap<>();
 
+                MessageReceivedEvent event = null;
+                if(data.get() instanceof  MessageReceivedEvent) {
+                    event = (MessageReceivedEvent) data.get();
+                }
+                Member member = null;
+                if(event != null) {
+                    member = event.getMember();
+                }
+
                 for(Command command : new ArrayList<>(DiscordCore.getInstance().getCommandManager().getData().values())) {
                     if (getServerSettings().canRunCommand(data, command.getName())) {
                         String finalName = command.getModule().substring(0, 1).toUpperCase() + command.getModule().substring(1).toLowerCase();
-
                         if (data.getInputType().equalsIgnoreCase("commandline")) {
                             if (command.isConsoleSupported()) {
                                 if (!commands.containsKey(finalName)) {
                                     commands.put(finalName, new ArrayList<>());
                                 }
 
-                                if (command.getPermission() == null || data.getUser().hasPermission(command.getPermission())) {
+                                if (command.getPermission() == null || member == null || PermissionAPI.hasPermission(member, command.getPermission())) {
                                     commands.get(finalName).add(getCoreSetting().getCommandPrefix() + command.getUsage() + " - " + command.getDescription());
                                 }
                             }
@@ -39,7 +49,7 @@ public class HelpCommand extends CoreObject {
                                 commands.put(finalName, new ArrayList<>());
                             }
 
-                            if (command.getPermission() == null || data.getUser().hasPermission(command.getPermission())) {
+                            if (command.getPermission() == null || member == null || PermissionAPI.hasPermission(member, command.getPermission())) {
                                 commands.get(finalName).add(getCoreSetting().getCommandPrefix() + command.getUsage() + " - " + command.getDescription());
                             }
                         }

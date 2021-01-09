@@ -1,5 +1,6 @@
 package net.xilla.discordcore.core.command.handler;
 
+import net.dv8tion.jda.api.entities.Guild;
 import net.xilla.discordcore.core.command.permission.group.PermissionGroup;
 import net.xilla.discordcore.core.command.permission.user.PermissionUser;
 
@@ -13,7 +14,7 @@ public class ConsoleUser implements PermissionUser {
     }
 
     @Override
-    public boolean hasPermission(String permission) {
+    public boolean hasPermission(Guild guild, String permission) {
         return true;
     }
 

@@ -135,11 +135,9 @@ public class UserManagerCommand extends CoreObject {
                    DiscordUser user = PermissionAPI.getUser(member);
 
                    if(permission.toLowerCase().startsWith("core.")) {
-                       if(!user.hasPermission("core.admin")) {
-                           if(event != null) {
-                               if(!PermissionAPI.hasPermission(event.getMember(), "core.admin")) {
-                                   response.append("You do not have the permission (core.admin) to add that permission.");
-                               }
+                       if(event != null) {
+                           if(!PermissionAPI.hasPermission(event.getMember(), "core.admin")) {
+                               response.append("You do not have the permission (core.admin) to add that permission.");
                            }
                        }
                    }
@@ -170,11 +168,9 @@ public class UserManagerCommand extends CoreObject {
                    DiscordUser user = PermissionAPI.getUser(member);
 
                    if(permission.toLowerCase().startsWith("core.")) {
-                       if(!user.hasPermission("core.admin")) {
-                           if(event != null) {
-                               if(!PermissionAPI.hasPermission(event.getMember(), "core.admin")) {
-                                   response.append("You do not have the permission (core.admin) to remove that permission.");
-                               }
+                       if(event != null) {
+                           if(!PermissionAPI.hasPermission(event.getMember(), "core.admin")) {
+                               response.append("You do not have the permission (core.admin) to add that permission.");
                            }
                        }
                    }
