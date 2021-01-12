@@ -47,23 +47,23 @@
             <version>4.2.0_223</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>com.github.XillaTech</groupId>-->
-<!--            <artifactId>Xilla-Core</artifactId>-->
-<!--            <version>429119c53a</version>-->
-<!--        </dependency>-->
-
         <dependency>
-            <groupId>net.xilla</groupId>
-            <artifactId>Core</artifactId>
-            <version>1.0.1</version>
+            <groupId>com.github.XillaTech</groupId>
+            <artifactId>Xilla-Core</artifactId>
+            <version>128f9d59d9</version>
         </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>net.xilla</groupId>-->
+<!--            <artifactId>Core</artifactId>-->
+<!--            <version>1.0.1</version>-->
+<!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/com.vdurmont/emoji-java -->
         <dependency>
             <groupId>com.vdurmont</groupId>
             <artifactId>emoji-java</artifactId>
-            <version>3.1.3</version>
+            <version>5.1.1</version>
         </dependency>
 
         <dependency>

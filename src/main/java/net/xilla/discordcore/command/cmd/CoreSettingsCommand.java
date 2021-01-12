@@ -47,7 +47,7 @@ public class CoreSettingsCommand extends CoreObject {
                 configs.append("\n").append(DiscordCore.getInstance().getSettings().getCommandPrefix()).append("settings set <config> <setting> <value>");
                 builder.setDescription(configs.toString());
             } else if (data.getArgs().length == 2 && data.getArgs()[0].equalsIgnoreCase("info")) {
-                DiscordSettings settings = DiscordCore.getInstance().getSettingsManager().getSettings(data.getArgs()[1].toLowerCase());
+                DiscordSettings settings = DiscordCore.getInstance().getSettingsManager().get(data.getArgs()[1].toLowerCase());
                 if(settings != null) {
                     StringBuilder configs = new StringBuilder();
                     configs.append("**Available Settings** (").append(settings.getKey()).append(")\n\n");
@@ -58,13 +58,13 @@ public class CoreSettingsCommand extends CoreObject {
                             }
                         }
                     }
-                    configs.append("\n").append(DiscordCore.getInstance().getSettings().getCommandPrefix()).append("settings set <config> <setting> <value>");
+                    configs.append("\n").append(DiscordCore.getInstance().getSettings().getCommandPrefix()).append("cs set <config> <setting> <value>");
                     builder.setDescription(configs.toString());
                 } else {
                     builder.setDescription("That is not a valid config!");
                 }
             } else if (data.getArgs().length >= 4 && data.getArgs()[0].equalsIgnoreCase("set")) {
-                DiscordSettings settings = DiscordCore.getInstance().getSettingsManager().getSettings(data.getArgs()[1].toLowerCase());
+                DiscordSettings settings = DiscordCore.getInstance().getSettingsManager().get(data.getArgs()[1].toLowerCase());
                 if (settings != null) {
                     if(settings.getConfig().getJson().getJson().containsKey(data.getArgs()[2])) {
                         if(settings.getConfig().getJson().getJson().get(data.getArgs()[2]) instanceof String) {

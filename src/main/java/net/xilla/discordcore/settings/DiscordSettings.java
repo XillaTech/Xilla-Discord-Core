@@ -12,6 +12,8 @@ public class DiscordSettings extends Settings {
     public DiscordSettings(String configName) {
         super(configName);
         this.installer = new Installer(super.getManager().getConfig());
+
+        DiscordCore.getInstance().getSettingsManager().put(this);
     }
 
     public Config getConfig() {

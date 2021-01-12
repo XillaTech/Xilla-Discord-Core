@@ -151,6 +151,8 @@ public class DiscordCore extends CoreObject {
             ConfigManager.getInstance().setBaseFolder(baseFolder);
         }
 
+        this.settingsManager = new SettingsManager();
+
         this.settings = new CoreSettings();
 
         this.type = platform;
@@ -171,7 +173,6 @@ public class DiscordCore extends CoreObject {
         commandManager.reload();
 
         // Loads Core Settings
-        this.settingsManager = new SettingsManager();
         this.guildSettingsManager = new GuildSettingsManager();
         this.serverSettings = new ServerSettings();
         this.getCommandManager().setCommandRunCheck(new CommandCheck());
@@ -293,7 +294,12 @@ public class DiscordCore extends CoreObject {
     public void restart() {
         shutdown();
         Logger.log(LogLevel.INFO, "Restarting does NOT restart the java file. If you are trying to update the core, you will need to stop and start the bot. However for modules or for small issues, a soft reboot should work.", getClass());
-        new DiscordCore(platform.getType(), ConfigManager.getInstance().getBaseFolder(), getCommandManager().isCommandLine(), getCommandManager().getName());
+        DiscordCore newCore = new DiscordCore(platform.getType(), ConfigManager.getInstance().getBaseFolder(), getCommandManager().isCommandLine(), getCommandManager().getName());
+
+        for(Module module : getModuleManager().iterate()) {
+            newCore.getModuleManager().put(module);
+            module.onEnable();
+        }
     }
 
 }

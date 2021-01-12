@@ -10,10 +10,6 @@ public class SettingsManager extends Manager<String, DiscordSettings> {
         super("Settings");
     }
 
-    public DiscordSettings getSettings(String name) {
-        return get(name);
-    }
-
     public Set<String> getSettingsNames() {
         return getData().keySet();
     }

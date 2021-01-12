@@ -16,6 +16,7 @@ public class CoreSettings extends DiscordSettings {
         getConfig().setDefault("respect-discord-admin", true);
         getConfig().setDefault("clear-old-guilds", false);
         getConfig().setDefault("clear-old-guild-time", 86400);
+        getConfig().setDefault("clear-old-users", false);
         getConfig().setDefault("check-time", 60);
         getConfig().setDefault("last-check-time", -1);
         getConfig().setDefault("minimize-help", false);
