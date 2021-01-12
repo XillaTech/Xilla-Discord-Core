@@ -50,8 +50,19 @@
         <dependency>
             <groupId>com.github.XillaTech</groupId>
             <artifactId>Xilla-Core</artifactId>
+<<<<<<< HEAD
             <version>128f9d59d9</version>
         </dependency>
+=======
+            <version>429119c53a</version>
+       </dependency>
+
+<!---        <dependency>
+            <groupId>net.xilla</groupId>
+            <artifactId>Core</artifactId>
+            <version>1.0.1</version>
+    </dependency> -->
+>>>>>>> 8c5fc39b7b81233b1074dc942d23ee0052d488ee
 
 <!--        <dependency>-->
 <!--            <groupId>net.xilla</groupId>-->
@@ -87,6 +98,12 @@
             <version>1.16-R0.3</version>
             <type>javadoc</type>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-jsr223</artifactId>
+            <version>3.0.7</version>
         </dependency>
 
     </dependencies>
@@ -142,7 +159,7 @@
                 </executions>
                 <configuration>
                     <createDependencyReducedPom>false</createDependencyReducedPom>
-                    <minimizeJar>true</minimizeJar>
+                    <minimizeJar>false</minimizeJar>
                 </configuration>
             </plugin>
         </plugins>
