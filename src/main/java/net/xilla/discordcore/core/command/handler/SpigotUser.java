@@ -1,5 +1,6 @@
 package net.xilla.discordcore.core.command.handler;
 
+import net.dv8tion.jda.api.entities.Guild;
 import net.xilla.discordcore.core.command.permission.group.PermissionGroup;
 import net.xilla.discordcore.core.command.permission.user.PermissionUser;
 import org.bukkit.command.CommandSender;
@@ -20,7 +21,7 @@ public class SpigotUser implements PermissionUser {
     }
 
     @Override
-    public boolean hasPermission(String s) {
+    public boolean hasPermission(Guild guild, String s) {
         return player.hasPermission(s);
     }
 

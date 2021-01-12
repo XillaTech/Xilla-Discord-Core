@@ -1,6 +1,6 @@
 package net.xilla.discordcore.command.template;
 
-import net.xilla.core.library.json.XillaJson;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.core.log.LogLevel;
 import net.xilla.core.log.Logger;
 import net.xilla.discordcore.DiscordCore;
@@ -8,7 +8,7 @@ import net.xilla.discordcore.core.command.Command;
 import net.xilla.discordcore.core.command.CommandData;
 import net.xilla.discordcore.core.command.CommandExecutor;
 import net.xilla.discordcore.core.command.response.CommandResponse;
-import org.json.simple.JSONObject;
+import net.xilla.discordcore.core.permission.PermissionAPI;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,7 +30,14 @@ public class TemplateCommand extends Command {
         for(CommandExecutor commandExecutor : getExecutors()) {
             CommandExecutor executor = commandExecutor;
 
-            if(getPermission() == null || data.getUser().hasPermission(getPermission())) {
+
+            boolean hasPermission = true;
+            if(getPermission() != null && data.get() instanceof MessageReceivedEvent) {
+                MessageReceivedEvent event = (MessageReceivedEvent) data.get();
+                hasPermission = PermissionAPI.hasPermission(event.getMember(), getPermission());
+            }
+
+            if(hasPermission) {
                 try {
                     CommandResponse response = executor.run(data);
                     if (response != null) {

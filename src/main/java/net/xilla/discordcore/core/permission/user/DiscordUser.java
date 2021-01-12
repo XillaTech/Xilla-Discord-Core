@@ -10,7 +10,6 @@ import net.xilla.core.library.json.XillaJson;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.core.log.LogLevel;
 import net.xilla.core.log.Logger;
-import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.DiscordAPI;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.core.command.permission.group.PermissionGroup;
@@ -67,13 +66,13 @@ public class DiscordUser extends GuildManagerObject implements PermissionUser {
     }
 
     @Override
-    public boolean hasPermission(String permission) {
-
-        Guild guild = new CoreObject().getGuild(getGuildID());
+    public boolean hasPermission(Guild guild, String permission) {
         if(guild != null) {
-            User user = DiscordAPI.getUser(getKey().toString());
-            if (user != null) {
-                this.member = guild.retrieveMember(user).complete();
+            if(member == null) {
+                User user = DiscordAPI.getUser(getKey().toString());
+                if (user != null) {
+                    this.member = guild.retrieveMember(user).complete();
+                }
             }
         }
 
@@ -132,6 +131,7 @@ public class DiscordUser extends GuildManagerObject implements PermissionUser {
                 return true;
             }
         }
+
         return false;
     }
 
