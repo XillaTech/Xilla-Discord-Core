@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-public class TemplateCommand extends Command {
+public abstract class TemplateCommand extends Command {
 
     public TemplateCommand(String module, String name, String[] activators, String description, String usage, Object permission, CommandExecutor executor) {
         super(module, name, activators, usage, description, permission, Collections.singletonList(executor));
@@ -29,7 +29,6 @@ public class TemplateCommand extends Command {
         ArrayList<CommandResponse> responses = new ArrayList<>();
         for(CommandExecutor commandExecutor : getExecutors()) {
             CommandExecutor executor = commandExecutor;
-
 
             boolean hasPermission = true;
             if(getPermission() != null && data.get() instanceof MessageReceivedEvent) {
@@ -55,5 +54,9 @@ public class TemplateCommand extends Command {
 
         return responses;
     }
+
+    public abstract void setData(String text);
+
+    public abstract String getData();
 
 }

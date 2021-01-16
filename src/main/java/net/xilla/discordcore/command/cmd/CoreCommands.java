@@ -171,22 +171,20 @@ public class CoreCommands extends CoreObject {
 
                 StringBuilder mtb = new StringBuilder();
                 int mloop = 0;
-                for (Manager manager : new ArrayList<>(XillaManager.getInstance().getData().values())) {
-                    if(!manager.getName().contains("-")) {
-                        mtb.append("> ").append(manager.getName()).append(" (").append(manager.getData().size()).append(")");
-                        mloop++;
-                        if (mloop != XillaManager.getInstance().getData().size()) {
-                            mtb.append("\n");
-                        }
+                for (Manager manager : XillaManager.getInstance().iterate()) {
+                    mtb.append("> ").append(manager.getName()).append(" (").append(manager.getData().size()).append(")");
+                    mloop++;
+                    if (mloop != XillaManager.getInstance().getData().size()) {
+                        mtb.append("\n");
                     }
                 }
                 if(getDiscordCore().getPlatform().getServerManager().getData().size() > 0) {
-                    embedBuilder.setDescription("Servers (" + new ArrayList<>(getDiscordCore().getPlatform().getServerManager().getData().values()).size() + "): `" + stb.toString()
-                            + "`\n\nManagers (" + new ArrayList<>(XillaManager.getInstance().getData().values()).size()
+                    embedBuilder.setDescription("Servers (" + getDiscordCore().getPlatform().getServerManager().iterate() + "): `" + stb.toString()
+                            + "`\n\nManagers (" + XillaManager.getInstance().iterate().size()
                             + "): \n" + mtb.toString() + "\n\n" + getPrefix() + "ci server (server name)\n"
                             + getPrefix() + "ci manager (manager name)\n" + getPrefix() + "ci object (manager name) (object name)");
                 } else {
-                    embedBuilder.setDescription("Servers (0): None\n\nManagers (" + new ArrayList<>(XillaManager.getInstance().getData().values()).size()
+                    embedBuilder.setDescription("Servers (0): None\n\nManagers (" + XillaManager.getInstance().iterate().size()
                             + "): \n" + mtb.toString() + "\n\n" + getPrefix() + "ci server (server name)\n"
                             + getPrefix() + "ci manager (manager name)\n" + getPrefix() + "ci object (manager name) (object name)");
                 }

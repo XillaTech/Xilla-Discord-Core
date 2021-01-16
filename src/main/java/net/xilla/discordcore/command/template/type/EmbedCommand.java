@@ -80,4 +80,14 @@ public class EmbedCommand extends TemplateCommand {
 
     }
 
+    @Override
+    public void setData(String text) {
+        jsonEmbed.getEmbedBuilder().setDescription(text);
+    }
+
+    @Override
+    public String getData() {
+        return jsonEmbed.getEmbedBuilder().build().getDescription();
+    }
+
 }

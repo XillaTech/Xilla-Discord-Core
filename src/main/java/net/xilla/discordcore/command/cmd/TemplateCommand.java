@@ -7,11 +7,13 @@ import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.command.template.type.EmbedCommand;
+import net.xilla.discordcore.command.template.type.ScriptCommand;
 import net.xilla.discordcore.command.template.type.TextCommand;
 import net.xilla.discordcore.core.CoreCommandExecutor;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.form.MultiForm;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class TemplateCommand extends CoreObject {
@@ -35,6 +37,7 @@ public class TemplateCommand extends CoreObject {
             description.append(getCoreSetting().getCommandPrefix()).append("tm delete <name> - Delete a template command\n");
             description.append(getCoreSetting().getCommandPrefix()).append("tm info <name> - View a template command\n");
             description.append(getCoreSetting().getCommandPrefix()).append("tm create - View a template command\n");
+            description.append(getCoreSetting().getCommandPrefix()).append("tm edit <name> (text) - Edit a template command\n");
 
             if(data.get() instanceof MessageReceivedEvent) {
                 MessageReceivedEvent event = (MessageReceivedEvent)data.get();
@@ -99,10 +102,38 @@ public class TemplateCommand extends CoreObject {
 
                     net.xilla.discordcore.command.template.TemplateCommand command = getPlatform().getTemplateManager().getTemplateCommand(data.getArgs()[1]);
                     if(command != null) {
-                        embedBuilder.setDescription("*Command Name*\n```" + command.getName() + "```\n"
-                                + "*Description*\n```" + command.getDescription() + "```\n"
-                                + "*Module*\n```" + command.getModule() + "```\n"
-                                + "*Permission*\n```" + command.getPermission() + "```\n");
+                        if(command.getData().length() < 1000) {
+                            embedBuilder.setDescription("*Command Name*\n```" + command.getName() + "```\n"
+                                    + "*Description*\n```" + command.getDescription() + "```\n"
+                                    + "*Module*\n```" + command.getModule() + "```\n"
+                                    + "*Data*\n```" + command.getData() + "```\n"
+                                    + "*Permission*\n```" + command.getPermission() + "```\n");
+                        } else {
+                            embedBuilder.setDescription("*Command Name*\n```" + command.getName() + "```\n"
+                                    + "*Description*\n```" + command.getDescription() + "```\n"
+                                    + "*Module*\n```" + command.getModule() + "```\n"
+                                    + "*Data*\n```Too Long```\n"
+                                    + "*Permission*\n```" + command.getPermission() + "```\n");
+                        }
+                    } else {
+                        embedBuilder.setDescription("That is not a valid command");
+                    }
+
+                    return new CoreCommandResponse(data).setEmbed(embedBuilder.build());
+                } else if (data.getArgs().length > 1 && data.getArgs()[0].equalsIgnoreCase("edit")) {
+                    EmbedBuilder embedBuilder = new EmbedBuilder();
+                    if(data.get() instanceof MessageReceivedEvent) {
+                        embedBuilder = getEmbed((MessageReceivedEvent)data.get());
+                    }
+                    embedBuilder.setTitle("Template");
+
+                    net.xilla.discordcore.command.template.TemplateCommand command = getPlatform().getTemplateManager().getTemplateCommand(data.getArgs()[1]);
+                    if(command != null) {
+                        String[] temp = Arrays.copyOfRange(data.getArgs(), 2, data.getArgs().length);
+                        String text = String.join(" ", temp);
+
+                        command.setData(text);
+                        embedBuilder.setDescription("You have updated that commands data.");
                     } else {
                         embedBuilder.setDescription("That is not a valid command");
                     }
@@ -111,7 +142,6 @@ public class TemplateCommand extends CoreObject {
                 } else if (data.getArgs().length > 0 && data.getArgs()[0].equalsIgnoreCase("create")) {
                     MultiForm form = new MultiForm("Template", event.getTextChannel().getId(), (results) -> {
                         try {
-                            boolean embed = Boolean.parseBoolean(results.get("Embed").getResponse());
                             String permission = results.get("Permission").getResponse();
                             if(permission.equalsIgnoreCase("none")) {
                                 permission = null;
@@ -120,13 +150,14 @@ public class TemplateCommand extends CoreObject {
                             String commandName = results.get("Name").getResponse();
                             String commandDescription = results.get("Description").getResponse();
                             String response = results.get("Response").getResponse();
-                            if(embed) {
-                                //String module, String name, String[] activators, String description, String usage, String title, String text, String permission
-                                EmbedCommand command = new EmbedCommand(module, commandName, new String[] {commandName.toLowerCase()}, commandDescription, commandName.toLowerCase(), commandName, response, permission);
+                            if(results.get("Type").getResponse().equals("Embed")) {
+                                EmbedCommand command = new EmbedCommand(module, commandName, new String[]{commandName.toLowerCase()}, commandDescription, commandName.toLowerCase(), commandName, response, permission);
                                 getPlatform().getTemplateManager().registerTemplate(command);
-                            } else {
-                                //String module, String name, String[] activators, String description, String usage, String text, String permission
+                            } else if(results.get("Type").getResponse().equals("Text")) {
                                 TextCommand command = new TextCommand(module, commandName, new String[] {commandName.toLowerCase()}, commandDescription, commandName.toLowerCase(), response, permission);
+                                getPlatform().getTemplateManager().registerTemplate(command);
+                            } else if(results.get("Type").getResponse().equals("Script")) {
+                                ScriptCommand command = new ScriptCommand(module, commandName, new String[] {commandName.toLowerCase()}, commandDescription, commandName.toLowerCase(), response, permission);
                                 getPlatform().getTemplateManager().registerTemplate(command);
                             }
                             getPlatform().getTemplateManager().save();
@@ -137,10 +168,10 @@ public class TemplateCommand extends CoreObject {
                     });
                     form.addMessageQuestion("Name", "What is the name of the command you'd like to add?", event.getAuthor().getId(), event.getGuild().getId());
                     form.addMessageQuestion("Description", "What is the description of the command you'd like to add?", event.getAuthor().getId(), event.getGuild().getId());
-                    form.addMessageQuestion("Response", "What would you like the command to say?", event.getAuthor().getId(), event.getGuild().getId());
                     form.addMessageQuestion("Module", "What module would you like the command to be under?", event.getAuthor().getId(), event.getGuild().getId());
                     form.addMessageQuestion("Permission", "Would you like to require a permission? (Put \"None\" for no permissions)", event.getAuthor().getId(), event.getGuild().getId());
-                    form.addMessageQuestion("Embed", "Would you like the response to be in an embed? (True/False)", event.getAuthor().getId(), event.getGuild().getId());
+                    form.addMessageQuestion("Type", "What type of command is this? (Embed/Text/Script)", event.getAuthor().getId(), event.getGuild().getId());
+                    form.addMessageQuestion("Response", "What would you like the command to say or do?", event.getAuthor().getId(), event.getGuild().getId());
                     form.start();
 
                     return new CoreCommandResponse(data);

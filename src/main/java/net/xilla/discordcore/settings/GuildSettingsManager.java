@@ -8,18 +8,4 @@ public class GuildSettingsManager extends Manager<String, GuildSettings> {
         super("GuildSettings");
     }
 
-    @Override
-    protected void load() {
-
-    }
-
-    @Override
-    protected void objectAdded(GuildSettings guildSettings) {
-
-    }
-
-    @Override
-    protected void objectRemoved(GuildSettings guildSettings) {
-
-    }
 }

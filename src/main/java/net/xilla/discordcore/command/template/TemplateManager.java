@@ -3,6 +3,7 @@ package net.xilla.discordcore.command.template;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.template.type.EmbedCommand;
+import net.xilla.discordcore.command.template.type.ScriptCommand;
 import net.xilla.discordcore.command.template.type.TextCommand;
 
 import java.util.List;
@@ -28,13 +29,18 @@ public class TemplateManager extends Manager<String, TemplateCommand> {
             }
             System.out.println("" + getConfig().get(key.toString()));
             String type = getConfig().getMap(key.toString()).get("type");
-            TemplateCommand command;
+            TemplateCommand command = null;
             if(type.equalsIgnoreCase("embed")) {
                 command = new EmbedCommand(getConfig().getJSON((String) key));
-            } else {
+            } else if(type.equalsIgnoreCase("text")) {
                 command = new TextCommand(getConfig().getJSON((String) key));
+            } else if(type.equalsIgnoreCase("script")) {
+                command = new ScriptCommand(getConfig().getJSON((String) key));
             }
-            registerTemplate(command);
+
+            if(command != null) {
+                registerTemplate(command);
+            }
         }
     }
 

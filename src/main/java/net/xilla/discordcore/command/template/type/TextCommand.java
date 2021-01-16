@@ -5,9 +5,6 @@ import net.xilla.discordcore.command.template.TemplateCommand;
 import net.xilla.discordcore.core.command.response.CommandResponse;
 import org.json.simple.JSONObject;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class TextCommand extends TemplateCommand {
 
     private String text;
@@ -53,4 +50,15 @@ public class TextCommand extends TemplateCommand {
 
         return new XillaJson(new JSONObject(map));
     }
+
+    @Override
+    public void setData(String text) {
+        this.text = text;
+    }
+
+    @Override
+    public String getData() {
+        return text;
+    }
+
 }

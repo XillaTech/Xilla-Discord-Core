@@ -6,7 +6,7 @@
 
     <groupId>net.xilla.discord</groupId>
     <artifactId>Xilla-Discord-Core</artifactId>
-    <version>v2.0.1</version>
+    <version>v2.0.2</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -52,7 +52,7 @@
             <artifactId>Xilla-Core</artifactId>
             <version>128f9d59d9</version>
         </dependency>
-        
+
 <!---        <dependency>
             <groupId>net.xilla</groupId>
             <artifactId>Core</artifactId>
@@ -148,8 +148,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <createDependencyReducedPom>false</createDependencyReducedPom>
-                    <minimizeJar>false</minimizeJar>
+                    <createDependencyReducedPom>true</createDependencyReducedPom>
+                    <minimizeJar>true</minimizeJar>
                 </configuration>
             </plugin>
         </plugins>
