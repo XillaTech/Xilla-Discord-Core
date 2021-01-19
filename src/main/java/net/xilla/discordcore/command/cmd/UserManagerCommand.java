@@ -5,7 +5,7 @@ import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.core.library.manager.Manager;
-import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.library.CoreObject;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.core.permission.PermissionAPI;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class UserManagerCommand extends CoreObject {
+public class UserManagerCommand implements CoreObject {
 
     public UserManagerCommand() {
         CommandBuilder builder = new CommandBuilder("Admin", "UserManager", true);

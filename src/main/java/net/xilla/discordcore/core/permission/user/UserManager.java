@@ -3,7 +3,7 @@ package net.xilla.discordcore.core.permission.user;
 import net.dv8tion.jda.api.entities.Guild;
 import net.xilla.core.library.json.XillaJson;
 import net.xilla.core.library.manager.Manager;
-import net.xilla.discordcore.DiscordAPI;
+import net.xilla.discordcore.library.DiscordAPI;
 import net.xilla.discordcore.core.manager.GuildManager;
 import net.xilla.discordcore.core.permission.PermissionAPI;
 import org.json.simple.JSONObject;

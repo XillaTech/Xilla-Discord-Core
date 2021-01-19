@@ -3,8 +3,8 @@ package net.xilla.discordcore.form;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.TextChannel;
-import net.xilla.discordcore.CoreObject;
-import net.xilla.discordcore.DiscordAPI;
+import net.xilla.discordcore.library.CoreObject;
+import net.xilla.discordcore.library.DiscordAPI;
 import net.xilla.discordcore.form.form.Form;
 import net.xilla.discordcore.form.form.FormBuilder;
 import net.xilla.discordcore.form.form.FormOption;
@@ -12,7 +12,7 @@ import net.xilla.discordcore.form.form.reaction.FormReactionEvent;
 
 import java.util.List;
 
-public class ReactionFormBuilder extends CoreObject implements FormBuilder {
+public class ReactionFormBuilder implements CoreObject, FormBuilder {
 
     private String name;
     private String ownerID;

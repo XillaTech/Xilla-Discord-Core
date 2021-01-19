@@ -3,7 +3,7 @@ package net.xilla.discordcore.form.form;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.events.message.guild.react.GuildMessageReactionAddEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import net.xilla.discordcore.DiscordAPI;
+import net.xilla.discordcore.library.DiscordAPI;
 
 import java.util.ArrayList;
 

@@ -2,14 +2,14 @@ package net.xilla.discordcore.command;
 
 import net.xilla.core.log.LogLevel;
 import net.xilla.core.log.Logger;
-import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.library.CoreObject;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.core.command.Command;
 import net.xilla.discordcore.core.command.CommandExecutor;
 
 import java.util.Collections;
 
-public class CommandBuilder extends CoreObject {
+public class CommandBuilder implements CoreObject {
 
     private String module = null;
     private String name = null;

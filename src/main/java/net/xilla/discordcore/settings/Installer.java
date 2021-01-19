@@ -1,11 +1,11 @@
 package net.xilla.discordcore.settings;
 
 import net.xilla.core.library.config.Config;
-import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.library.CoreObject;
 
 import java.util.Scanner;
 
-public class Installer extends CoreObject {
+public class Installer implements CoreObject {
 
     private Config config;
     private Scanner scanner;

@@ -21,6 +21,8 @@ import net.xilla.discordcore.core.permission.group.GroupManager;
 import net.xilla.discordcore.embed.EmbedManager;
 import net.xilla.discordcore.form.form.FormHandler;
 import net.xilla.discordcore.form.form.FormManager;
+import net.xilla.discordcore.library.CoreObject;
+import net.xilla.discordcore.library.program.DiscordProgram;
 import net.xilla.discordcore.module.Module;
 import net.xilla.discordcore.module.ModuleManager;
 import net.xilla.discordcore.settings.DiscordSettings;
@@ -33,7 +35,7 @@ import net.xilla.discordcore.startup.StartupManager;
 import javax.security.auth.login.LoginException;
 import java.util.ArrayList;
 
-public class DiscordCore extends CoreObject {
+public class DiscordCore implements CoreObject {
 
     /**
      * Used to store the main instance of the DiscordCore
@@ -147,6 +149,13 @@ public class DiscordCore extends CoreObject {
     public DiscordCore(String platform, String baseFolder, boolean startCommandLine, String name, String token) {
         instance = this;
 
+        this.postStartupManager = new PostStartupManager();
+        this.startupManager = new StartupManager();
+
+        if(DiscordProgram.getProgram() == null) {
+            new DiscordProgram(name, this);
+        }
+
         if(baseFolder != null && !baseFolder.isEmpty()) {
             ConfigManager.getInstance().setBaseFolder(baseFolder);
         }
@@ -164,9 +173,6 @@ public class DiscordCore extends CoreObject {
                 settings.getInstaller().install("The discord bot's token from https://discord.com/developers/", "token", "bottoken");
             }
         }
-
-        this.postStartupManager = new PostStartupManager();
-        this.startupManager = new StartupManager();
 
         // Loads base APIs
         this.commandManager = new CommandManager(name, startCommandLine);

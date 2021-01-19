@@ -43,7 +43,7 @@ public abstract class GuildManager<T extends  GuildManagerObject> {
         if(!managers.containsKey(guildID)) {
             managers.put(guildID, new Manager<String, T>(guildID + "-" + name, folder + guildID + "/" + name + ".json", clazz) {
                 @Override
-                protected void load() {
+                public void load() {
                     GuildManager.this.load();
                 }
 

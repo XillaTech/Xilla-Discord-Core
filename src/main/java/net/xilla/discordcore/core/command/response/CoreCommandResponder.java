@@ -5,14 +5,14 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.xilla.core.log.LogLevel;
 import net.xilla.core.log.Logger;
-import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.library.CoreObject;
 import net.xilla.discordcore.core.CoreCommandExecutor;
 import net.xilla.discordcore.core.command.event.BungeeCommandEvent;
 import net.xilla.discordcore.core.command.event.SpigotCommandEvent;
 import net.xilla.discordcore.core.command.CommandData;
 import org.bukkit.ChatColor;
 
-public class CoreCommandResponder extends CoreObject implements CommandResponder {
+public class CoreCommandResponder implements CoreObject, CommandResponder {
 
     // Overriding the internal send command with title
     @Override

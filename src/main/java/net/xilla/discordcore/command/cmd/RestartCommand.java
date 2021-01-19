@@ -1,10 +1,10 @@
 package net.xilla.discordcore.command.cmd;
 
-import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.library.CoreObject;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 
-public class RestartCommand extends CoreObject {
+public class RestartCommand implements CoreObject {
 
     public RestartCommand() {
         restartCommand();

@@ -3,7 +3,7 @@ package net.xilla.discordcore.command.cmd;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.library.CoreObject;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
@@ -16,7 +16,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class SettingsCommand extends CoreObject {
+public class SettingsCommand implements CoreObject {
 
     public SettingsCommand() {
         CommandBuilder builder = new CommandBuilder("Admin", "Settings");

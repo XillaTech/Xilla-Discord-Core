@@ -1,9 +1,10 @@
-package net.xilla.discordcore;
+package net.xilla.discordcore.library;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.exceptions.ErrorResponseException;
+import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.ServerSettings;
 import net.xilla.discordcore.core.permission.PermissionAPI;
 import net.xilla.discordcore.core.CoreSettings;

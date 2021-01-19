@@ -1,10 +1,11 @@
-package net.xilla.discordcore;
+package net.xilla.discordcore.library;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.core.library.XillaLibrary;
+import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.ServerSettings;
 import net.xilla.discordcore.core.permission.PermissionAPI;
 import net.xilla.discordcore.core.CoreSettings;
@@ -19,37 +20,37 @@ import java.awt.*;
 import java.util.Date;
 import java.util.List;
 
-public class CoreObject implements XillaLibrary {
+public interface CoreObject extends XillaLibrary {
 
-    public DiscordCore getDiscordCore() {
+    default DiscordCore getDiscordCore() {
         return DiscordCore.getInstance();
     }
 
-    public GroupManager getGroupManager() {
+    default GroupManager getGroupManager() {
         return DiscordCore.getInstance().getGroupManager();
     }
 
-    public ModuleManager getModuleManager() {
+    default ModuleManager getModuleManager() {
         return DiscordCore.getInstance().getModuleManager();
     }
 
-    public CoreSettings getCoreSetting() {
+    default CoreSettings getCoreSetting() {
         return DiscordCore.getInstance().getSettings();
     }
 
-    public JDA getBot() {
+    default JDA getBot() {
         return DiscordCore.getInstance().getBot();
     }
 
-    public Platform getPlatform() {
+    default Platform getPlatform() {
         return DiscordCore.getInstance().getPlatform();
     }
 
-    public ServerSettings getServerSettings() {
+    default ServerSettings getServerSettings() {
         return DiscordCore.getInstance().getServerSettings();
     }
 
-    public Message getMessage(String channelID, String messageID) {
+    default Message getMessage(String channelID, String messageID) {
         TextChannel textChannel = getBot().getTextChannelById(channelID);
         if(textChannel != null) {
             return textChannel.retrieveMessageById(messageID).complete();
@@ -57,19 +58,19 @@ public class CoreObject implements XillaLibrary {
         return null;
     }
 
-    public void hasPermission(Member user, String permission) {
+    default void hasPermission(Member user, String permission) {
         PermissionAPI.hasPermission(user, permission);
     }
 
-    public void hasPermission(Guild guild, String user, String permission) {
+    default void hasPermission(Guild guild, String user, String permission) {
         PermissionAPI.hasPermission(getMember(guild, user), permission);
     }
 
-    public User getUser(String id) {
+    default User getUser(String id) {
         return DiscordAPI.getUser(id);
     }
 
-    public Role getRole(String id) {
+    default Role getRole(String id) {
         Role role = null;
         String roleID = id.replace("<@&", "").replace("<@", "").replace(">", "");
         try {
@@ -85,12 +86,12 @@ public class CoreObject implements XillaLibrary {
         return role;
     }
 
-    public String getPrefix() {
+    default String getPrefix() {
         return getCoreSetting().getCommandPrefix();
 
     }
 
-    public DiscordGroup getGroup(Guild guild, String name) {
+    default DiscordGroup getGroup(Guild guild, String name) {
         DiscordGroup group = getGroupManager().getManager(guild).get(name.replace("<@&", "").replace("<@", "").replace(">", ""));
 
         if(group != null) {
@@ -109,7 +110,7 @@ public class CoreObject implements XillaLibrary {
         return null;
     }
 
-    public Member getMember(Guild guild, String id) {
+    default Member getMember(Guild guild, String id) {
         return DiscordAPI.getMember(guild, id);
     }
 
@@ -117,7 +118,7 @@ public class CoreObject implements XillaLibrary {
      * Deprecated to warn that this is not always 100% accurate and should only be used in admin situations
      */
     @Deprecated
-    public Guild getGuild(String name) {
+    default Guild getGuild(String name) {
         Guild guild = null;
 
         try {
@@ -141,19 +142,19 @@ public class CoreObject implements XillaLibrary {
         return guild;
     }
 
-    public Color getColor() {
+    default Color getColor() {
         return Color.decode(getCoreSetting().getEmbedColor());
     }
 
-    public Color getColor(String guildID) {
+    default Color getColor(String guildID) {
         return DiscordCore.getInstance().getServerSettings().getColor(guildID);
     }
 
-    public Color getColor(Guild guild) {
+    default Color getColor(Guild guild) {
         return DiscordCore.getInstance().getServerSettings().getColor(guild);
     }
 
-    public boolean sendPM(User user, EmbedBuilder embedBuilder) {
+    default boolean sendPM(User user, EmbedBuilder embedBuilder) {
         try {
             user.openPrivateChannel().complete().sendMessage(embedBuilder.build()).queue();
             return true;
@@ -162,7 +163,7 @@ public class CoreObject implements XillaLibrary {
         }
     }
 
-    public boolean sendPM(User user, String string) {
+    default boolean sendPM(User user, String string) {
         try {
             user.openPrivateChannel().complete().sendMessage(string).queue();
             return true;
@@ -171,7 +172,7 @@ public class CoreObject implements XillaLibrary {
         }
     }
 
-    public EmbedBuilder getEmbed(MessageReceivedEvent event) {
+    default EmbedBuilder getEmbed(MessageReceivedEvent event) {
         JSONEmbed jsonEmbed = new JSONEmbed("default", (JSONObject)getServerSettings().get(event.getGuild(), "core-embed"));
         EmbedBuilder embedBuilder = jsonEmbed.getEmbedBuilder();
 
@@ -183,7 +184,7 @@ public class CoreObject implements XillaLibrary {
         return embedBuilder;
     }
 
-    public EmbedBuilder getEmbed(String user, Guild guild) {
+    default EmbedBuilder getEmbed(String user, Guild guild) {
         JSONEmbed jsonEmbed = new JSONEmbed("default", (JSONObject)getServerSettings().get(guild, "core-embed"));
         EmbedBuilder embedBuilder = jsonEmbed.getEmbedBuilder();
 
@@ -195,7 +196,7 @@ public class CoreObject implements XillaLibrary {
         return embedBuilder;
     }
 
-    public EmbedBuilder getEmbed(String user, String guild) {
+    default EmbedBuilder getEmbed(String user, String guild) {
         JSONEmbed jsonEmbed = new JSONEmbed("default", (JSONObject)getServerSettings().get(guild, "core-embed"));
         EmbedBuilder embedBuilder = jsonEmbed.getEmbedBuilder();
 

@@ -1,24 +1,21 @@
 package net.xilla.discordcore.command.cmd;
 
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.library.CoreObject;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.core.CoreCommandExecutor;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.embed.EmbedStorage;
 import net.xilla.discordcore.embed.JSONEmbed;
-import org.json.simple.JSONObject;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EmbedCommand extends CoreObject {
+public class EmbedCommand implements CoreObject {
 
     public EmbedCommand() {
         embedCommand();

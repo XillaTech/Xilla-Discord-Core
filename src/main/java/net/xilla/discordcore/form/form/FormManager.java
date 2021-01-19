@@ -6,14 +6,14 @@ import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.events.message.guild.react.GuildMessageReactionAddEvent;
-import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.library.CoreObject;
 import net.xilla.discordcore.form.form.reaction.FormReactionEvent;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class FormManager extends CoreObject {
+public class FormManager implements CoreObject {
 
     private ArrayList<FormReactionEvent> reactionEvents;
     private ArrayList<FormMessageEvent> messageEvents;

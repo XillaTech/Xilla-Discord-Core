@@ -2,9 +2,9 @@ package net.xilla.discordcore.core.command.response;
 
 import net.xilla.core.log.LogLevel;
 import net.xilla.core.log.Logger;
-import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.library.CoreObject;
 
-public class BaseCommandResponder extends CoreObject implements CommandResponder {
+public class BaseCommandResponder implements CoreObject, CommandResponder {
 
     public void send(String title, String text, String inputType) {
         Logger.log(LogLevel.INFO, title + "\n" + text, getClass());

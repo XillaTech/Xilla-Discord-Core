@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.library.CoreObject;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.cmd.*;
 import net.xilla.discordcore.command.template.TemplateManager;
@@ -14,7 +14,7 @@ import net.xilla.discordcore.core.permission.group.GroupManager;
 import net.xilla.discordcore.core.permission.user.UserManager;
 import net.xilla.discordcore.core.server.ServerManager;
 
-public class Platform extends CoreObject {
+public class Platform implements CoreObject {
 
     @Setter
     @Getter

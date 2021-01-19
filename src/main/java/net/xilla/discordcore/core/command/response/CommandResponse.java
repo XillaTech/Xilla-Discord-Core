@@ -1,9 +1,9 @@
 package net.xilla.discordcore.core.command.response;
 
-import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.library.CoreObject;
 import net.xilla.discordcore.core.command.CommandData;
 
-public class CommandResponse extends CoreObject {
+public class CommandResponse implements CoreObject {
 
     private String title;
     private String description;

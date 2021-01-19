@@ -8,18 +8,4 @@ public class EmbedManager extends Manager<String, EmbedStorage> {
         super("Embeds");
     }
 
-    @Override
-    protected void load() {
-
-    }
-
-    @Override
-    protected void objectAdded(EmbedStorage embedStorage) {
-
-    }
-
-    @Override
-    protected void objectRemoved(EmbedStorage embedStorage) {
-
-    }
 }

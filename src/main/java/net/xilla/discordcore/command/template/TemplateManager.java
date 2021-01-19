@@ -21,7 +21,7 @@ public class TemplateManager extends Manager<String, TemplateCommand> {
     }
 
     @Override
-    protected void load() {
+    public void load() {
 
         for(Object key : getConfig().getJson().getJson().keySet()) {
             if(key.toString().equalsIgnoreCase("file-extension")) {

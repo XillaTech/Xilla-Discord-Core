@@ -1,7 +1,7 @@
 package net.xilla.discordcore.form;
 
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.library.CoreObject;
 import net.xilla.discordcore.form.form.Form;
 import net.xilla.discordcore.form.form.FormBuilder;
 import net.xilla.discordcore.form.form.FormOption;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class MultiForm extends CoreObject {
+public class MultiForm implements CoreObject {
 
     private String name;
     private List<FormBuilder> formBuilders;

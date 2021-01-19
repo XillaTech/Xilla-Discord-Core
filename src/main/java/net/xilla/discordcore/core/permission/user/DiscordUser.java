@@ -10,7 +10,7 @@ import net.xilla.core.library.json.XillaJson;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.core.log.LogLevel;
 import net.xilla.core.log.Logger;
-import net.xilla.discordcore.DiscordAPI;
+import net.xilla.discordcore.library.DiscordAPI;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.core.command.permission.group.PermissionGroup;
 import net.xilla.discordcore.core.command.permission.user.PermissionUser;

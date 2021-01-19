@@ -2,14 +2,14 @@ package net.xilla.discordcore.command.cmd;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.library.CoreObject;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.core.command.CommandExecutor;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.settings.DiscordSettings;
 
-public class CoreSettingsCommand extends CoreObject {
+public class CoreSettingsCommand implements CoreObject {
 
     public CoreSettingsCommand() {
         CommandBuilder commandBuilder = new CommandBuilder("Core", "CoreSettings", true);

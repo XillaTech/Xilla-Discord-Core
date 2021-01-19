@@ -1,7 +1,8 @@
-package net.xilla.discordcore;
+package net.xilla.discordcore.library;
 
 import lombok.Getter;
 import net.dv8tion.jda.api.entities.TextChannel;
+import net.xilla.discordcore.DiscordCore;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

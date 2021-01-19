@@ -3,7 +3,7 @@ package net.xilla.discordcore.command.cmd;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.core.library.Pair;
-import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.library.CoreObject;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.core.CoreScript;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class EvalCommand extends CoreObject {
+public class EvalCommand implements CoreObject {
 
     public EvalCommand() {
         CommandBuilder commandBuilder = new CommandBuilder("Core", "eval", false);

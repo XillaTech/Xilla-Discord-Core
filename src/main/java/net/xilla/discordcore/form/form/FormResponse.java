@@ -1,8 +1,8 @@
 package net.xilla.discordcore.form.form;
 
-import net.xilla.discordcore.CoreObject;
+import net.xilla.discordcore.library.CoreObject;
 
-public class FormResponse extends CoreObject {
+public class FormResponse implements CoreObject {
 
     private String name;
     private String question;
