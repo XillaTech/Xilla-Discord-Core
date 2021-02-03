@@ -1,10 +1,12 @@
 package net.xilla.discordcore.core.permission.group;
 
 import net.dv8tion.jda.api.entities.Guild;
+import net.xilla.core.library.json.XillaJson;
 import net.xilla.core.library.manager.Manager;
+import net.xilla.core.log.LogLevel;
+import net.xilla.core.log.Logger;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.core.manager.GuildManager;
-import net.xilla.discordcore.settings.GuildSettings;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
@@ -22,8 +24,12 @@ public class GroupManager extends GuildManager<DiscordGroup> {
         super("Groups", "servers/permissions/");
 
         DiscordCore.getInstance().addExecutor(() -> {
+            Logger.log(LogLevel.DEBUG, "Starting group manager", getClass());
             load();
+            Logger.log(LogLevel.DEBUG, "Started group manager", getClass());
+            Logger.log(LogLevel.DEBUG, "Starting user manager", getClass());
             DiscordCore.getInstance().getPlatform().getUserManager().load();
+            Logger.log(LogLevel.DEBUG, "Started user manager", getClass());
         });
     }
 
@@ -40,22 +46,30 @@ public class GroupManager extends GuildManager<DiscordGroup> {
         for(Guild guild : DiscordCore.getInstance().getBot().getGuilds()) {
             Manager<String, DiscordGroup> manager = getManager(guild);
 
-            DiscordGroup defaultGroup = manager.get("default");
-            if(defaultGroup == null) {
-                DiscordGroup group = new DiscordGroup("default", "Member", guild.getId(), new ArrayList<>());
-                manager.put(group);
-            }
-
-            for(Object key : manager.getConfig().getJson().getJson().keySet()) {
-
-                if(key.toString().equalsIgnoreCase("file-extension")) {
+            for(Object key : new ArrayList<>(manager.getConfig().getJson().getJson().keySet())) {
+                if(key.toString().equals("file-extension")) {
+                    manager.getConfig().getJson().getJson().remove(key);
                     continue;
                 }
+                System.out.println(key);
 
                 Object obj = manager.getConfig().getJson().getJson().get(key);
 
+                System.out.println(obj);
+
                 JSONObject json = (JSONObject) obj;
-                DiscordGroup group = new DiscordGroup(json);
+
+                DiscordGroup group = new DiscordGroup(guild);
+                json.put("key", key.toString());
+                json.put("manager", manager.getKey().toString());
+                group.loadSerializedData(new XillaJson(json));
+
+                manager.put(group);
+            }
+
+            DiscordGroup defaultGroup = manager.get("default");
+            if(defaultGroup == null) {
+                DiscordGroup group = new DiscordGroup("default", "Member", guild.getId(), new ArrayList<>());
                 manager.put(group);
             }
 
@@ -65,10 +79,10 @@ public class GroupManager extends GuildManager<DiscordGroup> {
 
     @Override
     protected void objectAdded(String guildID, DiscordGroup staff) {
-        if (!groupCache.containsKey(staff.getName())) {
-            groupCache.put(staff.getName(), new Vector<>());
+        if (!groupCache.containsKey(staff.getGroupName())) {
+            groupCache.put(staff.getGroupName(), new Vector<>());
         }
-        groupCache.get(staff.getName()).add(staff);
+        groupCache.get(staff.getGroupName()).add(staff);
 
         if (!serverCache.containsKey(staff.getServerID())) {
             serverCache.put(staff.getServerID(), new Vector<>());
@@ -78,11 +92,11 @@ public class GroupManager extends GuildManager<DiscordGroup> {
 
     @Override
     protected void objectRemoved(String guildID, DiscordGroup object) {
-        groupCache.get(object.getName()).remove(object);
+        groupCache.get(object.getGroupName()).remove(object);
         serverCache.get(object.getServerID()).remove(object);
 
-        if(groupCache.get(object.getName()).size() == 0) {
-            groupCache.remove(object.getName());
+        if(groupCache.get(object.getGroupName()).size() == 0) {
+            groupCache.remove(object.getGroupName());
         }
         if(serverCache.get(object.getServerID()).size() == 0) {
             serverCache.remove(object.getServerID());

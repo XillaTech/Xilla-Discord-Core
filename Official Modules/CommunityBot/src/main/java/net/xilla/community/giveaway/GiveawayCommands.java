@@ -7,7 +7,7 @@ import net.xilla.community.CommunitySettings;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.discordcore.CoreObject;
 import net.xilla.discordcore.command.CommandBuilder;
-import net.xilla.discordcore.form.MultiForm;
+import net.xilla.discordcore.library.form.MultiForm;
 
 public class GiveawayCommands extends CoreObject {
 

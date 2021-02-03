@@ -7,8 +7,8 @@ import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.core.CoreCommandExecutor;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
-import net.xilla.discordcore.embed.EmbedStorage;
-import net.xilla.discordcore.embed.JSONEmbed;
+import net.xilla.discordcore.library.embed.EmbedStorage;
+import net.xilla.discordcore.library.embed.JSONEmbed;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -89,11 +89,11 @@ public class EmbedCommand implements CoreObject {
 
             if(data.getArgs().length == 1 && data.getArgs()[0].equalsIgnoreCase("list")) {
                 response.append("**Available Categories**\n");
-                for (EmbedStorage storage : new ArrayList<>(DiscordCore.getInstance().getEmbedManager().getData().values())) {
+                for (EmbedStorage storage : new ArrayList<>(DiscordCore.getInstance().getPlatform().getEmbedManager().getData().values())) {
                     response.append("> ").append(storage.getKey()).append("\n");
                 }
             } else if(data.getArgs().length == 2 && data.getArgs()[0].equalsIgnoreCase("info")) {
-                EmbedStorage storage = DiscordCore.getInstance().getEmbedManager().get(data.getArgs()[1]);
+                EmbedStorage storage = DiscordCore.getInstance().getPlatform().getEmbedManager().get(data.getArgs()[1]);
                 if(storage != null) {
                     response.append("Embeds (").append(storage.getEmbedMap().keySet().size()).append("): `");
 
@@ -112,7 +112,7 @@ public class EmbedCommand implements CoreObject {
                     response.append("That is not a valid category.");
                 }
             } else if(data.getArgs().length == 3 && data.getArgs()[0].equalsIgnoreCase("info")) {
-                EmbedStorage storage = DiscordCore.getInstance().getEmbedManager().get(data.getArgs()[1]);
+                EmbedStorage storage = DiscordCore.getInstance().getPlatform().getEmbedManager().get(data.getArgs()[1]);
                 if(storage != null) {
                     JSONEmbed jsonEmbed = storage.getEmbed(data.getArgs()[2]);
                     if(jsonEmbed != null) {
@@ -129,7 +129,7 @@ public class EmbedCommand implements CoreObject {
                 }
             } else if(data.getArgs().length >= 3 && data.getArgs()[0].equalsIgnoreCase("edit")) {
 
-                EmbedStorage storage = DiscordCore.getInstance().getEmbedManager().get(data.getArgs()[1]);
+                EmbedStorage storage = DiscordCore.getInstance().getPlatform().getEmbedManager().get(data.getArgs()[1]);
                 if(storage != null) {
                     JSONEmbed jsonEmbed = storage.getEmbed(data.getArgs()[2]);
                     if(jsonEmbed != null) {

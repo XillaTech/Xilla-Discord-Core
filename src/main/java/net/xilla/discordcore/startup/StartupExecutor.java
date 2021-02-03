@@ -4,6 +4,6 @@ import net.dv8tion.jda.api.JDABuilder;
 
 public interface StartupExecutor {
 
-    void run(JDABuilder builder);
+    JDABuilder run(JDABuilder builder);
 
 }

@@ -11,22 +11,16 @@ import net.xilla.core.library.worker.Worker;
 import net.xilla.core.library.worker.WorkerManager;
 import net.xilla.core.log.LogLevel;
 import net.xilla.core.log.Logger;
-import net.xilla.discordcore.command.ServerSettings;
-import net.xilla.discordcore.core.CommandCheck;
 import net.xilla.discordcore.core.CoreSettings;
 import net.xilla.discordcore.core.Platform;
 import net.xilla.discordcore.core.command.CommandManager;
 import net.xilla.discordcore.core.command.handler.CommandEventHandler;
-import net.xilla.discordcore.core.permission.group.GroupManager;
-import net.xilla.discordcore.embed.EmbedManager;
-import net.xilla.discordcore.form.form.FormHandler;
-import net.xilla.discordcore.form.form.FormManager;
-import net.xilla.discordcore.library.CoreObject;
+import net.xilla.discordcore.library.form.form.FormHandler;
 import net.xilla.discordcore.library.program.DiscordProgram;
+import net.xilla.discordcore.library.program.ProgramInterface;
 import net.xilla.discordcore.module.Module;
 import net.xilla.discordcore.module.ModuleManager;
 import net.xilla.discordcore.settings.DiscordSettings;
-import net.xilla.discordcore.settings.GuildSettingsManager;
 import net.xilla.discordcore.settings.SettingsManager;
 import net.xilla.discordcore.startup.PostStartupExecutor;
 import net.xilla.discordcore.startup.PostStartupManager;
@@ -35,7 +29,7 @@ import net.xilla.discordcore.startup.StartupManager;
 import javax.security.auth.login.LoginException;
 import java.util.ArrayList;
 
-public class DiscordCore implements CoreObject {
+public class DiscordCore implements ProgramInterface {
 
     /**
      * Used to store the main instance of the DiscordCore
@@ -62,24 +56,10 @@ public class DiscordCore implements CoreObject {
     }
 
     /**
-     * The Platform class is used to store information and managers
-     * that depend on the specific platform. As the core supports
-     * various platforms.
-     */
-    @Getter
-    private Platform platform;
-
-    /**
      * The JDA is the Discord JDA wrapper. It runs all discord API calls
      */
     @Getter
     private JDA bot;
-
-    /**
-     * The manager used to manage, edit, and control embeds.
-     */
-    @Getter
-    private EmbedManager embedManager;
 
     /**
      * The CoreSettings stores all the main settings used for various
@@ -107,36 +87,18 @@ public class DiscordCore implements CoreObject {
     private SettingsManager settingsManager;
 
     /**
-     * This manager is used to manager the guild settings files loaded by the core
-     */
-    @Getter
-    private GuildSettingsManager guildSettingsManager;
-
-    /**
-     * This manager is used to disable commands and modules per discord server
-     */
-    @Getter
-    private ServerSettings serverSettings;
-
-    /**
      * This manager is used to run events after the core has connected
      * to the discord API.
      */
-    private PostStartupManager postStartupManager;
+    @Getter
+    private static PostStartupManager postStartupManager = new PostStartupManager();
 
     /**
      * This manager is used to run events before the core has connected
      * to the discord API.
      */
     @Getter
-    private StartupManager startupManager;
-
-    /**
-     * This manager is used to process the built in forms to collect
-     * command data and such from discord users.
-     */
-    @Getter
-    private FormManager formManager;
+    private static StartupManager startupManager = new StartupManager();
 
     @Getter
     private CommandManager commandManager;
@@ -149,9 +111,22 @@ public class DiscordCore implements CoreObject {
     public DiscordCore(String platform, String baseFolder, boolean startCommandLine, String name, String token) {
         instance = this;
 
-        this.postStartupManager = new PostStartupManager();
-        this.startupManager = new StartupManager();
+        this.type = platform;
 
+        Logger.log(LogLevel.DEBUG, "Starting discord core", getClass());
+        startCore(name, baseFolder, startCommandLine);
+
+        Logger.log(LogLevel.DEBUG, "Starting discord core modules", getClass());
+        this.moduleManager = new ModuleManager();
+
+        Logger.log(LogLevel.DEBUG, "Starting discord bot connection", getClass());
+        startBot(token);
+
+        Logger.log(LogLevel.DEBUG, "Finishing up the startup", getClass());
+        finishedStarting(startCommandLine);
+    }
+
+    private void startCore(String name, String baseFolder, boolean startCommandLine) {
         if(DiscordProgram.getProgram() == null) {
             new DiscordProgram(name, this);
         }
@@ -160,12 +135,22 @@ public class DiscordCore implements CoreObject {
             ConfigManager.getInstance().setBaseFolder(baseFolder);
         }
 
+        Logger.log(LogLevel.DEBUG, "Starting discord core settings", getClass());
         this.settingsManager = new SettingsManager();
-
         this.settings = new CoreSettings();
 
-        this.type = platform;
+        // Sets the log level
+        Logger.setLogLevel(LogLevel.valueOf(settings.getLogLevel()));
 
+        Logger.log(LogLevel.DEBUG, "Starting discord core command manager", getClass());
+        this.commandManager = new CommandManager(name, startCommandLine);
+        commandManager.reload();
+
+        Logger.log(LogLevel.DEBUG, "Starting discord core platform", getClass());
+        new Platform(type);
+    }
+
+    private void startBot(String token) {
         if(token == null || token.isEmpty()) {
             // Loads settings
             if (DiscordCore.getInstance().getType().equals(Platform.getPlatform.STANDALONE.name) || DiscordCore.getInstance().getType().equals(Platform.getPlatform.EMBEDDED.name)) {
@@ -173,23 +158,6 @@ public class DiscordCore implements CoreObject {
                 settings.getInstaller().install("The discord bot's token from https://discord.com/developers/", "token", "bottoken");
             }
         }
-
-        // Loads base APIs
-        this.commandManager = new CommandManager(name, startCommandLine);
-        commandManager.reload();
-
-        // Loads Core Settings
-        this.guildSettingsManager = new GuildSettingsManager();
-        this.serverSettings = new ServerSettings();
-        this.getCommandManager().setCommandRunCheck(new CommandCheck());
-
-        this.formManager = new FormManager();
-
-        // Loads the rest of the core
-        this.platform = new Platform(type);
-
-        // Loads up the modules
-        this.moduleManager = new ModuleManager();
 
         // Connects to the discord api
         try {
@@ -200,7 +168,7 @@ public class DiscordCore implements CoreObject {
                 shardBuilder = JDABuilder.createDefault(token);
             }
 
-            startupManager.run(shardBuilder);
+            shardBuilder = startupManager.run(shardBuilder);;
 
             for (int i = 0; i < settings.getShards(); i++) {
                 shardBuilder.useSharding(i, settings.getShards()).build();
@@ -226,13 +194,17 @@ public class DiscordCore implements CoreObject {
         } catch (LoginException ex) {
             ex.printStackTrace();
         }
+    }
 
-        this.embedManager = new EmbedManager();
+    private void finishedStarting(boolean startCommandLine) {
+        Logger.log(LogLevel.DEBUG, "Starting discord core command line", getClass());
 
         // Starting Command Line
         if(startCommandLine) {
             getCommandManager().getCommandWorker().start();
         }
+
+        Logger.log(LogLevel.DEBUG, "Starting  ", getClass());
 
         new Thread(() -> {
             try {
@@ -243,15 +215,6 @@ public class DiscordCore implements CoreObject {
             Logger.log(LogLevel.INFO, "Running post startup executors now... Some things may only startup now!", DiscordCore.class);
             postStartupManager.run();
         }).start();
-    }
-
-    /**
-     * Pulls and returns the group manager from the Platform system
-     *
-     * @return GroupManager
-     */
-    public GroupManager getGroupManager() {
-        return getPlatform().getGroupManager();
     }
 
     /**
@@ -269,24 +232,37 @@ public class DiscordCore implements CoreObject {
      * The function used to safely shutdown the bot...
      */
     public void shutdown() {
+        Logger.log(LogLevel.DEBUG, "Shutting down all bot processes.", getClass());
 
+        Logger.log(LogLevel.DEBUG, "Stopping workers.", getClass());
         for(Worker worker : new ArrayList<>(WorkerManager.getInstance().getData().values())) {
+            Logger.log(LogLevel.DEBUG, "Stopping worker " + worker, getClass());
             worker.stopWorker();
+            Logger.log(LogLevel.DEBUG, "Successfully stopped worker " + worker, getClass());
         }
 
+        Logger.log(LogLevel.DEBUG, "Saving and disabling settings.", getClass());
         for(DiscordSettings settings : new ArrayList<>(getSettingsManager().getData().values())) {
+            Logger.log(LogLevel.DEBUG, "Saving and disabling settings file " + settings, getClass());
             settings.getConfig().save();
             getSettingsManager().remove(settings);
+            Logger.log(LogLevel.DEBUG, "Successfully saved and disabled settings file " + settings, getClass());
         }
 
+        Logger.log(LogLevel.DEBUG, "Saving managers.", getClass());
         for(Manager manager : new ArrayList<>(XillaManager.getInstance().getData().values())) {
+            Logger.log(LogLevel.DEBUG, "Saving manager " + manager, getClass());
             if(manager.getConfig() != null) {
                 manager.save();
             }
+            Logger.log(LogLevel.DEBUG, "Successfully saved manager " + manager, getClass());
         }
 
+        Logger.log(LogLevel.DEBUG, "Disabling modules.", getClass());
         for(Module module : new ArrayList<>(getModuleManager().getData().values())) {
+            Logger.log(LogLevel.DEBUG, "Disabling module " + module, getClass());
             module.onDisable();
+            Logger.log(LogLevel.DEBUG, "Successfully Disabled module " + module, getClass());
         }
 
         this.bot.shutdown();
@@ -300,12 +276,20 @@ public class DiscordCore implements CoreObject {
     public void restart() {
         shutdown();
         Logger.log(LogLevel.INFO, "Restarting does NOT restart the java file. If you are trying to update the core, you will need to stop and start the bot. However for modules or for small issues, a soft reboot should work.", getClass());
-        DiscordCore newCore = new DiscordCore(platform.getType(), ConfigManager.getInstance().getBaseFolder(), getCommandManager().isCommandLine(), getCommandManager().getName());
+        DiscordCore newCore = new DiscordCore(getPlatform().getType(), ConfigManager.getInstance().getBaseFolder(), getCommandManager().isCommandLine(), getCommandManager().getName());
 
         for(Module module : getModuleManager().iterate()) {
             newCore.getModuleManager().put(module);
             module.onEnable();
         }
+    }
+
+    /**
+     * Used to add support to pass old method calls to the new method
+     */
+    @Deprecated
+    public Platform getPlatform() {
+        return Platform.getInstance();
     }
 
 }

@@ -6,12 +6,13 @@ import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.exceptions.ErrorResponseException;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.ServerSettings;
-import net.xilla.discordcore.core.permission.PermissionAPI;
 import net.xilla.discordcore.core.CoreSettings;
 import net.xilla.discordcore.core.Platform;
+import net.xilla.discordcore.core.permission.PermissionAPI;
 import net.xilla.discordcore.core.permission.group.DiscordGroup;
 import net.xilla.discordcore.core.permission.group.GroupManager;
-import net.xilla.discordcore.form.form.FormManager;
+import net.xilla.discordcore.core.permission.user.UserManager;
+import net.xilla.discordcore.library.form.form.FormManager;
 import net.xilla.discordcore.module.ModuleManager;
 
 import java.awt.*;
@@ -34,7 +35,16 @@ public class DiscordAPI {
      * @return GroupManager
      */
     public static GroupManager getGroupManager() {
-        return DiscordCore.getInstance().getGroupManager();
+        return DiscordCore.getInstance().getPlatform().getGroupManager();
+    }
+
+    /**
+     * Gets the UserManager from the Core and returns it
+     *
+     * @return GroupManager
+     */
+    public static UserManager getUserManager() {
+        return DiscordCore.getInstance().getPlatform().getUserManager();
     }
 
     /**
@@ -43,7 +53,7 @@ public class DiscordAPI {
      * @return FormManager
      */
     public static FormManager getFormManager() {
-        return DiscordCore.getInstance().getFormManager();
+        return DiscordCore.getInstance().getPlatform().getFormManager();
     }
 
     /**
@@ -113,8 +123,8 @@ public class DiscordAPI {
      * @param user Discord Member
      * @param permission Permission
      */
-    public static void hasPermission(Member user, String permission) {
-        PermissionAPI.hasPermission(user, permission);
+    public static boolean hasPermission(Member user, String permission) {
+        return PermissionAPI.hasPermission(user, permission);
     }
 
     /**
@@ -124,8 +134,8 @@ public class DiscordAPI {
      * @param user Discord User ID
      * @param permission Permission
      */
-    public static void hasPermission(Guild guild, String user, String permission) {
-        PermissionAPI.hasPermission(getMember(guild, user), permission);
+    public static boolean hasPermission(Guild guild, String user, String permission) {
+        return PermissionAPI.hasPermission(getMember(guild, user), permission);
     }
 
     /**

@@ -6,7 +6,7 @@ import net.xilla.core.library.json.XillaJson;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.template.TemplateCommand;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
-import net.xilla.discordcore.embed.JSONEmbed;
+import net.xilla.discordcore.library.embed.JSONEmbed;
 import org.json.simple.JSONObject;
 
 public class EmbedCommand extends TemplateCommand {

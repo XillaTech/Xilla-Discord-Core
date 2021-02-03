@@ -1,5 +1,8 @@
 package net.xilla.discordcore.startup;
 
+import net.xilla.core.log.LogLevel;
+import net.xilla.core.log.Logger;
+
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -17,6 +20,7 @@ public class PostStartupManager {
 
     public void run() {
         for(PostStartupExecutor executor : new ArrayList<>(executors)) {
+            Logger.log(LogLevel.DEBUG, "Starting executor " + executor, getClass());
             executor.run();
         }
     }

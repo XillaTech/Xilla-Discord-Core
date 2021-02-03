@@ -11,7 +11,7 @@ import net.xilla.core.library.json.XillaJson;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.discordcore.DiscordAPI;
 import net.xilla.discordcore.core.manager.GuildManagerObject;
-import net.xilla.discordcore.embed.JSONEmbed;
+import net.xilla.discordcore.library.embed.JSONEmbed;
 
 import java.util.ArrayList;
 import java.util.Date;

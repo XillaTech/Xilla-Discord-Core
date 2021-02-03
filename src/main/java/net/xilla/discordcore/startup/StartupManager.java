@@ -17,10 +17,11 @@ public class StartupManager {
         executors.add(executor);
     }
 
-    public void run(JDABuilder builder) {
+    public JDABuilder run(JDABuilder builder) {
         for(StartupExecutor executor : new ArrayList<>(executors)) {
-            executor.run(builder);
+            builder = executor.run(builder);
         }
+        return builder;
     }
 
 }

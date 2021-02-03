@@ -7,7 +7,7 @@ import net.xilla.discordcore.library.CoreObject;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
-import net.xilla.discordcore.embed.JSONEmbed;
+import net.xilla.discordcore.library.embed.JSONEmbed;
 import net.xilla.discordcore.settings.GuildSettings;
 import net.xilla.discordcore.settings.DiscordSettings;
 import org.json.simple.JSONObject;
@@ -33,7 +33,7 @@ public class SettingsCommand implements CoreObject {
 
                 description.append("**Configs:** ");
 
-                ArrayList<GuildSettings> values = new ArrayList<>(getDiscordCore().getGuildSettingsManager().getData().values());
+                ArrayList<GuildSettings> values = new ArrayList<>(getDiscordCore().getPlatform().getGuildSettingsManager().getData().values());
                 for(int i = 0; i < values.size(); i++) {
                     description.append(values.get(i).getKey());
 
@@ -44,7 +44,7 @@ public class SettingsCommand implements CoreObject {
             } else if(data.getArgs().length == 2 && data.getArgs()[0].equalsIgnoreCase("info")) {
                 description = new StringBuilder();
 
-                GuildSettings settings = getDiscordCore().getGuildSettingsManager().get(data.getArgs()[1]);
+                GuildSettings settings = getDiscordCore().getPlatform().getGuildSettingsManager().get(data.getArgs()[1]);
                 if(settings == null) {
                     description.append("That is not a valid config!");
                 } else {
@@ -68,7 +68,7 @@ public class SettingsCommand implements CoreObject {
             } else if(data.getArgs().length >= 4 && data.getArgs()[0].equalsIgnoreCase("set")) {
                 description = new StringBuilder();
 
-                GuildSettings settings = getDiscordCore().getGuildSettingsManager().get(data.getArgs()[1]);
+                GuildSettings settings = getDiscordCore().getPlatform().getGuildSettingsManager().get(data.getArgs()[1]);
                 if(settings == null) {
                     description.append("That is not a valid config!");
                 } else {

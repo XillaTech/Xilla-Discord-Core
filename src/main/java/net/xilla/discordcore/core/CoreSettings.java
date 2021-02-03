@@ -1,5 +1,6 @@
 package net.xilla.discordcore.core;
 
+import net.xilla.core.log.LogLevel;
 import net.xilla.discordcore.settings.DiscordSettings;
 
 public class CoreSettings extends DiscordSettings {
@@ -21,11 +22,16 @@ public class CoreSettings extends DiscordSettings {
         getConfig().setDefault("last-check-time", -1);
         getConfig().setDefault("minimize-help", false);
         getConfig().setDefault("token", "bottoken");
+        getConfig().setDefault("log-level", LogLevel.INFO.name());
         getConfig().save();
     }
 
     public CoreSettings(String base) {
         this();
+    }
+
+    public String getLogLevel() {
+        return getConfig().getString("log-level");
     }
 
     public String getBotToken() {

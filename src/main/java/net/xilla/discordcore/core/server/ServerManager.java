@@ -2,6 +2,8 @@ package net.xilla.discordcore.core.server;
 
 import net.dv8tion.jda.api.entities.Guild;
 import net.xilla.core.library.manager.Manager;
+import net.xilla.core.log.LogLevel;
+import net.xilla.core.log.Logger;
 import net.xilla.discordcore.DiscordCore;
 import org.json.simple.JSONObject;
 
@@ -9,7 +11,10 @@ public class ServerManager extends Manager<String, CoreServer> {
 
     public ServerManager() {
         super("Servers","servers.json");
-        DiscordCore.getInstance().addExecutor(this::startManager);
+        DiscordCore.getInstance().addExecutor(() -> {
+            Logger.log(LogLevel.DEBUG, "Starting server manager", getClass());
+            startManager();
+        });
     }
 
     public void startManager() {

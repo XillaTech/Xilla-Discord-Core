@@ -10,9 +10,9 @@ net.xilla.discordcore.core
 net.xilla.discordcore.core.cmd
 net.xilla.discordcore.core.server
 net.xilla.discordcore.core.permission
-net.xilla.discordcore.form
-net.xilla.discordcore.form.form
-net.xilla.discordcore.form.form.reaction
+net.xilla.discordcore.library.form
+net.xilla.discordcore.library.form.form
+net.xilla.discordcore.library.form.form.reaction
 net.xilla.discordcore.module
 net.xilla.discordcore.module.type
 net.xilla.discordcore.settings

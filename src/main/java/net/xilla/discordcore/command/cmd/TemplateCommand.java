@@ -11,7 +11,7 @@ import net.xilla.discordcore.command.template.type.ScriptCommand;
 import net.xilla.discordcore.command.template.type.TextCommand;
 import net.xilla.discordcore.core.CoreCommandExecutor;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
-import net.xilla.discordcore.form.MultiForm;
+import net.xilla.discordcore.library.form.MultiForm;
 
 import java.util.Arrays;
 import java.util.Date;

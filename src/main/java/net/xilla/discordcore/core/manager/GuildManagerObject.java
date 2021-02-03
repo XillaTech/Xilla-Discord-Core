@@ -32,4 +32,6 @@ public abstract class GuildManagerObject extends ManagerObject {
         this.guildID = guildID;
     }
 
+    public GuildManagerObject() {}
+
 }

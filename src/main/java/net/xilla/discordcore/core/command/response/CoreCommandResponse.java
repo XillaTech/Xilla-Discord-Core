@@ -1,11 +1,15 @@
 package net.xilla.discordcore.core.command.response;
 
+import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.xilla.discordcore.core.command.CommandData;
+import net.xilla.discordcore.core.command.action.PostCommandAction;
 
 public class CoreCommandResponse extends CommandResponse {
 
     private MessageEmbed embed;
+
+    private PostCommandAction action = null;
 
     public CoreCommandResponse(CommandData data) {
         super(data);
@@ -45,4 +49,16 @@ public class CoreCommandResponse extends CommandResponse {
         super.setInputType(inputType);
         return this;
     }
+
+    public CoreCommandResponse setAction(PostCommandAction action) {
+        this.action = action;
+        return this;
+    }
+
+    public void sentMessage(Message message) {
+        if(action != null) {
+            action.run(message);
+        }
+    }
+
 }

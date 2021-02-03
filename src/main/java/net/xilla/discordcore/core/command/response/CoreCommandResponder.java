@@ -24,17 +24,23 @@ public class CoreCommandResponder implements CoreObject, CommandResponder {
 
             if(response instanceof CoreCommandResponse) {
                 CoreCommandResponse coreResponse = (CoreCommandResponse)response;
+
                 if(coreResponse.getEmbed() != null) {
-                    event.getTextChannel().sendMessage(coreResponse.getEmbed()).queue();
+                    event.getTextChannel().sendMessage(coreResponse.getEmbed()).queue(coreResponse::sentMessage);
                     return;
                 }
+
+                if(response.getTitle() != null)
+                    event.getTextChannel().sendMessage(response.getTitle() + "\n" + response.getDescription()).queue(coreResponse::sentMessage); // Sends the discord command response
+                else
+                    event.getTextChannel().sendMessage(response.getDescription()).queue(coreResponse::sentMessage); // Sends the discord command response
+            } else {
+                if(response.getTitle() != null)
+                    event.getTextChannel().sendMessage(response.getTitle() + "\n" + response.getDescription()).queue(); // Sends the discord command response
+                else
+                    event.getTextChannel().sendMessage(response.getDescription()).queue(); // Sends the discord command response
+
             }
-
-            if(response.getTitle() != null)
-                event.getTextChannel().sendMessage(response.getTitle() + "\n" + response.getDescription()).queue(); // Sends the discord command response
-            else
-                event.getTextChannel().sendMessage(response.getDescription()).queue(); // Sends the discord command response
-
         // Sends a response back to spigot
         } else if(response.getInputType().equals(CoreCommandExecutor.bungee_input)) {
             BungeeCommandEvent event = (BungeeCommandEvent)response.getData().get(); // Pulls the event from the command data

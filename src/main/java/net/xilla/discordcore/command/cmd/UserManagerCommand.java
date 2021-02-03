@@ -5,12 +5,12 @@ import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.xilla.core.library.manager.Manager;
-import net.xilla.discordcore.library.CoreObject;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
 import net.xilla.discordcore.core.permission.PermissionAPI;
-import net.xilla.discordcore.core.permission.group.DiscordGroup;
 import net.xilla.discordcore.core.permission.user.DiscordUser;
+import net.xilla.discordcore.core.permission.user.UserManager;
+import net.xilla.discordcore.library.CoreObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,7 +31,8 @@ public class UserManagerCommand implements CoreObject {
                 event = (MessageReceivedEvent)data.get();
             }
 
-            Manager<String, DiscordGroup> manager;
+            UserManager userManager = getPlatform().getUserManager();
+            Manager<String, DiscordUser> manager;
 
             int getData = 0;
             if(event == null) {
@@ -42,12 +43,12 @@ public class UserManagerCommand implements CoreObject {
                     if(guild == null) {
                         return new CoreCommandResponse(data).setDescription("That is not a valid guild!");
                     }
-                    manager = getPlatform().getGroupManager().getManager(guild);
+                    manager = userManager.getManager(guild);
                 } else {
                     manager = null;
                 }
             } else {
-                manager = getPlatform().getGroupManager().getManager(event.getGuild());
+                manager = userManager.getManager(event.getGuild());
             }
 
             Guild guild;
@@ -144,6 +145,11 @@ public class UserManagerCommand implements CoreObject {
 
                    if(response.length() == 0) {
                        user.getPermissions().add(permission.toLowerCase());
+
+                       if(!manager.containsKey(user.getKey().toString())) {
+                           manager.put(user);
+                       }
+
                        manager.save();
                        response.append("You have added that permission to ").append(member.getAsMention()).append("!");
                    }

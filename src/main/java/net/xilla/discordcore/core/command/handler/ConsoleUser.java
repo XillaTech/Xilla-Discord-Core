@@ -19,11 +19,6 @@ public class ConsoleUser implements PermissionUser {
     }
 
     @Override
-    public PermissionGroup getPrimaryGroup() {
-        return null;
-    }
-
-    @Override
     public String getUserIdentifier() {
         return "Console";
     }

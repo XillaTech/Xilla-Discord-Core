@@ -3,7 +3,7 @@ package net.xilla.community.giveaway;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.xilla.discordcore.DiscordAPI;
-import net.xilla.discordcore.embed.JSONEmbed;
+import net.xilla.discordcore.library.embed.JSONEmbed;
 import net.xilla.discordcore.settings.GuildSettings;
 import net.xilla.discordcore.settings.Settings;
 import org.json.simple.JSONObject;

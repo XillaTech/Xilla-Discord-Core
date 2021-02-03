@@ -12,7 +12,8 @@ import net.xilla.discordcore.core.CoreSettings;
 import net.xilla.discordcore.core.Platform;
 import net.xilla.discordcore.core.permission.group.DiscordGroup;
 import net.xilla.discordcore.core.permission.group.GroupManager;
-import net.xilla.discordcore.embed.JSONEmbed;
+import net.xilla.discordcore.core.permission.user.UserManager;
+import net.xilla.discordcore.library.embed.JSONEmbed;
 import net.xilla.discordcore.module.ModuleManager;
 import org.json.simple.JSONObject;
 
@@ -27,11 +28,15 @@ public interface CoreObject extends XillaLibrary {
     }
 
     default GroupManager getGroupManager() {
-        return DiscordCore.getInstance().getGroupManager();
+        return DiscordAPI.getGroupManager();
+    }
+
+    default UserManager getUserManager() {
+        return DiscordAPI.getUserManager();
     }
 
     default ModuleManager getModuleManager() {
-        return DiscordCore.getInstance().getModuleManager();
+        return Platform.getInstance().getModuleManager();
     }
 
     default CoreSettings getCoreSetting() {
@@ -43,11 +48,11 @@ public interface CoreObject extends XillaLibrary {
     }
 
     default Platform getPlatform() {
-        return DiscordCore.getInstance().getPlatform();
+        return Platform.getInstance();
     }
 
     default ServerSettings getServerSettings() {
-        return DiscordCore.getInstance().getServerSettings();
+        return Platform.getInstance().getServerSettings();
     }
 
     default Message getMessage(String channelID, String messageID) {
@@ -147,11 +152,11 @@ public interface CoreObject extends XillaLibrary {
     }
 
     default Color getColor(String guildID) {
-        return DiscordCore.getInstance().getServerSettings().getColor(guildID);
+        return Platform.getInstance().getServerSettings().getColor(guildID);
     }
 
     default Color getColor(Guild guild) {
-        return DiscordCore.getInstance().getServerSettings().getColor(guild);
+        return Platform.getInstance().getServerSettings().getColor(guild);
     }
 
     default boolean sendPM(User user, EmbedBuilder embedBuilder) {

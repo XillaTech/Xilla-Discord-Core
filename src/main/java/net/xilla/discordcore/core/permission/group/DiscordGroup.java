@@ -1,20 +1,23 @@
 package net.xilla.discordcore.core.permission.group;
 
+import lombok.Getter;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Role;
-import net.xilla.core.library.json.XillaJson;
+import net.xilla.core.library.manager.StoredData;
 import net.xilla.discordcore.core.command.permission.group.PermissionGroup;
 import net.xilla.discordcore.core.manager.GuildManagerObject;
-import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Vector;
 
 public class DiscordGroup extends GuildManagerObject implements PermissionGroup {
 
+    @Getter
+    @StoredData
     private String groupName;
+
+    @Getter
+    @StoredData
     private List<String> permissions;
 
     public DiscordGroup(String groupID, String groupName, String guildID, ArrayList<String> permissions) {
@@ -23,18 +26,8 @@ public class DiscordGroup extends GuildManagerObject implements PermissionGroup 
         this.permissions = permissions;
     }
 
-    public DiscordGroup(JSONObject object) {
-        super(object.get("groupID").toString(), "Groups", object.get("serverID").toString());
-        loadSerializedData(new XillaJson(object));
-    }
-
-    public String getName() {
-        return groupName;
-    }
-
-    @Override
-    public List<String> getPermissions() {
-        return permissions;
+    public DiscordGroup(Guild guild) {
+        super("", "Groups", guild);
     }
 
     public void addPermission(String permission) {
@@ -47,7 +40,6 @@ public class DiscordGroup extends GuildManagerObject implements PermissionGroup 
 
     @Override
     public boolean hasPermission(String permission) {
-
         String[] temp = permission.split("\\.");
         StringBuilder wildcard = new StringBuilder();
         for(int i = 0; i <= temp.length - 2; i++) {
@@ -56,7 +48,6 @@ public class DiscordGroup extends GuildManagerObject implements PermissionGroup 
         wildcard.append(".*");
 
         for(String groupPerm : permissions) {
-
             if(groupPerm.equalsIgnoreCase(permission)) {
                 return true;
             } else if(groupPerm.equalsIgnoreCase(wildcard.toString())) {
@@ -87,27 +78,4 @@ public class DiscordGroup extends GuildManagerObject implements PermissionGroup 
         return roleIDs.contains(getGroupID());
     }
 
-    @Override
-    public XillaJson getSerializedData() {
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("name", groupName);
-        map.put("groupID", getKey());
-        map.put("serverID", getGuildID());
-        map.put("permissions", permissions);
-
-        return new XillaJson(new JSONObject(map));
-    }
-
-    @Override
-    public void loadSerializedData(XillaJson xillaJson) {
-        JSONObject object = xillaJson.getJson();
-        this.groupName = object.get("name").toString();
-        setKey(object.get("groupID").toString());
-        this.setGuildID(object.get("serverID").toString());
-
-        this.permissions = new Vector<>();
-        for(Object obj : (List)object.get("permissions")) {
-            permissions.add(obj.toString());
-        }
-    }
 }

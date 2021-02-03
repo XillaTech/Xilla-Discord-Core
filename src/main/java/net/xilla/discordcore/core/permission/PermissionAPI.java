@@ -52,8 +52,6 @@ public class PermissionAPI {
             }
 
             user = new DiscordUser(member);
-            manager.put(user);
-            manager.save();
 
             userCache.put(member.getId(), user);
 

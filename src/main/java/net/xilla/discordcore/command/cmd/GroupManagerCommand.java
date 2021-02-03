@@ -122,7 +122,7 @@ public class GroupManagerCommand implements CoreObject {
                 if(group == null) {
                     description.append("That is not a valid group!");
                 } else {
-                    description.append("**Name:** ").append(group.getName()).append("\n");
+                    description.append("**Name:** ").append(group.getGroupName()).append("\n");
                     description.append("**Role ID:** ").append(group.getGroupID()).append("\n");
                     description.append("**Server ID:** ").append(group.getServerID()).append("\n");
                     description.append("**Permissions:** \n");
@@ -197,7 +197,7 @@ public class GroupManagerCommand implements CoreObject {
 
                 ArrayList<DiscordGroup> groups = new ArrayList<>(manager.getData().values());
                 for(int i = 0; i < groups.size(); i++) {
-                    description.append(groups.get(i).getName()).append(" (").append(groups.get(i).getKey()).append(")");
+                    description.append(groups.get(i).getGroupName()).append(" (").append(groups.get(i).getKey()).append(")");
 
                     if(i != groups.size() - 1) {
                         description.append(", ");

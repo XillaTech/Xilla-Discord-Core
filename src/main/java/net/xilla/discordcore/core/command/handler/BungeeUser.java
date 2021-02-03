@@ -25,14 +25,10 @@ public class BungeeUser implements PermissionUser {
         return player.hasPermission(s);
     }
 
-    @Override
-    public PermissionGroup getPrimaryGroup() {
-        return null;
-    }
 
     @Override
     public String getUserIdentifier() {
-        return null;
+        return player.getName();
     }
 
 }

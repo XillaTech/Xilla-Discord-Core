@@ -1,6 +1,7 @@
 package net.xilla.discordcore.library.program;
 
 import net.xilla.core.library.program.ProgramController;
+import net.xilla.discordcore.core.manager.GuildManager;
 import net.xilla.discordcore.settings.GuildSettings;
 
 public class DiscordController extends ProgramController {
@@ -21,5 +22,12 @@ public class DiscordController extends ProgramController {
         return (T)discordProgram.getDiscordSettingsRefl().get(clazz);
     }
 
+    public <T extends GuildManager> T getGuildManager(String name) {
+        return (T)discordProgram.getDiscordManagers().get(name);
+    }
+
+    public <T extends GuildManager> T getGuildManager(Class clazz) {
+        return (T)discordProgram.getDiscordManagersRefl().get(clazz);
+    }
 
 }

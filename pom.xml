@@ -44,13 +44,19 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>4.2.0_223</version>
+            <version>4.2.0_227</version>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>com.github.XillaTech</groupId>-->
+<!--            <artifactId>Xilla-Core</artifactId>-->
+<!--            <version>00fae7b060</version>-->
+<!--        </dependency>-->
+
         <dependency>
-            <groupId>com.github.XillaTech</groupId>
-            <artifactId>Xilla-Core</artifactId>
-            <version>00fae7b060</version>
+            <groupId>net.xilla</groupId>
+            <artifactId>Core</artifactId>
+            <version>1.0.2</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.vdurmont/emoji-java -->
@@ -89,6 +95,11 @@
             <version>3.0.7</version>
         </dependency>
 
+        <dependency>
+            <groupId>net.sf.trove4j</groupId>
+            <artifactId>trove4j</artifactId>
+            <version>3.0.3</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -141,8 +152,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <createDependencyReducedPom>true</createDependencyReducedPom>
-                    <minimizeJar>true</minimizeJar>
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
+                    <minimizeJar>false</minimizeJar>
                 </configuration>
             </plugin>
         </plugins>

@@ -26,13 +26,8 @@ public class SpigotUser implements PermissionUser {
     }
 
     @Override
-    public PermissionGroup getPrimaryGroup() {
-        return null;
-    }
-
-    @Override
     public String getUserIdentifier() {
-        return null;
+        return player.getName();
     }
 
 }

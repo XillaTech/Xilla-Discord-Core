@@ -1,14 +1,14 @@
 package net.xilla.discordcore.module;
 
+import net.xilla.core.log.LogLevel;
+import net.xilla.core.log.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.*;
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.net.JarURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.file.Path;
@@ -73,8 +73,9 @@ public class ModuleLoader {
             Constructor<? extends Module> constructor = newClass.getConstructor();
             return constructor.newInstance();
 
-        } catch (ClassNotFoundException | MalformedURLException | InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            Logger.log(LogLevel.ERROR, "Error while loading " + classpath + " from " + jar.getPath(), getClass());
+            Logger.log(e, getClass());
         }
         return null;
     }

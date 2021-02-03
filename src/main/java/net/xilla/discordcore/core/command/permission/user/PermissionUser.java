@@ -11,8 +11,6 @@ public interface PermissionUser {
 
     boolean hasPermission(Guild guild, String permission);
 
-    PermissionGroup getPrimaryGroup();
-
     String getUserIdentifier();
 
 }

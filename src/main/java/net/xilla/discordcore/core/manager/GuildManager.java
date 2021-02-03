@@ -3,6 +3,7 @@ package net.xilla.discordcore.core.manager;
 import lombok.Getter;
 import net.dv8tion.jda.api.entities.Guild;
 import net.xilla.core.library.manager.Manager;
+import net.xilla.discordcore.library.DiscordAPI;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,11 +44,6 @@ public abstract class GuildManager<T extends  GuildManagerObject> {
         if(!managers.containsKey(guildID)) {
             managers.put(guildID, new Manager<String, T>(guildID + "-" + name, folder + guildID + "/" + name + ".json", clazz) {
                 @Override
-                public void load() {
-                    GuildManager.this.load();
-                }
-
-                @Override
                 protected void objectAdded(T object) {
                     GuildManager.this.objectAdded(guildID, object);
                 }
@@ -65,10 +61,15 @@ public abstract class GuildManager<T extends  GuildManagerObject> {
         return getManager(guild.getId());
     }
 
-    protected abstract void load();
+    public void load() {
+        for(Guild guild : DiscordAPI.getBot().getGuilds()) {
+            getManager(guild).load();
+            getManager(guild).save();
+        }
+    }
 
-    protected abstract void objectAdded(String guildID, T object);
+    protected void objectAdded(String guildID, T object) {};
 
-    protected abstract void objectRemoved(String guildID, T object);
+    protected void objectRemoved(String guildID, T object) {};
 
 }

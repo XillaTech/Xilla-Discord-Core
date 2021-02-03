@@ -28,7 +28,7 @@ public class GuildSettings extends ManagerObject {
         this.folder = folder;
         this.settingsMap = new HashMap<>();
         this.defaults = new HashMap<>();
-        DiscordCore.getInstance().getGuildSettingsManager().put(this);
+        DiscordCore.getInstance().getPlatform().getGuildSettingsManager().put(this);
     }
 
     public void setDefault(String key, Object obj) {
