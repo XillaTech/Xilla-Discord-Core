@@ -50,7 +50,7 @@
         <dependency>
             <groupId>com.github.XillaTech</groupId>
             <artifactId>Xilla-Core</artifactId>
-            <version>3e7d74483b</version>
+            <version>e9efa04225</version>
         </dependency>
 
 <!--        <dependency>
