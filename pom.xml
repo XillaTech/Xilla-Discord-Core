@@ -56,7 +56,7 @@
         <dependency>
             <groupId>net.xilla</groupId>
             <artifactId>Core</artifactId>
-            <version>1.0.2</version>
+            <version>3e7d74483b</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.vdurmont/emoji-java -->
