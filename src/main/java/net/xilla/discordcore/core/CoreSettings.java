@@ -19,6 +19,8 @@ public class CoreSettings extends DiscordSettings {
         getConfig().setDefault("clear-old-guild-time", 86400);
         getConfig().setDefault("clear-old-users", false);
         getConfig().setDefault("check-time", 60);
+        getConfig().setDefault("user-threads", 16);
+        getConfig().setDefault("group-threads", 16);
         getConfig().setDefault("last-check-time", -1);
         getConfig().setDefault("minimize-help", false);
         getConfig().setDefault("token", "bottoken");
@@ -105,6 +107,14 @@ public class CoreSettings extends DiscordSettings {
 
     public int getCheckTime() {
         return getConfig().getInt("check-time");
+    }
+
+    public int getUserThreads() {
+        return getConfig().getInt("user-threads");
+    }
+
+    public int getGroupThreads() {
+        return getConfig().getInt("group-threads");
     }
 
     public long getLastCheckTime() {

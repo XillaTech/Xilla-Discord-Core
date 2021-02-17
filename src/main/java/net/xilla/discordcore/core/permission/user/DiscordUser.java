@@ -28,7 +28,6 @@ public class DiscordUser extends GuildManagerObject implements PermissionUser {
     @StoredData
     private List<String> permissions = new ArrayList<>();
 
-    @Getter
     private Member member;
 
     @Getter
@@ -40,12 +39,21 @@ public class DiscordUser extends GuildManagerObject implements PermissionUser {
         this.guild = member.getGuild();
     }
 
-    public DiscordUser(Guild guild) {
-        this.guild = guild;
-    }
+    public DiscordUser() {}
 
     @Override
     public List<PermissionGroup> getGroups() {
+        if(guild != null) {
+            if(member == null) {
+                User user = DiscordAPI.getUser(getKey().toString());
+                if (user != null) {
+                    this.member = guild.retrieveMember(user).complete();
+                }
+            }
+        } else {
+            return new ArrayList<>();
+        }
+
         List<PermissionGroup> groups = new ArrayList<>();
         DiscordGroup defaultGroup = DiscordCore.getInstance().getGroupManager().getManager(guild).get("default");
         if(defaultGroup != null) {
@@ -79,6 +87,8 @@ public class DiscordUser extends GuildManagerObject implements PermissionUser {
                     this.member = guild.retrieveMember(user).complete();
                 }
             }
+        } else {
+            return false;
         }
 
         if(this.member == null) {
@@ -139,15 +149,13 @@ public class DiscordUser extends GuildManagerObject implements PermissionUser {
     public void loadSerializedData(XillaJson xillaJson) {
         super.loadSerializedData(xillaJson);
 
+        this.guild = DiscordAPI.getBot().getGuildById(getGuildID());
+
         if(guild == null) {
             Logger.log(LogLevel.ERROR, "Unable to find the guild with ID " + xillaJson.get("serverID").toString(), getClass());
             return;
         }
 
-        this.member = DiscordAPI.getMember(guild, getKey().toString());
-
-        if(member == null) {
-            Logger.log(LogLevel.WARN, "Unable to find the member with ID " + getKey() + ", they most likely left. Removing them from the DB to prevent issues.", getClass());
-        }
+        this.member = null;
     }
 }

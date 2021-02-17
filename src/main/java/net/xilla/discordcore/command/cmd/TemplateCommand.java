@@ -3,14 +3,13 @@ package net.xilla.discordcore.command.cmd;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-import net.xilla.discordcore.library.CoreObject;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.command.CommandBuilder;
 import net.xilla.discordcore.command.template.type.EmbedCommand;
-import net.xilla.discordcore.command.template.type.ScriptCommand;
 import net.xilla.discordcore.command.template.type.TextCommand;
 import net.xilla.discordcore.core.CoreCommandExecutor;
 import net.xilla.discordcore.core.command.response.CoreCommandResponse;
+import net.xilla.discordcore.library.CoreObject;
 import net.xilla.discordcore.library.form.MultiForm;
 
 import java.util.Arrays;
@@ -156,10 +155,11 @@ public class TemplateCommand implements CoreObject {
                             } else if(results.get("Type").getResponse().equals("Text")) {
                                 TextCommand command = new TextCommand(module, commandName, new String[] {commandName.toLowerCase()}, commandDescription, commandName.toLowerCase(), response, permission);
                                 getPlatform().getTemplateManager().registerTemplate(command);
-                            } else if(results.get("Type").getResponse().equals("Script")) {
-                                ScriptCommand command = new ScriptCommand(module, commandName, new String[] {commandName.toLowerCase()}, commandDescription, commandName.toLowerCase(), response, permission);
-                                getPlatform().getTemplateManager().registerTemplate(command);
                             }
+//                            else if(results.get("Type").getResponse().equals("Script")) {
+//                                ScriptCommand command = new ScriptCommand(module, commandName, new String[] {commandName.toLowerCase()}, commandDescription, commandName.toLowerCase(), response, permission);
+//                                getPlatform().getTemplateManager().registerTemplate(command);
+//                            }
                             getPlatform().getTemplateManager().save();
                             event.getChannel().sendMessage("The command has been successfully added. Do `" + getDiscordCore().getSettings().getCommandPrefix() + "help`").queue();
                         } catch (Exception ex) {
@@ -170,7 +170,7 @@ public class TemplateCommand implements CoreObject {
                     form.addMessageQuestion("Description", "What is the description of the command you'd like to add?", event.getAuthor().getId(), event.getGuild().getId());
                     form.addMessageQuestion("Module", "What module would you like the command to be under?", event.getAuthor().getId(), event.getGuild().getId());
                     form.addMessageQuestion("Permission", "Would you like to require a permission? (Put \"None\" for no permissions)", event.getAuthor().getId(), event.getGuild().getId());
-                    form.addMessageQuestion("Type", "What type of command is this? (Embed/Text/Script)", event.getAuthor().getId(), event.getGuild().getId());
+                    form.addMessageQuestion("Type", "What type of command is this? (Embed/Text)", event.getAuthor().getId(), event.getGuild().getId());
                     form.addMessageQuestion("Response", "What would you like the command to say or do?", event.getAuthor().getId(), event.getGuild().getId());
                     form.start();
 

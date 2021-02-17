@@ -93,7 +93,7 @@ public class Platform implements ProgramInterface {
         new SettingsCommand();
         new EmbedCommand();
         new CoreCommands();
-        new EvalCommand();
+        new TestCommand();
 
         DiscordCore.getInstance().getCommandManager().setPermissionError((args, data) -> {
             EmbedBuilder builder = new EmbedBuilder();

@@ -26,8 +26,7 @@ public class DiscordGroup extends GuildManagerObject implements PermissionGroup 
         this.permissions = permissions;
     }
 
-    public DiscordGroup(Guild guild) {
-        super("", "Groups", guild);
+    public DiscordGroup() {
     }
 
     public void addPermission(String permission) {

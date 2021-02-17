@@ -4,13 +4,15 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.core.CoreCommandExecutor;
-import net.xilla.discordcore.core.permission.PermissionAPI;
 import net.xilla.discordcore.core.command.CommandData;
 import net.xilla.discordcore.core.command.CommandManager;
 import net.xilla.discordcore.core.command.flag.CommandFlag;
+import net.xilla.discordcore.core.permission.PermissionAPI;
 
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CommandEventHandler extends ListenerAdapter {
 
@@ -52,10 +54,6 @@ public class CommandEventHandler extends ListenerAdapter {
                         }
                     }
 
-                }
-
-                if(flags.size() == 0) {
-                    flags = null;
                 }
 
                 String command = parts.get(0).toLowerCase();
