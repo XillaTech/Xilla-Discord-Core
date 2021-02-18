@@ -5,6 +5,8 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.react.GuildMessageReactionAddEvent;
+import net.xilla.core.log.LogLevel;
+import net.xilla.core.log.Logger;
 import net.xilla.discordcore.library.QueueHandler;
 import net.xilla.discordcore.library.embed.menu.EmbedMenu;
 import net.xilla.discordcore.library.embed.menu.MenuItem;
@@ -45,10 +47,6 @@ public class PaginationMenu extends EmbedMenu {
 
     public void send(TextChannel channel, int page) {
 
-        if(getMessage() != null) {
-            getMessage().delete().queue();
-        }
-
         EmbedBuilder builder = new EmbedBuilder(embedBuilder);
 
         int start = (page - 1) * perPage;
@@ -63,32 +61,71 @@ public class PaginationMenu extends EmbedMenu {
 
         builder.addField("Options (Page " + page + "/" + totalPages + ")", String.join("\n", options), false);
 
+        if (getMessage() != null) {
+            getMessage().clearReactions().queue();
+            getMessage().editMessage(builder.build()).queue((m) -> {
+                setMessage(m);
 
-        channel.sendMessage(builder.build()).queue((m) -> {
-            setMessage(m);
+                QueueHandler queueHandler = new QueueHandler();
 
-            QueueHandler queueHandler = new QueueHandler();
+                if (page > 1) {
+                    String emoji = EmojiParser.parseToUnicode(":arrow_left:");
+                    queueHandler.addRestAction(m.addReaction(emoji));
+                }
 
-            if(page > 1) {
-                String emoji = EmojiParser.parseToUnicode(":arrow_left:");
-                queueHandler.addRestAction(m.addReaction(emoji));
-            }
 
-            if(page < totalPages) {
-                String emoji = EmojiParser.parseToUnicode(":arrow_right:");
-                queueHandler.addRestAction(m.addReaction(emoji));
-            }
+                for (int i = start; i < end && i < getItems().size(); i++) {
+                    MenuItem item = getItems().get(i);
 
-            for (int i = start; i < end && i < getItems().size(); i++) {
-                MenuItem item = getItems().get(i);
+                    String emoji = EmojiParser.parseToUnicode(item.getEmoji());
 
-                String emoji = EmojiParser.parseToUnicode(item.getEmoji());
+                    queueHandler.addRestAction(m.addReaction(emoji));
+                }
 
-                queueHandler.addRestAction(m.addReaction(emoji));
-            }
+                /*
+                 * By moving this if statement below the for loop, the right arrow will always be at the end of the
+                 * reaction list. This is more logical then the previous implementation
+                 */
 
-            queueHandler.start();
-        });
+                if (page < totalPages) {
+                    String emoji = EmojiParser.parseToUnicode(":arrow_right:");
+                    queueHandler.addRestAction(m.addReaction(emoji));
+                }
+                queueHandler.start();
+            });
+
+        } else {
+            channel.sendMessage(builder.build()).queue((m) -> {
+                setMessage(m);
+
+                QueueHandler queueHandler = new QueueHandler();
+
+                if (page > 1) {
+                    String emoji = EmojiParser.parseToUnicode(":arrow_left:");
+                    queueHandler.addRestAction(m.addReaction(emoji));
+                }
+
+
+                for (int i = start; i < end && i < getItems().size(); i++) {
+                    MenuItem item = getItems().get(i);
+
+                    String emoji = EmojiParser.parseToUnicode(item.getEmoji());
+
+                    queueHandler.addRestAction(m.addReaction(emoji));
+                }
+
+                /*
+                 * By moving this if statement below the for loop, the right arrow will always be at the end of the
+                 * reaction list. This is more logical then the previous implementation
+                 */
+
+                if (page < totalPages) {
+                    String emoji = EmojiParser.parseToUnicode(":arrow_right:");
+                    queueHandler.addRestAction(m.addReaction(emoji));
+                }
+                queueHandler.start();
+            });
+        }
     }
 
     public void sendNext(TextChannel channel) {
@@ -113,18 +150,18 @@ public class PaginationMenu extends EmbedMenu {
 
     @Override
     public void onGuildMessageReactionAdd(GuildMessageReactionAddEvent event) {
-        if(!event.getUser().isBot()) {
-            if(getMessage() != null && event.getMessageId().equals(getMessage().getId())) {
+        if (!event.getUser().isBot()) {
+            if (getMessage() != null && event.getMessageId().equals(getMessage().getId())) {
                 String reaction = EmojiParser.parseToAliases(event.getReactionEmote().getEmoji());
 
-                if(reaction.equalsIgnoreCase(":arrow_right:")) {
+                if (reaction.equalsIgnoreCase(":arrow_right:")) {
                     sendNext(event.getChannel());
-                } else if(reaction.equalsIgnoreCase(":arrow_left:")) {
+                } else if (reaction.equalsIgnoreCase(":arrow_left:")) {
                     sendPrevious(event.getChannel());
                 }
 
-                for(MenuItem item : getItems()) {
-                    if(reaction.equals(item.getEmoji())) {
+                for (MenuItem item : getItems()) {
+                    if (reaction.equals(item.getEmoji())) {
                         end(event.getMember(), item);
                     }
                 }

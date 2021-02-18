@@ -6,7 +6,7 @@
 
     <groupId>net.xilla.discord</groupId>
     <artifactId>Xilla-Discord-Core</artifactId>
-    <version>v2.0.3</version>
+    <version>v2.0.31</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
