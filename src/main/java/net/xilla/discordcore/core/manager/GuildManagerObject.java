@@ -5,11 +5,13 @@ import lombok.Setter;
 import net.dv8tion.jda.api.entities.Guild;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.core.library.manager.ManagerObject;
+import net.xilla.core.library.manager.StoredData;
 
 public abstract class GuildManagerObject extends ManagerObject {
 
     @Getter
     @Setter
+    @StoredData
     private String guildID;
 
     public GuildManagerObject(String key, Manager manager, Guild guild) {

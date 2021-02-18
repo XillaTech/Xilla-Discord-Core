@@ -1,13 +1,12 @@
 package net.xilla.discordcore.core.permission.group;
 
 import net.dv8tion.jda.api.entities.Guild;
-import net.xilla.core.library.json.XillaJson;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.core.log.LogLevel;
 import net.xilla.core.log.Logger;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.core.manager.GuildManager;
-import org.json.simple.JSONObject;
+import net.xilla.discordcore.library.DiscordAPI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,15 +20,17 @@ public class GroupManager extends GuildManager<DiscordGroup> {
     private Map<String, List<DiscordGroup>> serverCache = new ConcurrentHashMap<>();
 
     public GroupManager() {
-        super("Groups", "servers/permissions/");
+        super("Groups", "servers/permissions/", DiscordGroup.class);
+
+        setThreads(DiscordAPI.getCoreSetting().getGroupThreads());
 
         DiscordCore.getInstance().addExecutor(() -> {
-            Logger.log(LogLevel.DEBUG, "Starting group manager", getClass());
+            Logger.log(LogLevel.INFO, "Starting group manager", getClass());
             load();
-            Logger.log(LogLevel.DEBUG, "Started group manager", getClass());
-            Logger.log(LogLevel.DEBUG, "Starting user manager", getClass());
-            DiscordCore.getInstance().getPlatform().getUserManager().load();
-            Logger.log(LogLevel.DEBUG, "Started user manager", getClass());
+            Logger.log(LogLevel.INFO, "Started group manager", getClass());
+            Logger.log(LogLevel.INFO, "Starting user manager", getClass());
+            DiscordAPI.getUserManager().load();
+            Logger.log(LogLevel.INFO, "Started user manager", getClass());
         });
     }
 
@@ -43,29 +44,10 @@ public class GroupManager extends GuildManager<DiscordGroup> {
 
     @Override
     public void load() {
+        super.load();
+
         for(Guild guild : DiscordCore.getInstance().getBot().getGuilds()) {
             Manager<String, DiscordGroup> manager = getManager(guild);
-
-            for(Object key : new ArrayList<>(manager.getConfig().getJson().getJson().keySet())) {
-                if(key.toString().equals("file-extension")) {
-                    manager.getConfig().getJson().getJson().remove(key);
-                    continue;
-                }
-                System.out.println(key);
-
-                Object obj = manager.getConfig().getJson().getJson().get(key);
-
-                System.out.println(obj);
-
-                JSONObject json = (JSONObject) obj;
-
-                DiscordGroup group = new DiscordGroup(guild);
-                json.put("key", key.toString());
-                json.put("manager", manager.getKey().toString());
-                group.loadSerializedData(new XillaJson(json));
-
-                manager.put(group);
-            }
 
             DiscordGroup defaultGroup = manager.get("default");
             if(defaultGroup == null) {

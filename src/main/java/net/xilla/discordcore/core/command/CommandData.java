@@ -3,6 +3,7 @@ package net.xilla.discordcore.core.command;
 import net.xilla.discordcore.core.command.flag.CommandFlag;
 import net.xilla.discordcore.core.command.permission.user.PermissionUser;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class CommandData<T> {
@@ -22,7 +23,7 @@ public class CommandData<T> {
         this.data = data;
         this.inputType = inputType;
         this.user = user;
-        this.flags = null;
+        this.flags = new HashMap<>();
     }
 
     public CommandData(String command, String[] args, T data, String inputType, PermissionUser user, Map<CommandFlag, String> flags) {

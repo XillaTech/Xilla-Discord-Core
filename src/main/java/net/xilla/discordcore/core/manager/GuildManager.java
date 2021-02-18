@@ -1,6 +1,7 @@
 package net.xilla.discordcore.core.manager;
 
 import lombok.Getter;
+import lombok.Setter;
 import net.dv8tion.jda.api.entities.Guild;
 import net.xilla.core.library.manager.Manager;
 import net.xilla.discordcore.library.DiscordAPI;
@@ -20,6 +21,10 @@ public abstract class GuildManager<T extends  GuildManagerObject> {
     private String folder;
 
     private Class<T> clazz = null;
+
+    @Getter
+    @Setter
+    private int threads = 1;
 
     public GuildManager(String name) {
         this(name, "");
@@ -42,7 +47,7 @@ public abstract class GuildManager<T extends  GuildManagerObject> {
 
     public Manager<String, T> getManager(String guildID) {
         if(!managers.containsKey(guildID)) {
-            managers.put(guildID, new Manager<String, T>(guildID + "-" + name, folder + guildID + "/" + name + ".json", clazz) {
+            Manager m = new Manager<String, T>(guildID + "-" + name, folder + guildID + "/" + name + ".json", clazz) {
                 @Override
                 protected void objectAdded(T object) {
                     GuildManager.this.objectAdded(guildID, object);
@@ -52,7 +57,9 @@ public abstract class GuildManager<T extends  GuildManagerObject> {
                 protected void objectRemoved(T object) {
                     GuildManager.this.objectRemoved(guildID, object);
                 }
-            });
+            };
+            m.setThreads(threads);
+            managers.put(guildID, m);
         }
         return managers.get(guildID);
     }

@@ -44,20 +44,14 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>4.2.0_227</version>
+            <version>4.2.0_228</version>
         </dependency>
 
         <dependency>
             <groupId>com.github.XillaTech</groupId>
             <artifactId>Xilla-Core</artifactId>
-            <version>e9efa04225</version>
+            <version>25b4b1f17a</version>
         </dependency>
-
-<!--        <dependency>
-            <groupId>net.xilla</groupId>
-            <artifactId>Core</artifactId>
-            <version>1.0.3</version>
-        </dependency> -->
 
         <!-- https://mvnrepository.com/artifact/com.vdurmont/emoji-java -->
         <dependency>
@@ -89,17 +83,17 @@
             <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-jsr223</artifactId>
-            <version>3.0.7</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.codehaus.groovy</groupId>-->
+<!--            <artifactId>groovy-jsr223</artifactId>-->
+<!--            <version>3.0.7</version>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>net.sf.trove4j</groupId>
-            <artifactId>trove4j</artifactId>
-            <version>3.0.3</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>net.sf.trove4j</groupId>-->
+<!--            <artifactId>trove4j</artifactId>-->
+<!--            <version>3.0.3</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
