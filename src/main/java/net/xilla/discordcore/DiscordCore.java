@@ -9,6 +9,7 @@ import net.xilla.core.library.manager.Manager;
 import net.xilla.core.library.manager.XillaManager;
 import net.xilla.core.library.worker.Worker;
 import net.xilla.core.library.worker.WorkerManager;
+import net.xilla.core.log.Log;
 import net.xilla.core.log.LogLevel;
 import net.xilla.core.log.Logger;
 import net.xilla.discordcore.core.CoreSettings;
@@ -25,9 +26,14 @@ import net.xilla.discordcore.settings.SettingsManager;
 import net.xilla.discordcore.startup.PostStartupExecutor;
 import net.xilla.discordcore.startup.PostStartupManager;
 import net.xilla.discordcore.startup.StartupManager;
+import net.xilla.discordcore.ui.MenuManager;
+import org.slf4j.LoggerFactory;
 
 import javax.security.auth.login.LoginException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DiscordCore implements ProgramInterface {
 
@@ -101,7 +107,7 @@ public class DiscordCore implements ProgramInterface {
     private static StartupManager startupManager = new StartupManager();
 
     @Getter
-    private CommandManager commandManager;
+    private CommandManager commandManager = null;
 
     public DiscordCore(String platform, String baseFolder, boolean startCommandLine, String name) {
         this(platform, baseFolder, startCommandLine, name, null);
@@ -111,10 +117,12 @@ public class DiscordCore implements ProgramInterface {
     public DiscordCore(String platform, String baseFolder, boolean startCommandLine, String name, String token) {
         instance = this;
 
+        loadLogging();
+
         this.type = platform;
 
         Logger.log(LogLevel.DEBUG, "Starting discord core", getClass());
-        startCore(name, baseFolder, startCommandLine);
+        startCore(name, baseFolder, token, startCommandLine);
 
         Logger.log(LogLevel.DEBUG, "Starting discord core modules", getClass());
         this.moduleManager = new ModuleManager();
@@ -126,7 +134,7 @@ public class DiscordCore implements ProgramInterface {
         finishedStarting(startCommandLine);
     }
 
-    private void startCore(String name, String baseFolder, boolean startCommandLine) {
+    private void startCore(String name, String baseFolder, String token, boolean startCommandLine) {
         if(DiscordProgram.getProgram() == null) {
             new DiscordProgram(name, this);
         }
@@ -142,6 +150,19 @@ public class DiscordCore implements ProgramInterface {
         // Sets the log level
         Logger.setLogLevel(LogLevel.valueOf(settings.getLogLevel()));
 
+        // Starting GUI
+        if(settings.isConsoleGui()) {
+            MenuManager.start(name);
+        }
+
+        if(token == null || token.isEmpty()) {
+            // Loads settings
+            if (DiscordCore.getInstance().getType().equals(Platform.getPlatform.STANDALONE.name) || DiscordCore.getInstance().getType().equals(Platform.getPlatform.EMBEDDED.name)) {
+                // Fancy installer for standalone
+                settings.getInstaller().install("The discord bot's token from https://discord.com/developers/", "token", "bottoken");
+            }
+        }
+
         Logger.log(LogLevel.DEBUG, "Starting discord core command manager", getClass());
         this.commandManager = new CommandManager(name, startCommandLine);
         commandManager.reload();
@@ -151,14 +172,6 @@ public class DiscordCore implements ProgramInterface {
     }
 
     private void startBot(String token) {
-        if(token == null || token.isEmpty()) {
-            // Loads settings
-            if (DiscordCore.getInstance().getType().equals(Platform.getPlatform.STANDALONE.name) || DiscordCore.getInstance().getType().equals(Platform.getPlatform.EMBEDDED.name)) {
-                // Fancy installer for standalone
-                settings.getInstaller().install("The discord bot's token from https://discord.com/developers/", "token", "bottoken");
-            }
-        }
-
         // Connects to the discord api
         try {
             JDABuilder shardBuilder;
@@ -173,9 +186,6 @@ public class DiscordCore implements ProgramInterface {
             for (int i = 0; i < settings.getShards(); i++) {
                 shardBuilder.useSharding(i, settings.getShards()).build();
             }
-
-            shardBuilder.addEventListeners(new CommandEventHandler());
-            shardBuilder.addEventListeners(new FormHandler());
 
             if (settings.getActivity() != null && !settings.getActivity().equalsIgnoreCase("none")) {
                 if (settings.getActivityType().equalsIgnoreCase("Playing")) {
@@ -196,8 +206,71 @@ public class DiscordCore implements ProgramInterface {
         }
     }
 
+    private void loadLogging() {
+        Logger.setLogger(new Log() {
+            @Override
+            public void log(LogLevel logLevel, String s, Class aClass) {
+                org.slf4j.Logger logger = LoggerFactory.getLogger(aClass.getName());
+
+                if(MenuManager.getInstance() != null) {
+                    if(logLevel.ordinal() >= Logger.getLogLevel().ordinal()) {
+                        DateFormat df = new SimpleDateFormat("yyyy-MM-dd' 'HH:mm:ss");
+                        df.setTimeZone(Logger.getTimeZone());
+                        String nowAsISO = df.format(new Date());
+                        String log = "[" + nowAsISO + " " + Logger.getTimeZone().getID() + "] [" + logLevel.name() + "] " + s;
+                        MenuManager.getInstance().getConsolePane().iterateConsole(log);
+                    }
+                }
+
+                if(logLevel.equals(LogLevel.DEBUG)) {
+                    logger.debug(s);
+                } else if(logLevel.equals(LogLevel.INFO)) {
+                    logger.info(s);
+                } else if(logLevel.equals(LogLevel.WARN)) {
+                    logger.warn(s);
+                } else if(logLevel.equals(LogLevel.ERROR)) {
+                    logger.error(s);
+                } else if(logLevel.equals(LogLevel.FATAL)) {
+                    logger.error(s);
+                }
+            }
+
+            @Override
+            public void log(LogLevel logLevel, Throwable throwable, Class aClass) {
+                log(throwable, aClass);
+            }
+
+            @Override
+            public void log(Throwable throwable, Class aClass) {
+                org.slf4j.Logger logger = LoggerFactory.getLogger(aClass.getName());
+                logger.error(aClass.getName(), throwable);
+
+                if(MenuManager.getInstance() != null) {
+                    if(LogLevel.ERROR.ordinal() >= Logger.getLogLevel().ordinal()) {
+                        DateFormat df = new SimpleDateFormat("yyyy-MM-dd' 'HH:mm:ss");
+                        df.setTimeZone(Logger.getTimeZone());
+                        String nowAsISO = df.format(new Date());
+
+                        String log = "[" + nowAsISO + " " + Logger.getTimeZone().getID() + "] [" + LogLevel.ERROR.name() + "] (" + aClass.getName() + ") " + throwable.toString();
+
+                        MenuManager.getInstance().getConsolePane().iterateConsole(log);
+
+                        for (int i = 0; i < throwable.getStackTrace().length; i++) {
+                            log = "[" + nowAsISO + " " + Logger.getTimeZone().getID() + "] [" + LogLevel.ERROR.name() + "] (" + aClass.getName() + ") [ERR] " + throwable.getStackTrace()[i].toString();
+
+                            MenuManager.getInstance().getConsolePane().iterateConsole(log);
+                        }
+                    }
+                }
+            }
+        });
+    }
+
     private void finishedStarting(boolean startCommandLine) {
         Logger.log(LogLevel.DEBUG, "Starting discord core command line", getClass());
+
+        getBot().addEventListener(new CommandEventHandler());
+        getBot().addEventListener(new FormHandler());
 
         // Starting Command Line
         if(startCommandLine) {

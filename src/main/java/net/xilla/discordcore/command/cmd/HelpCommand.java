@@ -18,6 +18,7 @@ public class HelpCommand implements CoreObject {
     public HelpCommand() {
         CommandBuilder commandBuilder = new CommandBuilder("Member", "Help", true);
         commandBuilder.setDescription("View the commands you can access.");
+        commandBuilder.setActivators("help", "?");
         commandBuilder.setCommandExecutor((data) -> {
             try {
                 HashMap<String, ArrayList<String>> commands = new HashMap<>();

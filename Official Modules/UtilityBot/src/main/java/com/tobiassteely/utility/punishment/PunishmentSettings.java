@@ -6,7 +6,7 @@ import org.json.simple.JSONArray;
 public class PunishmentSettings extends Settings {
 
     public PunishmentSettings() {
-        super("Punishment", "modules/Utility/punishment-settings.json");
+        super("Punishment", "modules/Utility/punishment-settings-old.json");
 
         getConfig().setDefault("muted-users", new JSONArray());
         getConfig().save();

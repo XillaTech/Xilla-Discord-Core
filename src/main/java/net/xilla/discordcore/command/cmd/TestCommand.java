@@ -53,7 +53,7 @@ public class TestCommand implements ProgramInterface {
 
             return null;
         });
-//        builder.build();
+        builder.build();
     }
 
 }

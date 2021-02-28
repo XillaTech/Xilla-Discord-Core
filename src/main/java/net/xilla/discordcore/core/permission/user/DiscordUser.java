@@ -43,14 +43,8 @@ public class DiscordUser extends GuildManagerObject implements PermissionUser {
 
     @Override
     public List<PermissionGroup> getGroups() {
-        if(guild != null) {
-            if(member == null) {
-                User user = DiscordAPI.getUser(getKey().toString());
-                if (user != null) {
-                    this.member = guild.retrieveMember(user).complete();
-                }
-            }
-        } else {
+
+        if(!verifyAndUpdate()) {
             return new ArrayList<>();
         }
 
@@ -78,22 +72,39 @@ public class DiscordUser extends GuildManagerObject implements PermissionUser {
         return getKey().toString();
     }
 
+    private boolean verifyAndUpdate() {
+        if(guild == null) {
+            guild = DiscordAPI.getBot().getGuildById(getGuildID());
+        }
+
+        if(guild == null) {
+            return false;
+        }
+        if(member == null) {
+            User user = DiscordAPI.getUser(getKey().toString());
+            if (user != null) {
+                this.member = guild.retrieveMember(user).complete();
+            }
+        }
+        return true;
+    }
+
     @Override
     public boolean hasPermission(Guild guild, String permission) {
-        if(guild != null) {
-            if(member == null) {
-                User user = DiscordAPI.getUser(getKey().toString());
-                if (user != null) {
-                    this.member = guild.retrieveMember(user).complete();
-                }
-            }
-        } else {
+
+        if(!verifyAndUpdate()) {
             return false;
         }
 
         if(this.member == null) {
             Logger.log(LogLevel.ERROR, "The bot was unable to find the member for discord user " + member.getId() + " in guild " + member.getGuild().getId(), getClass());
             return false;
+        }
+
+        if(DiscordCore.getInstance().getCoreSetting().isRespectDiscordCoreAdmin()) {
+            if (member.hasPermission(Permission.ADMINISTRATOR)) {
+                return true;
+            }
         }
 
         if(DiscordCore.getInstance().getCoreSetting().isRespectDiscordAdmin()) {

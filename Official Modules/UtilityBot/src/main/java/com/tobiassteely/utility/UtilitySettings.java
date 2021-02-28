@@ -5,7 +5,7 @@ import net.xilla.discordcore.settings.Settings;
 public class UtilitySettings extends Settings {
 
     public UtilitySettings() {
-        super("Utility", "modules/Utility/utility-settings.json");
+        super("Utility", "modules/Utility/utility-settings-old.json");
 
         getConfig().setDefault("polls-feature", true);
         getConfig().setDefault("suggestions-feature", true);

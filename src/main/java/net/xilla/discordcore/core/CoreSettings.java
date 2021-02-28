@@ -15,6 +15,7 @@ public class CoreSettings extends DiscordSettings {
         getConfig().setDefault("activity-type", "Playing");
         getConfig().setDefault("activity-stream", "https://www.youtube.com/watch?v=5IXQ6f6eMxQ");
         getConfig().setDefault("respect-discord-admin", true);
+        getConfig().setDefault("respect-discord-core-admin", false);
         getConfig().setDefault("clear-old-guilds", false);
         getConfig().setDefault("clear-old-guild-time", 86400);
         getConfig().setDefault("clear-old-users", false);
@@ -23,6 +24,7 @@ public class CoreSettings extends DiscordSettings {
         getConfig().setDefault("group-threads", 16);
         getConfig().setDefault("last-check-time", -1);
         getConfig().setDefault("minimize-help", false);
+        getConfig().setDefault("console-gui", true);
         getConfig().setDefault("token", "bottoken");
         getConfig().setDefault("log-level", LogLevel.INFO.name());
         getConfig().save();
@@ -97,8 +99,16 @@ public class CoreSettings extends DiscordSettings {
         return getConfig().getBoolean("respect-discord-admin");
     }
 
+    public boolean isRespectDiscordCoreAdmin() {
+        return getConfig().getBoolean("respect-discord-core-admin");
+    }
+
     public boolean isClearOldGuilds() {
         return getConfig().getBoolean("clear-old-guilds");
+    }
+
+    public boolean isConsoleGui() {
+        return getConfig().getBoolean("console-gui");
     }
 
     public int getClearOldGuildTime() {

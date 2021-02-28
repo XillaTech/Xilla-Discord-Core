@@ -6,7 +6,7 @@
 
     <groupId>net.xilla.discord</groupId>
     <artifactId>Xilla-Discord-Core</artifactId>
-    <version>v2.0.3</version>
+    <version>v2.0.4</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -44,7 +44,7 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>4.2.0_228</version>
+            <version>4.2.0_229</version>
         </dependency>
 
         <dependency>
@@ -83,17 +83,19 @@
             <scope>provided</scope>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.codehaus.groovy</groupId>-->
-<!--            <artifactId>groovy-jsr223</artifactId>-->
-<!--            <version>3.0.7</version>-->
-<!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/com.intellij/forms_rt -->
+        <dependency>
+            <groupId>com.intellij</groupId>
+            <artifactId>forms_rt</artifactId>
+            <version>7.0.3</version>
+        </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>net.sf.trove4j</groupId>-->
-<!--            <artifactId>trove4j</artifactId>-->
-<!--            <version>3.0.3</version>-->
-<!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
     </dependencies>
 
     <build>

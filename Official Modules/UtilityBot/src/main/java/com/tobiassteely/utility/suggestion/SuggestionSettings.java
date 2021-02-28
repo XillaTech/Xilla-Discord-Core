@@ -5,7 +5,7 @@ import net.xilla.discordcore.settings.Settings;
 public class SuggestionSettings extends Settings {
 
     public SuggestionSettings() {
-        super("Suggestions", "modules/Utility/suggestion-settings.json");
+        super("Suggestions", "modules/Utility/suggestion-settings-old.json");
 
         getConfig().setDefault("channelID", "id");
 

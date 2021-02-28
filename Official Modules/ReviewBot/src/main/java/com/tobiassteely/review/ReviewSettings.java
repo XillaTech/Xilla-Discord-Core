@@ -5,7 +5,7 @@ import net.xilla.discordcore.settings.Settings;
 public class ReviewSettings extends Settings {
 
     public ReviewSettings() {
-        super("Review", "modules/review/review-settings.json");
+        super("Review", "modules/review/review-settings-old.json");
 
         getConfig().setDefault("reviewChannelID", "id");
 

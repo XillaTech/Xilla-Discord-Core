@@ -67,7 +67,7 @@ public class PaginationMenu extends EmbedMenu {
         channel.sendMessage(builder.build()).queue((m) -> {
             setMessage(m);
 
-            QueueHandler queueHandler = new QueueHandler();
+            QueueHandler<Void> queueHandler = new QueueHandler<>();
 
             if(page > 1) {
                 String emoji = EmojiParser.parseToUnicode(":arrow_left:");

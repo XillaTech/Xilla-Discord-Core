@@ -91,6 +91,22 @@ public interface CoreObject extends XillaLibrary {
         return role;
     }
 
+    default Role getRole(Guild guild, String id) {
+        Role role = null;
+        String roleID = id.replace("<@&", "").replace("<@", "").replace(">", "");
+        try {
+            role = guild.getRoleById(roleID);
+        } catch (Exception ignored) {}
+
+        if(role == null) {
+            try {
+                role = guild.getRolesByName(id, true).get(0);
+            } catch (Exception ignored) {
+            }
+        }
+        return role;
+    }
+
     default String getPrefix() {
         return getCoreSetting().getCommandPrefix();
 

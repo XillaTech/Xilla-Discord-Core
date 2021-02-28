@@ -59,6 +59,7 @@ public abstract class GuildManager<T extends  GuildManagerObject> {
                 }
             };
             m.setThreads(threads);
+            m.load();
             managers.put(guildID, m);
         }
         return managers.get(guildID);

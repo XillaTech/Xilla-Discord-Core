@@ -4,6 +4,8 @@ import lombok.Getter;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.xilla.core.library.manager.Manager;
+import net.xilla.core.log.LogLevel;
+import net.xilla.core.log.Logger;
 import net.xilla.discordcore.DiscordCore;
 import net.xilla.discordcore.core.command.permission.user.PermissionUser;
 import net.xilla.discordcore.core.permission.user.DiscordUser;
@@ -44,7 +46,7 @@ public class PermissionAPI {
                 return userCache.get(member.getId());
             }
 
-            Manager<String, DiscordUser> manager = DiscordCore.getInstance().getPlatform().getUserManager().getManager(member.getGuild());
+            Manager<String, DiscordUser> manager = DiscordCore.getInstance().getUserManager().getManager(member.getGuild());
 
             DiscordUser user = manager.get(member.getId());
             if (user != null) {
@@ -52,6 +54,7 @@ public class PermissionAPI {
             }
 
             user = new DiscordUser(member);
+            Logger.log(LogLevel.DEBUG, "Unable to find discord user information for " + member + " so I will create new data for them!", PermissionAPI.class);
 
             userCache.put(member.getId(), user);
 

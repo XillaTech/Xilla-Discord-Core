@@ -4,6 +4,7 @@ import com.vdurmont.emoji.EmojiParser;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
+import net.xilla.discordcore.library.QueueHandler;
 import net.xilla.discordcore.library.embed.menu.EmbedMenu;
 import net.xilla.discordcore.library.embed.menu.MenuItem;
 
@@ -36,12 +37,13 @@ public class ReactionMenu extends EmbedMenu {
 
         channel.sendMessage(builder.build()).queue((m) -> {
             setMessage(m);
+
+            QueueHandler<Void> queueHandler = new QueueHandler<>();
             for(MenuItem item : getItems()) {
-                m.addReaction(EmojiParser.parseToUnicode(item.getEmoji())).queue();
-                try {
-                    Thread.sleep(250);
-                } catch (InterruptedException ignored) {}
+                String emoji = EmojiParser.parseToUnicode(item.getEmoji());
+                queueHandler.addRestAction(m.addReaction(emoji));
             }
+            queueHandler.start();
         });
     }
 
