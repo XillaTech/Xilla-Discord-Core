@@ -17,6 +17,18 @@ public class DiscordSettings extends Settings {
     @StoredData
     private String prefix = "-";
 
+    @Getter
+    @StoredData
+    private String color = "#e207ff";
+
+    @Getter
+    @StoredData
+    private Boolean respectOwner = true;
+
+    @Getter
+    @StoredData
+    private Boolean respectAdmin = true;
+
     public DiscordSettings() {
         super("discord-settings.json");
     }

@@ -21,8 +21,6 @@ public class ProgramSettings extends Settings {
         super("program-settings.json");
 
         startup();
-
-
     }
 
 }

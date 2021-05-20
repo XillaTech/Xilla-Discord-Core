@@ -1,4 +1,4 @@
-package net.xilla.discord.api.console;
+package net.xilla.discord.api.command.console;
 
 import net.xilla.discord.api.command.CommandProcessor;
 

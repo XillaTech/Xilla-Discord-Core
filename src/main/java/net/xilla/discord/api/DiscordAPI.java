@@ -1,9 +1,11 @@
 package net.xilla.discord.api;
 
 import net.xilla.discord.api.command.CommandProcessor;
-import net.xilla.discord.api.console.ConsoleProcessor;
+import net.xilla.discord.api.command.console.ConsoleProcessor;
+import net.xilla.discord.api.embed.EmbedProcessor;
 import net.xilla.discord.api.permission.GroupProcessor;
 import net.xilla.discord.api.permission.UserProcessor;
+import net.xilla.discord.api.placeholder.PlaceholderProcessor;
 
 /**
  * Provides an interface to access all key data
@@ -39,4 +41,17 @@ public interface DiscordAPI {
      */
     UserProcessor getUserProcessor();
 
+    /**
+     * Returns the Placeholder Processor
+     *
+     * @return Placeholder Processor
+     */
+    PlaceholderProcessor getPlaceholderProcessor();
+
+    /**
+     * Returns the Embed Processor
+     *
+     * @return Embed Processor
+     */
+    EmbedProcessor getEmbedProcessor();
 }

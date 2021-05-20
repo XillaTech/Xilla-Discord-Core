@@ -2,13 +2,14 @@ package net.xilla.discord.api.command;
 
 import net.xilla.core.library.NotNull;
 import net.xilla.core.library.Nullable;
+import net.xilla.core.library.manager.ObjectInterface;
 
 import java.util.List;
 
 /**
  * Basic structure of all commands within this program
  */
-public interface Command {
+public interface Command extends ObjectInterface {
 
     /**
      * Returns the command's name.

@@ -1,5 +1,6 @@
 package net.xilla.discord.listener;
 
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.guild.GenericGuildMessageEvent;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -43,20 +44,31 @@ public class CommandListener extends ListenerAdapter {
             // Preparing the command data for the processor
             String message = rawMessage.substring(prefix.length());
             String command = message.split(" ")[0];
-            String input = message.substring(command.length());
-            PermissionUser user = userProcessor.pull(event.getAuthor());
 
-            // Wrapping up the data into a CommandInput for the processor
-            CommandInputWrapper inputWrapper = new CommandInputWrapper();
-            inputWrapper.setCommand(command);
-            inputWrapper.setExecutor(user);
-            inputWrapper.setRawInput(rawMessage);
-            inputWrapper.setInput(input);
-            inputWrapper.setEvent(event);
-            inputWrapper.setArgs(input.split(" "));
+            String input;
+            if(message.length() > command.length() + 1) {
+                input = message.substring(command.length() + 1);
+            } else {
+                input = "";
+            }
 
-            // Sending the CommandInput over to be handled.
-            commandProcessor.processSafe(inputWrapper);
+            Member member = event.getMember();
+            if(member != null) {
+                PermissionUser user = userProcessor.pull(member);
+
+                // Wrapping up the data into a CommandInput for the processor
+                CommandInputWrapper inputWrapper = new CommandInputWrapper();
+                inputWrapper.setCommand(command);
+                inputWrapper.setExecutor(user);
+                inputWrapper.setRawInput(rawMessage);
+                inputWrapper.setInput(input);
+                inputWrapper.setEvent(event);
+
+                inputWrapper.setArgs(input.split(" "));
+
+                // Sending the CommandInput over to be handled.
+                commandProcessor.processSafe(inputWrapper);
+            }
         }
     }
 

@@ -1,6 +1,7 @@
 package net.xilla.discord.api;
 
 import net.xilla.core.library.Nullable;
+import net.xilla.core.library.manager.ObjectInterface;
 
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
  * A basic interface to add and remove data
  * from a higher-level processor.
  */
-public interface Processor<T> {
+public interface Processor<Key, Value extends ObjectInterface> {
 
     /**
      * Attempts to grab the object from the processor and returns it.
@@ -17,21 +18,21 @@ public interface Processor<T> {
      * @return Object
      */
     @Nullable
-    T get(String name);
+    Value get(String name);
 
     /**
      * Used to get a list of objects from the processor
      *
      * @return List of Objects
      */
-    List<T> listObjects();
+    List<Value> listObjects();
 
     /**
      * Puts the object into the implementation storage
      *
      * @param object Object
      */
-    void putObject(T object);
+    void putObject(Value object);
 
     /**
      * Attempts to grab the object from the processor.
@@ -44,8 +45,8 @@ public interface Processor<T> {
      * @return Object
      */
     @Nullable
-    default T removeObject(String name) {
-        T item = get(name);
+    default Value removeObject(String name) {
+        Value item = get(name);
 
         if(item == null) return null;
 
@@ -58,6 +59,11 @@ public interface Processor<T> {
      *
      * @param object Object
      */
-    void removeObject(T object);
+    void removeObject(Value object);
+
+    /**
+     * Used to save the processor
+     */
+    void save();
 
 }

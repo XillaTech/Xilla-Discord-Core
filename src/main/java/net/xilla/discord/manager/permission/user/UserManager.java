@@ -1,11 +1,10 @@
 package net.xilla.discord.manager.permission.user;
 
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.User;
 import net.xilla.core.library.manager.Manager;
-import net.xilla.discord.api.command.Command;
 import net.xilla.discord.api.permission.PermissionUser;
 import net.xilla.discord.api.permission.UserProcessor;
-import net.xilla.discord.manager.permission.group.DiscordGroup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +12,7 @@ import java.util.List;
 public class UserManager extends Manager<String, DiscordUser> implements UserProcessor {
 
     public UserManager() {
-        super("DiscordUser", "users/guild-data.jsonf", DiscordUser.class);
+        super("DiscordUser", "permissions/users.jsonf", DiscordUser.class);
     }
 
     @Override
@@ -23,12 +22,14 @@ public class UserManager extends Manager<String, DiscordUser> implements UserPro
 
     @Override
     public void removeObject(PermissionUser object) {
-        remove(object.getName());
+        remove(object.getId());
     }
 
     @Override
-    public PermissionUser create(User user) {
-        return new DiscordUser();
+    public PermissionUser create(Member member) {
+        DiscordUser discordUser = new DiscordUser(member);
+        put(discordUser);
+        return discordUser;
     }
 
     @Override

@@ -9,7 +9,7 @@ import net.xilla.discord.api.permission.PermissionUser;
 /**
  * Processes and executes all discord commands
  */
-public interface CommandProcessor extends Processor<Command> {
+public interface CommandProcessor extends Processor<String, Command> {
 
     default boolean processSafe(CommandInput input) {
         try {

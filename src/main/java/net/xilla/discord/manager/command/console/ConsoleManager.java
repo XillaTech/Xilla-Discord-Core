@@ -2,8 +2,7 @@ package net.xilla.discord.manager.command.console;
 
 import net.xilla.core.library.manager.Manager;
 import net.xilla.discord.api.command.Command;
-import net.xilla.discord.api.console.ConsoleProcessor;
-import net.xilla.discord.manager.command.discord.DiscordCommand;
+import net.xilla.discord.api.command.console.ConsoleProcessor;
 
 import java.util.ArrayList;
 import java.util.List;
